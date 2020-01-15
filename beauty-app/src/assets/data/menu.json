@@ -1,0 +1,21 @@
+[
+    {
+        "icon": "home",
+        "name": "Home",
+        "redirectTo": "/homeapp"
+    },
+    {
+        "icon": "flask",
+        "name": "Plans",
+        "redirectTo": "/plans"
+    },
+    {
+        "icon": "medkit",
+        "name": "Procedures",
+        "redirectTo": "/procedures"
+    }
+
+
+    
+]
+
