@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'contact',
     loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
   },
+  {
+    path: 'view-video',
+    loadChildren: () => import('./pages/view-video/view-video.module').then( m => m.ViewVideoPageModule)
+  },
 ];
 
 @NgModule({

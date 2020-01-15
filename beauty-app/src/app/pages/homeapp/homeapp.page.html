@@ -1,7 +1,38 @@
 <app-header titulo="BeautyLab HomeApp"></app-header>
 
-
-
-<ion-content>
-HomePage App
+<ion-content class="background-bl">
+    <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let item of videos" class="padding">
+            <img (click)="viewVideo(item.video)" class="img-hd" src="assets/img/{{item.picture}}" alt="picture">
+        </ion-slide>
+    </ion-slides>
+    <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let item of plans">
+            <img (click)="viewVideo(item.video)" src="assets/img/360PLAN.png" alt="picture">
+        </ion-slide>
+    </ion-slides>
+    <h3 class="ion-text-center">PLANS</h3>
+    <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let item of services">
+            <ion-grid>
+                <ion-row>
+                    <ion-col *ngFor="let img of item.items" size="4">
+                        <img src="assets/img/SERVICE{{img}}.png" class="img-service" alt="service">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-slide>
+    </ion-slides>
+    <h3 class="ion-text-center">TOURISTIC PLANS</h3>
+    <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let item of touristic">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="4" *ngFor="let tur of item.items">
+                        <img src="assets/img/TOURISTICPLAN{{tur}}.png" alt="service">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-slide>
+    </ion-slides>
 </ion-content>

@@ -13,6 +13,11 @@
         "icon": "medkit",
         "name": "Procedures",
         "redirectTo": "/procedures"
+    },
+    {
+        "icon": "moon",
+        "name": "Rooms",
+        "redirectTo": "/rooms"
     }
 
 
