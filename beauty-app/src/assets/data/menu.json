@@ -15,9 +15,14 @@
         "redirectTo": "/procedures"
     },
     {
-        "icon": "moon",
+        "icon": "bed",
         "name": "Rooms",
         "redirectTo": "/rooms"
+    },
+    {
+        "icon": "hammer",
+        "name": "Make Plan",
+        "redirectTo": "/makeplan"
     }
 
 
