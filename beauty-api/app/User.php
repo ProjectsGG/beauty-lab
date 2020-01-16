@@ -1,9 +1,5 @@
-// User.php
-
-
 <?php
-
-namespace App;
+namespace app;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
