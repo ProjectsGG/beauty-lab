@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
 import { HttpClientModule } from '@angular/common/http';
+import { VideoPlayer } from '@ionic-native/video-player/ngx';
+import { ViewVideoPage } from './pages/view-video/view-video.page';
 
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ViewVideoPage],
+  entryComponents: [ViewVideoPage],
   imports: [
   BrowserModule,
   IonicModule.forRoot(),
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
+    VideoPlayer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
