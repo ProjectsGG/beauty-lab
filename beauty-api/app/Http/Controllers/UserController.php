@@ -62,6 +62,7 @@ class UserController extends Controller
             $success['success']     =       true;
             $success['message']     =       "Success! you are logged in successfully";
             $success['token']       =       $token;
+            $success['user']       =        $user;
 
             return response()->json(['success' => $success ], $this->successStatus);
         }
