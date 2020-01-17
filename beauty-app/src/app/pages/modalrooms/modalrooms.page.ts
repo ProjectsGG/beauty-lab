@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { ModalController, NavParams, IonSlides } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 
@@ -13,6 +13,8 @@ export class ModalroomsPage implements OnInit {
   indice: number;
 
   @ViewChild('slides', {static: true}) slides: IonSlides;
+
+  @ViewChild('slides', {static: false}) slide: ElementRef;
 
   public rooms = [
     'r1.jpg',
@@ -40,6 +42,9 @@ export class ModalroomsPage implements OnInit {
   }
 
   ngOnInit() {
+
+    console.log(this.slide);
+
     this.slides.slideTo(this.indice, 0).then(res => {
       this.loadinController.dismiss();
     });

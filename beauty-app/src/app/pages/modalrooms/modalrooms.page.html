@@ -4,15 +4,15 @@
     <ion-button size="lg" color="primary-bl" (click)="cerrarModal()" fill="clear"><ion-icon name="close"></ion-icon>
     </ion-button>
 
-    <ion-button size="lg" color="primary-bl" (click)="cerrarModal()" fill="clear"><ion-icon name="add-circle-outline"></ion-icon>
+<!--     <ion-button size="lg" color="primary-bl" fill="clear"><ion-icon name="add-circle-outline"></ion-icon>
     </ion-button>
 
-    <ion-button size="lg" color="primary-bl" (click)="cerrarModal()" fill="clear"><ion-icon name="remove-circle-outline"></ion-icon>
-    </ion-button>
+    <ion-button size="lg" color="primary-bl" fill="clear"><ion-icon name="remove-circle-outline"></ion-icon>
+    </ion-button> -->
   </ion-item>
 
 
-  <ion-slides pager="true" #slides>
+  <ion-slides pager="true" zoom="true" #slides>
     <ion-slide *ngFor="let images of rooms">
       <img src="../../../assets/img/{{images}}">
     </ion-slide>
