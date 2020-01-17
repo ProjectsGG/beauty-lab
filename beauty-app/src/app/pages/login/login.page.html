@@ -1,17 +1,50 @@
-<ion-content class="background-bl">
-  <h2> S T A R T </h2>  
-    <img src="assets/logoBL/whiteLogoH.png" class="logo-login">
- 
-
-  <ion-grid>
-    <ion-row class="padding">
-        <ion-col size="12" size-sm="12" size-md="3" size-lg="3"></ion-col>
-        <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
-          <ion-icon name="mail" color="light" size="large"></ion-icon>
-          <ion-input type="email" placeholder="user@youremail.com">
-          </ion-input>
-        </ion-col>
-        <ion-col size="12" size-sm="12" size-md="3" size-lg="3" slot="start"></ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+<ion-content>
+  <h2> S T A R T </h2>
+<ion-grid>
+  <ion-row>
+    <ion-col size='0' size-md='3' size-lg='4'></ion-col>
+    <ion-col size='12' size-md='6' size-lg='4'>
+      <ion-row>
+        <ion-col size='12'>
+        <img src="assets/logo/whiteLogoH.png">
+        </ion-col>  
+      </ion-row>  
+      <ion-row>
+          <ion-col size='2'>
+            <ion-icon class='icons-login' name='mail'></ion-icon>
+          </ion-col>
+          <ion-col size='10'>
+            <ion-input type="mail" class="input-login" placeholder="example@youremail"></ion-input>
+          </ion-col>
+          <ion-col size='2'>
+            <ion-icon class='icons-login' name='lock'></ion-icon>
+          </ion-col>
+          <ion-col size='10'>
+            <ion-input type="password" class="input-login" placeholder="password"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand='block' class="button-login">Login</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <img class="icon-img" src="./../../../assets/img/face-recognition.png" alt="">
+          </ion-col  >
+        </ion-row>
+        <ion-row>
+          <ion-col  class='ion-text-center'>
+            <ion-text>
+              im new, i need
+            </ion-text>
+          </ion-col >
+          <ion-col size='12' class='ion-text-center'>
+            <a routerLink="/register">create an account</a>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    <ion-col size='0' size-md='3' size-lg='4'></ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>  
