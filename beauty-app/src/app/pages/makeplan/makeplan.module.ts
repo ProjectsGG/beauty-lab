@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { MakeplanPageRoutingModule } from './makeplan-routing.module';
 
 import { MakeplanPage } from './makeplan.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MakeplanPageRoutingModule
+    MakeplanPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [MakeplanPage]
 })

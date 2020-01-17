@@ -12,7 +12,7 @@ import { ComponentsModule } from './components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { ViewVideoPage } from './pages/view-video/view-video.page';
-
+import { ModalroomsPageModule } from './pages/modalrooms/modalrooms.module';
 
 
 @NgModule({
@@ -23,7 +23,8 @@ import { ViewVideoPage } from './pages/view-video/view-video.page';
   IonicModule.forRoot(),
   AppRoutingModule,
   ComponentsModule,
-  HttpClientModule
+  HttpClientModule,
+  ModalroomsPageModule
 ],
   providers: [
     StatusBar,

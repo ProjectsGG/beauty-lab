@@ -1,35 +1,21 @@
+<app-header titulo="BeautyLab Rooms"></app-header>
 <ion-content>
   <div class="ion-text-center">
-    <img class="img-logo" src="assets/logoBL/colorLogoVWL.png" alt="">
+    
   </div>
   <div>
-    <h4 class="ion-text-center">Thank You <br> For BuyOur Plan</h4>
-    <h6 class="ion-text-center">Select Your Flight</h6>
+    <h4 class="ion-text-center">These are Our<br> Rooms</h4>
+    <h6 class="ion-text-center">Check the Photos</h6>
   </div>
   <div class="ion-padding">
     <ion-radio-group>
       <ion-grid>
         <ion-row>
-          <ion-col size="12" size-sm="12" size-md="6" size-lg="4" *ngFor="let item of rooms" class="center">
-            <ion-item color="none" lines="none">
-              <ion-label>{{item.title}}</ion-label>
-              <ion-radio slot="end" color="light" value="{{item.img}}" [checked]="item.check"></ion-radio>
-            </ion-item>
-            <img class="img-room" src="assets/img/ROOM{{item.img}}.png" alt="">
+          <ion-col size="6" size-sm="6" size-md="4" size-lg="4" *ngFor="let images of rooms; index as i" class="center">
+            <img src="../../../assets/img/{{images}}" class="galeria" (click)="verModal(i)">
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-radio-group>
-
-
-    <!-- <ion-radio-group>
-      <div *ngFor="let item of rooms" class="center">
-        <ion-item color="none" lines="none">
-          <ion-label>{{item.title}}</ion-label>
-          <ion-radio slot="end" color="light" value="{{item.img}}" [checked]="item.check" ></ion-radio>
-        </ion-item>
-        <img class="img-room" src="assets/img/ROOM{{item.img}}.png" alt="">
-      </div>
-    </ion-radio-group> -->
   </div>
 </ion-content>

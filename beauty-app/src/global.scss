@@ -42,3 +42,14 @@ img.img-header{
     display: block;
     margin: 0 auto;
 }
+
+ion-menu{
+    --background: var(--ion-color-light) !important; 
+       ion-content{            
+           --background: var(--ion-color-light) !important; 
+           ion-list-header{ 
+               --background: var(--ion-color-primary) !important;
+               --color: #FFFFFF !important;   
+           }
+        }
+    }

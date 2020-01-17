@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalroomsPage } from '../modalrooms/modalrooms.page';
 
 @Component({
   selector: 'app-rooms',
@@ -6,13 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rooms.page.scss']
 })
 export class RoomsPage implements OnInit {
+
+
+  constructor(private modalCtrl: ModalController) {
+  }
+
   public rooms = [
-    { img: 3, title: 'Shared Room', check: true},
-    { img: 2, title: 'Double Room', check: false},
-    { img: 1, title: 'Private Room', check: false}
+    'r1.jpg',
+    'r2.jpg',
+    'r3.jpg',
+    'r4.jpg',
+    'r5.jpg',
+    'r6.jpg'
   ];
 
-  constructor() {}
+  verModal(index) {
+    this.modalCtrl.create({
+      component : ModalroomsPage,
+      componentProps : {
+        index
+      }
+    }).then(modal => modal.present());
+  }
+
 
   ngOnInit() {}
 }
