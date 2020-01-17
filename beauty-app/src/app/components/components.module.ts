@@ -6,6 +6,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { ProfileDataComponent } from './profile-data/profile-data.component';
 import { ProfilePhotosComponent } from './profile-photos/profile-photos.component';
+import { ProfileReviewBlogComponent } from './profile-review-blog/profile-review-blog.component';
 
 
 
@@ -14,13 +15,15 @@ import { ProfilePhotosComponent } from './profile-photos/profile-photos.componen
     HeaderComponent,
     MenuComponent,
     ProfileDataComponent,
-    ProfilePhotosComponent
+    ProfilePhotosComponent,
+    ProfileReviewBlogComponent
   ],
   exports: [
     HeaderComponent,
     MenuComponent,
     ProfileDataComponent,
-    ProfilePhotosComponent
+    ProfilePhotosComponent,
+    ProfileReviewBlogComponent
   ],
   imports: [
     CommonModule,

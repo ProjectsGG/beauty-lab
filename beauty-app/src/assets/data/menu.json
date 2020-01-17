@@ -23,6 +23,11 @@
         "icon": "hammer",
         "name": "Make Plan",
         "redirectTo": "/makeplan"
+    },
+    {
+        "icon": "person",
+        "name": "Profile",
+        "redirectTo": "/profile"
     }
 
 

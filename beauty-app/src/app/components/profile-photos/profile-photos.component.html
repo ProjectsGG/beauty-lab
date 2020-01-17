@@ -1,3 +1,7 @@
-<p>
-  profile-photos works!
-</p>
+<ion-grid class="grid-photos">
+  <ion-row>
+    <ion-col class="padding-img" *ngFor="let item of images" size="6" size-md="4" size-lg="4">
+      <img src="assets/img/{{item}}" alt="">
+    </ion-col>
+  </ion-row>
+</ion-grid>

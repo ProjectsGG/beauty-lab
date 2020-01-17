@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'modalrooms',
     loadChildren: () => import('./pages/modalrooms/modalrooms.module').then( m => m.ModalroomsPageModule)
+  },  {
+    path: 'new-post',
+    loadChildren: () => import('./pages/new-post/new-post.module').then( m => m.NewPostPageModule)
   },
+
 ];
 
 @NgModule({

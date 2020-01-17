@@ -1,0 +1,10 @@
+<ion-card color="light" *ngFor="let item of posts" >
+  <img src="./../../../assets/img/{{item.image}}" />
+  <ion-card-header>
+    <ion-card-subtitle>{{item.date}}</ion-card-subtitle>
+    <ion-card-title>{{item.title}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    {{item.text}}
+  </ion-card-content>
+</ion-card>
