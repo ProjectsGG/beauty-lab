@@ -1,14 +1,24 @@
+<app-menu></app-menu>
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/homeapp"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 <ion-grid class="ion-no-padding">
   <ion-row>
-    <ion-col size="12" size-md="12" size-lg="6" >
-      
+    <ion-col class="ion-text-center content-img" size="12" size-md="12" size-lg="6" >
+      <img class="logo-img" src="assets/logoBL/whiteLogoH.png" alt="">
+      <img class="profile-img" src="assets/img/PROFILEPICTURE.png" alt="profileuser">
+      <h4>Nancy Dabolio</h4>
+      <h5>nancyD3@gmail.com</h5>
     </ion-col>
     <ion-col size="12" size-md="12" size-lg="6" class="ion-no-padding">
       <ion-toolbar>
@@ -30,4 +40,6 @@
     </ion-col>
   </ion-row>
 </ion-grid>
+<app-profile-data *ngIf="content=='personalData'"></app-profile-data>
+<app-profile-photos *ngIf="content=='photos'"></app-profile-photos>
 </ion-content>
