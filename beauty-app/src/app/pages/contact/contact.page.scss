@@ -1,0 +1,36 @@
+ion-text{
+    color:#fff;
+
+}
+
+.input-contact{
+    color: #287ff1;
+    --background: rgb(236, 234, 234);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+.button-contact{
+    padding-top: 2rem;
+    --background: var(--ion-color-primary) ;
+    --background-activated: #d9d9db;
+    border-radius: 40px;
+    width: 100%;
+    height: 100px;
+    --color-hover:#f2f3f4;
+}
+.title-contact{
+    font-family: 'suissnordregular';
+}
+.text-area{
+    --background: rgb(236, 234, 234);
+    width: 100%;
+    height: 150%;
+    border-radius: 10px;
+    margin-bottom: 10px;        
+    text-align:center;
+    color: #287ff1
+}
