@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
+  content = 'personalData';
   constructor() { }
 
   ngOnInit() {
   }
   segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
+    this.content = ev.detail.value;
   }
 }

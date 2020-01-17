@@ -4,17 +4,23 @@ import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
+import { ProfileDataComponent } from './profile-data/profile-data.component';
+import { ProfilePhotosComponent } from './profile-photos/profile-photos.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    ProfileDataComponent,
+    ProfilePhotosComponent
   ],
   exports: [
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    ProfileDataComponent,
+    ProfilePhotosComponent
   ],
   imports: [
     CommonModule,
