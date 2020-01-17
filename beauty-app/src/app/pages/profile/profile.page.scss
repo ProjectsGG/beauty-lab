@@ -1,26 +1,36 @@
-.profile-img{
+.profile-img {
     height: 50%;
     width: 25%;
 }
-.content-img{
+
+.content-img {
     padding-top: 0.5rem;
     height: 100%;
 }
-.logo-img{
+
+.logo-img {
     width: 50%;
     height: auto;
     display: block;
     margin: 0 auto;
     padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
 }
+
+.font-title {
+    font-family: 'suissnordregular';
+    margin-top: 12px !important;
+}
+
 h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    ion-label {
-        color: white;
-    }
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ion-label {
+    color: white;
+}
+h4{
+    margin-top: 0rem !important;
+}

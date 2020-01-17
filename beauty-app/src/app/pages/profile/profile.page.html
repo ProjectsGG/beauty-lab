@@ -1,45 +1,50 @@
-<app-menu></app-menu>
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button  defaultHref="/homeapp"></ion-back-button>
+      <ion-back-button defaultHref="/homeapp"></ion-back-button>
     </ion-buttons>
+    <ion-title text-center>Profile</ion-title>
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-grid class="ion-no-padding">
-  <ion-row>
-    <ion-col class="ion-text-center content-img" size="12" size-md="12" size-lg="6" >
-      <img class="logo-img" src="assets/logoBL/whiteLogoH.png" alt="">
-      <img class="profile-img" src="assets/img/PROFILEPICTURE.png" alt="profileuser">
-      <h4>Nancy Dabolio</h4>
-      <h5>nancyD3@gmail.com</h5>
-    </ion-col>
-    <ion-col size="12" size-md="12" size-lg="6" class="ion-no-padding">
-      <ion-toolbar>
-        <ion-segment color="primary-bl" (ionChange)="segmentChanged($event)" value="personalData">
-          <ion-segment-button value="personalData">
-            <ion-icon name="card"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="photos">
-            <ion-icon name="camera"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="reviewBlog">
-            <ion-icon name="apps"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="blog">
-            <ion-icon name="star"></ion-icon>
-          </ion-segment-button>
-        </ion-segment>
-      </ion-toolbar>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-<app-profile-data *ngIf="content=='personalData'"></app-profile-data>
-<app-profile-photos *ngIf="content=='photos'"></app-profile-photos>
+<ion-content fullscream>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="0" size-md="2" size-lg="3"></ion-col>
+      <ion-col class="content-img" size="12" size-md="8" size-lg="6">
+        <div class="ion-text-center">
+          <img class="logo-img" src="assets/logoBL/whiteLogoH.png" alt="">
+          <h2 class="font-title">Your Profile</h2>
+          <img class="profile-img" src="assets/img/PROFILEPICTURE.png" alt="profileuser">
+          <h4>Nancy Dabolio</h4>
+          <h5>nancyD3@gmail.com</h5>
+        </div>      
+        <ion-toolbar>
+          <ion-segment color="primary-bl" (ionChange)="segmentChanged($event)" value="personalData">
+            <ion-segment-button value="personalData">
+              <ion-icon name="card"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="photos">
+              <ion-icon name="camera"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="reviewBlog">
+              <ion-icon name="apps"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+        <app-profile-data *ngIf="content=='personalData'"></app-profile-data>
+        <app-profile-photos *ngIf="content=='photos'"></app-profile-photos>
+        <app-profile-review-blog *ngIf="content=='reviewBlog'"></app-profile-review-blog>
+      </ion-col>
+      <ion-col size="0" size-md="2" size-lg="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="content=='reviewBlog'">
+    <ion-fab-button routerLink="/new-post">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
