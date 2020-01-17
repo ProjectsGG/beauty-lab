@@ -45,9 +45,7 @@ export class ModalroomsPage implements OnInit {
 
     console.log(this.slide);
 
-    this.slides.slideTo(this.indice, 0).then(res => {
-      this.loadinController.dismiss();
-    });
+    this.slides.slideTo(this.indice, 0);
   }
 
 }
