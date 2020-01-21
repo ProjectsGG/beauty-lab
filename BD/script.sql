@@ -50,16 +50,16 @@ engine = innodb;
 drop table if exists `beutylab`.`usuarios` ;
 
 create table if not exists `beutylab`.`usuarios` (
-  `id_usuario` int not null,
-  `nombres` varchar(200) null,
+  `id_usuario` int not null AUTO_INCREMENT,
+  `nombres` varchar(200) not null,
   `apellidos` varchar(200) null,
-  `email` varchar(100) null,
-   email_verified_at datetime null,
+  `email` varchar(100) not null,
+  'email_verified_at' datetime null,
   `movil` varchar(50) null,
   `direccion` varchar(45) null,
   `identificacion` varchar(50) null,
-  `id_pais` int not null,
-  `id_tipo_id` int not null,
+  `id_pais` int null,
+  `id_tipo_id` int null,
   `username` varchar(100) null,
   `password` varchar(100) null,
   `estado` varchar(1) null,
@@ -345,7 +345,7 @@ drop table if exists `beutylab`.`observaciones_medicas` ;
 
 create table if not exists `beutylab`.`observaciones_medicas` (
   `id_observacion_medica` int not null,
-  `id_tipo_observacion` int not null comment 'este campo contiene el tipo de observaciã“n medica.\n1. enfermada\n2. alergia\n3. procedimiento anterior',
+  `id_tipo_observacion` int not null comment 'este campo contiene el tipo de observaciï¿½n medica.\n1. enfermada\n2. alergia\n3. procedimiento anterior',
   `descripcion` varchar(45) null,
   primary key (`id_observacion_medica`))
 engine = innodb;

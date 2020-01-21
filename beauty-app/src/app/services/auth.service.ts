@@ -20,7 +20,7 @@ export class AuthService {
   register(dataR: User) {
     const data = {
       name: 'xxxxxx',
-      email: 'xxxxxx@gmail.com',
+      email: '33xxx@gmail.com',
       password: 'xxxxxx'
     };
     const url = `${this.hero.getUrl()}/register`;
