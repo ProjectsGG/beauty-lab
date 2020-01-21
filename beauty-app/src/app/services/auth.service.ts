@@ -23,7 +23,7 @@ export class AuthService {
       email: 'xxxxxx@gmail.com',
       password: 'xxxxxx'
     };
-    const url = `${this.hero.getUrl()}/register`;
-    return this.http.post(url, data);
+    /*const url = `${this.hero.getUrl()}/register`;*/
+    return this.http.post('/beauty-api/register', data);
   }
 }
