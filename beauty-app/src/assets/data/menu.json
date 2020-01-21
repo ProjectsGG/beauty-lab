@@ -24,8 +24,13 @@
         "name": "Make Plan",
         "redirectTo": "/makeplan"
     },
+        {
+        "icon": "mail",
+        "name": "Contact Us",
+        "redirectTo": "/contact"
+    },
     {
-        "icon": "person",
+        "icon": "contact",
         "name": "Profile",
         "redirectTo": "/profile"
     }
