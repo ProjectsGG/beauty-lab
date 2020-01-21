@@ -54,7 +54,7 @@ create table if not exists `beutylab`.`usuarios` (
   `nombres` varchar(200) not null,
   `apellidos` varchar(200) null,
   `email` varchar(100) not null,
-  'email_verified_at' datetime null,
+    email_verified_at datetime null,
   `movil` varchar(50) null,
   `direccion` varchar(45) null,
   `identificacion` varchar(50) null,
