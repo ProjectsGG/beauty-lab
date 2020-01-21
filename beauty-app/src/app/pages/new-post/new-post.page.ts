@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NavController } from '@ionic/angular';
+import { ToastService } from '../../services/toast.service';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.page.html',
   styleUrls: ['./new-post.page.scss']
 })
 export class NewPostPage implements OnInit {
-  photo: any;
-  imageSrc: string;
-  imageComp: any;
-  constructor(private camera: Camera, private navCtrl: NavController) {}
+  title: any;
+  photos: any[] = [];
+  constructor(private camera: Camera, private navCtrl: NavController, private toast: ToastService) {}
 
   ngOnInit() {}
 
@@ -20,14 +20,12 @@ export class NewPostPage implements OnInit {
     };
     this.camera.getPicture(options)
     .then((imageData) => {
-      this.photo = 'data:image/jpeg;base64,' + imageData;
-      this.imageComp = 'data:image/jpeg;base64,' + imageData;
+      this.photos.push(`data:image/jpeg;base64,${imageData}`);
     }, (err) => {
-      console.log(err);
+      this.toast.error('This option is not available');
     });
   }
-
-  private openGallery(): void {
+  openGallery(): void {
     const cameraOptions = {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -38,10 +36,12 @@ export class NewPostPage implements OnInit {
       correctOrientation: true
     };
     this.camera.getPicture(cameraOptions)
-      .then((fileUri) => {
-        this.imageSrc = fileUri;
-        this.imageComp = 'data:image/jpeg;base64,' + fileUri;
+      .then((imageData) => {
+        this.photos.push(`data:image/jpeg;base64,${imageData}`);
       },
-      err => console.log(err));
+      err => this.toast.error('This option is not available'));
+  }
+  deletePhoto(i): void {
+    this.photos.splice(i, 1);
   }
 }

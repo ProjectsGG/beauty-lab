@@ -15,7 +15,7 @@
         <ion-row>
           <ion-col size="12">
             <ion-label>Title:</ion-label>
-            <input type="text" class="input">
+            <input type="text" class="input" [(ngModel)]="title">
           </ion-col>
           <ion-col class="ion-text-center" size="6">
             <ion-button (click)="photoPic()" color="tertiary">
@@ -29,14 +29,9 @@
               Gallery
             </ion-button>
           </ion-col>
-          <ion-col size="6">
-            <img [src]="photo" *ngIf="photo">
-          </ion-col>
-          <ion-col size="6">
-            <img [src]="imageSrc" *ngIf="imageSrc">
-          </ion-col>
-          <ion-col size="6">
-            <img [src]="imageComp" *ngIf="imageComp">
+          <ion-col *ngFor="let photo of photos; let i = index;" size="6">
+            <ion-icon color="danger" name="close" class="trash" (click)="deletePhoto(i)"></ion-icon>
+            <img [src]="photo">
           </ion-col>
         </ion-row>
       </ion-col>
