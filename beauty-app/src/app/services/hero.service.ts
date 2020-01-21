@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class HeroService {
-  private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
+  private url: any = 'http://localhost:81/appbeautyLab/beauty-api/public';
   private token: string = null;
   constructor(private router: Router) { }
   getUrl() {
