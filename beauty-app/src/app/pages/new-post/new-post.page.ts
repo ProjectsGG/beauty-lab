@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { NavController } from '@ionic/angular';
 import { ToastService } from '../../services/toast.service';
 @Component({
   selector: 'app-new-post',
@@ -10,7 +9,7 @@ import { ToastService } from '../../services/toast.service';
 export class NewPostPage implements OnInit {
   title: any;
   photos: any[] = [];
-  constructor(private camera: Camera, private navCtrl: NavController, private toast: ToastService) {}
+  constructor(private camera: Camera, private toast: ToastService) {}
 
   ngOnInit() {}
 

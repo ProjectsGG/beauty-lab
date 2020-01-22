@@ -1,29 +1,23 @@
 import { Injectable } from '@angular/core';
-import {HeroService} from './hero.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HeroService } from './hero.service';
+import { HttpClient } from '@angular/common/http';
 import { User } from '../interfaces/user';
-import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  constructor(
+    private hero: HeroService,
+    private http: HttpClient,
+  ) {}
 
-  constructor(private hero: HeroService, private http: HttpClient) { }
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-
-  register(dataR: User) {
-    const data = {
-      name: 'xxxxxx',
-      email: 'xxxxxx@gmail.com',
-      password: 'xxxxxx'
-    };
+  register(data: User) {
     const url = `${this.hero.getUrl()}/register`;
+    return this.http.post(url, data);
+  }
+  login(data: User) {
+    const url = `${this.hero.getUrl()}/login`;
     return this.http.post(url, data);
   }
 }
