@@ -3,7 +3,6 @@ import { User } from './../../interfaces/user';
 import { AuthService } from './../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
