@@ -32,6 +32,7 @@ class APIController extends Controller
         $user = User::where('email',$request->all()['email'])->first();
         return response()->json([
             'ok' => true,
+            'message' => "Welcome to beautylab!",
             'token' => $token,
             'user' => $user
         ]);
@@ -73,8 +74,14 @@ class APIController extends Controller
 
         $validation = Validator::make($input,[
             'nombres' => 'required|string',
+            'movil' => 'required|string',
             'email' => 'required|email|unique:usuarios',
-            'password' => 'required|string|min:6|max:10'
+            'password' => 'required|string|min:6|max:10|confirmed'
+        ])->setAttributeNames([
+            'nombres' => 'name',
+            'movil' => 'phone',
+            'email' => 'email',
+            'password' => 'password'
         ]);
 
         if($validation->fails()){
@@ -85,6 +92,7 @@ class APIController extends Controller
         }else{
             $user = new User();
             $user->nombres = $request->nombres;
+            $user->movil = $request->movil;
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
             $user->save();
