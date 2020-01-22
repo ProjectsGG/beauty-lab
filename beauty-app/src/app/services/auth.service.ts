@@ -19,7 +19,7 @@ export class AuthService {
 
   register(dataR: User) {
     const data = {
-      name: 'xxxxxx',
+      nombres: 'xxxxxx',
       email: '33xxx@gmail.com',
       password: 'xxxxxx'
     };
