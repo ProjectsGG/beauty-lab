@@ -34,6 +34,12 @@
         "name": "Profile",
         "redirectTo": "/profile"
     }
+    ,
+    {
+        "icon": "log-out",
+        "name": "Logout",
+        "redirectTo": ""
+    }
 
 
     
