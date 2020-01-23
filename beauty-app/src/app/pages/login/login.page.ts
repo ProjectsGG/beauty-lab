@@ -3,6 +3,7 @@ import { User } from '../../interfaces/user';
 import { AuthService } from './../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,7 +17,8 @@ export class LoginPage implements OnInit {
   constructor(
     private auth: AuthService,
     private toast: ToastService,
-    private router: Router
+    private router: Router,
+    private storage: Storage
     ) { }
 
   ngOnInit() {
@@ -28,6 +30,7 @@ export class LoginPage implements OnInit {
         this.clear();
         this.router.navigate(['/homeapp']);
         this.toast.success(r.message);
+        this.storage.set('token', r.token);
       } else {
         this.toast.error(r.message);
       }
