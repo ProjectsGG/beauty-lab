@@ -8,10 +8,10 @@
     </ion-slides>
     <ion-slides pager="true" [options]="slideOpts">
         <ion-slide *ngFor="let item of plans">
-            <img src="assets/img/360PLAN.png" alt="picture">
+            <img src="assets/img/plan{{item}}.png" alt="picture">
         </ion-slide>
     </ion-slides>
-    <h3 class="ion-text-center">PLANS</h3>
+    <h3 class="ion-text-center">PROCEDURES</h3>
     <ion-slides pager="true" [options]="slideOpts">
         <ion-slide *ngFor="let item of services">
             <ion-grid>

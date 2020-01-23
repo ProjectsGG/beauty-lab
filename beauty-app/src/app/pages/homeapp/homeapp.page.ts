@@ -25,7 +25,7 @@ export class HomeappPage implements OnInit {
       picture: 'masaje.jfif'
     },
   ];
-  plans = [, , , , ];
+  plans = [1, 2 , 3 ];
   services = [{
     items: [ 1, 2, 3, 4, 5, 6]
   },
