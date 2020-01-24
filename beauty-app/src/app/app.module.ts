@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { ViewVideoPage } from './pages/view-video/view-video.page';
 import { ModalroomsPageModule } from './pages/modalrooms/modalrooms.module';
-
+import { Camera } from '@ionic-native/camera/ngx';
 
 @NgModule({
   declarations: [AppComponent, ViewVideoPage],
@@ -30,6 +30,7 @@ import { ModalroomsPageModule } from './pages/modalrooms/modalrooms.module';
     StatusBar,
     SplashScreen,
     VideoPlayer,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

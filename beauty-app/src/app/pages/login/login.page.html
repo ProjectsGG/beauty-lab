@@ -16,18 +16,18 @@
             <ion-icon class='icons-login' name='mail'></ion-icon>
           </ion-col>
           <ion-col size='10'>
-            <ion-input type="mail" class="input-login" placeholder="example@youremail"></ion-input>
+            <ion-input type="mail" class="input-login" placeholder="example@youremail" [(ngModel)]="data.email"></ion-input>
           </ion-col>
           <ion-col size='2'>
             <ion-icon class='icons-login' name='lock'></ion-icon>
           </ion-col>
           <ion-col size='10'>
-            <ion-input type="password" class="input-login" placeholder="password"></ion-input>
+            <ion-input type="password" class="input-login" placeholder="password" [(ngModel)]="data.password"></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-button expand='block' class="button-login">Login</ion-button>
+            <ion-button expand='block' class="button-login" (click)="login()">Login</ion-button>
           </ion-col>
         </ion-row>
         <ion-row>

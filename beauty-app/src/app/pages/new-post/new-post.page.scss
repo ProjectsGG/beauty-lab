@@ -1,0 +1,38 @@
+h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ion-label {
+        color: white;
+    }
+.input {
+    color: #287ff1;
+    --background: rgb(236, 234, 234);
+    width: 100%;
+    height: 50px;
+    border-radius: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
+    border: #e2b3f7 1.1px solid;
+}
+.input:focus{
+    border: #e2b3f7 1.1px solid;
+    border-radius: 1rem;
+    box-shadow: none;
+}
+.button-opt{
+    color: #fff;
+}
+.trash{
+    font-size: 22px;
+    position: relative;
+    left: 91%;
+    top: 14%;
+    border-radius: 100px;
+    border: 1px aliceblue solid;
+    cursor: pointer;
+    background: aliceblue;
+}

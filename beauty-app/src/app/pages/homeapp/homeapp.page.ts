@@ -13,19 +13,19 @@ export class HomeappPage implements OnInit {
   };
   videos = [
     {
-      video: 'mansion',
-      picture: 'mansion.jpg'
+      video: 'imghome1',
+      picture: 'imghome1.png'
     },
     {
       video: 'dancing',
-      picture: 'party.jpg'
+      picture: 'party.png'
     },
     {
       video: 'massage',
-      picture: 'masaje.jfif'
+      picture: 'doubleroom.png'
     },
   ];
-  plans = [, , , , ];
+  plans = [1, 2 , 3 ];
   services = [{
     items: [ 1, 2, 3, 4, 5, 6]
   },
