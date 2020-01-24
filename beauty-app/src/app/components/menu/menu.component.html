@@ -7,7 +7,7 @@
   <ion-content>
     <ion-list>
       <ion-menu-toggle *ngFor="let c of componentes | async"> 
-        <ion-item [routerLink]="c.redirectTo">
+        <ion-item [routerLink]="c.redirectTo" (click)="logout(c.name)">
         <ion-icon slot="start" [name]="c.icon"></ion-icon>
         <ion-label>{{c.name}}</ion-label>
         </ion-item> 

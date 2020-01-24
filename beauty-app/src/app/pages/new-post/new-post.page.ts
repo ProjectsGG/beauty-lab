@@ -14,31 +14,42 @@ export class NewPostPage implements OnInit {
   ngOnInit() {}
 
   photoPic() {
-    const options: CameraOptions = {
-      destinationType: this.camera.DestinationType.DATA_URL
-    };
-    this.camera.getPicture(options)
-    .then((imageData) => {
-      this.photos.push(`data:image/jpeg;base64,${imageData}`);
-    }, (err) => {
-      this.toast.error('This option is not available');
-    });
+    if (this.photos.length > 2) {
+      this.toast.error('You cannot upload more than two photos');
+    } else {
+      const options: CameraOptions = {
+        destinationType: this.camera.DestinationType.DATA_URL
+      };
+      this.camera.getPicture(options).then(
+        imageData => {
+          this.photos.push(`data:image/jpeg;base64,${imageData}`);
+        },
+        err => {
+          this.toast.error('This option is not available');
+        }
+      );
+    }
   }
   openGallery(): void {
-    const cameraOptions = {
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      quality: 100,
-      targetWidth: 1000,
-      targetHeight: 1000,
-      encodingType: this.camera.EncodingType.JPEG,
-      correctOrientation: true
-    };
-    this.camera.getPicture(cameraOptions)
-      .then((imageData) => {
-        this.photos.push(`data:image/jpeg;base64,${imageData}`);
-      },
-      err => this.toast.error('This option is not available'));
+    if (this.photos.length > 2) {
+      this.toast.error('You cannot upload more than two photos');
+    } else {
+      const cameraOptions = {
+        sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        quality: 100,
+        targetWidth: 1000,
+        targetHeight: 1000,
+        encodingType: this.camera.EncodingType.JPEG,
+        correctOrientation: true
+      };
+      this.camera.getPicture(cameraOptions).then(
+        imageData => {
+          this.photos.push(`data:image/jpeg;base64,${imageData}`);
+        },
+        err => this.toast.error('This option is not available')
+      );
+    }
   }
   deletePhoto(i): void {
     this.photos.splice(i, 1);

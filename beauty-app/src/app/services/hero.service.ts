@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
-  private url: any = 'http://127.0.0.1:8000/api';
+  private url: any = 'http://192.168.0.21:8000/api';
   private token: string = null;
-  constructor(private router: Router) { }
+
+  constructor(private storage: Storage, private router: Router) {}
+
   getUrl() {
     return this.url;
   }
@@ -16,11 +19,15 @@ export class HeroService {
   setToken(token: string) {
     this.token = token;
   }
-  // validateSession(){
-  //   if (this.token==null) {
-  //     this.storage.get('token').then((response)=>{
-  //       if(response==null) this.router.navigate(['/login'])
-  //     })
-  //   }
-  // }
+  validateSession() {
+    this.storage.get('token').then(response => {
+      if (response === null) {
+        this.router.navigate(['/inicio']);
+      }
+    });
+  }
+  logout() {
+    this.storage.set('token', null);
+    this.router.navigate(['/inicio']);
+  }
 }
