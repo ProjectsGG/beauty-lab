@@ -10,20 +10,20 @@ set @old_sql_mode=@@sql_mode, sql_mode='only_full_group_by,strict_trans_tables,n
 -- -----------------------------------------------------
 -- schema beutylab
 -- -----------------------------------------------------
-drop schema if exists `beutylab` ;
+/*drop schema if exists `beutylab` ;
 
 -- -----------------------------------------------------
 -- schema beutylab
 -- -----------------------------------------------------
-create schema if not exists `beutylab` default character set utf8 ;
-use `beutylab` ;
+create schema if not exists `beutylab` default character set utf8 ;*/
+use `ihfqyemy_lab` ;
 
 -- -----------------------------------------------------
--- table `beutylab`.`paises`
+-- table `paises`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`paises` ;
+-- drop table if exists `paises` ;
 
-create table if not exists `beutylab`.`paises` (
+create table if not exists `paises` (
   `id_pais` int not null,
   `nombre` varchar(45) null,
   primary key (`id_pais`))
@@ -31,11 +31,11 @@ engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`tipos_identificacion`
+-- table `tipos_identificacion`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`tipos_identificacion` ;
+-- drop table if exists `tipos_identificacion` ;
 
-create table if not exists `beutylab`.`tipos_identificacion` (
+create table if not exists `tipos_identificacion` (
   `id_tipo_id` int not null,
   `short_name` varchar(10) null,
   `descripcion` varchar(50) null,
@@ -45,11 +45,11 @@ engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`usuarios`
+-- table `usuarios`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`usuarios` ;
+-- drop table if exists `usuarios` ;
 
-create table if not exists `beutylab`.`usuarios` (
+create table if not exists `usuarios` (
   `id_usuario` int not null AUTO_INCREMENT,
   `nombres` varchar(200) not null,
   `apellidos` varchar(200) null,
@@ -75,23 +75,23 @@ create table if not exists `beutylab`.`usuarios` (
   index `fk_personas_tipos_identificacion1_idx` (`id_tipo_id` asc),
   constraint `fk_personas_paises1`
     foreign key (`id_pais`)
-    references `beutylab`.`paises` (`id_pais`)
+    references `paises` (`id_pais`)
     on delete no action
     on update no action,
   constraint `fk_personas_tipos_identificacion1`
     foreign key (`id_tipo_id`)
-    references `beutylab`.`tipos_identificacion` (`id_tipo_id`)
+    references `tipos_identificacion` (`id_tipo_id`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`medicos`
+-- table `medicos`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`medicos` ;
+-- drop table if exists `medicos` ;
 
-create table if not exists `beutylab`.`medicos` (
+create table if not exists `medicos` (
   `id_medico` int not null,
   `presentacion` varchar(4000) null,
   `img_perfil` varchar(2000) null,
@@ -100,18 +100,18 @@ create table if not exists `beutylab`.`medicos` (
   index `fk_medicos_usuarios1_idx` (`id_usuario` asc),
   constraint `fk_medicos_usuarios1`
     foreign key (`id_usuario`)
-    references `beutylab`.`usuarios` (`id_usuario`)
+    references `usuarios` (`id_usuario`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`estudios`
+-- table `estudios`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`estudios` ;
+-- drop table if exists `estudios` ;
 
-create table if not exists `beutylab`.`estudios` (
+create table if not exists `estudios` (
   `id_estudio` int not null,
   `universidad` varchar(300) null,
   `fecha_inicio` date null,
@@ -122,18 +122,18 @@ create table if not exists `beutylab`.`estudios` (
   index `fk_estudios_medicos1_idx` (`id_medico` asc),
   constraint `fk_estudios_medicos1`
     foreign key (`id_medico`)
-    references `beutylab`.`medicos` (`id_medico`)
+    references `medicos` (`id_medico`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`consultorios`
+-- table `consultorios`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`consultorios` ;
+-- drop table if exists `consultorios` ;
 
-create table if not exists `beutylab`.`consultorios` (
+create table if not exists `consultorios` (
   `id_consultorio` int not null,
   `direccion` varchar(100) null,
   `telefono` varchar(45) null,
@@ -144,18 +144,18 @@ create table if not exists `beutylab`.`consultorios` (
   index `fk_consultorios_medicos1_idx` (`id_medico` asc),
   constraint `fk_consultorios_medicos1`
     foreign key (`id_medico`)
-    references `beutylab`.`medicos` (`id_medico`)
+    references `medicos` (`id_medico`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`experiencia_laboral`
+-- table `experiencia_laboral`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`experiencia_laboral` ;
+-- drop table if exists `experiencia_laboral` ;
 
-create table if not exists `beutylab`.`experiencia_laboral` (
+create table if not exists `experiencia_laboral` (
   `id_experienci` int not null,
   `cargo` varchar(200) null,
   `entidad` varchar(200) null,
@@ -166,18 +166,18 @@ create table if not exists `beutylab`.`experiencia_laboral` (
   index `fk_experiencia_laboral_medicos1_idx` (`id_medico` asc),
   constraint `fk_experiencia_laboral_medicos1`
     foreign key (`id_medico`)
-    references `beutylab`.`medicos` (`id_medico`)
+    references `medicos` (`id_medico`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`habtaciones`
+-- table `habtaciones`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`habtaciones` ;
+-- drop table if exists `habtaciones` ;
 
-create table if not exists `beutylab`.`habtaciones` (
+create table if not exists `habtaciones` (
   `id_habitacion` int not null,
   `nombre` varchar(100) null,
   `comodidades` varchar(2000) null,
@@ -188,11 +188,11 @@ engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`habitaciones_img`
+-- table `habitaciones_img`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`habitaciones_img` ;
+-- drop table if exists `habitaciones_img` ;
 
-create table if not exists `beutylab`.`habitaciones_img` (
+create table if not exists `habitaciones_img` (
   `id_habitacion_img` int not null,
   `img` varchar(200) null,
   `id_habitacion` int not null,
@@ -200,18 +200,18 @@ create table if not exists `beutylab`.`habitaciones_img` (
   index `fk_habitaciones_img_habtaciones1_idx` (`id_habitacion` asc),
   constraint `fk_habitaciones_img_habtaciones1`
     foreign key (`id_habitacion`)
-    references `beutylab`.`habtaciones` (`id_habitacion`)
+    references `habtaciones` (`id_habitacion`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`procedimientos`
+-- table `procedimientos`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`procedimientos` ;
+-- drop table if exists `procedimientos` ;
 
-create table if not exists `beutylab`.`procedimientos` (
+create table if not exists `procedimientos` (
   `id_procedimiento` int not null,
   `nombre` varchar(200) null,
   `descripcion` varchar(500) null,
@@ -221,11 +221,11 @@ engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`cotizaciones`
+-- table `cotizaciones`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`cotizaciones` ;
+-- drop table if exists `cotizaciones` ;
 
-create table if not exists `beutylab`.`cotizaciones` (
+create table if not exists `cotizaciones` (
   `id_cotizacion` int not null,
   `fec_registro` date null,
   `estado` varchar(1) null,
@@ -238,23 +238,23 @@ create table if not exists `beutylab`.`cotizaciones` (
   index `fk_cotizaciones_usuarios1_idx` (`id_usuario` asc),
   constraint `fk_cotizaciones_habtaciones1`
     foreign key (`id_habitacion`)
-    references `beutylab`.`habtaciones` (`id_habitacion`)
+    references `habtaciones` (`id_habitacion`)
     on delete no action
     on update no action,
   constraint `fk_cotizaciones_usuarios1`
     foreign key (`id_usuario`)
-    references `beutylab`.`usuarios` (`id_usuario`)
+    references `usuarios` (`id_usuario`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`cotizaciones_x_procedimiento`
+-- table `cotizaciones_x_procedimiento`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`cotizaciones_x_procedimiento` ;
+-- drop table if exists `cotizaciones_x_procedimiento` ;
 
-create table if not exists `beutylab`.`cotizaciones_x_procedimiento` (
+create table if not exists `cotizaciones_x_procedimiento` (
   `id_cotizacion` int not null,
   `id_cirujia` int not null,
   index `fk_cotizaciones_x_cirujia_cotizaciones1_idx` (`id_cotizacion` asc),
@@ -262,23 +262,23 @@ create table if not exists `beutylab`.`cotizaciones_x_procedimiento` (
   primary key (`id_cotizacion`, `id_cirujia`),
   constraint `fk_cotizaciones_x_cirujia_cotizaciones1`
     foreign key (`id_cotizacion`)
-    references `beutylab`.`cotizaciones` (`id_cotizacion`)
+    references `cotizaciones` (`id_cotizacion`)
     on delete no action
     on update no action,
   constraint `fk_cotizaciones_x_cirujia_cirujias1`
     foreign key (`id_cirujia`)
-    references `beutylab`.`procedimientos` (`id_procedimiento`)
+    references `procedimientos` (`id_procedimiento`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`planes`
+-- table `planes`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`planes` ;
+-- drop table if exists `planes` ;
 
-create table if not exists `beutylab`.`planes` (
+create table if not exists `planes` (
   `id_plan` int not null,
   `nombre` varchar(100) null,
   `descripcion` varchar(500) null,
@@ -289,18 +289,18 @@ create table if not exists `beutylab`.`planes` (
   index `fk_planes_habtaciones1_idx` (`id_habitacion` asc),
   constraint `fk_planes_habtaciones1`
     foreign key (`id_habitacion`)
-    references `beutylab`.`habtaciones` (`id_habitacion`)
+    references `habtaciones` (`id_habitacion`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`plan_x_procedimientos`
+-- table `plan_x_procedimientos`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`plan_x_procedimientos` ;
+-- drop table if exists `plan_x_procedimientos` ;
 
-create table if not exists `beutylab`.`plan_x_procedimientos` (
+create table if not exists `plan_x_procedimientos` (
   `id_plan` int not null,
   `id_procedimiento` int not null,
   index `fk_plan_x_procedimientos_planes1_idx` (`id_plan` asc),
@@ -308,23 +308,23 @@ create table if not exists `beutylab`.`plan_x_procedimientos` (
   primary key (`id_plan`, `id_procedimiento`),
   constraint `fk_plan_x_procedimientos_planes1`
     foreign key (`id_plan`)
-    references `beutylab`.`planes` (`id_plan`)
+    references `planes` (`id_plan`)
     on delete no action
     on update no action,
   constraint `fk_plan_x_procedimientos_procedimientos1`
     foreign key (`id_procedimiento`)
-    references `beutylab`.`procedimientos` (`id_procedimiento`)
+    references `procedimientos` (`id_procedimiento`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`usuarios_img_zona_afectada`
+-- table `usuarios_img_zona_afectada`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`usuarios_img_zona_afectada` ;
+-- drop table if exists `usuarios_img_zona_afectada` ;
 
-create table if not exists `beutylab`.`usuarios_img_zona_afectada` (
+create table if not exists `usuarios_img_zona_afectada` (
   `id_imagen` int not null,
   `imagen` varchar(2000) null,
   `id_usuario` int not null,
@@ -332,18 +332,18 @@ create table if not exists `beutylab`.`usuarios_img_zona_afectada` (
   index `fk_usuarios_img_zona_afectada_usuarios1_idx` (`id_usuario` asc),
   constraint `fk_usuarios_img_zona_afectada_usuarios1`
     foreign key (`id_usuario`)
-    references `beutylab`.`usuarios` (`id_usuario`)
+    references `usuarios` (`id_usuario`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`observaciones_medicas`
+-- table `observaciones_medicas`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`observaciones_medicas` ;
+-- drop table if exists `observaciones_medicas` ;
 
-create table if not exists `beutylab`.`observaciones_medicas` (
+create table if not exists `observaciones_medicas` (
   `id_observacion_medica` int not null,
   `id_tipo_observacion` int not null comment 'este campo contiene el tipo de observaci�n medica.\n1. enfermada\n2. alergia\n3. procedimiento anterior',
   `descripcion` varchar(45) null,
@@ -352,11 +352,11 @@ engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`usuarios_observaciones_medica`
+-- table `usuarios_observaciones_medica`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`usuarios_observaciones_medica` ;
+-- drop table if exists `usuarios_observaciones_medica` ;
 
-create table if not exists `beutylab`.`usuarios_observaciones_medica` (
+create table if not exists `usuarios_observaciones_medica` (
   `usuarios_id_usuario` int not null,
   `id_observacion_medica` int not null,
   index `fk_usuarios_observaciones_medica_usuarios1_idx` (`usuarios_id_usuario` asc),
@@ -364,23 +364,23 @@ create table if not exists `beutylab`.`usuarios_observaciones_medica` (
   primary key (`usuarios_id_usuario`, `id_observacion_medica`),
   constraint `fk_usuarios_observaciones_medica_usuarios1`
     foreign key (`usuarios_id_usuario`)
-    references `beutylab`.`usuarios` (`id_usuario`)
+    references `usuarios` (`id_usuario`)
     on delete no action
     on update no action,
   constraint `fk_usuarios_observaciones_medica_observaciones_medicas1`
     foreign key (`id_observacion_medica`)
-    references `beutylab`.`observaciones_medicas` (`id_observacion_medica`)
+    references `observaciones_medicas` (`id_observacion_medica`)
     on delete no action
     on update no action)
 engine = innodb;
 
 
 -- -----------------------------------------------------
--- table `beutylab`.`reservas`
+-- table `reservas`
 -- -----------------------------------------------------
-drop table if exists `beutylab`.`reservas` ;
+-- drop table if exists `reservas` ;
 
-create table if not exists `beutylab`.`reservas` (
+create table if not exists `reservas` (
   `id_reserva` int not null,
   `fecha_reserva` datetime null,
   `observaciones` varchar(200) null,
@@ -394,17 +394,17 @@ create table if not exists `beutylab`.`reservas` (
   index `fk_reservas_usuarios1_idx` (`id_usuario` asc),
   constraint `fk_reservas_cotizaciones1`
     foreign key (`id_cotizacion`)
-    references `beutylab`.`cotizaciones` (`id_cotizacion`)
+    references `cotizaciones` (`id_cotizacion`)
     on delete no action
     on update no action,
   constraint `fk_reservas_planes1`
     foreign key (`id_plan`)
-    references `beutylab`.`planes` (`id_plan`)
+    references `planes` (`id_plan`)
     on delete no action
     on update no action,
   constraint `fk_reservas_usuarios1`
     foreign key (`id_usuario`)
-    references `beutylab`.`usuarios` (`id_usuario`)
+    references `usuarios` (`id_usuario`)
     on delete no action
     on update no action)
 engine = innodb;

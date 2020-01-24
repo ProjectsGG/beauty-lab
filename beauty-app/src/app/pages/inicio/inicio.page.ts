@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuController} from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
-  constructor() { }
+  constructor(public menuCtrl: MenuController) { }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+   }
 
   ngOnInit() {
   }
