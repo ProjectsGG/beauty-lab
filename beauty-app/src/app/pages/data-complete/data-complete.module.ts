@@ -4,21 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ContactPageRoutingModule } from './contact-routing.module';
+import { DataCompletePageRoutingModule } from './data-complete-routing.module';
 
-import { ContactPage } from './contact.page';
-import { HeaderComponent } from '../../components/header/header.component';
+import { DataCompletePage } from './data-complete.page';
 import { ComponentsModule } from '../../components/components.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ContactPageRoutingModule,
-    ComponentsModule,
-    HeaderComponent
+    DataCompletePageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [ContactPage]
+  declarations: [DataCompletePage]
 })
-export class ContactPageModule {}
+export class DataCompletePageModule {}

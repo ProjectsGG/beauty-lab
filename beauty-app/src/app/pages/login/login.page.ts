@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
         this.clear();
         this.router.navigate(['/homeapp']);
         this.toast.success(r.message);
-        this.storage.set('token', r.token);
+        this.storage.set('token', r.user.token);
       } else {
         this.toast.error(r.message);
       }

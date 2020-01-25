@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class HeroService {
-  private url: any = 'http://192.168.0.21:8000/api';
+  private url: any = 'http://192.168.0.11:8000/api';
   private token: string = null;
 
   constructor(private storage: Storage, private router: Router) {}
