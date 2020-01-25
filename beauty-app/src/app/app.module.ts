@@ -14,7 +14,7 @@ import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { ViewVideoPage } from './pages/view-video/view-video.page';
 import { ModalroomsPageModule } from './pages/modalrooms/modalrooms.module';
 import { Camera } from '@ionic-native/camera/ngx';
-
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [AppComponent, ViewVideoPage],
   entryComponents: [ViewVideoPage],
@@ -24,7 +24,8 @@ import { Camera } from '@ionic-native/camera/ngx';
   AppRoutingModule,
   ComponentsModule,
   HttpClientModule,
-  ModalroomsPageModule
+  ModalroomsPageModule,
+  IonicStorageModule.forRoot()
 ],
   providers: [
     StatusBar,
