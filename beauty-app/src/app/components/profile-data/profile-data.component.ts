@@ -6,30 +6,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-data.component.scss'],
 })
 export class ProfileDataComponent implements OnInit {
-  data: any[] = [
-    {
-      icon: 'person',
-      key: 'Name',
-      value: 'Nancy'
-    },
-    {
-      icon: 'person',
-      key: 'Surnames',
-      value: 'Dabolio Ferbug'
-    },
-    {
-      icon: 'call',
-      key: 'Phone',
-      value: '00-1-212-324-4152'
-    },
-    {
-      icon: 'mail',
-      key: 'Mail',
-      value: 'nancy03@gmail.com'
-    }
-  ];
-  constructor() { }
+  data: any[];
 
-  ngOnInit() {}
+  constructor() {}
+
+  ngOnInit() {
+    const data = JSON.parse(localStorage.getItem('user'));
+    this.data = [
+      {
+        icon: 'person',
+        key: 'Name',
+        value: data.nombres
+      },
+      {
+        icon: 'person',
+        key: 'Surnames',
+        value: data.apellidos
+      },
+      {
+        icon: 'call',
+        key: 'Phone',
+        value: data.movil
+      },
+      {
+        icon: 'mail',
+        key: 'Mail',
+        value: data.email
+      }
+    ];
+  }
 
 }
