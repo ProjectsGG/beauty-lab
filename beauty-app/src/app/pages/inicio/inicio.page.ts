@@ -10,9 +10,9 @@ export class InicioPage implements OnInit {
 
   constructor(public menuCtrl: MenuController) { }
 
-  ionViewWillEnter() {
-    this.menuCtrl.enable(false);
-   }
+  // ionViewWillEnter() {
+  //   this.menuCtrl.enable(false);
+  //  }
 
   ngOnInit() {
   }
