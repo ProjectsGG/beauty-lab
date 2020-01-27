@@ -30,11 +30,12 @@ class APIController extends Controller
             ]);
         }
         $user = User::where('email',$request->all()['email'])->first();
+
         return response()->json([
             'ok' => true,
             'message' => "Welcome to beautylab!",
-            'token' => $token,
-            'user' => $user
+            'user' => $user,
+            'token' => $token
         ]);
     }
 
