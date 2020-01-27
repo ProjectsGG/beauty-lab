@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -17,42 +18,53 @@ const routes: Routes = [
   },
   {
     path: 'homeapp',
-    loadChildren: () => import('./pages/homeapp/homeapp.module').then( m => m.HomeappPageModule)
+    loadChildren: () => import('./pages/homeapp/homeapp.module').then( m => m.HomeappPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'plans',
-    loadChildren: () => import('./pages/plans/plans.module').then( m => m.PlansPageModule)
+    loadChildren: () => import('./pages/plans/plans.module').then( m => m.PlansPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'procedures',
-    loadChildren: () => import('./pages/procedures/procedures.module').then( m => m.ProceduresPageModule)
+    loadChildren: () => import('./pages/procedures/procedures.module').then( m => m.ProceduresPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'rooms',
-    loadChildren: () => import('./pages/rooms/rooms.module').then( m => m.RoomsPageModule)
+    loadChildren: () => import('./pages/rooms/rooms.module').then( m => m.RoomsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'makeplan',
-    loadChildren: () => import('./pages/makeplan/makeplan.module').then( m => m.MakeplanPageModule)
+    loadChildren: () => import('./pages/makeplan/makeplan.module').then( m => m.MakeplanPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'contact',
-    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
+    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'view-video',
-    loadChildren: () => import('./pages/view-video/view-video.module').then( m => m.ViewVideoPageModule)
+    loadChildren: () => import('./pages/view-video/view-video.module').then( m => m.ViewVideoPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'modalrooms',
-    loadChildren: () => import('./pages/modalrooms/modalrooms.module').then( m => m.ModalroomsPageModule)
-  },  {
+    loadChildren: () => import('./pages/modalrooms/modalrooms.module').then( m => m.ModalroomsPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'new-post',
-    loadChildren: () => import('./pages/new-post/new-post.module').then( m => m.NewPostPageModule)
+    loadChildren: () => import('./pages/new-post/new-post.module').then( m => m.NewPostPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'data-complete',
