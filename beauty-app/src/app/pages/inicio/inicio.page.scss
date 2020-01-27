@@ -3,6 +3,10 @@ h1.home{
     size: 50px;
 }
 
+ion-content{ 
+    --background: #fff url('../../../assets/img/background.png') no-repeat center center / cover !important;
+     }  
+
 .img-home{
     width: 65%;
     height: auto; 
@@ -13,6 +17,11 @@ h1.home{
 .btn-home{
     display: block;
     margin: 0 auto;
+    border-color: #fff;
+}
+
+ion-button{
+    --border-color:#fff;
 }
 
 ion-text.text-home{
@@ -21,8 +30,8 @@ ion-text.text-home{
     size: 10px;
 }
 .space{
-    padding-bottom: 4em;
-    margin-bottom: 4em;
+    padding-bottom: 3em;
+    margin-bottom: 2.5em;
 }
 
 .redes{
