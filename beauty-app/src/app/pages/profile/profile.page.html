@@ -19,8 +19,8 @@
           <img class="logo-img" src="assets/logoBL/whiteLogoH.png" alt="">
           <h2 class="font-title">Y o u r P r o f i l e</h2>
           <img class="profile-img" src="assets/img/PROFILEPICTURE.png" alt="profileuser">
-          <h4>Nancy Dabolio</h4>
-          <h5>nancyD3@gmail.com</h5>
+          <h4>{{data.nombres}}</h4>
+          <h5>{{data.email}}</h5>
         </div>      
         <ion-toolbar>
           <ion-segment color="primary-bl" (ionChange)="segmentChanged($event)" value="personalData">
@@ -45,6 +45,11 @@
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="content=='reviewBlog'">
     <ion-fab-button routerLink="/new-post">
       <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab  vertical="bottom" horizontal="end" slot="fixed" *ngIf="content=='personalData'">
+    <ion-fab-button color="primary-bl" routerLink="/data-complete">
+      <ion-icon name="create"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>
