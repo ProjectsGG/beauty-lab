@@ -45,7 +45,8 @@ class APIController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function logout(Request $request)
-    {
+    {   
+        // dd($request->all());
         $this->validate($request, [
             'token' => 'required'
         ]);

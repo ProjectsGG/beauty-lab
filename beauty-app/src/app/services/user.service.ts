@@ -31,7 +31,7 @@ export class UserService {
   }
 
   update(user, id) {
-    const url =  this.hero.getUrl() + '/update/' + id;
+    const url =  this.hero.getUrl() + '/user/update/' + id;
     return this.http.put(url, user, this.httpOptions);
   }
 }
