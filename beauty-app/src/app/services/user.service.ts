@@ -11,7 +11,7 @@ export class UserService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: this.hero.getToken()
+      Authorization: 'bearer ' + this.hero.getToken()
     })
   };
 
@@ -32,7 +32,6 @@ export class UserService {
 
   update(user, id) {
     const url =  this.hero.getUrl() + '/update/' + id;
-    return this.http.post(url, user, this.httpOptions)
-    .pipe(retry(2), catchError(this.handleError));
+    return this.http.put(url, user, this.httpOptions);
   }
 }
