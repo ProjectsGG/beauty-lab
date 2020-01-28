@@ -16,7 +16,7 @@ set @old_sql_mode=@@sql_mode, sql_mode='only_full_group_by,strict_trans_tables,n
 -- schema beutylab
 -- -----------------------------------------------------
 create schema if not exists `beutylab` default character set utf8 ;*/
-use `ihfqyemy_lab` ;
+use `beutylab` ;
 
 -- -----------------------------------------------------
 -- table `paises`

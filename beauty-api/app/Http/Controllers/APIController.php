@@ -77,7 +77,7 @@ class APIController extends Controller
             'nombres' => 'required|string',
             'movil' => 'required|string',
             'email' => 'required|email|unique:usuarios',
-            'password' => 'required|string|min:6|max:10|confirmed'
+            'password' => 'required|string|min:6|max:10'
         ])->setAttributeNames([
             'nombres' => 'name',
             'movil' => 'phone',
@@ -97,15 +97,15 @@ class APIController extends Controller
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
             $user->save();
-    
+
             if ($this->loginAfterSignUp) {
                 return $this->login($request);
             }
-    
+
             return response()->json([
                 'ok'   =>  true,
                 'data'      =>  $user
             ], 200);
-        }    
+        }
     }
 }
