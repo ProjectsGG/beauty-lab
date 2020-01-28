@@ -32,7 +32,6 @@ export class HeroService {
     if ( token === null || token === undefined) {
       this.router.navigate(['/inicio']);
     } else {
-      console.log(token);
       this.token = token;
       this.user = JSON.parse(localStorage.getItem('user'));
       this.auth = true;
