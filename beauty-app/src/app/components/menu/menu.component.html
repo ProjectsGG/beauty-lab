@@ -1,10 +1,26 @@
 <ion-menu side="start" menuId="first" contentId="main" color="light">
   <ion-header>
-    <ion-toolbar color="tertiary">
+    <!-- <ion-toolbar color="primary-bl">
       <ion-title>Start Menu</ion-title>
-    </ion-toolbar>
+    </ion-toolbar> -->
   </ion-header>
   <ion-content>
+    <div class="user-info">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="content-user" size="12">
+            <img class="center img-user" src="assets/img/PROFILEPICTURE.png">
+            <h4 class="margins">Andres</h4>
+            <h6 class="margins link">https://beautylab.com.co</h6>
+            <p class="bl-points">
+              BL Points  <br>
+              100
+            </p>
+            <img class="center bl-logo" src="assets/logoBL/colorLogoVWL.png" alt="">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
     <ion-list>
       <ion-menu-toggle *ngFor="let c of componentes | async"> 
         <ion-item [routerLink]="c.redirectTo" (click)="logout(c.name)">
