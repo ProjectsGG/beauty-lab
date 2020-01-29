@@ -4,14 +4,14 @@
       <ion-grid>
         <ion-row>
           <ion-col class="content-user" size="12">
-            <img class="center img-user" src="assets/img/PROFILEPICTURE.png">
-            <h4 class="margins">A n d r e s </h4>
+            <img (click)="redirect()" class="center img-user" src="assets/img/PROFILEPICTURE.png">
+            <h4 class="margins">{{data.nombres}} </h4>
             <h6 class="margins link">https://beautylab.com.co</h6>
             <p class="bl-points">
               B L P o i n t s  <br>
               100
             </p>
-            <img class="center bl-logo" src="assets/logoBL/whiteLogoV.png" alt="">
+            <img (click)="redirect()" class="center bl-logo" src="assets/logoBL/whiteLogoV.png" alt="">
           </ion-col>
         </ion-row>
       </ion-grid>
