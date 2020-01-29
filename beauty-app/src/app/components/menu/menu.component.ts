@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
     this.data = data;
   }
   logout(name) {
-    if (name === 'Logout') {
+    if (name === 'L o g o u t') {
       this.auth.logout();
     }
   }
