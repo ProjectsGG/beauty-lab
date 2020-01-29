@@ -106,7 +106,7 @@ DELETE FROM `tipos_identificacion`;
 -- Volcando datos para la tabla beutylab.usuarios: ~1 rows (aproximadamente)
 DELETE FROM `usuarios`;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellidos`, `email`, `email_verified_at`, `movil`, `direccion`, `identificacion`, `id_pais`, `id_tipo_id`, `username`, `password`, `estado`, `fec_registro`, `fecha_cumpleanos`, `ciudad`, `img_perfil`, `nombre_contacto`, `telefono_contacto`, `rh`) VALUES
+INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `email`, `email_verified_at`, `movil`, `direccion`, `identificacion`, `id_pais`, `id_tipo_id`, `username`, `password`, `estado`, `fec_registro`, `fecha_cumpleanos`, `ciudad`, `img_perfil`, `nombre_contacto`, `telefono_contacto`, `rh`) VALUES
 	(1, 'steven', NULL, 'stiven.betancur6@gmail.com', NULL, '3155200285', NULL, NULL, NULL, NULL, NULL, '$2y$10$c5LWuqlUsMRI4X5qw/39NuT8ekEWJwBJY8c9ANyBvHpg4FGhkP8Dq', NULL, '2020-01-27 22:46:52', NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 

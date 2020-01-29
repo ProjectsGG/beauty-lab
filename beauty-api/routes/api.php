@@ -9,9 +9,9 @@ Route::post('login', 'ApiController@login');
 Route::post('/register', 'APIController@register');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
-    Route::get('logout', 'ApiController@logout');
+    Route::post('logout', 'ApiController@logout');
 
-    Route::put('/user/update/{id}','UserController@update');
+    Route::put('user/update/{id}','UserController@update');
 
     Route::get('tasks', 'TaskController@index');
     Route::get('tasks/{id}', 'TaskController@show');

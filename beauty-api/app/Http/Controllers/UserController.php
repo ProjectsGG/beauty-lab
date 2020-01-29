@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use JWTAuth;
 class UserController extends Controller
 {
+    protected $user;
+
+    public function __construct()
+    {
+        $this->user = JWTAuth::parseToken()->authenticate();
+    }
     public function update(Request $request, $id)
     {   
-        dd($id);
         $input = $request->all();
 
         $validation = Validator::make($input,[

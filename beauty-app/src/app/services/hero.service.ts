@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
+import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +36,7 @@ export class HeroService {
       this.token = token;
       this.user = JSON.parse(localStorage.getItem('user'));
       this.auth = true;
+      this.router.navigate(['/homeapp']);
     }
   }
   logout() {
