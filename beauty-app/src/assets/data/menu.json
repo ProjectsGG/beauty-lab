@@ -1,22 +1,22 @@
 [
     {
         "icon": "home",
-        "name": "Home",
+        "name": "H o m e",
         "redirectTo": "/homeapp"
     },
     {
         "icon": "flask",
-        "name": "Plans",
+        "name": "P l a n s",
         "redirectTo": "/plans"
     },
     {
         "icon": "medkit",
-        "name": "Procedures",
+        "name": "P r o c e d u r e s",
         "redirectTo": "/procedures"
     },
     {
         "icon": "bed",
-        "name": "Rooms",
+        "name": "R o o m s",
         "redirectTo": "/rooms"
     },
     {
