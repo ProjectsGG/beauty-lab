@@ -16,7 +16,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {   
         $input = $request->all();
-
         $validation = Validator::make($input,[
             'apellidos' => 'nullable',
             'username' => 'nullable|string|min:6|max:15|unique:usuarios',

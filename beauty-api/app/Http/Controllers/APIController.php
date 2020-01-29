@@ -7,6 +7,7 @@ use JWTAuth;
 use App\Models\User;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\RegistrationFormRequest;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 class APIController extends Controller
 {
@@ -14,7 +15,6 @@ class APIController extends Controller
      * @var bool
      */
     public $loginAfterSignUp = true;
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -38,6 +38,11 @@ class APIController extends Controller
             'token' => $token
         ]);
     }
+
+    public function refresh()
+   {
+       return $this->respondWithToken(auth()->refresh());
+   }
 
     /**
      * @param Request $request
