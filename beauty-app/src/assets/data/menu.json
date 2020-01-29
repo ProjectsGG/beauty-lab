@@ -21,23 +21,23 @@
     },
     {
         "icon": "hammer",
-        "name": "Make Plan",
+        "name": "M a k e  P l a n",
         "redirectTo": "/makeplan"
     },
         {
         "icon": "mail",
-        "name": "Contact Us",
+        "name": "C o n t a c t  U s",
         "redirectTo": "/contact"
     },
     {
         "icon": "contact",
-        "name": "Profile",
+        "name": "P r o f i l e",
         "redirectTo": "/profile"
     }
     ,
     {
         "icon": "log-out",
-        "name": "Logout",
+        "name": "L o g o u t",
         "redirectTo": ""
     }
 
