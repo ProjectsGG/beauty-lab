@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlansPage implements OnInit {
 
+plans = [
+  '3dplan.jpg',
+  'bootyplan.jpg',
+  'superplan.jpg'
+];
+
   constructor() { }
 
   ngOnInit() {
