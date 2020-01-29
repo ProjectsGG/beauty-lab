@@ -20,7 +20,6 @@ export class MenuComponent implements OnInit {
   }
   logout(name) {
     if (name === 'Logout') {
-      console.log('deslogeado');
       this.auth.logout();
     }
   }

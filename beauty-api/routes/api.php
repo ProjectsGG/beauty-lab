@@ -10,7 +10,7 @@ Route::post('/register', 'APIController@register');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('logout', 'ApiController@logout');
-
+    Route::get('refresh', 'APIController@refresh')->name('api.jwt.refresh');
     Route::put('user/update/{id}','UserController@update');
 
     Route::get('tasks', 'TaskController@index');
