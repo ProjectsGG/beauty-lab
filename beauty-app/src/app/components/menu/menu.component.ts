@@ -3,6 +3,7 @@ import { DataService } from '../../services/data.service';
 import { Observable } from 'rxjs';
 import { Componente } from '../../interfaces/interfaces';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -12,17 +13,22 @@ import { AuthService } from '../../services/auth.service';
 export class MenuComponent implements OnInit {
 
   componentes: Observable<Componente[]>;
-
-  constructor( private dataService: DataService, private auth: AuthService) { }
+  data: any;
+  constructor( private dataService: DataService, private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.componentes = this.dataService.getMenuOpts();
+
+    const data = JSON.parse(localStorage.getItem('user'));
+    this.data = data;
   }
   logout(name) {
     if (name === 'Logout') {
-      console.log('deslogeado');
       this.auth.logout();
     }
+  }
+  redirect() {
+    this.router.navigate(['/profile']);
   }
 
 
