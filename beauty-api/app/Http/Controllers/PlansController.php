@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use JWTAuth;
 use Illuminate\Http\Request;
 use App\Models\Plans;
 
 class PlansController extends Controller
 {
-    protected $user;
-
-    public function __construct()
-    {
-        $this->user = JWTAuth::parseToken()->authenticate();
-    }
 
     public function index()
     {

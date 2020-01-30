@@ -8,12 +8,6 @@ import { HeroService } from './hero.service';
 })
 export class UserService {
   constructor(private http: HttpClient, private hero: HeroService) {}
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'bearer ' + this.hero.getToken()
-    })
-  };
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -31,7 +25,13 @@ export class UserService {
   }
 
   update(user, id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
     const url =  this.hero.getUrl() + '/user/update/' + id;
-    return this.http.put(url, user, this.httpOptions);
+    return this.http.put(url, user, httpOptions);
   }
 }

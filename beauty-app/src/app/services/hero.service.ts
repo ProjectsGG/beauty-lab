@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
-import { AuthService } from './auth.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +11,8 @@ export class HeroService {
   private token: string = null;
   private user: User;
   public auth = false;
-  constructor(private storage: Storage, private router: Router) {}
+
+  constructor(private storage: Storage,  private router: Router, private http: HttpClient) {}
 
   getUrl() {
     return this.url;
@@ -36,7 +37,7 @@ export class HeroService {
       this.token = token;
       this.user = JSON.parse(localStorage.getItem('user'));
       this.auth = true;
-      this.router.navigate(['/homeapp']);
+      this.refreshToken();
     }
   }
   logout() {
@@ -47,5 +48,20 @@ export class HeroService {
     this.auth = false;
 
     this.validateSession();
+  }
+  refreshToken() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.token
+      })
+    };
+    // this.httpOptions.headers.append('Authorization', 'bearer ' + this.token);
+    this.http.get(this.url + '/refresh', httpOptions)
+    .subscribe((r: any) => {
+      this.token = r.new_token;
+      localStorage.setItem('token', this.token);
+      console.log(r);
+    });
   }
 }
