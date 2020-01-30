@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Observable } from 'rxjs';
 import { Componente } from '../../interfaces/interfaces';
-import { HeroService } from '../../services/hero.service';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -12,17 +13,22 @@ import { HeroService } from '../../services/hero.service';
 export class MenuComponent implements OnInit {
 
   componentes: Observable<Componente[]>;
-
-  constructor( private dataService: DataService, private hero: HeroService) { }
+  data: any;
+  constructor( private dataService: DataService, private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.componentes = this.dataService.getMenuOpts();
+
+    const data = JSON.parse(localStorage.getItem('user'));
+    this.data = data;
   }
   logout(name) {
-    if (name === 'Logout') {
-      console.log('deslogeado');
-      this.hero.logout();
+    if (name === 'L o g o u t') {
+      this.auth.logout();
     }
+  }
+  redirect() {
+    this.router.navigate(['/profile']);
   }
 
 

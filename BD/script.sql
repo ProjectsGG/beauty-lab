@@ -50,7 +50,7 @@ engine = innodb;
 -- drop table if exists `usuarios` ;
 
 create table if not exists `usuarios` (
-  `id_usuario` int not null AUTO_INCREMENT,
+  `id` int not null AUTO_INCREMENT,
   `nombres` varchar(200) not null,
   `apellidos` varchar(200) null,
   `email` varchar(100) not null,
@@ -70,7 +70,7 @@ create table if not exists `usuarios` (
   `nombre_contacto` varchar(100) null,
   `telefono_contacto` varchar(100) null,
   `rh` varchar(1) null,
-  primary key (`id_usuario`),
+  primary key (`id`),
   index `fk_personas_paises1_idx` (`id_pais` asc),
   index `fk_personas_tipos_identificacion1_idx` (`id_tipo_id` asc),
   constraint `fk_personas_paises1`
@@ -100,7 +100,7 @@ create table if not exists `medicos` (
   index `fk_medicos_usuarios1_idx` (`id_usuario` asc),
   constraint `fk_medicos_usuarios1`
     foreign key (`id_usuario`)
-    references `usuarios` (`id_usuario`)
+    references `usuarios` (`id`)
     on delete no action
     on update no action)
 engine = innodb;
@@ -243,7 +243,7 @@ create table if not exists `cotizaciones` (
     on update no action,
   constraint `fk_cotizaciones_usuarios1`
     foreign key (`id_usuario`)
-    references `usuarios` (`id_usuario`)
+    references `usuarios` (`id`)
     on delete no action
     on update no action)
 engine = innodb;
@@ -332,7 +332,7 @@ create table if not exists `usuarios_img_zona_afectada` (
   index `fk_usuarios_img_zona_afectada_usuarios1_idx` (`id_usuario` asc),
   constraint `fk_usuarios_img_zona_afectada_usuarios1`
     foreign key (`id_usuario`)
-    references `usuarios` (`id_usuario`)
+    references `usuarios` (`id`)
     on delete no action
     on update no action)
 engine = innodb;
@@ -364,7 +364,7 @@ create table if not exists `usuarios_observaciones_medica` (
   primary key (`usuarios_id_usuario`, `id_observacion_medica`),
   constraint `fk_usuarios_observaciones_medica_usuarios1`
     foreign key (`usuarios_id_usuario`)
-    references `usuarios` (`id_usuario`)
+    references `usuarios` (`id`)
     on delete no action
     on update no action,
   constraint `fk_usuarios_observaciones_medica_observaciones_medicas1`
@@ -404,7 +404,7 @@ create table if not exists `reservas` (
     on update no action,
   constraint `fk_reservas_usuarios1`
     foreign key (`id_usuario`)
-    references `usuarios` (`id_usuario`)
+    references `usuarios` (`id`)
     on delete no action
     on update no action)
 engine = innodb;

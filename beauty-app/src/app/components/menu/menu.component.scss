@@ -1,3 +1,9 @@
+h1,h2,h3,h4,h5,p,label{
+  font-family: 'suissnordregular';
+}
+.font{
+  font-family: 'suissnordregular';
+}
 ion-menu {
     --ion-background-color: var(--ion-color-light) !important;
     --ion-text-color: var(--ion-color-light-contrast);
@@ -10,3 +16,33 @@ ion-menu {
       background: transparent;
     }
   }
+.user-info{
+  height: auto;
+  background: #b31fa0;
+}
+.bl-points{
+  margin-bottom: 0rem;
+  margin-top: 0.8rem;
+}
+.img-user{
+  border-radius: 1000rem;
+  width: 27%;
+  height: 35%;
+}
+.content-user{
+  color: #fff;
+  text-align: center;
+}
+.center{
+  margin: 0 auto;
+}
+.margins{
+  margin-top: 0.3rem;
+  margin-bottom: 0rem;
+}
+.link{
+  font-size: 13px;
+}
+.bl-logo{
+  width: 30px;
+}

@@ -15,9 +15,9 @@ export class InicioPage implements OnInit {
     private location: Location,
     private hero: HeroService) { }
 
-  // ionViewWillEnter() {
-  //   this.menuCtrl.enable(false);
-  //  }
+  ionViewWillEnter() {
+  this.menuCtrl.enable(false);
+   }
 
   ngOnInit() {
     if (this.hero.auth === true) {

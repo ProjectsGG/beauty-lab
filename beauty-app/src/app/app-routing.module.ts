@@ -18,8 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'homeapp',
-    loadChildren: () => import('./pages/homeapp/homeapp.module').then( m => m.HomeappPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/homeapp/homeapp.module').then( m => m.HomeappPageModule)
   },
   {
     path: 'plans',
