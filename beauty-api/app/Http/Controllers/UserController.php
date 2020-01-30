@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Validator;
 use JWTAuth;
 class UserController extends Controller
 {
-    protected $user;
-
-    public function __construct()
-    {
-        $this->user = JWTAuth::parseToken()->authenticate();
-    }
+    
     public function update(Request $request, $id)
     {   
+        
         $input = $request->all();
+
+// return response()->json($input);
+
         $validation = Validator::make($input,[
             'apellidos' => 'nullable',
             'username' => 'nullable|string|min:6|max:15|unique:usuarios',
@@ -45,7 +45,12 @@ class UserController extends Controller
             ]);
         } else {
            try {
-               
+               $user = User::find($id);
+               $user->update($input);
+               return response()->json([
+                   'ok'=>true,
+                   'message'=>'Usuario actualizado'
+               ]);
            } catch (\Exception $ex) {
                return response()->json([
                    'ok' => false,
