@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PlansPage implements OnInit {
 
 plans = [
-  '3dplan.jpg',
+  'plan3.png',
   'bootyplan.jpg',
   'superplan.jpg'
 ];
