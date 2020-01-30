@@ -25,7 +25,6 @@ export class AppComponent {
     await this.hero.validateSession();
 
     this.platform.ready().then(() => {
-      this.hero.validateSession();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

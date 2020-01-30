@@ -41,7 +41,11 @@ class APIController extends Controller
 
     public function refresh()
    {
-       return $this->respondWithToken(auth()->refresh());
+        $token = JWTAuth::getToken();
+        $new_token = JWTAuth::refresh($token);
+       return response()->json([
+           'new_token' => $new_token
+       ]);
    }
 
     /**
@@ -113,5 +117,13 @@ class APIController extends Controller
                 'data'      =>  $user
             ], 200);
         }
+    }
+    public function me()
+    {
+        return response()->json($this->guard()->user());
+    }
+    public function guard()
+    {
+        return Auth::guard();
     }
 }
