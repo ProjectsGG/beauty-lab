@@ -18,7 +18,7 @@ class UserController extends Controller
 
         $validation = Validator::make($input,[
             'apellidos' => 'nullable',
-            'username' => 'nullable|string|min:6|max:15|unique:usuarios',
+            'username' => 'nullable|string|min:6|max:15|unique:usuarios,id,'.$id,
             'movil' => 'nullable|min:8',
             'direccion' => 'nullable|min:5',
             'identificacion' => 'nullable|integer',
@@ -49,7 +49,8 @@ class UserController extends Controller
                $user->update($input);
                return response()->json([
                    'ok'=>true,
-                   'message'=>'Usuario actualizado'
+                   'message'=>'Updated information!!',
+                   'user' => $user
                ]);
            } catch (\Exception $ex) {
                return response()->json([
