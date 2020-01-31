@@ -8,19 +8,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
   componentes: Observable<Componente[]>;
   data: any;
-  constructor( private dataService: DataService, private auth: AuthService, private router: Router) { }
+  name: string;
+  constructor(
+    private dataService: DataService,
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.componentes = this.dataService.getMenuOpts();
-
-    const data = JSON.parse(localStorage.getItem('user'));
-    this.data = data;
+    this.genNameUser();
   }
   logout(name) {
     if (name === 'L o g o u t') {
@@ -30,6 +32,20 @@ export class MenuComponent implements OnInit {
   redirect() {
     this.router.navigate(['/profile']);
   }
-
-
+  genNameUser() {
+    const dataLs = JSON.parse(localStorage.getItem('user'));
+    if (dataLs === null) {
+      this.name = '';
+    } else {
+      const long = dataLs.nombres.length;
+      // tslint:disable-next-line: prefer-const
+      let newNomber = '';
+      for (let i = 0; i < long; i++) {
+        const char = dataLs.nombres.charAt(i);
+        newNomber += char + ' ';
+      }
+      this.name = newNomber;
+      this.data = dataLs;
+    }
+  }
 }

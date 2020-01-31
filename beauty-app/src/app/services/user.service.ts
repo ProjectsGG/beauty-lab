@@ -3,17 +3,13 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { HeroService } from './hero.service';
+import { ToastService } from './toast.service';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private http: HttpClient, private hero: HeroService) {}
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'bearer ' + this.hero.getToken()
-    })
-  };
+  constructor(private http: HttpClient, private hero: HeroService, private toastr: ToastService, private router: Router) {}
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -31,7 +27,23 @@ export class UserService {
   }
 
   update(user, id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
     const url =  this.hero.getUrl() + '/user/update/' + id;
-    return this.http.put(url, user, this.httpOptions);
+    return this.http.put(url, user, httpOptions).subscribe((r: any) => {
+      if (r.ok) {
+        localStorage.setItem('user', JSON.stringify(r.user));
+        this.hero.setUser(r.user);
+        this.toastr.success(r.message);
+        // this.router.navigateByUrl('/profile');
+        this.router.navigate(['/profile']);
+      } else {
+       this.toastr.error(r.error);
+      }
+    });
   }
 }

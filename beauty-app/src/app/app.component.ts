@@ -17,7 +17,6 @@ export class AppComponent {
     private statusBar: StatusBar,
     private hero: HeroService
   ) {
-
     this.initializeApp();
   }
 
@@ -25,8 +24,10 @@ export class AppComponent {
     await this.hero.validateSession();
 
     this.platform.ready().then(() => {
-      this.hero.validateSession();
-      this.statusBar.styleDefault();
+      // this.statusBar.styleDefault();
+      this.statusBar.overlaysWebView(true);
+
+      this.statusBar.backgroundColorByHexString('#ff7dee');
       this.splashScreen.hide();
     });
   }

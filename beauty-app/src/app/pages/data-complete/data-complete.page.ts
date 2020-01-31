@@ -20,15 +20,7 @@ export class DataCompletePage implements OnInit {
   }
 
   update() {
-    this.service.update(this.data, this.data.id).subscribe(
-      (r: any) => {
-        if (r.ok) {
-          this.toastr.success(r.message);
-        } else {
-          this.toastr.error(r.error);
-        }
-      }
-    );
+    this.service.update(this.data, this.data.id);
   }
 
 }
