@@ -3,13 +3,13 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-text-center">
-    <ion-text class="title-contact" >C o n t a c t U s </ion-text>
-    </ion-col>
-  </ion-row>
+        <ion-text class="title-contact" >C o n t a c t U s </ion-text>
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col size='0' size-sm='0' size-md='3' size-lg='4'></ion-col>
       <ion-col size='12' size-sm='12' size-md='6' size-lg='4'>
-        <ion-col size='0' size-sm='0' size-md='3' size-lg='4'></ion-col>
+      <ion-col size='0' size-sm='0' size-md='3' size-lg='4'></ion-col>
     <ion-row>
       <ion-col>
         <ion-input class='input-contact' placeholder='Enter your name'></ion-input>
@@ -31,13 +31,19 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class= 'ion-text-center' >
+      <ion-col size="10" >
         <ion-button type='submit'class='button-contact'>
           Send
         </ion-button>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button class="button-contact" size="medium"
+                      (click)='showActionSheet()'>
+                      <ion-icon ios="ios-send" md="md-send"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
       </ion-col>
-    </ion-row>
-  </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
