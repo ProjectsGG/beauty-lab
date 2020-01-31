@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HeroService {
-  private url: any = 'http://127.0.0.1:8000/api';
+  private url: any = 'http://192.168.0.15:8000/api';
   private token: string = null;
   private user: User;
   public auth = false;
@@ -62,7 +62,7 @@ export class HeroService {
     this.http.get(this.url + '/refresh', httpOptions)
     .subscribe((r: any) => {
       this.token = r.new_token;
-      localStorage.setItem('token', this.token);
+      localStorage.setItem('token', r.new_token);
     });
   }
 }
