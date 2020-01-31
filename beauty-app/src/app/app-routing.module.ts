@@ -68,8 +68,7 @@ const routes: Routes = [
   {
     path: 'data-complete',
     loadChildren: () => import('./pages/data-complete/data-complete.module').then( m => m.DataCompletePageModule)
-  },
-
+  }
 ];
 
 @NgModule({

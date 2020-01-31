@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPage implements OnInit {
 
-  constructor() { }
+  constructor( public socialMedia: ActionSheetController ) { }
+  async showActionSheet() {
+    const actionMedia = await this.socialMedia.create({
+      header: 'Share',
+      buttons: [{
+        text: 'WhatsApp',
+        icon: 'logo-whatsapp',
+        cssClass: 'green-wpp',
+        handler: () => {
+          console.log('Wpp clic');
+        }
+      }, {
+        text: 'Mail',
+        icon: 'mail',
+        cssClass: 'blue-mail',
+        handler: () => {
+          console.log('Mail clic');
+        }
+      }, {
+        text: 'Message',
+        icon: 'cloud-outline',
+        cssClass: 'gray-msg',
+        handler: () => {
+          console.log('Message clic');
+        },
+      },
+       {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clic');
+        }
+      }]
+    });
+    await actionMedia.present();
+  }
 
   ngOnInit() {
   }
 
 }
+
