@@ -1,4 +1,16 @@
-<ion-card color="light" *ngFor="let item of posts" >
+<ion-card color="light">
+  <ion-card-content class="ion-text-center">
+    <img [src]="srcImg" *ngIf="srcImg" alt="">
+    <ion-icon name="camera" (click)="photoPic()" *ngIf="!srcImg" class="icon-camera color"></ion-icon>
+    <p class="color" (click)="photoPic()" *ngIf="!srcImg">Camera</p>
+  </ion-card-content>
+</ion-card>
+
+
+<!-- This data is for the posts -->
+
+
+<!-- <ion-card color="light" *ngFor="let item of posts" >
   <img src="./../../../assets/img/{{item.image}}" />
   <ion-card-header>
     <ion-card-subtitle>{{item.date}}</ion-card-subtitle>
@@ -7,4 +19,4 @@
   <ion-card-content>
     {{item.text}}
   </ion-card-content>
-</ion-card>
+</ion-card> -->

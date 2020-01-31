@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-profile-review-blog',
@@ -32,8 +34,21 @@ export class ProfileReviewBlogComponent implements OnInit {
       text: 'After the procedure, delighted with the results.'
     }
   ];
-  constructor() { }
+  srcImg: any;
+  constructor(private camera: Camera, private toast: ToastService) { }
 
   ngOnInit() {}
-
+  photoPic() {
+      const options: CameraOptions = {
+        destinationType: this.camera.DestinationType.DATA_URL
+      };
+      this.camera.getPicture(options).then(
+        imageData => {
+          this.srcImg = `data:image/jpeg;base64,${imageData}`;
+        },
+        err => {
+          this.toast.error('This option is not available');
+        }
+      );
+  }
 }

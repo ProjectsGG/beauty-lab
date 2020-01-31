@@ -62,7 +62,7 @@ export class HeroService {
     this.http.get(this.url + '/refresh', httpOptions)
     .subscribe((r: any) => {
       this.token = r.new_token;
-      localStorage.setItem('token', this.token);
+      localStorage.setItem('token', r.new_token);
     });
   }
 }

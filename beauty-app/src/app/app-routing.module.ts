@@ -16,10 +16,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
-  {
-    path: 'homeapp',
-    loadChildren: () => import('./pages/homeapp/homeapp.module').then( m => m.HomeappPageModule)
-  },
+  // {
+  //   path: 'homeapp',
+  //   loadChildren: () => import('./pages/homeapp/homeapp.module').then( m => m.HomeappPageModule)
+  // },
   {
     path: 'plans',
     loadChildren: () => import('./pages/plans/plans.module').then( m => m.PlansPageModule),
@@ -68,6 +68,10 @@ const routes: Routes = [
   {
     path: 'data-complete',
     loadChildren: () => import('./pages/data-complete/data-complete.module').then( m => m.DataCompletePageModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   }
 ];
 
