@@ -22,14 +22,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.componentes = this.dataService.getMenuOpts();
-
-    const dataLs = JSON.parse(localStorage.getItem('user'));
-    if (dataLs === null) {
-      this.name = '';
-    } else {
-      this.name = dataLs.nombres;
-      this.data = dataLs;
-    }
+    this.genNameUser();
   }
   logout(name) {
     if (name === 'L o g o u t') {
@@ -38,5 +31,21 @@ export class MenuComponent implements OnInit {
   }
   redirect() {
     this.router.navigate(['/profile']);
+  }
+  genNameUser() {
+    const dataLs = JSON.parse(localStorage.getItem('user'));
+    if (dataLs === null) {
+      this.name = '';
+    } else {
+      const long = dataLs.nombres.length;
+      // tslint:disable-next-line: prefer-const
+      let newNomber = '';
+      for (let i = 0; i < long; i++) {
+        const char = dataLs.nombres.charAt(i);
+        newNomber += char + ' ';
+      }
+      this.name = newNomber;
+      this.data = dataLs;
+    }
   }
 }

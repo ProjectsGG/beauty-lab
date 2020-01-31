@@ -26,6 +26,9 @@ export class HeroService {
   getUser() {
     return this.user;
   }
+  setUser(user) {
+    this.user = user;
+  }
   getAuth() {
     return this.auth;
   }
@@ -56,12 +59,10 @@ export class HeroService {
         Authorization: 'bearer ' + this.token
       })
     };
-    // this.httpOptions.headers.append('Authorization', 'bearer ' + this.token);
     this.http.get(this.url + '/refresh', httpOptions)
     .subscribe((r: any) => {
       this.token = r.new_token;
       localStorage.setItem('token', this.token);
-      console.log(r);
     });
   }
 }
