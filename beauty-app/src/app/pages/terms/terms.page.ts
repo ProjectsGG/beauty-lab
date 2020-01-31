@@ -37,20 +37,11 @@ export class TermsPage implements OnInit {
                 'incidunt ea saepe ex fugit quaerat odit dignissimos dolores culpa natus quo laborum ut.'
     },
   ];
-  automaticClose(){
-    debugger
-  }
 
   constructor() {
-    this.cardTerms[0].open = true;
+    // this.cardTerms[0].open = true;
    }
 
   ngOnInit() {
-  }
-  toggleSection( header ) {
-    if (this.automaticClose && this.cardTerms) 
-    {
-
-    }
   }
 }
