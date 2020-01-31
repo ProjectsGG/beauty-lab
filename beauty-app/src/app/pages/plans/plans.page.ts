@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class PlansPage implements OnInit {
 
 plans = [
-  'plan3.png',
+  '3dplan.jpg',
   'bootyplan.jpg',
   'superplan.jpg'
 ];
@@ -27,7 +27,7 @@ plans = [
       'Content-Type': 'application/json',
       Authorization: 'bearer ' + this.hero.getToken()
     })
-  };  
+  };
 
   ngOnInit() {
     this.getPlans();
