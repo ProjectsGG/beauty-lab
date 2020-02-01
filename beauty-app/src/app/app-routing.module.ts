@@ -68,6 +68,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'social',
+    loadChildren: () => import('./pages/social/social.module').then( m => m.SocialPageModule)
+  },
+  {
+    path: 'car-shop',
+    loadChildren: () => import('./pages/car-shop/car-shop.module').then( m => m.CarShopPageModule)
   }
 ];
 
