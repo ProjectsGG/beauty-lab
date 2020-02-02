@@ -1,7 +1,10 @@
+import { catchError } from 'rxjs/operators';
+import { Plans } from './../../model/Plans';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastService } from './../../services/toast.service';
 import { HeroService } from './../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
+import { request } from 'http';
 
 @Component({
   selector: 'app-plans',
@@ -10,11 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlansPage implements OnInit {
 
-plans = [
-  '3dplan.jpg',
-  'bootyplan.jpg',
-  'superplan.jpg'
-];
+  public plans: any[];
 
   constructor(
     private http: HttpClient,
@@ -34,13 +33,10 @@ plans = [
   }
 
   getPlans() {
+    console.log('Inicio');
     this.getPlanServices()
-    .subscribe((r: any) => {
-      if (r.ok) {
-        console.log('response' + r);
-      } else {
-        this.toast.error(r.message);
-      }
+    .subscribe((model: any) => {
+      this.plans = model.data;
     });
   }
 
