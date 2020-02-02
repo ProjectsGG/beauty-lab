@@ -25,7 +25,7 @@ export class HomeappPage implements OnInit {
       picture: 'doubleroom.png'
     },
   ];
-  plans = [1, 2 , 3 ];
+  plans = [1, 2 , 1 ];
   services = [{
     items: [ 1, 2, 3, 4, 5, 6]
   },
