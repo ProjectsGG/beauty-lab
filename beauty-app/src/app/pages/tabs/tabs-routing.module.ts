@@ -8,15 +8,15 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-        { path: 'home', loadChildren: '../homeapp/homeapp.module#HomeappPageModule' },
-        { path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule' },
-        { path: 'social', loadChildren: '../social/social.module#SocialPageModule'},
-        { path: 'car-shop', loadChildren: '../car-shop/car-shop.module#CarShopPageModule'}
+        { path: 'home', loadChildren: './../homeapp/homeapp.module#HomeappPageModule' },
+        { path: 'shop', loadChildren: './../shop/shop.module#ShopPageModule' },
+        { path: 'social', loadChildren: './../social/social.module#SocialPageModule'},
+        { path: 'car-shop', loadChildren: './../car-shop/car-shop.module#CarShopPageModule'}
     ]
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];
