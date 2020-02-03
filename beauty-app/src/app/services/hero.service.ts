@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HeroService {
-  private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
+  private url: any = 'http://127.0.0.1:8000/api';
   private token: string = null;
   private user: User;
   public auth = false;
