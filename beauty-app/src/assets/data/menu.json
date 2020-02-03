@@ -2,7 +2,7 @@
     {
         "icon": "home",
         "name": "H o m e",
-        "redirectTo": "/homeapp"
+        "redirectTo": "tabs/home"
     },
     {
         "icon": "flask",
