@@ -1,5 +1,3 @@
-import { catchError } from 'rxjs/operators';
-import { Plans } from './../../model/Plans';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastService } from './../../services/toast.service';
 import { HeroService } from './../../services/hero.service';
