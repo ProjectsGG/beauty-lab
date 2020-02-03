@@ -16,10 +16,10 @@
         </ion-grid>
     
     <ion-grid fixed>
-        <ion-row >
-            <ion-col size="6" size-lg="4" size-md="4" size-xl="4" *ngFor="let img of procedures">
-                <img src="./assets/img/pyp/{{img.image}}" class="plans">
-                <ion-text color="light" ><h4 class="ion-text-center txtProc">{{img.description}}</h4></ion-text>
+        <ion-row *ngIf="procedures">
+            <ion-col size="6" size-lg="4" size-md="4" size-xl="4" *ngFor="let data of procedures">
+                <img src="./assets/img/pyp/{{data.imagen}}" class="plans">
+                <ion-text color="light" ><h4 class="ion-text-center txtProc">{{data.nombre}}</h4></ion-text>
             </ion-col>  
         </ion-row>
     </ion-grid>

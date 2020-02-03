@@ -5,24 +5,23 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class Plans extends Model
+class Procedures extends Model
 {
     use Notifiable;
 
-    protected $table = 'planes';
+    protected $table = 'procedimientos';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $primary_key = 'id_plan';
+    protected $primary_key = 'id_procedimiento';
     protected $fillable = [
         'nombre',
         'descripcion',
-        'valor',
-        'img_plan',
-        'id_habitacion'
+        'precio',
+        'imagen'
     ];
     public $timestamps = false;
 

@@ -27,5 +27,5 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 
 });
 
-
 Route::get('plans', 'PlansController@index');
+Route::get('procedures', 'ProceduresController@index');

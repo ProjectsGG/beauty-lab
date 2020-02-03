@@ -1,4 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HeroService } from './../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-procedures',
@@ -7,23 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProceduresPage implements OnInit {
 
-  constructor() { }
+  public procedures: any[];
 
-  procedures = [
-    {image: '360lipo.jpg' , description : '360Lipo'},
-    {image: 'abs.jpg', description : 'ABS'},
-    {image: 'booty.jpg', description : 'Booty'},
-    {image: 'breast.jpg', description : 'Breast'},
-    {image: 'regularlipo.jpg', description : 'Regular Lipo'},
-    {image: 'nose.jpg', description : 'Nose'},
-    {image: 'teeths.jpg', description : 'Teeths'},
-    {image: 'cheecks.jpg', description : 'Cheeks'},
-    {image: 'chin.jpg', description : 'Chin'},
-    {image: 'botox.jpg' , description : 'Botox'},
-    {image: 'eyebrow.jpg' , description : 'Cejas'}
-  ];
+  constructor(
+    private http: HttpClient,
+    private hero: HeroService
+  ) {}
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'bearer ' + this.hero.getToken()
+    })
+  };  
 
   ngOnInit() {
+    this.getProcedures();
+  }
+
+  getProcedures() {
+    this.getService()
+    .subscribe((model: any) => {
+      this.procedures = model.data;
+    });
+  }
+
+
+  getService() {
+    const url = `${this.hero.getUrl()}/procedures`;
+    return this.http.get(url, this.httpOptions);
   }
 
 }
