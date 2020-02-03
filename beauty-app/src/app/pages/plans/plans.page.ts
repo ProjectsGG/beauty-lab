@@ -1,5 +1,4 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ToastService } from './../../services/toast.service';
 import { HeroService } from './../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,8 +13,7 @@ export class PlansPage implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private hero: HeroService,
-    private toast: ToastService
+    private hero: HeroService
   ) {}
 
   httpOptions = {
@@ -30,14 +28,13 @@ export class PlansPage implements OnInit {
   }
 
   getPlans() {
-    console.log('Inicio');
-    this.getPlanServices()
+    this.getService()
     .subscribe((model: any) => {
       this.plans = model.data;
     });
   }
 
-  getPlanServices() {
+  getService() {
     const url = `${this.hero.getUrl()}/plans`;
     return this.http.get(url, this.httpOptions);
   }
