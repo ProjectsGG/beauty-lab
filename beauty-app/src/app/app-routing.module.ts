@@ -71,7 +71,15 @@ const routes: Routes = [
   {
     path: 'terms',
     loadChildren: () => import('./pages/terms/terms.module').then( m => m.TermsPageModule)
+  },  {
+    path: 'deposit',
+    loadChildren: () => import('./pages/deposit/deposit.module').then( m => m.DepositPageModule)
+  },
+  {
+    path: 'faq',
+    loadChildren: () => import('./pages/faq/faq.module').then( m => m.FaqPageModule)
   }
+
 ];
 
 @NgModule({
