@@ -25,6 +25,7 @@ export class HomeappPage implements OnInit {
       picture: 'doubleroom.png'
     },
   ];
+<<<<<<< Updated upstream
   plans = [1, 2 , 1 ];
   services = [{
     items: [ 1, 2, 3, 4, 5, 6]
@@ -32,6 +33,24 @@ export class HomeappPage implements OnInit {
   {
     items: [ 1, 2, 3, 4, 5, 6]
   }];
+=======
+  plans = [
+    '3dplan.jpg',
+    'bootyplan.jpg',
+    'superplan.jpg'
+  ];
+  proc = [
+    '360lipo.jpg',
+    'abs.jpg',
+    'booty.jpg',
+    'breast.jpg',
+    'regularlipo.jpg',
+    'nose.jpg',
+    'teeths.jpg',
+    'cheecks.jpg',
+    'chin.jpg'
+  ];
+>>>>>>> Stashed changes
   touristic = [{
     items: [1, 2, 3]
   },

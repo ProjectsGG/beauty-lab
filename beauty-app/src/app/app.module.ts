@@ -15,6 +15,9 @@ import { ViewVideoPage } from './pages/view-video/view-video.page';
 import { ModalroomsPageModule } from './pages/modalrooms/modalrooms.module';
 import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+
+
 @NgModule({
   declarations: [AppComponent, ViewVideoPage],
   entryComponents: [ViewVideoPage],
@@ -32,7 +35,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     VideoPlayer,
     Camera,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    GooglePlus
   ],
   bootstrap: [AppComponent]
 })
