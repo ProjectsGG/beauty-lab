@@ -17,10 +17,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'homeapp',
-    loadChildren: () => import('./pages/homeapp/homeapp.module').then( m => m.HomeappPageModule)
-  },
-  {
     path: 'plans',
     loadChildren: () => import('./pages/plans/plans.module').then( m => m.PlansPageModule),
     canActivate: [AuthGuard]
@@ -68,6 +64,18 @@ const routes: Routes = [
   {
     path: 'data-complete',
     loadChildren: () => import('./pages/data-complete/data-complete.module').then( m => m.DataCompletePageModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'social',
+    loadChildren: () => import('./pages/social/social.module').then( m => m.SocialPageModule)
+  },
+  {
+    path: 'car-shop',
+    loadChildren: () => import('./pages/car-shop/car-shop.module').then( m => m.CarShopPageModule)
   }
 ];
 

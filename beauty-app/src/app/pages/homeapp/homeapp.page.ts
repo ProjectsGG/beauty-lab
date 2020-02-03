@@ -25,13 +25,22 @@ export class HomeappPage implements OnInit {
       picture: 'doubleroom.png'
     },
   ];
-  plans = [1, 2 , 3 ];
-  services = [{
-    items: [ 1, 2, 3, 4, 5, 6]
-  },
-  {
-    items: [ 1, 2, 3, 4, 5, 6]
-  }];
+  plans = [
+    '3dplan.jpg',
+    'bootyplan.jpg',
+    'superplan.jpg'
+  ];
+  proc = [
+    '360lipo.jpg',
+    'abs.jpg',
+    'booty.jpg',
+    'breast.jpg',
+    'regularlipo.jpg',
+    'nose.jpg',
+    'teeths.jpg',
+    'cheecks.jpg',
+    'chin.jpg'
+  ];
   touristic = [{
     items: [1, 2, 3]
   },

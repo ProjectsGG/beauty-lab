@@ -8,21 +8,19 @@
     </ion-slides>
     <ion-slides pager="true" [options]="slideOpts" class="pos-btn-slides-2">
         <ion-slide *ngFor="let item of plans">
-            <img src="assets/img/plan{{item}}.png"  alt="picture">
+            <img src="assets/img/pyp/{{item}}"  alt="picture">
         </ion-slide>
     </ion-slides>
     <h3 class="ion-text-center">P R O C E D U R E S</h3>
-    <ion-slides pager="true" [options]="slideOpts">
-        <ion-slide *ngFor="let item of services" class="pos-btn-slides">
+    <!-- <ion-slides pager="true" [options]="slideOpts"> -->
             <ion-grid fixed>
                 <ion-row>
-                    <ion-col *ngFor="let img of item.items" size="4">
-                        <img src="assets/img/SERVICE{{img}}.png" class="img-service" alt="service">
+                    <ion-col *ngFor="let img of proc" size="4" size-md="4" size-lg="4">
+                        <img src="assets/img/pyp/{{img}}" class="img-service" alt="service" routerLink="/procedures">
                     </ion-col>
                 </ion-row>
             </ion-grid>
-        </ion-slide>
-    </ion-slides>
+    <!-- </ion-slides> -->
     <h3 class="ion-text-center">T O U R I S T I C  P L A N S</h3>
     <ion-slides pager="true" [options]="slideOpts">
         <ion-slide *ngFor="let item of touristic" class="pos-btn-slides" >
