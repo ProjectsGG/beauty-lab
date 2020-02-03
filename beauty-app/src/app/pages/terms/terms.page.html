@@ -13,6 +13,8 @@
         <ion-label >
           {{item.title}}
         </ion-label>
+        <ion-icon slot="end" name="ios-arrow-up" *ngIf='item.state'></ion-icon>
+        <ion-icon slot="end" name="ios-arrow-down" *ngIf='!item.state' ></ion-icon>
     </ion-item>  
     <div *ngIf='item.state'>
       <p class="font ion-padding">{{item.text}}</p>
