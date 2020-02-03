@@ -39,8 +39,8 @@ export class LoginPage implements OnInit {
         localStorage.setItem('token', r.token);
         this.toast.success(r.message);
         this.hero.validateSession();
-        this.router.navigate(['/homeapp']);
-        this.router.navigate(['/tabs/home']);
+        this.router.navigate(['/']);
+        // this.router.navigate(['/tabs/home']);
       } else {
         this.toast.error(r.message);
       }
