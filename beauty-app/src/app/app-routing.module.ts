@@ -31,11 +31,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'makeplan',
-    loadChildren: () => import('./pages/makeplan/makeplan.module').then( m => m.MakeplanPageModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'contact',
     loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule),
     canActivate: [AuthGuard]
@@ -71,7 +66,8 @@ const routes: Routes = [
   {
     path: 'terms',
     loadChildren: () => import('./pages/terms/terms.module').then( m => m.TermsPageModule)
-  },  {
+  },
+  {
     path: 'deposit',
     loadChildren: () => import('./pages/deposit/deposit.module').then( m => m.DepositPageModule)
   },
