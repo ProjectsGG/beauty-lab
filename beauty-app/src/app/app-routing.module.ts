@@ -21,6 +21,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'plans-detail',
+    loadChildren: () => import('./pages/plans-detail/plans-detail.module').then( m => m.PlansDetailPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'procedures',
     loadChildren: () => import('./pages/procedures/procedures.module').then( m => m.ProceduresPageModule),
     canActivate: [AuthGuard]
@@ -28,6 +33,11 @@ const routes: Routes = [
   {
     path: 'rooms',
     loadChildren: () => import('./pages/rooms/rooms.module').then( m => m.RoomsPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'makeplan',
+    loadChildren: () => import('./pages/makeplan/makeplan.module').then( m => m.MakeplanPageModule),
     canActivate: [AuthGuard]
   },
   {

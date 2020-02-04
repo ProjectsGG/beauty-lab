@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HeroService } from './../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plans',
@@ -13,7 +14,8 @@ export class PlansPage implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private hero: HeroService
+    private hero: HeroService,
+    private router: Router
   ) {}
 
   httpOptions = {
@@ -31,6 +33,7 @@ export class PlansPage implements OnInit {
     this.getService()
     .subscribe((model: any) => {
       this.plans = model.data;
+      console.log(this.plans);
     });
   }
 
@@ -38,6 +41,14 @@ export class PlansPage implements OnInit {
     const url = `${this.hero.getUrl()}/plans`;
     return this.http.get(url, this.httpOptions);
   }
+
+  getDetail( plans ) {
+    console.log(plans);
+    localStorage.setItem('plans', JSON.stringify(plans));
+    this.router.navigate(['/plans-detail']);
+  }
+
+
 
 
 }
