@@ -19,11 +19,6 @@
         "name": "R o o m s",
         "redirectTo": "/rooms"
     },
-    {
-        "icon": "hammer",
-        "name": "M a k e  P l a n",
-        "redirectTo": "/makeplan"
-    },
         {
         "icon": "mail",
         "name": "C o n t a c t  U s",

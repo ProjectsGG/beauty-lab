@@ -17,6 +17,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { PayPal } from '@ionic-native/paypal/ngx';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PayPal } from '@ionic-native/paypal/ngx';
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GooglePlus,
-    PayPal
+    PayPal,
+    YoutubeVideoPlayer
   ],
   bootstrap: [AppComponent]
 })

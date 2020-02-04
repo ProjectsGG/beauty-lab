@@ -22,7 +22,7 @@ export class ProceduresPage implements OnInit {
       'Content-Type': 'application/json',
       Authorization: 'bearer ' + this.hero.getToken()
     })
-  };  
+  };
 
   ngOnInit() {
     this.getProcedures();
