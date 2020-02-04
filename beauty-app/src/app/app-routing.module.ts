@@ -36,11 +36,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'makeplan',
-    loadChildren: () => import('./pages/makeplan/makeplan.module').then( m => m.MakeplanPageModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'contact',
     loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule),
     canActivate: [AuthGuard]

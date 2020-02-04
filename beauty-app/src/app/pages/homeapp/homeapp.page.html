@@ -2,14 +2,15 @@
 
 <ion-content class="background-bl ion-padding">
     <ion-slides pager="true" [options]="slideOpts" class="pos-btn-slides">
-        <ion-button (click)="watch('xmkzpKhB8Y4')"><img src="assets/img/party.png"></ion-button>
+        <img (click)="watch('xmkzpKhB8Y4')" class="img-hd" src="assets/img/party.png" alt="picture">
+        <!-- <ion-button (click)="watch('xmkzpKhB8Y4')"><img src="assets/img/party.png"></ion-button> -->
 <!--         <ion-slide *ngFor="let item of videos">
             <img (click)="viewVideo(item.video)" class="img-hd" src="assets/img/{{item.picture}}" alt="picture">
         </ion-slide> -->
     </ion-slides>
     <ion-slides pager="true" [options]="slideOpts" class="pos-btn-slides-2">
         <ion-slide *ngFor="let item of plans">
-            <img src="assets/img/pyp/{{item}}"  alt="picture">
+            <img src="assets/img/pyp/{{item}}"  alt="picture" routerLink="/deposit">
         </ion-slide>
     </ion-slides>
     <h3 class="ion-text-center">P R O C E D U R E S</h3>

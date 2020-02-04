@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoPlayer } from '@ionic-native/video-player/ngx';
-import { ToastService } from './../../services/toast.service';
+import { ToastService } from '../../services/toast.service';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -50,8 +51,15 @@ export class HomeappPage implements OnInit {
   {
     items: [1 , 2, 3]
   }];
-  constructor(private toast: ToastService, private videoPlayer: VideoPlayer, private youtube: YoutubeVideoPlayer) { }
+  constructor(
+    private toast: ToastService,
+    private videoPlayer: VideoPlayer,
+    public menuCtrl: MenuController,
+    private youtube: YoutubeVideoPlayer) { }
 
+  ionViewWillEnter() {
+    this.menuCtrl.enable(true);
+     }
   ngOnInit() {
   }
   viewVideo(video) {
