@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { ToastService } from './../../services/toast.service';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+
+
 @Component({
   selector: 'app-homeapp',
   templateUrl: './homeapp.page.html',
@@ -47,7 +50,7 @@ export class HomeappPage implements OnInit {
   {
     items: [1 , 2, 3]
   }];
-  constructor(private toast: ToastService, private videoPlayer: VideoPlayer) { }
+  constructor(private toast: ToastService, private videoPlayer: VideoPlayer, private youtube: YoutubeVideoPlayer) { }
 
   ngOnInit() {
   }
