@@ -21,6 +21,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'plans-detail',
+    loadChildren: () => import('./pages/plans-detail/plans-detail.module').then( m => m.PlansDetailPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'procedures',
     loadChildren: () => import('./pages/procedures/procedures.module').then( m => m.ProceduresPageModule),
     canActivate: [AuthGuard]
@@ -71,7 +76,8 @@ const routes: Routes = [
   {
     path: 'terms',
     loadChildren: () => import('./pages/terms/terms.module').then( m => m.TermsPageModule)
-  },  {
+  },
+  {
     path: 'deposit',
     loadChildren: () => import('./pages/deposit/deposit.module').then( m => m.DepositPageModule)
   },
