@@ -28,16 +28,6 @@ export class TermsPage implements OnInit {
     +'daño incluyendo, pero no limitado a, daños directos, indirectos, especiales, fortuitos o consecuentes'
     +'u otras pérdidas resultantes del uso o de la imposibilidad de utilizar nuestros productos.',
     state: false
-  },
-  {
-    title: 'Something else',
-    text: 'dasdddasd',
-    state: false
-  },
-  {
-    title: 'dsdasdwada',
-    text: 'dasdddasd',
-    state: false
   }
 ];
 
