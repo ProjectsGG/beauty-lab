@@ -40,7 +40,8 @@ export class HeroService {
       this.token = token;
       this.user = JSON.parse(localStorage.getItem('user'));
       this.auth = true;
-      this.refreshToken();
+      this.router.navigate(['/tabs/home']);
+      // this.refreshToken();
     }
   }
   logout() {

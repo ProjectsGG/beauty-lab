@@ -16,6 +16,7 @@ import { ModalroomsPageModule } from './pages/modalrooms/modalrooms.module';
 import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { PayPal } from '@ionic-native/paypal/ngx';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
     VideoPlayer,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    GooglePlus
+    GooglePlus,
+    PayPal
   ],
   bootstrap: [AppComponent]
 })

@@ -33,6 +33,11 @@
         "icon": "contact",
         "name": "P r o f i l e",
         "redirectTo": "/profile"
+    },
+    {
+        "icon": "help",
+        "name": "F A Q",
+        "redirectTo": "/faq"
     }
     ,
     {

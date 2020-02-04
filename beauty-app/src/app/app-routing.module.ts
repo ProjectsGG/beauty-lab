@@ -3,7 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   {
     path: 'inicio',
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
@@ -70,13 +69,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
-    path: 'social',
-    loadChildren: () => import('./pages/social/social.module').then( m => m.SocialPageModule)
+    path: 'terms',
+    loadChildren: () => import('./pages/terms/terms.module').then( m => m.TermsPageModule)
+  },  {
+    path: 'deposit',
+    loadChildren: () => import('./pages/deposit/deposit.module').then( m => m.DepositPageModule)
   },
   {
-    path: 'car-shop',
-    loadChildren: () => import('./pages/car-shop/car-shop.module').then( m => m.CarShopPageModule)
+    path: 'faq',
+    loadChildren: () => import('./pages/faq/faq.module').then( m => m.FaqPageModule)
   }
+
 ];
 
 @NgModule({
