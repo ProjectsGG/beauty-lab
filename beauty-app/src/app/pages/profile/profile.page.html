@@ -1,22 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/homeapp"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center">Profile</ion-title>
-    <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
+<app-header></app-header>
 <ion-content fullscream>
   <ion-grid class="ion-no-padding">
     <ion-row>
       <ion-col size="0" size-md="2" size-lg="3"></ion-col>
       <ion-col class="content-img" size="12" size-md="8" size-lg="6">
         <div class="ion-text-center">
-          <img class="logo-img" src="assets/logoBL/whiteLogoH.png" alt="">
           <h2 class="font-title">Y o u r P r o f i l e</h2>
           <img class="profile-img" src="assets/img/PROFILEPICTURE.png" alt="profileuser">
           <h4>{{data.nombres}}</h4>
