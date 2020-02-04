@@ -2,9 +2,10 @@
 
 <ion-content class="background-bl ion-padding">
     <ion-slides pager="true" [options]="slideOpts" class="pos-btn-slides">
-        <ion-slide *ngFor="let item of videos">
+        <ion-button (click)="watch('xmkzpKhB8Y4')"><img src="assets/img/party.png"></ion-button>
+<!--         <ion-slide *ngFor="let item of videos">
             <img (click)="viewVideo(item.video)" class="img-hd" src="assets/img/{{item.picture}}" alt="picture">
-        </ion-slide>
+        </ion-slide> -->
     </ion-slides>
     <ion-slides pager="true" [options]="slideOpts" class="pos-btn-slides-2">
         <ion-slide *ngFor="let item of plans">

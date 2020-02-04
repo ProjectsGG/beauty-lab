@@ -61,4 +61,8 @@ export class HomeappPage implements OnInit {
       this.toast.error(err);
     });
   }
+
+  watch(watch) {
+    this.youtube.openVideo(watch);
+  }
 }
