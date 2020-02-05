@@ -121,7 +121,7 @@ export class FaqPage implements OnInit {
     state: false
   },
   {
-    title: 'WHY IS THE 500 DOLLAR DEPOSIT NOT REFUNDABLE?',
+    title: 'WHY THE 500 DOLLAR DEPOSIT NOT REFUNDABLE?',
     text: 'The 500 dollar deposit that you pay in advance is not refundable because this money is used to separate'  
      + 'or reserve your room at the mansion, otherwise if you can´t make it to Colombia this will assure us as a company' 
      + 'that we are not going to lose any money if we said no to other potential clients that needed that stay. The 500' 
