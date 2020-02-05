@@ -98,7 +98,7 @@ class APIController extends Controller
         if($validation->fails()){
             return response()->json([
                 'ok'=>false,
-                'errors'=>$validation->errors()
+                'error'=>$validation->errors()->first()
             ]);
         }else{
             $user = new User();

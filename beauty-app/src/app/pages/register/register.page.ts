@@ -45,7 +45,7 @@ export class RegisterPage implements OnInit {
         this.hero.validateSession();
         this.router.navigate(['/tabs/home']);
       } else {
-        this.toast.error(r.message);
+        this.toast.error(r.error);
       }
     });
   }
@@ -57,17 +57,5 @@ export class RegisterPage implements OnInit {
       movil: null,
       password_confirmation: null
     };
-  }
-  listError(e) {
-    let bander = true;
-    // tslint:disable-next-line: prefer-const
-    for (let i in e) {
-      if (e.hasOwnProperty(i)) {
-        if (bander) {
-          this.toast.error(e[i]);
-          bander = false;
-        }
-      }
-    }
   }
 }
