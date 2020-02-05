@@ -1,15 +1,16 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home">
+    <ion-tab-button tab="home" (click)="setValue(1)">
       <ion-icon name="home"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button tab="shop">
-      <ion-icon name="apps"></ion-icon>
+    <ion-tab-button tab="shop" (click)="setValue(1)">
+      <ion-icon ios="ios-basket" md="md-basket"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button tab="social">
-      <ion-icon name="cloud"></ion-icon>
+    <ion-tab-button tab="social" (click)="setValue(2)">
+      <img class="tab-logo" src="assets/logo/Gray Logo Bl.png" *ngIf="!iconSocial">
+      <img class="tab-logo" src="assets/logo/Focus Beautylab icon.png" *ngIf="iconSocial">
     </ion-tab-button>
-    <ion-tab-button tab="car-shop">
+    <ion-tab-button tab="car-shop" (click)="setValue(1)">
       <ion-icon name="cart"></ion-icon>
     </ion-tab-button>
   </ion-tab-bar>
