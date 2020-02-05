@@ -1,6 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HeroService } from '../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
+import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
+import { ToastService } from '../../services/toast.service';
+
 
 @Component({
   selector: 'app-plans',
@@ -13,9 +16,16 @@ export class PlansDetailPage implements OnInit {
   public rooms: any[];
   public room: any;
 
+  public paymentAmount = '500';
+  public currency = 'USD';
+  public currencyIcon = '$';
+
+
   constructor(
     private http: HttpClient,
-    private hero: HeroService
+    private hero: HeroService,
+    private payPal: PayPal,
+    public toastr: ToastService
   ) {}
 
   httpOptions = {
@@ -46,6 +56,32 @@ export class PlansDetailPage implements OnInit {
   getService(id) {
     const url = `${this.hero.getUrl()}/room/` + id;
     return this.http.get(url, this.httpOptions);
+  }
+
+
+  payWithPaypal() {
+    console.log('Pay!!!!!!');
+    this.payPal.init({
+      PayPalEnvironmentProduction: 'ARWrJ5pdmpzKphRRLPijQKobEXbgnqV19iWT_kSSGR8HyRnTxcNAYLFxvN4CwtsDEI6aVqUpOt1QW3BE',
+      PayPalEnvironmentSandbox: 'sb-c6oa43982474@business.example.com'
+    }).then(() => {
+      // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
+      this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+      })).then(() => {
+        const payment = new PayPalPayment(
+          this.paymentAmount, this.currency, this.plans.nombre, 'sale beauty lab ' + this.plans.nombre);
+        this.payPal.renderSinglePaymentUI(payment).then((res) => {
+          console.log('respuesta : ',res);
+          this.toastr.success('Successful payment');
+        }, () => {
+          this.toastr.error('Error or render dialog closed without being successful');
+        });
+      }, () => {
+       this.toastr.error('Error in the configuration the PayPal');
+      });
+    }, () => {
+      this.toastr.error('Paypal initialization failed');
+    });
   }
 
 
