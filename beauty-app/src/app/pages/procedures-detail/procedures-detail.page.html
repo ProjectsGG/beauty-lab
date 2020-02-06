@@ -1,0 +1,39 @@
+<app-header titulo="BeautyLab Procedures"></app-header>
+<ion-content class="ion-padding">
+<ion-grid>
+    <ion-row>
+      <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
+      <ion-col size="12" size-sm="12" size-md="6" size-lg="4">
+        <div>
+          <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="">
+        </div>
+        <h3 class="ion-text-center">B u y N o w</h3>
+        <img class="img-depos" src="assets/img/pyp/{{procedures.imagen}}" alt="" srcset="">
+        <h3 class="ion-text-center textCss">{{procedures.nombre}}</h3>
+        <br>
+        <p>{{procedures.descripcion}}</p>
+        <ion-grid fixed *ngIf="rooms">
+            <ion-row>
+                <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
+                    <ion-text color="light">
+                        <h3 class="ion-text-center textCss">Details Room</h3>
+                      </ion-text>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">Room:</ion-col>
+                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">{{room.nombre}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">comfort:</ion-col>
+                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">{{room.comodidades}}</ion-col>
+            </ion-row>
+        </ion-grid>        
+        <h4 class="ion-text-center">$500 USD</h4>
+        <ion-button expand="block" class="button-pay" (click)="payWithPaypal()">Make Deposit</ion-button>
+      </ion-col>
+      <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

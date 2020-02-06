@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HeroService } from './../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-procedures',
@@ -14,7 +14,8 @@ export class ProceduresPage implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private hero: HeroService
+    private hero: HeroService,
+    private router: Router
   ) {}
 
   httpOptions = {
@@ -39,6 +40,12 @@ export class ProceduresPage implements OnInit {
   getService() {
     const url = `${this.hero.getUrl()}/procedures`;
     return this.http.get(url, this.httpOptions);
+  }
+
+  getDetail( procedures ) {
+    console.log(procedures);
+    localStorage.setItem('procedures', JSON.stringify(procedures));
+    this.router.navigate(['/procedures-detail']);
   }
 
 }
