@@ -33,15 +33,6 @@
         "icon": "help",
         "name": "F A Q",
         "redirectTo": "/faq"
-    }
-    ,
-    {
-        "icon": "log-out",
-        "name": "L o g o u t",
-        "redirectTo": ""
-    }
-
-
-    
+    }    
 ]
 

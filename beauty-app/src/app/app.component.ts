@@ -25,10 +25,10 @@ export class AppComponent {
     await this.hero.validateSession();
 
     this.platform.ready().then(() => {
-      this.statusBar.styleLightContent();
-      this.statusBar.overlaysWebView(true);
+      this.statusBar.styleDefault();
+      this.statusBar.overlaysWebView(false);
 
-      this.statusBar.backgroundColorByHexString('#ff7dee');
+      this.statusBar.backgroundColorByHexString('#f802d8');
       this.splashScreen.hide();
     });
   }

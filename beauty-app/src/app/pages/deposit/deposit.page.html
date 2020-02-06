@@ -1,3 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button slot="start"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="ion-padding">
   <ion-grid>
     <ion-row>
@@ -11,7 +18,7 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, dicta nam esse sit provident ea repellat quos
           iste, minus est impedit quis quas accusantium assumenda magnam incidunt quam, labore vero.</p>
         <h4 class="ion-text-center">$500 USD</h4>
-        <ion-button expand="block" class="button-pay">Make Deposit</ion-button>
+        <ion-button expand="block" class="button-pay"  (click)="payWithPaypal()">Make Deposit</ion-button>
         <!-- <p class="ion-text-center dec" routerLink="/terms">Terms and conditions</p> -->
       </ion-col>
       <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>

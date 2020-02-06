@@ -24,10 +24,8 @@ export class MenuComponent implements OnInit {
     this.componentes = this.dataService.getMenuOpts();
     this.genNameUser();
   }
-  logout(name) {
-    if (name === 'L o g o u t') {
+  logout() {
       this.auth.logout();
-    }
   }
   redirect() {
     this.router.navigate(['/profile']);
