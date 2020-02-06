@@ -1,38 +1,92 @@
+<ion-header>
+    <ion-buttons>
+      <ion-back-button slot="start"></ion-back-button>
+    </ion-buttons>
+</ion-header>
 
 <ion-content>
   <ion-row>
-    <ion-col size="12" size-sm="12" size-md="3" size-lg="3"></ion-col>
-  <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
-<img class="logo-terms" src="assets/logo/whiteLogoH.png">
-  </ion-col>
-    <ion-col size="12" size-sm="12" size-md="3" size-lg="3"></ion-col>
-</ion-row>
+    <ion-col
+      size="12"
+      size-sm="12"
+      size-md="3"
+      size-lg="3"
+    ></ion-col>
+
+    <ion-col
+      size="12"
+      size-sm="12"
+      size-md="6"
+      size-lg="6"
+    >
+      <img
+        class="logo-terms"
+        src="assets/logo/whiteLogoH.png"
+      >
+    </ion-col>
+
+    <ion-col
+      size="12"
+      size-sm="12"
+      size-md="3"
+      size-lg="3"
+    ></ion-col>
+  </ion-row>
+
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-sm="12" size-md="3" size-lg="3"></ion-col>
-    <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
-  
-<ion-card>
- <ion-list class="noborder" lines='full'>
-  <div *ngFor="let item of termsContent; let i = index">
-    <ion-item (click)="showText(i)">
-        <ion-label >
-          {{item.title}}
-        </ion-label>
-        <ion-icon slot="end" name="ios-arrow-up" *ngIf='item.state'></ion-icon>
-        <ion-icon slot="end" name="ios-arrow-down" *ngIf='!item.state' ></ion-icon>
-    </ion-item >  
-    <div class="border-terms">
-      <p *ngIf='item.state' class="font ion-padding">{{item.text}}</p>
-    </div>
-  </div>
-  
-  
+      <ion-col
+        size="12"
+        size-sm="12"
+        size-md="3"
+        size-lg="3"
+      ></ion-col>
 
-</ion-list>
-</ion-card>
-</ion-col>
-<ion-col size="12" size-sm="12" size-md="3" size-lg="3"></ion-col>
-</ion-row>
-</ion-grid>
-</ion-content>  
+      <ion-col
+        size="12"
+        size-sm="12"
+        size-md="6"
+        size-lg="6"
+      >
+        <ion-card>
+          <ion-list
+            class="noborder"
+            lines="full"
+          >
+            <div *ngFor="let item of termsContent; let i = index">
+              <ion-item (click)="showText(i)">
+                <ion-label>{{item.title}}</ion-label>
+
+                <ion-icon
+                  slot="end"
+                  name="ios-arrow-up"
+                  *ngIf="item.state"
+                ></ion-icon>
+
+                <ion-icon
+                  slot="end"
+                  name="ios-arrow-down"
+                  *ngIf="!item.state"
+                ></ion-icon>
+              </ion-item>
+
+              <div class="border-terms">
+                <p
+                  *ngIf="item.state"
+                  class="font ion-padding"
+                >{{item.text}}</p>
+              </div>
+            </div>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+
+      <ion-col
+        size="12"
+        size-sm="12"
+        size-md="3"
+        size-lg="3"
+      ></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

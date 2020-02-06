@@ -17,7 +17,7 @@ export class TermsPage implements OnInit {
      + 'una página web tercera y en tal caso estarían sujetas a sus propios Términos y Condiciones. En algunos'
      + 'casos, para adquirir un producto, será necesario el registro por parte del usuario, con ingreso de'
      + 'datos personales fidedignos y definición de una contraseña.',
-    state: false
+    state: true
   },
   {
     title: 'Policy and Privacy',
