@@ -8,7 +8,7 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class ContactPage implements OnInit {
 
-  constructor( public socialMedia: ActionSheetController ) { }
+  constructor( public socialMedia: ActionSheetController) { }
   async showActionSheet() {
     const actionMedia = await this.socialMedia.create({
       header: 'Share',
@@ -17,7 +17,7 @@ export class ContactPage implements OnInit {
         icon: 'logo-whatsapp',
         cssClass: 'green-wpp',
         handler: () => {
-          console.log('Wpp clic');
+          location.href = 'https://wa.me/573003408407?text=%20Hi,%20Im%20interested%20in%20BeautyLab';
         }
       }, {
         text: 'Mail',
