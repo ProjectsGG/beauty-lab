@@ -1,17 +1,35 @@
-<app-header titulo="BeautyLab Plans"></app-header>
+<!-- <app-header titulo="BeautyLab Plans">
+</app-header> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <img routerLink="/tabs/home" src="../../../assets/img/horizontal_logo.png" class="img-header">
+    <ion-buttons slot="end">
+      <ion-avatar routerLink="/profile">
+        <img  class="header-style" src="/assets/img/PROFILEPICTURE.png">
+      </ion-avatar>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="ion-padding">
 <ion-grid>
     <ion-row>
       <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
       <ion-col size="12" size-sm="12" size-md="6" size-lg="4">
         <div>
-          <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="">
+          <ion-text color="light"><h1 class="ion-text-center home">{{plans.nombre}}</h1></ion-text>
         </div>
-        <h3 class="ion-text-center">B u y N o w</h3>
-        <img class="img-depos" src="assets/img/pyp/{{plans.img_plan}}" alt="" srcset="">
-        <h3 class="ion-text-center textCss">{{plans.nombre}}</h3>
+  
+        <img class="plans" src="assets/img/pyp/{{plans.img_plan}}" alt="" srcset="">
+        
         <br>
-        <p>{{plans.descripcion}}</p>
+        <ion-text color="light"><h2 class="ion-text-center txtdescription">Description Plan: <br> {{plans.descripcion}}</h2></ion-text>
+        <br>
+        <ion-text color="light"><h1 class="ion-text-center home">B u y  N o w</h1></ion-text>
         <ion-grid fixed *ngIf="rooms">
             <ion-row>
                 <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
@@ -21,12 +39,20 @@
                 </ion-col>
             </ion-row>
             <ion-row>
-                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">Room:</ion-col>
-                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">{{room.nombre}}</ion-col>
+                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
+                  <ion-text color="light"><p class="txtdescription">Room:</p></ion-text>
+                </ion-col>
+                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
+                  <ion-text color="light"><p class="txtdescription">{{room.nombre}}</p></ion-text>
+                </ion-col>
             </ion-row>
             <ion-row>
-                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">comfort:</ion-col>
-                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">{{room.comodidades}}</ion-col>
+                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
+                  <ion-text color="light"><p class="txtdescription">Confort:</p></ion-text>
+                </ion-col>
+                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
+                  <ion-text color="light"><p class="txtdescription">{{room.comodidades}}</p></ion-text>
+                </ion-col>
             </ion-row>
         </ion-grid>        
         <h4 class="ion-text-center">$500 USD</h4>
