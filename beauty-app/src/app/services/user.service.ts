@@ -46,4 +46,16 @@ export class UserService {
       }
     });
   }
+  uploadPhotos(data) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
+    const url =  this.hero.getUrl() + '/user/upload/photos';
+    return this.http.put(url, data, httpOptions).subscribe((r: any) => {
+      console.log(r);
+    });
+  }
 }

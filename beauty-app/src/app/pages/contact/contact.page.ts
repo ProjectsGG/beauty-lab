@@ -8,7 +8,7 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class ContactPage implements OnInit {
 
-  constructor( public socialMedia: ActionSheetController ) { }
+  constructor( public socialMedia: ActionSheetController) { }
   async showActionSheet() {
     const actionMedia = await this.socialMedia.create({
       header: 'Share',
