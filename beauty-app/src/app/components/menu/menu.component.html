@@ -8,21 +8,38 @@
             <h4 class="margins">{{name}} </h4>
             <h6 class="margins link">https://beautylab.com.co</h6>
             <p class="bl-points">
-              B L P o i n t s  <br>
+              B L P o i n t s <br>
               100
-            </p>
+             </p>
             <img (click)="redirect()" class="center bl-logo" src="assets/logoBL/whiteLogoV.png" alt="">
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
-    <ion-list>
+    <ion-list lines="none">
+<!--       <ion-menu-toggle> 
+        <ion-item routerLink="/inicio">
+        <ion-icon slot="start" name="arrow-dropright"></ion-icon>
+        <ion-label class="font">Start</ion-label>
+        </ion-item> 
+      </ion-menu-toggle> -->
       <ion-menu-toggle *ngFor="let c of componentes | async"> 
-        <ion-item [routerLink]="c.redirectTo" (click)="logout(c.name)">
+        <ion-item [routerLink]="c.redirectTo">
         <ion-icon slot="start" [name]="c.icon"></ion-icon>
         <ion-label class="font">{{c.name}}</ion-label>
         </ion-item> 
       </ion-menu-toggle>
     </ion-list>
+    <hr>
+    <div class="settings">
+      <ion-list lines="none">
+        <ion-menu-toggle> 
+          <ion-item lines="none" (click)="logout()" >
+          <ion-icon slot="start" name="log-out"></ion-icon>
+          <ion-label class="font">L o g o u t</ion-label>
+          </ion-item> 
+        </ion-menu-toggle>
+      </ion-list>
+    </div>
   </ion-content>
 </ion-menu>

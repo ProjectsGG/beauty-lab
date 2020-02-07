@@ -6,13 +6,13 @@ import { ToastService } from '../../services/toast.service';
 
 
 @Component({
-  selector: 'app-plans',
-  templateUrl: './plans-detail.page.html',
-  styleUrls: ['./plans-detail.page.scss'],
+  selector: 'app-procedures',
+  templateUrl: './procedures-detail.page.html',
+  styleUrls: ['./procedures-detail.page.scss'],
 })
-export class PlansDetailPage implements OnInit {
+export class ProceduresDetailPage implements OnInit {
 
-  public plans: any;
+  public procedures: any;
   public rooms: any[];
   public room: any;
 
@@ -36,12 +36,12 @@ export class PlansDetailPage implements OnInit {
   };
 
   ngOnInit() {
-    this.getPlan();
+    this.getProcedure();
   }
 
-  getPlan() {
-    this.plans = JSON.parse(localStorage.getItem('plans'));
-    this.getRoom(this.plans.id_habitacion);
+  getProcedure() {
+    this.procedures = JSON.parse(localStorage.getItem('procedures'));
+    this.getRoom(1);
   }
 
   getRoom(id) {
@@ -69,7 +69,7 @@ export class PlansDetailPage implements OnInit {
       this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
       })).then(() => {
         const payment = new PayPalPayment(
-          this.paymentAmount, this.currency, this.plans.nombre, 'sale beauty lab ' + this.plans.nombre);
+          this.paymentAmount, this.currency, this.procedures.nombre, 'sale beauty lab ' + this.procedures.nombre);
         this.payPal.renderSinglePaymentUI(payment).then((res) => {
           console.log('respuesta : ',res);
           this.toastr.success('Successful payment');
