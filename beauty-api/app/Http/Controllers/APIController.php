@@ -7,8 +7,11 @@ use JWTAuth;
 use App\Models\User;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\RegistrationFormRequest;
+use App\Mail\Verify;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Validator;
+
 class APIController extends Controller
 {
     /**
@@ -29,7 +32,7 @@ class APIController extends Controller
                 'message' => 'Invalid Email or Password',
             ]);
         }
-        $user = User::where('email',$request->all()['email'])->first();
+        $user = User::where('email', $request->all()['email'])->first();
 
         return response()->json([
             'ok' => true,
@@ -40,13 +43,13 @@ class APIController extends Controller
     }
 
     public function refresh()
-   {
+    {
         $token = JWTAuth::getToken();
         $new_token = JWTAuth::refresh($token);
-       return response()->json([
-           'new_token' => $new_token
-       ]);
-   }
+        return response()->json([
+            'new_token' => $new_token
+        ]);
+    }
 
     /**
      * @param Request $request
@@ -54,7 +57,7 @@ class APIController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function logout(Request $request)
-    {   
+    {
         // dd($request->all());
         $this->validate($request, [
             'token' => 'required'
@@ -81,41 +84,50 @@ class APIController extends Controller
      */
     public function register(Request $request)
     {
-        $input = $request->all();
+        try {
+            $input = $request->all();
 
-        $validation = Validator::make($input,[
-            'nombres' => 'required|string',
-            'movil' => 'required|string',
-            'email' => 'required|email|unique:usuarios',
-            'password' => 'required|string|min:6|max:10'
-        ])->setAttributeNames([
-            'nombres' => 'name',
-            'movil' => 'phone',
-            'email' => 'email',
-            'password' => 'password'
-        ]);
-
-        if($validation->fails()){
-            return response()->json([
-                'ok'=>false,
-                'error'=>$validation->errors()->first()
+            $validation = Validator::make($input, [
+                'nombres' => 'required|string',
+                'movil' => 'required|string',
+                'email' => 'required|email|unique:usuarios',
+                'password' => 'required|string|min:6|max:10'
+            ])->setAttributeNames([
+                'nombres' => 'name',
+                'movil' => 'phone',
+                'email' => 'email',
+                'password' => 'password'
             ]);
-        }else{
-            $user = new User();
-            $user->nombres = $request->nombres;
-            $user->movil = $request->movil;
-            $user->email = $request->email;
-            $user->password = bcrypt($request->password);
-            $user->save();
 
-            if ($this->loginAfterSignUp) {
-                return $this->login($request);
+            if ($validation->fails()) {
+                return response()->json([
+                    'ok' => false,
+                    'error' => $validation->errors()->first()
+                ]);
+            } else {
+                $user = new User();
+                $user->nombres = $request->nombres;
+                $user->movil = $request->movil;
+                $user->email = $request->email;
+                $user->password = bcrypt($request->password);
+                $user->save();
+
+                Mail::to($user->email)->send(new Verify($user));
+
+                if ($this->loginAfterSignUp) {
+                    return $this->login($request);
+                }
+
+                return response()->json([
+                    'ok' =>  true,
+                    'data' =>  $user
+                ], 200);
             }
-
+        } catch (\Throwable $th) {
             return response()->json([
-                'ok'   =>  true,
-                'data'      =>  $user
-            ], 200);
+                'ok' => false,
+                'error' => $th->getMessage()
+            ]);
         }
     }
     public function me()
