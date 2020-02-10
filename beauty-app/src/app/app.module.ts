@@ -18,7 +18,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { PayPal } from '@ionic-native/paypal/ngx';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
-
+import { File } from '@ionic-native/File/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
 
 @NgModule({
   declarations: [AppComponent, ViewVideoPage],
@@ -40,7 +42,10 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GooglePlus,
     PayPal,
-    YoutubeVideoPlayer
+    YoutubeVideoPlayer,
+    File,
+    WebView,
+    FilePath
   ],
   bootstrap: [AppComponent]
 })
