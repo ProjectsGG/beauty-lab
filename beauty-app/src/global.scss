@@ -68,3 +68,55 @@ ion-menu{
 .gray-msg span{
     color: #B2BCBF;
 }
+@keyframes ldio-0crlo2y4m0zh {
+    0% {
+      top: 48.72px;
+      left: 48.72px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 97.44px;
+      height: 97.44px;
+      opacity: 0;
+    }
+  }
+  
+  .ldio-0crlo2y4m0zh div {
+    position: absolute;
+    border-width: 52.779999999999994px;
+    border-style: solid;
+    opacity: 1;
+    border-radius: 50%;
+    animation: ldio-0crlo2y4m0zh 1.7543859649122806s cubic-bezier(0,0.2,0.8,1) infinite;
+  }
+  
+  .ldio-0crlo2y4m0zh div:nth-child(1) {
+    border-color: #abc5fc
+  }
+  
+  .ldio-0crlo2y4m0zh div:nth-child(2) {
+    border-color: #fafafa;
+    animation-delay: -0.8771929824561403s;
+  }
+  
+  .loading {
+    width: 203px;
+    height: 203px;
+    display: inline-block;
+    overflow: hidden;
+    background: none;
+  }
+  .ldio-0crlo2y4m0zh {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+  }
+  .ldio-0crlo2y4m0zh div { box-sizing: content-box; }
+  

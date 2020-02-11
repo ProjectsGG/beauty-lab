@@ -13,8 +13,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./register.page.scss']
 })
 export class RegisterPage implements OnInit {
-  isRegister = false;
-  process = false;
+  registerOp = 1;
   message = '';
   public data: User = {
     nombres: null,
@@ -38,12 +37,12 @@ export class RegisterPage implements OnInit {
     }
   }
   register() {
-    this.process = true;
+    this.registerOp = 2;
     this.auth.register(this.data)
     .subscribe((r: any) => {
-    this.process = false;
+    this.registerOp = 1;
     if (r.ok) {
-        this.isRegister = true;
+        this.registerOp = 3;
         this.message = r.message;
         this.clear();
         // localStorage.setItem('user', JSON.stringify(r.user));
@@ -66,8 +65,7 @@ export class RegisterPage implements OnInit {
     };
   }
   login() {
-    this.isRegister = false;
-    this.process = false;
+    this.registerOp = 1;
     this.message = '';
     this.router.navigate(['/login']);
   }
