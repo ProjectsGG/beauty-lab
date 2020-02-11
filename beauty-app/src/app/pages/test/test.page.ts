@@ -3,7 +3,7 @@ import {
   Camera,
   CameraOptions,
   PictureSourceType
-} from '@ionic-native/Camera/ngx';
+} from '@ionic-native/camera/ngx';
 import {
   ActionSheetController,
   ToastController,
