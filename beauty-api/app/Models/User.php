@@ -37,7 +37,9 @@ class User extends Authenticatable implements JWTSubject
         'img_perfil',
         'nombre_contacto',
         'telefono_contacto',
-        'rh'
+        'rh',
+        'verify_token',
+        'verify'
     ];
     public $timestamps = false;
     /**

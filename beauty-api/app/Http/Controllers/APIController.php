@@ -25,21 +25,34 @@ class APIController extends Controller
     public function login(Request $request)
     {
         $input = $request->only('email', 'password');
-        $token = null;
-        if (!$token = JWTAuth::attempt($input)) {
+        $user = User::where('email', $request->all()['email'])->first();
+        if ($user != null) {
+            if ($user->verify == 1) {
+                $token = null;
+                if (!$token = JWTAuth::attempt($input)) {
+                    return response()->json([
+                        'ok' => false,
+                        'message' => 'Invalid Email or Password',
+                    ]);
+                }
+                return response()->json([
+                    'ok' => true,
+                    'message' => "Welcome to beautylab!",
+                    'user' => $user,
+                    'token' => $token
+                ]);
+            } else {
+                return response()->json([
+                    'ok' => false,
+                    'message' => 'This account is not verified'
+                ]);
+            }
+        }else {
             return response()->json([
                 'ok' => false,
                 'message' => 'Invalid Email or Password',
             ]);
         }
-        $user = User::where('email', $request->all()['email'])->first();
-
-        return response()->json([
-            'ok' => true,
-            'message' => "Welcome to beautylab!",
-            'user' => $user,
-            'token' => $token
-        ]);
     }
 
     public function refresh()
@@ -110,16 +123,18 @@ class APIController extends Controller
                 $user->movil = $request->movil;
                 $user->email = $request->email;
                 $user->password = bcrypt($request->password);
+                $user->verify_token = str_shuffle("abcdefghijklmnopqrstuvwxyz0123456789" . uniqid());
                 $user->save();
 
                 Mail::to($user->email)->send(new Verify($user));
 
-                if ($this->loginAfterSignUp) {
-                    return $this->login($request);
-                }
+                // if ($this->loginAfterSignUp) {
+                //     return $this->login($request);
+                // }
 
                 return response()->json([
                     'ok' =>  true,
+                    'message' => "Please check your email to confirm it's you",
                     'data' =>  $user
                 ], 200);
             }
@@ -137,5 +152,21 @@ class APIController extends Controller
     public function guard()
     {
         return Auth::guard();
+    }
+    public function verify($token)
+    {
+        $user = User::where('verify_token', $token)->first();
+        $message = '';
+        if ($user != null) {
+            if ($user->verify == 1) {
+                $message = 'This account has already been verified.';
+            } else {
+                $user->update(['verify' => 1]);
+                $message = 'Account verified successfully, now you can enter the application';
+            }
+        } else {
+            $message = 'Could not find this account';
+        }
+        return view('auth.verify', compact('message'));
     }
 }

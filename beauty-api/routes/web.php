@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/verify/{token}','APIController@verify')->name('verify');
 Route::get('/', function () {
     return view('welcome');
 });
