@@ -31,7 +31,7 @@ export class ContactPage implements OnInit {
         icon: 'cloud-outline',
         cssClass: 'gray-msg',
         handler: () => {
-          console.log('Message clic');
+        console.log('Message clic');
         },
       },
        {

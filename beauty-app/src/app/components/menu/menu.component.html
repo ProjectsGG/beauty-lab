@@ -17,12 +17,12 @@
       </ion-grid>
     </div>
     <ion-list lines="none">
-      <ion-menu-toggle> 
+<!--       <ion-menu-toggle> 
         <ion-item routerLink="/inicio">
         <ion-icon slot="start" name="arrow-dropright"></ion-icon>
         <ion-label class="font">Start</ion-label>
         </ion-item> 
-      </ion-menu-toggle>
+      </ion-menu-toggle> -->
       <ion-menu-toggle *ngFor="let c of componentes | async"> 
         <ion-item [routerLink]="c.redirectTo">
         <ion-icon slot="start" [name]="c.icon"></ion-icon>
