@@ -13,6 +13,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./register.page.scss']
 })
 export class RegisterPage implements OnInit {
+  registerOp = 1;
+  message = '';
   public data: User = {
     nombres: null,
     email: null,
@@ -35,15 +37,19 @@ export class RegisterPage implements OnInit {
     }
   }
   register() {
+    this.registerOp = 2;
     this.auth.register(this.data)
     .subscribe((r: any) => {
-      if (r.ok) {
+    this.registerOp = 1;
+    if (r.ok) {
+        this.registerOp = 3;
+        this.message = r.message;
         this.clear();
-        localStorage.setItem('user', JSON.stringify(r.user));
-        localStorage.setItem('token', r.token);
-        this.toast.success(r.message);
-        this.hero.validateSession();
-        this.router.navigate(['/tabs/home']);
+        // localStorage.setItem('user', JSON.stringify(r.user));
+        // localStorage.setItem('token', r.token);
+        // this.toast.success(r.message);
+        // this.hero.validateSession();
+        // this.router.navigate(['/tabs/home']);
       } else {
         this.toast.error(r.error);
       }
@@ -57,5 +63,10 @@ export class RegisterPage implements OnInit {
       movil: null,
       password_confirmation: null
     };
+  }
+  login() {
+    this.registerOp = 1;
+    this.message = '';
+    this.router.navigate(['/login']);
   }
 }

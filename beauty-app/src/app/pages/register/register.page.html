@@ -11,13 +11,18 @@
   </ion-grid>
 
   <ion-text color="light">
-    <h1 class="ion-text-center home">R E G I S T E R</h1>
+    <h1 *ngIf="registerOp === 1" class="ion-text-center home">R E G I S T E R</h1>
   </ion-text>
   <!-- <h3 class="ion-text-center">First Step</h3> -->
   <ion-grid>
     <ion-row>
       <ion-col size="0" size-md="2" size-lg="4"></ion-col>
-      <ion-col size="12" size-md="8" size-lg="4">
+      <ion-col *ngIf="registerOp === 3" size="12" size-md="8" size-lg="4">
+        <h3 class="message">{{message}}</h3>
+        <br>
+        <ion-button expand="block" class="button-login" (click)="login()">Back to the login</ion-button>
+      </ion-col>
+      <ion-col *ngIf="registerOp === 1" size="12" size-md="8" size-lg="4">       
         <ion-row>
           <ion-col size="2">
             <ion-icon class="icon" name="person" color="light"></ion-icon>
@@ -68,6 +73,14 @@
           </ion-col>
         </ion-row>
         <ion-button expand="block" class="button-login" (click)="register()">REGISTER</ion-button>
+      </ion-col>
+      <ion-col *ngIf="registerOp === 2" size="12" size-md="8" size-lg="4">
+        <div class="padd-top loading center">
+          <div class="ldio-0crlo2y4m0zh">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
       </ion-col>
       <ion-col size="0" size-md="2" size-lg="4"></ion-col>
     </ion-row>

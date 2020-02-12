@@ -70,6 +70,8 @@ create table if not exists `usuarios` (
   `nombre_contacto` varchar(100) null,
   `telefono_contacto` varchar(100) null,
   `rh` varchar(1) null,
+  `verify_token` varchar(500) DEFAULT NULL,
+  `verify` tinyint(1) NOT NULL DEFAULT 0,
   primary key (`id`),
   index `fk_personas_paises1_idx` (`id_pais` asc),
   index `fk_personas_tipos_identificacion1_idx` (`id_tipo_id` asc),

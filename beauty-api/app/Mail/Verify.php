@@ -13,6 +13,7 @@ class Verify extends Mailable
     use Queueable, SerializesModels;
 
     public $data;
+    public $URL;
     /**
      * Create a new message instance.
      *
@@ -21,6 +22,7 @@ class Verify extends Mailable
     public function __construct(User $data)
     {
         $this->data = $data;
+        $this->URL = config ('app.url')."/verify/$data->verify_token";
     }
 
     /**
