@@ -10,7 +10,6 @@ export class HeroService {
 
 
   private url: any = 'http://18.228.226.191/api';
- 
 
   private token: string = null;
   private user: User;
