@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -22,6 +22,7 @@ import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 
+
 @NgModule({
   declarations: [AppComponent, ViewVideoPage],
   entryComponents: [ViewVideoPage],
@@ -36,6 +37,7 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 ],
   providers: [
     SplashScreen,
+    StatusBar,
     StatusBar,
     VideoPlayer,
     Camera,

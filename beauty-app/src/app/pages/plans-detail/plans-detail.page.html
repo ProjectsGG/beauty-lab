@@ -36,6 +36,12 @@
         <ion-text color="light">
           <h1 class="ion-text-center home">B u y N o w</h1>
         </ion-text>
+          <ion-calendar [(ngModel)]="data"
+            [type]="type"
+            [format]="'YYYY-MM-DD'">
+          </ion-calendar>
+          
+        <ion-text color="light"><h1 class="ion-text-center home">B u y  N o w</h1></ion-text>
         <ion-grid fixed *ngIf="rooms">
           <ion-row>
             <ion-col size="12" size-lg="6" size-md="4" size-xl="6">

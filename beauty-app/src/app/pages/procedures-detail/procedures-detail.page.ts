@@ -3,7 +3,7 @@ import { HeroService } from '../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
 import { ToastService } from '../../services/toast.service';
-
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-procedures',
@@ -11,7 +11,9 @@ import { ToastService } from '../../services/toast.service';
   styleUrls: ['./procedures-detail.page.scss'],
 })
 export class ProceduresDetailPage implements OnInit {
-
+  date: string;
+  type: 'string';
+  data: any;
   public procedures: any;
   public rooms: any[];
   public room: any;
@@ -22,10 +24,11 @@ export class ProceduresDetailPage implements OnInit {
 
 
   constructor(
+    public modalCtrl: ModalController,
     private http: HttpClient,
     private hero: HeroService,
     private payPal: PayPal,
-    public toastr: ToastService
+    public toastr: ToastService,
   ) {}
 
   httpOptions = {
