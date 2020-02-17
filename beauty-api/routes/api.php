@@ -17,6 +17,9 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     // User
     Route::put('user/update/{id}', 'UserController@update');
     Route::post('user/upload/photos', 'UserController@uploadPhotos');
+    
+    // Room
+    Route::resource('/room','RoomsController');
 
     // Examples
     Route::get('tasks', 'TaskController@index');
