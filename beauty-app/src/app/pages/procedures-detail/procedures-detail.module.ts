@@ -8,6 +8,8 @@ import { ProceduresDetailPageRoutingModule } from './procedures-detail-routing.m
 
 import { ProceduresDetailPage } from './procedures-detail.page';
 import { ComponentsModule } from '../../components/components.module';
+import { CalendarModule } from 'ion2-calendar';
+
 
 @NgModule({
   imports: [
@@ -15,7 +17,8 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     ProceduresDetailPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    CalendarModule
   ],
   declarations: [ProceduresDetailPage]
 })

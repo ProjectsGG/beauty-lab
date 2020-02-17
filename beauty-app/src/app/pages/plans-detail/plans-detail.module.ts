@@ -8,6 +8,7 @@ import { PlansDetailPageRoutingModule } from './plans-detail-routing.module';
 
 import { PlansDetailPage } from './plans-detail.page';
 import { ComponentsModule } from '../../components/components.module';
+import { CalendarModule} from 'ion2-calendar';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     PlansDetailPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    CalendarModule
   ],
   declarations: [PlansDetailPage]
 })

@@ -11,7 +11,9 @@ import { ToastService } from '../../services/toast.service';
   styleUrls: ['./plans-detail.page.scss'],
 })
 export class PlansDetailPage implements OnInit {
-
+  date: string;
+  type: 'string';
+  data: any;
   public plans: any;
   public rooms: any[];
   public room: any;

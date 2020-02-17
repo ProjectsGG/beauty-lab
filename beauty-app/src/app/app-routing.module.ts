@@ -84,13 +84,14 @@ const routes: Routes = [
   {
     path: 'faq',
     loadChildren: () => import('./pages/faq/faq.module').then( m => m.FaqPageModule)
-  },  {
+  },
+  {
     path: 'test',
     loadChildren: () => import('./pages/test/test.module').then( m => m.TestPageModule)
   },
   {
-    path: 'about',
-    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+    path: 'help',
+    loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
   }
 
 
