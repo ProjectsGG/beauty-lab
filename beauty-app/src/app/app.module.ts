@@ -21,6 +21,8 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
+import { SMS } from '@ionic-native/sms/ngx';
+
 
 @NgModule({
   declarations: [AppComponent, ViewVideoPage],
@@ -45,7 +47,8 @@ import { FilePath } from '@ionic-native/file-path/ngx';
     YoutubeVideoPlayer,
     File,
     WebView,
-    FilePath
+    FilePath,
+    SMS
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
-
+import { SMS } from '@ionic-native/sms/ngx';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.page.html',
@@ -8,7 +8,7 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class ContactPage implements OnInit {
 
-  constructor( public socialMedia: ActionSheetController) { }
+  constructor( public socialMedia: ActionSheetController, private sms: SMS) { }
   async showActionSheet() {
     const actionMedia = await this.socialMedia.create({
       header: 'Share',
@@ -31,7 +31,7 @@ export class ContactPage implements OnInit {
         icon: 'cloud-outline',
         cssClass: 'gray-msg',
         handler: () => {
-        console.log('Message clic');
+          this.sms.send('+5731163705583', 'Hello Im Interested in BeautyLab');
         },
       },
        {
