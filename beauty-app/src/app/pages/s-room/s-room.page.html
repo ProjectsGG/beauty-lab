@@ -5,24 +5,24 @@
       <ion-col size="0" size-md="3" size-lg="4"></ion-col>
       <ion-col size="12" size-md="6" size-lg="4">
         <ion-list>
-          <ion-radio-group [(ngModel)]="selected">
-            <div *ngFor="let item of rooms">
+          <ion-radio-group [(ngModel)]="i">
+            <div *ngFor="let item of rooms; index as ind">
               <ion-item lines="none"  class="item item-trns">
                 <ion-label>{{item.nombre}}</ion-label>
-                <ion-radio color="light" slot="end" [value]="item.id_habitacion"></ion-radio>
+                <ion-radio color="light" slot="end" [value]="ind"></ion-radio>
               </ion-item>
               <div>
-                <img class="img-room" src="http://127.0.0.1:8000/file/{{item.imagen}}" alt="">
+                <img class="img-room" src="{{hero.getDomain()}}/file/{{item.imagen}}" alt="">
               </div>
             </div>
           </ion-radio-group>
         </ion-list>
         <ion-row>
           <ion-col size="6">
-            <h6 class="steps">Back</h6>
+            <h6 class="steps" (click)="backStep()">Back</h6>
           </ion-col>
           <ion-col size="6">
-            <h6 class="steps r">Next</h6>
+            <h6 class="steps r" (click)="nextStep()">Next</h6>
           </ion-col>
         </ion-row>
       </ion-col>

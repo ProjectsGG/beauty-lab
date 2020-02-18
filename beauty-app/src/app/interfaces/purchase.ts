@@ -1,7 +1,8 @@
 export interface Purchase {
-    user_id?: number;
+    user_id?: string;
     procedures?: any[];
     plans?: any[];
+    room: any;
     date?: string;
-    ok: false;
+    ok: boolean;
 }

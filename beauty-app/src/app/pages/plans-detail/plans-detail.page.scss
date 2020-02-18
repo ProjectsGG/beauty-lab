@@ -1,3 +1,6 @@
+h1{
+    margin-top: 0px;
+}
 .steps{
     cursor: pointer;
     color: aliceblue;
@@ -10,9 +13,14 @@ img.plans{
     margin: 0 auto;
     width: 100%;
 }
-
 h1.home{
-    font-family: 'suissnordregular';
+    text-align: center;
+    color: aliceblue;
+    font-size: 35px;
+    font-family: "bioliquidregular";
+}
+h1.title{
+    font-family: 'bioliquidregular';
     size: 50px;
 }
 
