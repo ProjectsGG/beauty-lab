@@ -20,9 +20,9 @@ export class DepositPage implements OnInit {
   payWithPaypal() {
     this.payPal
       .init({
-        PayPalEnvironmentProduction: 'yungprince333333-facilitator@gmail.com',
+        PayPalEnvironmentProduction: 'Ae2Jz-_zB0fS_boKQr7kY9MZwla__TVt_vLAwhEWeCFnYmUV7wpfJOYfUgpGNggGty2QEvclkxqdaYVL',
         PayPalEnvironmentSandbox:
-          'Ae2Jz-_zB0fS_boKQr7kY9MZwla__TVt_vLAwhEWeCFnYmUV7wpfJOYfUgpGNggGty2QEvclkxqdaYVL'
+          'yungprince333333-facilitator@gmail.com'
       })
       .then(
         () => {
