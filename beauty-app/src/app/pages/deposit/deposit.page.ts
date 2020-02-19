@@ -21,8 +21,7 @@ export class DepositPage implements OnInit {
     this.payPal
       .init({
         PayPalEnvironmentProduction: 'Ae2Jz-_zB0fS_boKQr7kY9MZwla__TVt_vLAwhEWeCFnYmUV7wpfJOYfUgpGNggGty2QEvclkxqdaYVL',
-        PayPalEnvironmentSandbox:
-          'yungprince333333-facilitator@gmail.com'
+        PayPalEnvironmentSandbox: 'yungprince333333-facilitator@gmail.com'
       })
       .then(
         () => {

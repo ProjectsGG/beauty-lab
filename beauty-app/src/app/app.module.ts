@@ -3,8 +3,8 @@ import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-// import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -38,8 +38,9 @@ import { SMS } from '@ionic-native/sms/ngx';
   IonicStorageModule.forRoot()
 ],
   providers: [
+    SplashScreen,
     StatusBar,
-    // SplashScreen,
+    StatusBar,
     VideoPlayer,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

@@ -1,5 +1,5 @@
 {
-  "name": "BeautyLab",
+  "name": "beautylab",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -109,7 +109,8 @@
       "cordova-plugin-file": {},
       "cordova-plugin-filepath": {},
       "cordova-plugin-calendar": {},
-      "cordova-sms-plugin": {}
+      "cordova-sms-plugin": {},
+      "cordova-plugin-calendar": {}
     },
     "platforms": [
       "ios",

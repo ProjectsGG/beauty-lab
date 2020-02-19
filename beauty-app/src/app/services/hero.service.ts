@@ -3,6 +3,7 @@ import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Purchase } from '../interfaces/purchase';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,10 +16,21 @@ export class HeroService {
   private user: User;
   public auth = false;
 
+  public dataPurchase: Purchase = {
+    user_id: JSON.parse(localStorage.getItem('user')).id,
+    procedures: [],
+    plans: [],
+    room: null,
+    date: null,
+    ok: false
+  };
   constructor(private storage: Storage,  private router: Router, private http: HttpClient) {}
 
   getUrl() {
     return this.url;
+  }
+  getDomain() {
+    return this.domain;
   }
   getToken() {
     return this.token;
@@ -43,7 +55,7 @@ export class HeroService {
       this.token = token;
       this.user = JSON.parse(localStorage.getItem('user'));
       this.auth = true;
-      this.router.navigate(['/tabs/home']);
+      // this.router.navigate(['/tabs/home']);
       // this.refreshToken();
     }
   }

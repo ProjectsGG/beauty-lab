@@ -31,7 +31,7 @@ export class ContactPage implements OnInit {
         icon: 'cloud-outline',
         cssClass: 'gray-msg',
         handler: () => {
-          this.sms.send('+5731163705583', 'Hello Im Interested in BeautyLab');
+          this.sms.send('+573003408407', 'Hello Im Interested in BeautyLab');
         },
       },
        {

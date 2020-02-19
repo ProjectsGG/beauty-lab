@@ -55,7 +55,7 @@ export class TestPage implements OnInit {
         for (let img of arr) {
           let filePath = this.file.dataDirectory + img;
           let resPath = this.pathForImage(filePath);
-          this.images.push({ name: img, path: resPath, filePath: filePath });
+          this.images.push({ name: '55', path: resPath, filePath: filePath });
         }
       }
     });
@@ -213,7 +213,7 @@ export class TestPage implements OnInit {
           const imgBlob = new Blob([reader.result], {
               type: file.type
           });
-          formData.append('file', imgBlob, file.name);
+          formData.append('photos', imgBlob, file.name);
           this.uploadImageData(formData);
       };
       reader.readAsArrayBuffer(file);
@@ -224,15 +224,16 @@ export class TestPage implements OnInit {
           message: 'Uploading image...',
       });
       await loading.present();
-  
-      this.http.post("http://localhost:8888/upload.php", formData)
+      alert('Metodo');
+      this.http.post("http://192.168.26.6:8000/api/photos", formData)
           .pipe(
               finalize(() => {
                   loading.dismiss();
               })
           )
           .subscribe(res => {
-              if (res['success']) {
+            alert('API');
+              if (res['ok']) {
                   this.presentToast('File upload complete.')
               } else {
                   this.presentToast('File upload failed.')

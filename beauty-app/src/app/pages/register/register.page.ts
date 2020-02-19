@@ -13,6 +13,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./register.page.scss']
 })
 export class RegisterPage implements OnInit {
+  terms = false;
+  adult = false;
   registerOp = 1;
   message = '';
   public data: User = {
@@ -38,22 +40,30 @@ export class RegisterPage implements OnInit {
   }
   register() {
     this.registerOp = 2;
-    this.auth.register(this.data)
-    .subscribe((r: any) => {
-    this.registerOp = 1;
-    if (r.ok) {
-        this.registerOp = 3;
-        this.message = r.message;
-        this.clear();
-        // localStorage.setItem('user', JSON.stringify(r.user));
-        // localStorage.setItem('token', r.token);
-        // this.toast.success(r.message);
-        // this.hero.validateSession();
-        // this.router.navigate(['/tabs/home']);
-      } else {
-        this.toast.error(r.error);
-      }
-    });
+    if (!this.adult) {
+      this.toast.error('You must be of legal age');
+      this.registerOp = 1;
+    } else if (!this.terms) {
+      this.toast.error('You must accept the terms and conditions');
+      this.registerOp = 1;
+    } else {
+      this.auth.register(this.data)
+      .subscribe((r: any) => {
+      this.registerOp = 1;
+      if (r.ok) {
+          this.registerOp = 3;
+          this.message = r.message;
+          this.clear();
+          // localStorage.setItem('user', JSON.stringify(r.user));
+          // localStorage.setItem('token', r.token);
+          // this.toast.success(r.message);
+          // this.hero.validateSession();
+          // this.router.navigate(['/tabs/home']);
+        } else {
+          this.toast.error(r.error);
+        }
+      });
+    }
   }
   clear() {
     this.data = {
