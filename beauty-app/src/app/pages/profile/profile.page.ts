@@ -7,7 +7,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  content = 'personalData';
+  content = 'photos';
   data: any;
   constructor(public actionSheetController: ActionSheetController) { }
 

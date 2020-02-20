@@ -41,6 +41,17 @@ export class PlansDetailPage implements OnInit {
   };
   ngOnInit() {
     this.getPlan();
+    const styleElem = document.head.appendChild(
+      document.createElement('style')
+    );
+
+    // tslint:disable-next-line: max-line-length
+    styleElem.innerHTML = `button:disabled{
+                            color: #a0a0a0 !important;
+                          }
+                          button.today > p{
+                            color: #e900fc !important;
+                          }`;
   }
   getPlan() {
     this.plans = JSON.parse(localStorage.getItem('plans'));
