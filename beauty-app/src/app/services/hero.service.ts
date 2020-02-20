@@ -10,9 +10,8 @@ import { Purchase } from '../interfaces/purchase';
 export class HeroService {
 
 
-  private url: any = 'http://127.0.0.1:8000/api';
-  private domain = 'http://127.0.0.1:8000';
-
+  //private url: any = 'http://18.228.226.191/api';
+    private url: any = 'http://159.89.186.16/api';
   private token: string = null;
   private user: User;
   public auth = false;
