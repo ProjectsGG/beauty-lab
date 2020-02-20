@@ -18,7 +18,7 @@ export class HeroService {
   public auth = false;
 
   public dataPurchase: Purchase = {
-    user_id: JSON.parse(localStorage.getItem('user')).id,
+    user_id: '',
     procedures: [],
     plans: [],
     room: null,
@@ -49,6 +49,7 @@ export class HeroService {
     return this.auth;
   }
   validateSession() {
+
     const token = localStorage.getItem('token');
     if ( token === null || token === undefined) {
       this.router.navigate(['/inicio']);
@@ -56,6 +57,7 @@ export class HeroService {
       this.token = token;
       this.user = JSON.parse(localStorage.getItem('user'));
       this.auth = true;
+      this.dataPurchase.user_id = JSON.parse(localStorage.getItem('user')).id;
       // this.router.navigate(['/tabs/home']);
       // this.refreshToken();
     }
