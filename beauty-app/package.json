@@ -108,7 +108,8 @@
       "cordova-plugin-youtube-video-player": {},
       "cordova-plugin-file": {},
       "cordova-plugin-filepath": {},
-      "cordova-plugin-calendar": {}
+      "cordova-plugin-calendar": {},
+      "cordova-sms-plugin": {}
     },
     "platforms": [
       "ios",
