@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
         <ion-back-button></ion-back-button>
@@ -10,19 +10,25 @@
       </ion-avatar>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 <ion-content class="ion-padding">
 <ion-grid>
     <ion-row>
       <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
       <ion-col size="12" size-sm="12" size-md="6" size-lg="4">
         <div>
-         <ion-text color="light"><h2 class="ion-text-center textdescription">{{procedures.descripcion}}</h2></ion-text> 
+         <ion-text color="light">
+           <h1 class="ion-text-center home" routerLink="/tabs/home">{{procedures.descripcion}}</h1>
+          </ion-text> 
         </div>
-        <h3 class="ion-text-center">B u y N o w</h3>
         <img class="plans" src="assets/img/pyp/{{procedures.imagen}}" alt="" srcset="">
         <ion-text color="light"><h3 class="ion-text-center textCss">Description Procedure: <br> {{procedures.nombre}}</h3></ion-text>
         <br>
+        <ion-text color="light">
+          <h1 class="ion-text-center title">
+            Schedule Appointment
+          </h1>
+        </ion-text>
         <ion-grid>
           <ion-row>
             <ion-col>
@@ -30,36 +36,17 @@
                 [type]="type"
                 [format]="'YYYY-MM-DD'">
               </ion-calendar>
+              <ion-row>
+                <ion-col size="6">
+                  <h6 class="steps" (click)="backStep()">Back</h6>
+                </ion-col>
+                <ion-col size="6">
+                  <h6 class="steps r" (click)="nextStep()">Next</h6>
+                </ion-col>
+              </ion-row>
             </ion-col>
           </ion-row>
         </ion-grid>
-        <ion-grid fixed *ngIf="rooms">
-            <ion-row>
-                <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
-                    <ion-text color="light">
-                        <h3 class="ion-text-center textCss">Details Room</h3>
-                      </ion-text>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-                  <ion-text color="light"><p class="text-description">Room:</p></ion-text>
-                </ion-col>
-                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-                  <ion-text color="light"><p class="text-description"> {{room.nombre}}</p></ion-text>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-                  <ion-text color="light"><p class="text-description">comfort:</p></ion-text>
-                </ion-col>
-                <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-                  <ion-text color="light"><p class="text-description">{{room.comodidades}}</p></ion-text>
-                </ion-col>
-            </ion-row>
-        </ion-grid>        
-        <ion-text color="light"><h4 class="ion-text-center">$500 USD</h4></ion-text>
-        <ion-button expand="block" class="button-pay" (click)="payWithPaypal()">Make Deposit</ion-button>
       </ion-col>
       <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
     </ion-row>
