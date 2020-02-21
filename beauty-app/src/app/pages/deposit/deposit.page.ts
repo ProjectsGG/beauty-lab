@@ -6,6 +6,7 @@ import {
 } from '@ionic-native/paypal/ngx';
 import { ToastService } from '../../services/toast.service';
 import { HeroService } from '../../services/hero.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deposit',
@@ -13,13 +14,27 @@ import { HeroService } from '../../services/hero.service';
   styleUrls: ['./deposit.page.scss']
 })
 export class DepositPage implements OnInit {
-  constructor(private payPal: PayPal, public toastr: ToastService, private hero: HeroService) {}
+  constructor(private payPal: PayPal, public toastr: ToastService, private hero: HeroService, private router: Router) {}
   paymentAmount = '1.00';
   currency = 'USD';
   currencyIcon = '$';
   room: any;
   ngOnInit() {
-    this.room = this.hero.dataPurchase.room;
+    if (this.hero.dataPurchase.procedures.length > 0 || this.hero.dataPurchase.plans.length > 0) {
+      this.room = this.hero.dataPurchase.room;
+    } else {
+      this.router.navigate(['/tabs/home']);
+    }
+  }
+  cancel() {
+    this.hero.dataPurchase = {
+      procedures: [],
+      plans: [],
+      room: null,
+      date: null,
+      ok: false
+    };
+    this.router.navigate(['/tabs/home']);
   }
   payWithPaypal() {
     this.payPal
