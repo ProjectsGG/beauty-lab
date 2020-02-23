@@ -27,13 +27,14 @@
 
 
 ion-content.background-bl {
-    --background: rgb(249, 1, 216);
-    --background: linear-gradient(180deg, rgba(249, 1, 216, 1) 0%, rgba(86, 98, 234, 1) 90%, rgba(10, 146, 245, 1) 100%);
+  --background: linear-gradient(180deg, rgb(174, 25, 255) 0%, rgb(43, 58, 221) 90%, rgb(74, 68, 197) 100%);
+  //--background:#000;
+  //--background: linear-gradient(to bottom, rgba(232,148,232,1) 0%, rgba(19,19,19,1) 100%);
 }
 
 ion-content{
-    --background: rgb(249, 1, 216);
-    --background: linear-gradient(180deg, rgba(249, 1, 216, 1) 0%, rgba(86, 98, 234, 1) 90%, rgba(10, 146, 245, 1) 100%);
+  --background: linear-gradient(180deg, #dc4af5 0%, #9c27b0 90%, #d600fa 100%);
+
 }
 
 img.img-header{

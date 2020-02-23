@@ -3,6 +3,7 @@ import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { ToastService } from '../../services/toast.service';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 import { MenuController } from '@ionic/angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 
 @Component({
@@ -30,9 +31,9 @@ export class HomeappPage implements OnInit {
     },
   ];
   plans = [
-    '3dplan.jpg',
-    'bootyplan.jpg',
-    'superplan.jpg'
+    '3dplanopt.png',
+    'bootyplanopt.png',
+    'supermodelplanopt.png'
   ];
   proc = [
     '360lipo.jpg',
@@ -55,7 +56,8 @@ export class HomeappPage implements OnInit {
     private toast: ToastService,
     private videoPlayer: VideoPlayer,
     public menuCtrl: MenuController,
-    private youtube: YoutubeVideoPlayer) { }
+    private youtube: YoutubeVideoPlayer,
+    private screenOrientation: ScreenOrientation) { }
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
