@@ -4,7 +4,7 @@
       <ion-grid>
         <ion-row>
           <ion-col class="content-user" size="12">
-            <img (click)="redirect()" class="center img-user" src="assets/img/no-profile.png">
+            <img (click)="redirect()" class="center img-user" [src]="user.img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain() + '/file/profile/' + user.img_perfil">
             <h4 class="margins">{{name}} </h4>
             <h6 class="margins link">https://beautylab.com.co</h6>
             <p class="bl-points">

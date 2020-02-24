@@ -9,6 +9,7 @@ use Validator;
 use JWTAuth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -105,6 +106,7 @@ class UserController extends Controller
             ]);
         }
     }
+
     public function savePhoto(Request $request)
     {
         $image_avatar_b64 = $request->all()['image'];
@@ -136,5 +138,33 @@ class UserController extends Controller
         // Dependiendo si se pide la extensión completa o no retornar el arreglo con
         // los datos de la extensión en la posición 0 - 1
         return ($full) ?  $img_extension[0] : $img_extension[1];
+    }
+    public function updatePhoto(Request $request)
+    {
+        try {
+            $input = $request->all();
+
+            $img = $this->getB64Image($input);
+
+            $img_extension = $this->getB64Extension($input);
+
+            $img_name = 'user_avatar' . time() . '.' . $img_extension;
+
+            Storage::disk('images_base64')->put($img_name, $img);
+
+            $this->user->update([
+                'img_perfil' => $img_name
+            ]);
+
+            return response()->json([
+                'ok' => true,
+                'message' => 'Updated photo'
+            ]);
+        } catch (\Exception $error) {
+            return response()->json([
+                'ok' => false,
+                'error' => $error->getMessage()
+            ]);
+        }
     }
 }
