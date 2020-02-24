@@ -18,9 +18,17 @@ export class DepositPage implements OnInit {
   currency = 'USD';
   currencyIcon = '$';
   room: any;
+  public plans: any;
   ngOnInit() {
     this.room = this.hero.dataPurchase.room;
+    this.getPlan();
   }
+
+  getPlan() {
+    this.plans = JSON.parse(localStorage.getItem('plans'));
+    this.hero.dataPurchase.plans.push(this.plans);
+  }
+
   payWithPaypal() {
     this.payPal
       .init({
