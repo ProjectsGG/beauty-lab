@@ -75,6 +75,8 @@ export class ProfilePage implements OnInit {
         this.service.setImgProfile(this.imgSrc).subscribe((r: any) => {
           if (r.ok) {
             this.toastr.success(r.message);
+            this.hero.setUser(r.user);
+            localStorage.setItem('user', JSON.stringify(r.user));
           } else {
             this.toastr.error(r.error);
           }
@@ -104,6 +106,8 @@ export class ProfilePage implements OnInit {
         this.service.setImgProfile(this.imgSrc).subscribe((r: any) => {
           if (r.ok) {
             this.toastr.success(r.message);
+            this.hero.setUser(r.user);
+            localStorage.setItem('user', JSON.stringify(r.user));
           } else {
             this.toastr.error(r.error);
           }
