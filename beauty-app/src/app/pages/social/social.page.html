@@ -1,31 +1,76 @@
 <app-header></app-header>
+
 <ion-content>
-<ion-grid>
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
-    <ion-row>
-        <ion-col *ngFor="let post of cards" size="12" size-sm="12" size-md="4" size-lg="4">
-        <ion-card class="card-social">
-            <ion-card-header>
-                <ion-grid>
-                    <ion-row>
-                        <ion-col size="2">
-                            <ion-avatar>
-                            <img src="../../../assets/img/{{post.profileimg}}">
-                            </ion-avatar>
-                        </ion-col>
-                        <ion-col size="10">
-                             <h2>{{post.user}}</h2>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-            </ion-card-header>
-            <ion-card-content>
-                <img src="../../../assets/img/{{post.images}}">
-            </ion-card-content>
-        </ion-card>
-        </ion-col>
-    </ion-row>
-</ion-grid>
+    <ion-grid>
+       
+          
+
+        <ion-row>
+            <ion-col
+                *ngFor="let post of cards; index as i;"
+                size="12"
+                size-sm="12"
+                size-md="4"
+                size-lg="4"
+            >
+                <ion-card class="card-social">
+                    <ion-card-header class="padding-fix">
+                        <ion-grid class="height-fix">
+                            <ion-row>
+                                <ion-col size="2">
+                                    <ion-avatar class="avatar-social">
+                                        <img src="../../../assets/img/{{post.profileimg}}">
+                                    </ion-avatar>
+                                </ion-col>
+
+                                <ion-col size="9">
+                                    <h2 class="social-name">{{post.user}}</h2>
+
+                                    <h3 class="postage">Posted {{post.postage}}</h3>
+                                </ion-col>
+
+                                <ion-col size="1">
+                                    <ion-icon
+                                        class="icon-more"
+                                        name="md-more"
+                                    ></ion-icon>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-card-header>
+
+                    <ion-card-content class="padding-fix">
+                        <ion-grid class="padding-fix">
+                            <ion-row>
+                                <img
+                                    class="img-post"
+                                    src="../../../assets/img/{{post.images}}"
+                                >
+
+                                <ion-col
+                                    size="2"
+                                    class="line-right"
+                                >
+                                <ion-col (click)="likeFocus(i)">
+                                <img class="likeicon" src="../../../assets/icon/like.svg" *ngIf="!post.like"> 
+                                <img class="likeicon" src="../../../assets/icon/likeFocus.svg" *ngIf="post.like">
+                                </ion-col>
+                                
+                                <h1 class="likes ion-text-center">{{post.nlikes}}</h1>
+                                  
+                                </ion-col>
+
+                                <ion-col size="10">
+                                    <h1 class="tinytext">{{post.postext}}</h1>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

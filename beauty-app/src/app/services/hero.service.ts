@@ -12,6 +12,7 @@ export class HeroService {
 
   //private url: any = 'http://18.228.226.191/api';
     private url: any = 'http://159.89.186.16/api';
+    private domain: any = 'http://159.89.186.16';
   private token: string = null;
   private user: User;
   public auth = false;
