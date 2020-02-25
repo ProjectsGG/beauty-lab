@@ -143,13 +143,13 @@ class UserController extends Controller
     {
         $input = $request->all();
 
-        $validation = Vallidator::make($input,[
+        $validation = Validator::make($input,[
             'img' => 'required'
         ]);
         if ($validation->fails()) {
             return response()->json([
                 'ok' => false,
-                'error' => 'La imagen no es requerida'
+                'error' => 'La imagen es requerida'
             ]);
         } else {
             try {

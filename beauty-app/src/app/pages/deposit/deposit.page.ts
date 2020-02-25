@@ -14,7 +14,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./deposit.page.scss']
 })
 export class DepositPage implements OnInit {
-  constructor(private payPal: PayPal, public toastr: ToastService, private hero: HeroService, private router: Router) {}
+  constructor(private payPal: PayPal, public toastr: ToastService, public hero: HeroService, private router: Router) {}
+  slideOpts = {
+    initialSlide: 0,
+    speed: 600
+  };
   paymentAmount = '1.00';
   currency = 'USD';
   currencyIcon = '$';
