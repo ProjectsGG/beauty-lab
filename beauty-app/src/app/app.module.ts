@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
 import { HttpClientModule } from '@angular/common/http';
-import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { ViewVideoPage } from './pages/view-video/view-video.page';
 import { ModalroomsPageModule } from './pages/modalrooms/modalrooms.module';
 import { Camera } from '@ionic-native/camera/ngx';
@@ -42,7 +41,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     SplashScreen,
     StatusBar,
     StatusBar,
-    VideoPlayer,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GooglePlus,

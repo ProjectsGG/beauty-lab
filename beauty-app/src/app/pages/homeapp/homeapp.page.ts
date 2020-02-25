@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { ToastService } from '../../services/toast.service';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 import { MenuController } from '@ionic/angular';
@@ -54,7 +53,6 @@ export class HomeappPage implements OnInit {
   }];
   constructor(
     private toast: ToastService,
-    private videoPlayer: VideoPlayer,
     public menuCtrl: MenuController,
     private youtube: YoutubeVideoPlayer,
     private screenOrientation: ScreenOrientation) { }
@@ -63,13 +61,6 @@ export class HomeappPage implements OnInit {
     this.menuCtrl.enable(true);
      }
   ngOnInit() {
-  }
-  viewVideo(video) {
-    this.videoPlayer.play(`file:///android_asset/www/assets/videos/${video}.mp4`).then(() => {
-      console.log('video completed');
-    }).catch(err => {
-      this.toast.error(err);
-    });
   }
 
   watch(watch) {

@@ -14,41 +14,49 @@
           <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="" routerLink="/tabs/home">
         </div>
         <h3 class="ion-text-center">B u y N o w</h3>
-        <img class="img-depos" src="assets/img/pyp/{{plans.img_plan}}" alt="" srcset="">
+        <ion-slides pager="true" [options]="slideOpts">
+          <ion-slide *ngIf="hero.dataPurchase.plans.length > 0" >
+            <img *ngFor="let item of hero.dataPurchase.plans" class="img-depos" src="assets/img/pyp/{{item.img_plan}}" alt="" srcset="">
+          </ion-slide>
+          <ion-slide *ngIf="hero.dataPurchase.procedures.length > 0" >
+            <img *ngFor="let item of hero.dataPurchase.procedures" class="img-depos" src="assets/img/pyp/{{item.imagen}}" alt="" srcset="">
+          </ion-slide>
+        </ion-slides>
+        
         <p></p>
 
-          <ion-grid fixed *ngIf="this.hero.dataPurchase.plans.length > 0" >
-            <ion-row>
-              <ion-col size="12" size-lg="6" size-md="4" size-xl="6" >
-                <ion-text color="light">
-                  <h3 class="ion-text-center textCss"> D e t a i l s  P l a n</h3>
-                </ion-text>
-              </ion-col>
-              <ion-col size="6" size-lg="3" size-md="4" size-xl="3" class="grid-border">
-                <ion-text color="light">
-                  <p class="head txtdescription">Plan</p>
-                </ion-text>
-              </ion-col>
-              <ion-col size="6" size-lg="3" size-md="4" size-xl="3" class="grid-border">
-                <ion-text color="light">
-                  <p class="head txtdescription">Description</p>
-                </ion-text>
-              </ion-col>
-            </ion-row>
-            <ion-row *ngFor="let item of this.hero.dataPurchase.plans">
-              <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-                <ion-text color="light">
-                  <p class="txtdescription">{{item.nombre}}</p>
-                </ion-text>
-              </ion-col>
-              <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-                <ion-text color="light">
-                  <p class="txtdescription">{{item.descripcion}}</p>
-                </ion-text>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        <ion-grid fixed *ngIf="this.hero.dataPurchase.procedures.length > 0">
+        <ion-grid fixed *ngIf="hero.dataPurchase.plans.length > 0">
+          <ion-row>
+            <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
+              <ion-text color="light">
+                <h3 class="ion-text-center textCss">Details Plan</h3>
+              </ion-text>
+            </ion-col>
+            <ion-col size="6" size-lg="3" size-md="4" size-xl="3" class="grid-border">
+              <ion-text color="light">
+                <p class="head txtdescription">Plan</p>
+              </ion-text>
+            </ion-col>
+            <ion-col size="6" size-lg="3" size-md="4" size-xl="3" class="grid-border">
+              <ion-text color="light">
+                <p class="head txtdescription">Description</p>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of hero.dataPurchase.plans">
+            <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
+              <ion-text color="light">
+                <p class="txtdescription">{{item.nombre}}</p>
+              </ion-text>
+            </ion-col>
+            <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
+              <ion-text color="light">
+                <p class="txtdescription">{{item.descripcion}}</p>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid fixed *ngIf="hero.dataPurchase.procedures.length > 0">
           <ion-row>
             <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
               <ion-text color="light">
@@ -66,7 +74,7 @@
               </ion-text>
             </ion-col>
           </ion-row>
-          <ion-row *ngFor="let item of this.hero.dataPurchase.procedures">
+          <ion-row *ngFor="let item of hero.dataPurchase.procedures">
             <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
               <ion-text color="light">
                 <p class="txtdescription">{{item.nombre}}</p>
@@ -79,16 +87,16 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-        <ion-grid fixed>
+        <ion-grid fixed *ngIf="hero.dataPurchase.room !== null">
           <ion-row>
-            <ion-col size="12" size-lg="6" size-md="4" size-xl="6" >
+            <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
               <ion-text color="light">
                 <h3 class="ion-text-center textCss">Details Room</h3>
               </ion-text>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3" >
+            <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
               <ion-text color="light">
                 <p class="txtdescription">Room:</p>
               </ion-text>
@@ -114,6 +122,16 @@
         </ion-grid>
         <h4 class="ion-text-center">$500 USD</h4>
         <ion-button expand="block" class="button-pay" (click)="payWithPaypal()">Make Deposit</ion-button>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button color="medium" expand="block">Cancel <ion-icon class="ion-float-right" name="close"></ion-icon>
+            </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button color="primary-bl" expand="block">Add to car <ion-icon class="ion-float-right" name="cart"></ion-icon>
+              </ion-button>
+            </ion-col>
+        </ion-row>
         <!-- <p class="ion-text-center dec" routerLink="/terms">Terms and conditions</p> -->
       </ion-col>
       <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>

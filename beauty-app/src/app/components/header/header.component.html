@@ -8,7 +8,7 @@
     <img routerLink="/tabs/home" src="../../../assets/img/horizontal_logo.png" class="img-header">
     <ion-buttons slot="end">
       <ion-avatar routerLink="/profile">
-        <img  class="header-style" src="../../../assets/img/no-profile.png" class="img-profile">
+        <img  class="header-style" [src]="user.img_perfil === undefined ? 'assets/img/no-profile.png' : hero.getDomain() + '/file/profile/' + user.img_perfil" class="img-profile">
       </ion-avatar>
       
     </ion-buttons>

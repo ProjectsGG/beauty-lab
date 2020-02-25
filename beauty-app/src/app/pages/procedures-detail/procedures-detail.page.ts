@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './procedures-detail.page.html',
   styleUrls: ['./procedures-detail.page.scss'],
 })
-export class ProceduresDetailPage implements OnInit, OnDestroy {
+export class ProceduresDetailPage implements OnInit {
   date: string;
   type: 'string';
   data: any;
@@ -43,13 +43,10 @@ export class ProceduresDetailPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getProcedure();
-  }
-  ngOnDestroy() {
-    console.log(1);
+    this.styleCalendar();
   }
   getProcedure() {
     this.procedures = JSON.parse(localStorage.getItem('procedures'));
-    console.log(this.procedures);
     this.hero.dataPurchase.procedures.push(this.procedures);
     this.getRoom(1);
   }
@@ -57,7 +54,6 @@ export class ProceduresDetailPage implements OnInit, OnDestroy {
   getRoom(id) {
     this.getService(id)
     .subscribe((model: any) => {
-      console.log(model.data);
       this.rooms = model.data;
       this.room = this.rooms[0];
     });
@@ -68,7 +64,13 @@ export class ProceduresDetailPage implements OnInit, OnDestroy {
     return this.http.get(url, this.httpOptions);
   }
   backStep() {
-    this.hero.dataPurchase.procedures.pop();
+    this.hero.dataPurchase = {
+      procedures: [],
+      plans: [],
+      room: null,
+      date: null,
+      ok: false
+    };
     this.navCtrl.back();
   }
   nextStep() {
@@ -79,7 +81,36 @@ export class ProceduresDetailPage implements OnInit, OnDestroy {
       this.router.navigate(['s-room']);
     }
   }
+  styleCalendar() {
+    const styleElem = document.head.appendChild(
+      document.createElement('style')
+    );
 
+    // tslint:disable-next-line: max-line-length
+    styleElem.innerHTML = `
+                          .month-packer-item > button {
+                            color: aliceblue !important;
+                          }
+                          .this-month > button {
+                            border: 1px solid #fff !important;
+                          }
+                          .switch-btn{
+                            color: aliceblue !important;
+                          }
+                          .transparent{
+                            color: aliceblue !important;
+                          }
+                          button.on-selected{
+                            background-color: #ff00e9 !important;
+                          }
+                          .days-btn {
+                            background-color: #fae6fe !important;
+                          }
+                          button.today > p{
+                            color: #000 !important;
+                            font-weight: 100 !important;
+                          }`;
+  }
   // payWithPaypal() {
   //   console.log('Pay!!!!!!');
   //   this.payPal.init({
