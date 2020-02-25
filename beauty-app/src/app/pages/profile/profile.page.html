@@ -7,7 +7,7 @@
         <div class="ion-text-center">
           <h2 class="font-title">Y o u r P r o f i l e</h2>
           <ion-avatar class="profile-img">
-            <img [src]="data.img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain() + '/file/profile/' + data.img_perfil" alt="profileuser" (click)="presentActionSheet()">
+            <img [src]="imgSrc === null ? 'assets/img/no-profile.png' : imgSrc" alt="profileuser" (click)="presentActionSheet()">
           </ion-avatar>
           <h4>{{data.nombres}}</h4>
           <h5>{{data.email}}</h5>
