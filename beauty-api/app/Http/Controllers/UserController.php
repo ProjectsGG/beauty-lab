@@ -160,7 +160,7 @@ class UserController extends Controller
     
                 $img_name = 'user_avatar' . time() . '.' . $img_extension;
     
-                Storage::disk('images_base64')->put($img_name, $img);
+                Storage::disk('profile')->put($img_name, $img);
     
                 $this->user->update([
                     'img_perfil' => $img_name
@@ -174,7 +174,7 @@ class UserController extends Controller
             } catch (\Exception $error) {
                 return response()->json([
                     'ok' => false,
-                    'error' => $error->getMessage()
+                    'error' => $error->getMessage() . 'line: '. $error->getLine()
                 ]);
             }
         }
