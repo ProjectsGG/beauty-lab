@@ -22,7 +22,8 @@ class Rooms extends Model
         'comodidades',
         'precio_noche',
         'estado',
-        'imagen'
+        'cantidad_camas',
+        'cantidad_camas_disponibles'
     ];
     public $timestamps = false;
 
