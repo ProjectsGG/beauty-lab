@@ -141,30 +141,42 @@ class UserController extends Controller
     }
     public function updatePhoto(Request $request)
     {
-        try {
-            $input = $request->all();
+        $input = $request->all();
 
-            $img = $this->getB64Image($input);
-
-            $img_extension = $this->getB64Extension($input);
-
-            $img_name = 'user_avatar' . time() . '.' . $img_extension;
-
-            Storage::disk('images_base64')->put($img_name, $img);
-
-            $this->user->update([
-                'img_perfil' => $img_name
-            ]);
-
-            return response()->json([
-                'ok' => true,
-                'message' => 'Updated photo'
-            ]);
-        } catch (\Exception $error) {
+        $validation = Validator::make($input,[
+            'img' => 'required'
+        ]);
+        if ($validation->fails()) {
             return response()->json([
                 'ok' => false,
-                'error' => $error->getMessage()
+                'error' => 'La imagen es requerida'
             ]);
+        } else {
+            try {
+            
+                $img = $this->getB64Image($input['img']);
+    
+                $img_extension = $this->getB64Extension($input['img']);
+    
+                $img_name = 'user_avatar' . time() . '.' . $img_extension;
+    
+                Storage::disk('images_base64')->put($img_name, $img);
+    
+                $this->user->update([
+                    'img_perfil' => $img_name
+                ]);
+    
+                return response()->json([
+                    'ok' => true,
+                    'message' => 'Updated photo',
+                    'user' => $this->user
+                ]);
+            } catch (\Exception $error) {
+                return response()->json([
+                    'ok' => false,
+                    'error' => $error->getMessage()
+                ]);
+            }
         }
     }
 }
