@@ -13,6 +13,10 @@ import { Location } from '@angular/common';
   styleUrls: ['./register.page.scss']
 })
 export class RegisterPage implements OnInit {
+  terms = false;
+  adult = false;
+  registerOp = 1;
+  message = '';
   public data: User = {
     nombres: null,
     email: null,
@@ -35,19 +39,31 @@ export class RegisterPage implements OnInit {
     }
   }
   register() {
-    this.auth.register(this.data)
-    .subscribe((r: any) => {
+    this.registerOp = 2;
+    if (!this.adult) {
+      this.toast.error('You must be of legal age');
+      this.registerOp = 1;
+    } else if (!this.terms) {
+      this.toast.error('You must accept the terms and conditions');
+      this.registerOp = 1;
+    } else {
+      this.auth.register(this.data)
+      .subscribe((r: any) => {
+      this.registerOp = 1;
       if (r.ok) {
-        this.clear();
-        localStorage.setItem('user', JSON.stringify(r.user));
-        localStorage.setItem('token', r.token);
-        this.toast.success(r.message);
-        this.hero.validateSession();
-        this.router.navigate(['/tabs/home']);
-      } else {
-        this.toast.error(r.message);
-      }
-    });
+          this.registerOp = 3;
+          this.message = r.message;
+          this.clear();
+          // localStorage.setItem('user', JSON.stringify(r.user));
+          // localStorage.setItem('token', r.token);
+          // this.toast.success(r.message);
+          // this.hero.validateSession();
+          // this.router.navigate(['/tabs/home']);
+        } else {
+          this.toast.error(r.error);
+        }
+      });
+    }
   }
   clear() {
     this.data = {
@@ -58,16 +74,9 @@ export class RegisterPage implements OnInit {
       password_confirmation: null
     };
   }
-  listError(e) {
-    let bander = true;
-    // tslint:disable-next-line: prefer-const
-    for (let i in e) {
-      if (e.hasOwnProperty(i)) {
-        if (bander) {
-          this.toast.error(e[i]);
-          bander = false;
-        }
-      }
-    }
+  login() {
+    this.registerOp = 1;
+    this.message = '';
+    this.router.navigate(['/login']);
   }
 }

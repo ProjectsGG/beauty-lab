@@ -37,7 +37,9 @@ class User extends Authenticatable implements JWTSubject
         'img_perfil',
         'nombre_contacto',
         'telefono_contacto',
-        'rh'
+        'rh',
+        'verify_token',
+        'verify'
     ];
     public $timestamps = false;
     /**
@@ -81,5 +83,9 @@ class User extends Authenticatable implements JWTSubject
     public function tasks()
     {
         return $this->hasMany(Task::class);
+    }
+    public function images()
+    {
+        return $this->hasMany(Task::class, 'id_usuario');
     }
 }

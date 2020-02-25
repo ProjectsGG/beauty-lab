@@ -1,0 +1,38 @@
+.center{
+	text-align: center;
+}
+.btn-primary-bf {
+	color : #FFFFFF;
+	background-color : #fd1fa4;
+	border-color : #ff0098;
+  }
+  .btn-primary-bf:hover {
+	color : #FFFFFF;
+	background-color : #fc34ac;
+	border-color : #ff0098;
+  }
+  .btn-primary-bf:focus, .btn-primary-bf.focus {
+	-webkit-box-shadow : 0 0 0 0.2rem rgba(245, 58, 170, 0.769);
+			box-shadow : 0 0 0 0.2rem rgba(245, 58, 170, 0.769);
+  }
+  div.card-header{
+	font-weight: 600;
+  }
+  .pb-05{
+	padding-bottom: 0.5rem;
+  }
+  .pt-05{
+	padding-top: 0.5rem;
+  }
+  .pl-05{
+	padding-left: 0.5rem;
+  }
+  .pr-05{
+	padding-right: 0.5rem;
+  }
+  .content-img{
+    width: 30%;
+  }
+  .sub{
+    color: #9b9b9b;
+  }

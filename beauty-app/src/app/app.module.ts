@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,11 @@ import { IonicStorageModule } from '@ionic/storage';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { PayPal } from '@ionic-native/paypal/ngx';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { File } from '@ionic-native/File/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
+import { SMS } from '@ionic-native/sms/ngx';
+
 
 
 @NgModule({
@@ -33,14 +38,19 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
   IonicStorageModule.forRoot()
 ],
   providers: [
-    StatusBar,
     SplashScreen,
+    StatusBar,
+    StatusBar,
     VideoPlayer,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GooglePlus,
     PayPal,
-    YoutubeVideoPlayer
+    YoutubeVideoPlayer,
+    File,
+    WebView,
+    FilePath,
+    SMS
   ],
   bootstrap: [AppComponent]
 })

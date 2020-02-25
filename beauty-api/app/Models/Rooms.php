@@ -21,7 +21,8 @@ class Rooms extends Model
         'nombre',
         'comodidades',
         'precio_noche',
-        'estado'
+        'estado',
+        'imagen'
     ];
     public $timestamps = false;
 

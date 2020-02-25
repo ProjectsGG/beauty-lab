@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rooms;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 
 class RoomsController extends Controller
 {
@@ -103,5 +105,11 @@ class RoomsController extends Controller
                 'message' => 'Task could not be deleted.'
             ], 500);
         }
+    }
+
+    public function getContenido($filename)
+    {
+        $file = Storage::disk('rooms')->get($filename);
+        return new Response($file);
     }
 }

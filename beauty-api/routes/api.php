@@ -4,7 +4,7 @@
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-
+Route::post('saveImg','UserController@savePhoto');
 Route::post('login', 'APIController@login');
 Route::post('register', 'APIController@register');
 
@@ -16,6 +16,10 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 
     // User
     Route::put('user/update/{id}', 'UserController@update');
+    Route::post('user/upload/photos', 'UserController@uploadPhotos');
+    
+    // Room
+    Route::resource('/room','RoomsController');
 
     // Examples
     Route::get('tasks', 'TaskController@index');

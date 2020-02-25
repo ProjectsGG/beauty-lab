@@ -7,8 +7,11 @@ use JWTAuth;
 use App\Models\User;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\RegistrationFormRequest;
+use App\Mail\Verify;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Validator;
+
 class APIController extends Controller
 {
     /**
@@ -22,31 +25,44 @@ class APIController extends Controller
     public function login(Request $request)
     {
         $input = $request->only('email', 'password');
-        $token = null;
-        if (!$token = JWTAuth::attempt($input)) {
+        $user = User::where('email', $request->all()['email'])->first();
+        if ($user != null) {
+            if ($user->verify == 1) {
+                $token = null;
+                if (!$token = JWTAuth::attempt($input)) {
+                    return response()->json([
+                        'ok' => false,
+                        'message' => 'Invalid Email or Password',
+                    ]);
+                }
+                return response()->json([
+                    'ok' => true,
+                    'message' => "Welcome to beautylab!",
+                    'user' => $user,
+                    'token' => $token
+                ]);
+            } else {
+                return response()->json([
+                    'ok' => false,
+                    'message' => 'This account is not verified'
+                ]);
+            }
+        }else {
             return response()->json([
                 'ok' => false,
                 'message' => 'Invalid Email or Password',
             ]);
         }
-        $user = User::where('email',$request->all()['email'])->first();
-
-        return response()->json([
-            'ok' => true,
-            'message' => "Welcome to beautylab!",
-            'user' => $user,
-            'token' => $token
-        ]);
     }
 
     public function refresh()
-   {
+    {
         $token = JWTAuth::getToken();
         $new_token = JWTAuth::refresh($token);
-       return response()->json([
-           'new_token' => $new_token
-       ]);
-   }
+        return response()->json([
+            'new_token' => $new_token
+        ]);
+    }
 
     /**
      * @param Request $request
@@ -54,7 +70,7 @@ class APIController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function logout(Request $request)
-    {   
+    {
         // dd($request->all());
         $this->validate($request, [
             'token' => 'required'
@@ -81,41 +97,52 @@ class APIController extends Controller
      */
     public function register(Request $request)
     {
-        $input = $request->all();
+        try {
+            $input = $request->all();
 
-        $validation = Validator::make($input,[
-            'nombres' => 'required|string',
-            'movil' => 'required|string',
-            'email' => 'required|email|unique:usuarios',
-            'password' => 'required|string|min:6|max:10'
-        ])->setAttributeNames([
-            'nombres' => 'name',
-            'movil' => 'phone',
-            'email' => 'email',
-            'password' => 'password'
-        ]);
-
-        if($validation->fails()){
-            return response()->json([
-                'ok'=>false,
-                'errors'=>$validation->errors()
+            $validation = Validator::make($input, [
+                'nombres' => 'required|string',
+                'movil' => 'required|string',
+                'email' => 'required|email|unique:usuarios',
+                'password' => 'required|string|min:6|max:10'
+            ])->setAttributeNames([
+                'nombres' => 'name',
+                'movil' => 'phone',
+                'email' => 'email',
+                'password' => 'password'
             ]);
-        }else{
-            $user = new User();
-            $user->nombres = $request->nombres;
-            $user->movil = $request->movil;
-            $user->email = $request->email;
-            $user->password = bcrypt($request->password);
-            $user->save();
 
-            if ($this->loginAfterSignUp) {
-                return $this->login($request);
+            if ($validation->fails()) {
+                return response()->json([
+                    'ok' => false,
+                    'error' => $validation->errors()->first()
+                ]);
+            } else {
+                $user = new User();
+                $user->nombres = $request->nombres;
+                $user->movil = $request->movil;
+                $user->email = $request->email;
+                $user->password = bcrypt($request->password);
+                $user->verify_token = str_shuffle("abcdefghijklmnopqrstuvwxyz0123456789" . uniqid());
+                $user->save();
+
+                Mail::to($user->email)->send(new Verify($user));
+
+                // if ($this->loginAfterSignUp) {
+                //     return $this->login($request);
+                // }
+
+                return response()->json([
+                    'ok' =>  true,
+                    'message' => "Please check your email to confirm it's you",
+                    'data' =>  $user
+                ], 200);
             }
-
+        } catch (\Throwable $th) {
             return response()->json([
-                'ok'   =>  true,
-                'data'      =>  $user
-            ], 200);
+                'ok' => false,
+                'error' => $th->getMessage()
+            ]);
         }
     }
     public function me()
@@ -125,5 +152,21 @@ class APIController extends Controller
     public function guard()
     {
         return Auth::guard();
+    }
+    public function verify($token)
+    {
+        $user = User::where('verify_token', $token)->first();
+        $message = '';
+        if ($user != null) {
+            if ($user->verify == 1) {
+                $message = 'This account has already been verified.';
+            } else {
+                $user->update(['verify' => 1]);
+                $message = 'Account verified successfully, now you can enter the application';
+            }
+        } else {
+            $message = 'Could not find this account';
+        }
+        return view('auth.verify', compact('message'));
     }
 }

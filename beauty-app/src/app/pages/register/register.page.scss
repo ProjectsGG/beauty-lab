@@ -1,3 +1,15 @@
+.center{
+    display: flex;
+    margin: 0 auto;
+}
+.padd-top{
+    padding-top: 0.5rem;
+}
+.message{
+    font-size: 40px;
+    text-align: center;
+    color: aliceblue;
+}
 ion-content.style {
 
     h1,
@@ -76,4 +88,9 @@ h1.home{
     height: auto; 
     display: block;
     margin: 0 auto;
+}
+.link-terms{
+    font-size: 11px;
+    text-decoration: underline;
+    color: #c8d9e7;
 }

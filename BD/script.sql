@@ -70,6 +70,8 @@ create table if not exists `usuarios` (
   `nombre_contacto` varchar(100) null,
   `telefono_contacto` varchar(100) null,
   `rh` varchar(1) null,
+  `verify_token` varchar(500) DEFAULT NULL,
+  `verify` tinyint(1) NOT NULL DEFAULT 0,
   primary key (`id`),
   index `fk_personas_paises1_idx` (`id_pais` asc),
   index `fk_personas_tipos_identificacion1_idx` (`id_tipo_id` asc),
@@ -177,7 +179,7 @@ engine = innodb;
 -- -----------------------------------------------------
 -- drop table if exists `habtaciones` ;
 
-create table if not exists `habtaciones` (
+create table if not exists `habitaciones` (
   `id_habitacion` int not null,
   `nombre` varchar(100) null,
   `comodidades` varchar(2000) null,
@@ -197,10 +199,10 @@ create table if not exists `habitaciones_img` (
   `img` varchar(200) null,
   `id_habitacion` int not null,
   primary key (`id_habitacion_img`),
-  index `fk_habitaciones_img_habtaciones1_idx` (`id_habitacion` asc),
-  constraint `fk_habitaciones_img_habtaciones1`
+  index `fk_habitaciones_img_habitaciones1_idx` (`id_habitacion` asc),
+  constraint `fk_habitaciones_img_habitaciones1`
     foreign key (`id_habitacion`)
-    references `habtaciones` (`id_habitacion`)
+    references `habitaciones` (`id_habitacion`)
     on delete no action
     on update no action)
 engine = innodb;
@@ -234,11 +236,11 @@ create table if not exists `cotizaciones` (
   `id_habitacion` int not null,
   `id_usuario` int not null,
   primary key (`id_cotizacion`),
-  index `fk_cotizaciones_habtaciones1_idx` (`id_habitacion` asc),
+  index `fk_cotizaciones_habitaciones1_idx` (`id_habitacion` asc),
   index `fk_cotizaciones_usuarios1_idx` (`id_usuario` asc),
-  constraint `fk_cotizaciones_habtaciones1`
+  constraint `fk_cotizaciones_habitaciones1`
     foreign key (`id_habitacion`)
-    references `habtaciones` (`id_habitacion`)
+    references `habitaciones` (`id_habitacion`)
     on delete no action
     on update no action,
   constraint `fk_cotizaciones_usuarios1`
@@ -286,10 +288,10 @@ create table if not exists `planes` (
   `img_plan` varchar(200) null,
   `id_habitacion` int not null,
   primary key (`id_plan`),
-  index `fk_planes_habtaciones1_idx` (`id_habitacion` asc),
-  constraint `fk_planes_habtaciones1`
+  index `fk_planes_habitaciones1_idx` (`id_habitacion` asc),
+  constraint `fk_planes_habitaciones1`
     foreign key (`id_habitacion`)
-    references `habtaciones` (`id_habitacion`)
+    references `habitaciones` (`id_habitacion`)
     on delete no action
     on update no action)
 engine = innodb;

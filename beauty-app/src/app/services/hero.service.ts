@@ -3,20 +3,35 @@ import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Purchase } from '../interfaces/purchase';
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
-  // private url: any = 'http://192.168.0.15:8000/api';
-  private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
+
+
+  //private url: any = 'http://18.228.226.191/api';
+  private url: any = 'http://159.89.186.16/api';
+  private domain: any = 'http://159.89.186.16';
   private token: string = null;
   private user: User;
   public auth = false;
 
+  public dataPurchase: Purchase = {
+    user_id: '',
+    procedures: [],
+    plans: [],
+    room: null,
+    date: null,
+    ok: false
+  };
   constructor(private storage: Storage,  private router: Router, private http: HttpClient) {}
 
   getUrl() {
     return this.url;
+  }
+  getDomain() {
+    return this.domain;
   }
   getToken() {
     return this.token;
@@ -34,6 +49,7 @@ export class HeroService {
     return this.auth;
   }
   validateSession() {
+
     const token = localStorage.getItem('token');
     if ( token === null || token === undefined) {
       this.router.navigate(['/inicio']);
@@ -41,7 +57,8 @@ export class HeroService {
       this.token = token;
       this.user = JSON.parse(localStorage.getItem('user'));
       this.auth = true;
-      this.router.navigate(['/tabs/home']);
+      this.dataPurchase.user_id = JSON.parse(localStorage.getItem('user')).id;
+      // this.router.navigate(['/tabs/home']);
       // this.refreshToken();
     }
   }
@@ -51,8 +68,8 @@ export class HeroService {
     this.token = null;
     this.user = null;
     this.auth = false;
-
-    this.validateSession();
+    location.reload();
+    // this.validateSession();
   }
   refreshToken() {
     const httpOptions = {

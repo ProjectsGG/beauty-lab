@@ -8,6 +8,19 @@
     max-width: 80%;
     border: 0;
     padding-left: 5rem;
-    padding-top: 3rem;
-    padding-bottom: 1rem;
+    padding-top: 1rem;  
+}
+.noborder{
+    padding-bottom: unset;
+}   
+.logo-terms{
+    max-width: 50%;
+    border: 0;
+    padding-bottom: 6px;
+    display: flex;
+    //margin: 0 auto;
+}
+.img-hd{
+    width: 40%;
+    margin-left: 24%;
 }
