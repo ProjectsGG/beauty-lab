@@ -17,7 +17,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     // User
     Route::put('user/update/{id}', 'UserController@update');
     Route::post('user/upload/photos', 'UserController@uploadPhotos');
-    
+    Route::post('setImgProfile', 'UserController@updatePhoto');
     // Room
     Route::resource('/room','RoomsController');
 

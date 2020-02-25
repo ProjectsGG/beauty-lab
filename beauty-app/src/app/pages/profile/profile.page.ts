@@ -86,4 +86,13 @@ export class ProfilePage implements OnInit {
       }
     );
   }
+  test() {
+    this.service.setImgProfile(null).subscribe((r: any) => {
+      if (r.ok) {
+        this.toastr.success(r.message);
+      } else {
+        this.toastr.error(r.error);
+      }
+    });
+  }
 }
