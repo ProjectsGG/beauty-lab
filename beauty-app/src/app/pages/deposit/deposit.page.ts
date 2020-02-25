@@ -39,7 +39,7 @@ export class DepositPage implements OnInit {
   payWithPaypal() {
     this.payPal
       .init({
-        PayPalEnvironmentProduction: 'yungprince333333-facilitator@gmail.com',
+        PayPalEnvironmentProduction: 'AQmvJTc1hXdzjdvLoVVpL-EknSt-rLFORKzt6E2QseffRZigqd2wFGTAlz-yl--BDlXqxuuMmKTDVk4w',
         PayPalEnvironmentSandbox: 'Ae2Jz-_zB0fS_boKQr7kY9MZwla__TVt_vLAwhEWeCFnYmUV7wpfJOYfUgpGNggGty2QEvclkxqdaYVL'
       })
       .then(
@@ -47,7 +47,7 @@ export class DepositPage implements OnInit {
           // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
           this.payPal
             .prepareToRender(
-              'PayPalEnvironmentSandbox',
+              'PayPalEnvironmentProduction',
               new PayPalConfiguration({
                 // Only needed if you get an 'Internal Service Error' after PayPal login!
                 // payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
