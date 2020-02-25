@@ -17,7 +17,9 @@ export class SocialPage implements OnInit {
     user: 'Andrea Beautylab',
     postage: '2 hours ago',
     postext: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur repellat libero blanditiis sunt. Fuga aperiam ad velit minus voluptas sapiente iste ipsam est ipsa autem quis ea, animi sunt sequi.',
-    like: false
+    like: false,
+    topcomnt: 'you should visit the little town paisa',
+    topcomnt2: 'what a crazy nice experience'
   },
   {
     profileimg: 'siluet2.jpeg',
@@ -26,20 +28,25 @@ export class SocialPage implements OnInit {
     user: 'Lisa Beautylab',
     postage: '2 weeks ago',
     postext: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur repellat libero blanditiis sunt. Fuga aperiam ad velit minus voluptas sapiente iste ipsam est ipsa autem quis ea, animi sunt sequi.',
-    like: false
+    like: false,
+    topcomnt: 'what a crazy nice experience',
+    topcomnt2: 'what a crazy nice experience'
   },
   {
     profileimg: 'siluet3.png',
     images: 'anaBl.jpg',
     nlikes: 20,
-    user: 'ana Beautylab',
+    user: 'Ana Beautylab',
     postage: '3 sec ago',
     postext: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur repellat libero blanditiis sunt. Fuga aperiam ad velit minus voluptas sapiente iste ipsam est ipsa autem quis ea, animi sunt sequi.',
-    like: false
+    like: false,
+    topcomnt: 'you look great',
+    topcomnt2: 'what a crazy nice experience'
   },
 ];
   ngOnInit() {
   }
+  // more options
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: PopoverpostComponent,
