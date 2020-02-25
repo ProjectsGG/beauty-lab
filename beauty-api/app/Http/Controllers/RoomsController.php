@@ -112,4 +112,8 @@ class RoomsController extends Controller
         $file = Storage::disk('rooms')->get($filename);
         return new Response($file);
     }
+    public function getImgPerfil($filename) {
+        $file = Storage::disk('profile')->get($filename);
+        return new Response($file);
+    }
 }

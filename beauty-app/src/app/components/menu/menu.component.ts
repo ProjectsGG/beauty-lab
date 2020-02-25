@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Componente } from '../../interfaces/interfaces';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { User } from '../../interfaces/user';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,10 +16,12 @@ export class MenuComponent implements OnInit {
   componentes: Observable<Componente[]>;
   data: any;
   name: string;
+  user: User;
   constructor(
     private dataService: DataService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private hero: HeroService
   ) {}
 
   ngOnInit() {
@@ -35,6 +39,7 @@ export class MenuComponent implements OnInit {
     if (dataLs === null) {
       this.name = '';
     } else {
+      this.user = dataLs;
       const long = dataLs.nombres.length;
       // tslint:disable-next-line: prefer-const
       let newNomber = '';
