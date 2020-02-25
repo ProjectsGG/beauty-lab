@@ -1,8 +1,6 @@
 img.plans{
-    border-radius: 0.1em;
     margin: 0 auto;
     width: 100%;
-    border: solid #fff 0.1em;
 }
 h1.home{
     font-family: 'suissnordregular';
@@ -12,4 +10,16 @@ h1.home{
 .textCss{
     font-family: sans-serif;
     size: 40px;
+}
+
+ion-grid{
+    ion-card{
+        width:100%;
+        margin-left:0 !important;
+        margin-right:0 !important;
+        border-radius: 0rem;
+        ion-card-content{
+            padding: 0 !important; 
+        }
+    }
 }
