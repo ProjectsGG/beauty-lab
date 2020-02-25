@@ -44,7 +44,7 @@ export class ProfilePage implements OnInit {
           text: 'Gallery',
           icon: 'images',
           handler: () => {
-            console.log('Favorite clicked');
+            this.openGallery();
           }
         },
         {
@@ -86,13 +86,29 @@ export class ProfilePage implements OnInit {
       }
     );
   }
-  test() {
-    this.service.setImgProfile(null).subscribe((r: any) => {
-      if (r.ok) {
-        this.toastr.success(r.message);
-      } else {
-        this.toastr.error(r.error);
-      }
-    });
+  private openGallery(): void {
+    const cameraOptions = {
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      quality: 100,
+      targetWidth: 1000,
+      targetHeight: 1000,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
+    };
+
+    this.camera.getPicture(cameraOptions)
+      .then(imageData => {
+        this.imgSrc = 'data:image/jpeg;base64,' + imageData;
+        this.service.setImgProfile(this.imgSrc).subscribe((r: any) => {
+          if (r.ok) {
+            this.toastr.success(r.message);
+          } else {
+            this.toastr.error(r.error);
+          }
+        });
+      },
+      err => console.log(err));
   }
 }

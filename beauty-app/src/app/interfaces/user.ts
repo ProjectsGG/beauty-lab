@@ -3,7 +3,7 @@ export interface User {
     nombres?: string;
     apellidos?: null;
     movil?: string;
-    email: string;
+    email?: string;
     password?: string;
     password_confirmation?: string;
     direccion?: string;

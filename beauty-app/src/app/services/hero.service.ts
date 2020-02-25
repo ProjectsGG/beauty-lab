@@ -14,7 +14,9 @@ export class HeroService {
   private url: any = 'https://beautylab.app/api';
   private domain: any = 'https://beautylab.app';
   private token: string = null;
-  private user: User;
+  private user: User = {
+    img_perfil: null
+  };
   public auth = false;
 
   public dataPurchase: Purchase = {

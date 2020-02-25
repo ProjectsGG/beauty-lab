@@ -86,11 +86,17 @@ class UserController extends Controller
         try {
             foreach ($input['photos'] as $s) {
                 $image = $s;
-                $imageName = time() . $image->getClientOriginalName();
-                Storage::disk('photosUser')->put($imageName, File::get($image));
+
+                $img = $this->getB64Image($image);
+    
+                $img_extension = $this->getB64Extension($image);
+    
+                $img_name = 'zone' . time() . '.' . $img_extension;
+    
+                Storage::disk('photosUser')->put($img_name, $img);
 
                 ImgAreaAffected::create([
-                    'imagen' => $imageName,
+                    'imagen' => $img_name,
                     'id_usuario' => $this->user->id
                 ]);
 
@@ -161,7 +167,7 @@ class UserController extends Controller
                 $img_name = 'user_avatar' . time() . '.' . $img_extension;
     
                 Storage::disk('profile')->put($img_name, $img);
-    
+                Storage::disk('profile')->delete($this->user->img_perfil);
                 $this->user->update([
                     'img_perfil' => $img_name
                 ]);
