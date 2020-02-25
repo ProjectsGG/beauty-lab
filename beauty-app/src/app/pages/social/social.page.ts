@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { PopoverpostComponent } from '../../components/popoverpost/popoverpost.component';
 
 @Component({
   selector: 'app-social',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./social.page.scss'],
 })
 export class SocialPage implements OnInit {
-  constructor() { }
+  constructor(public popoverController: PopoverController) { }
 
   cards = [{
     profileimg: 'siluet1.jpg',
@@ -37,6 +39,15 @@ export class SocialPage implements OnInit {
   },
 ];
   ngOnInit() {
+  }
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PopoverpostComponent,
+      event: ev,
+      translucent: true,
+      mode: 'ios'
+    });
+    return await popover.present();
   }
  // like color
   likeFocus(i) {
