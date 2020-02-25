@@ -3,6 +3,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { HeroService } from '../../services/hero.service';
 import { UserService } from '../../services/user.service';
+import { ToastService } from '../../services/toast.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -11,11 +12,14 @@ import { UserService } from '../../services/user.service';
 export class ProfilePage implements OnInit {
   content = 'photos';
   data: any;
+  imgSrc: any = null;
+  base64: any;
   constructor(
     private camera: Camera,
     public actionSheetController: ActionSheetController,
     private hero: HeroService,
-    private service: UserService
+    private service: UserService,
+    private toastr: ToastService
   ) {}
 
   ngOnInit() {
@@ -33,7 +37,7 @@ export class ProfilePage implements OnInit {
           text: 'Camera',
           icon: 'camera',
           handler: () => {
-            console.log('Play clicked');
+            this.takePhoto();
           }
         },
         {
@@ -59,7 +63,7 @@ export class ProfilePage implements OnInit {
   takePhoto() {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     };
@@ -67,7 +71,14 @@ export class ProfilePage implements OnInit {
       imageData => {
         // imageData is either a base64 encoded string or a file URI
         // If it's base64 (DATA_URL):
-        this.service.setImgProfile(imageData);
+        this.imgSrc = 'data:image/jpeg;base64,' + imageData;
+        this.service.setImgProfile(this.imgSrc).subscribe((r: any) => {
+          if (r.ok) {
+            this.toastr.success(r.message);
+          } else {
+            this.toastr.error(r.error);
+          }
+        });
         // let base64Image = 'data:image/jpeg;base64,' + imageData;
       },
       err => {

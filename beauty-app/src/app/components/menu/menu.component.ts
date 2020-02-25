@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
   componentes: Observable<Componente[]>;
   data: any;
   name: string;
-  user: User;
+  imgPerfil = null;
   constructor(
     private dataService: DataService,
     private auth: AuthService,
@@ -38,8 +38,9 @@ export class MenuComponent implements OnInit {
     const dataLs = JSON.parse(localStorage.getItem('user'));
     if (dataLs === null) {
       this.name = '';
+      this.imgPerfil = null;
     } else {
-      this.user = dataLs;
+      this.imgPerfil = dataLs.img_perfil;
       const long = dataLs.nombres.length;
       // tslint:disable-next-line: prefer-const
       let newNomber = '';

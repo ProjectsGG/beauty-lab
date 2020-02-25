@@ -39,7 +39,7 @@ export class DepositPage implements OnInit {
   payWithPaypal() {
     this.payPal
       .init({
-        PayPalEnvironmentProduction: 'AQmvJTc1hXdzjdvLoVVpL-EknSt-rLFORKzt6E2QseffRZigqd2wFGTAlz-yl--BDlXqxuuMmKTDVk4w',
+        PayPalEnvironmentProduction: 'Aa5GzqbCccRgVikINEctQx5mZLUZl63wQjne9IY3NuguQK8DUU0OJjq0FGMUVUETrjqyYqQcypNA1QgN',
         PayPalEnvironmentSandbox: 'Ae2Jz-_zB0fS_boKQr7kY9MZwla__TVt_vLAwhEWeCFnYmUV7wpfJOYfUgpGNggGty2QEvclkxqdaYVL'
       })
       .then(
