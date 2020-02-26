@@ -36,18 +36,18 @@ class PlansController extends Controller
     {
 
         $this->validate($request, [
-            'title' => 'required',
-            'description' => 'required',
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'valor' => 'required',
         ]);
         try {
             $input = $request->all();
-            $input['user_id']=$this->user->id;
-            //$task = Task::create($input);
+            $plans = Plans::create($input);
 
-            /*return response()->json([
+            return response()->json([
                 'ok' => true,
-                'task' => $task
-            ]);*/
+                'data' => $plans
+            ]);
         } catch (\Throwable $th) {
             return response()->json([
                 'ok' => false,

@@ -18,28 +18,35 @@
     <ion-row>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
       <ion-col size="12" size-md="6" size-xl="6">
-        <ion-list lines="full" class="ion-no-margin ion-no-padding">
-          <ion-item>
-            <ion-label position="stacked" class="txt-label">Plan Name</ion-label>
-            <ion-input type="text" class="input-contact"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="stacked">Description Plan</ion-label>
-            <ion-input type="text" class="input-contact"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="stacked">Plan Value</ion-label>
-            <ion-input type="text" class="input-contact"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="stacked">Plan Name</ion-label>
-            <ion-input type="file" class="input-contact"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-button color="dark" expand="full" size="large">Save</ion-button>
-            <ion-button color="dark" expand="full" size="large" routerLink="/admplansdetails">Details</ion-button>
-          </ion-item>
-        </ion-list>
+        <form [formGroup]="form" (ngSubmit)="savePlans(form.value)">
+          <ion-list lines="full" class="ion-no-margin ion-no-padding">
+            <ion-item>
+              <ion-label position="stacked" class="txt-label">Plan Name</ion-label>
+              <ion-input formControlName="nombre" type="text" name="nombre" 
+                class="input-contact"
+                [ngClass]="{ 'is-invalid': submitted && f.title.errors }"></ion-input>
+                <div *ngIf="submitted && f.nombres.errors" class="invalid-feedback">
+                  <div *ngIf="f.nombres.errors.required">name is required</div>
+              </div>                
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Description Plan</ion-label>
+              <ion-input formControlName="descripcion" type="text" name="descripcion" class="input-contact"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Plan Value</ion-label>
+              <ion-input formControlName="valor"  [formGroup]="form"  type="text" name="valor" class="input-contact"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Plan Name</ion-label>
+              <ion-input [formGroup]="form"  type="file" class="input-contact"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-button type="submit" color="dark" expand="full" size="large">Save</ion-button>
+              <ion-button color="dark" expand="full" size="large" routerLink="/admplansdetails">Details</ion-button>
+            </ion-item>
+          </ion-list>
+        </form>
       </ion-col>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
     </ion-row>
