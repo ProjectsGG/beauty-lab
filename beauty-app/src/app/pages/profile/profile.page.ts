@@ -25,6 +25,7 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.data = JSON.parse(localStorage.getItem('user'));
+    this.loading = false;
   }
   segmentChanged(ev: any) {
     this.hero.getDomain();
@@ -63,7 +64,7 @@ export class ProfilePage implements OnInit {
 
   takePhoto() {
     const options: CameraOptions = {
-      quality: 100,
+      quality: 25,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -72,14 +73,17 @@ export class ProfilePage implements OnInit {
       imageData => {
         // imageData is either a base64 encoded string or a file URI
         // If it's base64 (DATA_URL):
+        this.loading = true;
         this.imgSrc = 'data:image/jpeg;base64,' + imageData;
         this.service.setImgProfile(this.imgSrc).subscribe((r: any) => {
           if (r.ok) {
             this.toastr.success(r.message);
             this.hero.setUser(r.user);
             localStorage.setItem('user', JSON.stringify(r.user));
+            this.loading = false;
           } else {
             this.toastr.error(r.error);
+            this.loading = false;
           }
         });
         // let base64Image = 'data:image/jpeg;base64,' + imageData;
@@ -93,7 +97,7 @@ export class ProfilePage implements OnInit {
     const cameraOptions = {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.DATA_URL,
-      quality: 100,
+      quality: 25,
       targetWidth: 1000,
       targetHeight: 1000,
       encodingType: this.camera.EncodingType.JPEG,

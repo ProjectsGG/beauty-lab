@@ -14,186 +14,87 @@ h2 {
 span {
     font-weight: 100;
 }
-.timeline{
-    --uiTimelineMainColor: var(--timelineMainColor, #222);
-    --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #fff);
+
+
+// Timeline
+//Text Styles 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+$font-sans: 'Open Sans', sans-serif;
+
+//Colors
+$black: aliceblue;
+$white: #ffffff;
+
+body {
+  font-family: $font-sans;
+  margin: 0;
+  padding: 0 4em;
+}
+
+main {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.75em;
+  border-top: 3px solid;
+  border-image: linear-gradient(to right, aliceblue 0%, #d53a9d 100%);
+  border-image-slice: 1;
+  border-width: 3px;
+  margin: 0;
+  padding: 40px;
+  counter-increment: section;
+  position: relative;
+  color: $black;
   
-    position: relative;
-    padding-bottom: 3rem;
-  }
-  
-  .timeline:before{
-    content: "";
-    width: 4px;
-    height: 100%;
-    background-color: var(--uiTimelineMainColor);
-  
+  //numbers
+  &:before {
+    content: counter(section);
     position: absolute;
-    top: 0;
-  }
-  
-  .timeline__group{
-    position: relative;
-  }
-  
-  .timeline__group:not(:first-of-type){
-    margin-top: 4rem;
-  }
-  
-  .timeline__year{
-    padding: .5rem 1.5rem;
-    color: var(--uiTimelineSecondaryColor);
-    background-color: var(--uiTimelineMainColor);
-  
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  
-  .timeline__box{
-    position: relative;
-  }
-  
-  .timeline__box:not(:last-of-type){
-    margin-bottom: 30px;
-  }
-  
-  .timeline__box:before{
-    content: "";
-    width: 100%;
-    height: 2px;
-    background-color: var(--uiTimelineMainColor);
-  
-    position: absolute;
-    left: 0;
-    z-index: -1;
-  }
-  
-  .timeline__date{
-    min-width: 65px;
-    position: absolute;
-    left: 0;
-  
-    box-sizing: border-box;
-    padding: .5rem;
+    border-radius: 50%;
+    padding: 10px;
+    height: 1.25em;
+    width: 1.25em;
+    background-color: $black;
     text-align: center;
-  
-    background-color: var(--uiTimelineMainColor);
-    color: var(--uiTimelineSecondaryColor);
-
-    margin-left: 7.3px;
-    border-radius: 100px;
+    line-height: 1.25em;
+    color: $white;
+    font-size: 1em;
   }
+}
+//odd number borders
+p:nth-child(odd) {
+  border-right: 3px solid;
+  padding-left: 0;
   
-  .timeline__day{
-    font-size: 2rem;
-    font-weight: 700;
-    display: block;
+  &:before {
+    left: 100%; 
+    margin-left: -20px;
+    background: aliceblue;
+    color: #f603d8e6;
   }
+}
+//even number borders
+p:nth-child(even) {
+  border-left: 3px solid;
+  padding-right: 0;
   
-  .timeline__month{
-    display: block;
-    font-size: .8em;
-    text-transform: uppercase;
+  &:before {
+    right: 100%; 
+    margin-right: -20px;
+    background: #f603d8e6;
+    color: aliceblue;
   }
-  
-  .timeline__post{
-    padding: 1.5rem 2rem;
-    border-radius: 2px;
-    border-left: 3px solid var(--uiTimelineMainColor);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
-    background-color: var(--uiTimelineSecondaryColor);
-  }
-  
-  @media screen and (min-width: 641px){
-  
-    .timeline:before{
-      left: 30px;
-    }
-  
-    .timeline__group{
-      padding-top: 55px;
-    }
-  
-    .timeline__box{
-      padding-left: 80px;
-    }
-  
-    .timeline__box:before{
-      top: 50%;
-      transform: translateY(-50%);  
-    }  
-  
-    .timeline__date{
-      top: 50%;
-      margin-top: -27px;
-    }
-  }
-  
-  @media screen and (max-width: 640px){
-  
-    .timeline:before{
-      left: 0;
-    }
-  
-    .timeline__group{
-    //   padding-top: 40px;
-    }
-  
-    .timeline__box{
-      padding-left: 20px;
-      padding-top: 70px;
-    }
-  
-    .timeline__box:before{
-      top: 90px;
-    }    
-  
-    .timeline__date{
-      top: 0;
-    }
-  }
-  
-  .timeline{
-    --timelineMainColor: #fc50ed;
-    font-size: 16px;
-  }
-  
-  /*
-  =====
-  DEMO
-  =====
-  */
-  
-  @media (min-width: 768px){
-  
-    html{
-      font-size: 62.5%;
-    }
-  }
-  
-  @media (max-width: 767px){
-  
-    html{
-      font-size: 55%;
-    }
-  }
-
-  
-  p{
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-  }
-  
-  p:last-child{
-    margin-bottom: 0;
-  }
-  
-  .page{
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    order: 1;
-    padding-top: 0.5rem;
-  }
+}
+//handle first and last
+p:first-child {
+  border-top: 0;
+  border-top-right-radius:0;
+  border-top-left-radius:0;
+}
+p:last-child {
+  border-bottom-right-radius:0;
+  border-bottom-left-radius:0;
+}

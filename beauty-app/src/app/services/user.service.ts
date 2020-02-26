@@ -47,17 +47,22 @@ export class UserService {
       }
     });
   }
-  uploadPhotos(data) {
+  uploadPhotos(images) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'bearer ' + this.hero.getToken()
       })
     };
+    const data: Img = {
+      images
+    };
     const url =  this.hero.getUrl() + '/user/upload/photos';
-    return this.http.put(url, data, httpOptions).subscribe((r: any) => {
-      console.log(r);
-    });
+    return this.http.put(url, data, httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
   }
   setImgProfile(image) {
     const data: Img = {
