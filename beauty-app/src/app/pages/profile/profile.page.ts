@@ -10,6 +10,7 @@ import { ToastService } from '../../services/toast.service';
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
+  loading = true;
   content = 'photos';
   data: any;
   imgSrc: any = null;
