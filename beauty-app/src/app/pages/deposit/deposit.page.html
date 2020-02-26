@@ -14,14 +14,18 @@
           <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="">
         </div>
         <h3 class="ion-text-center">B u y N o w</h3>
-        <ion-slides pager="true" [options]="slideOpts">
-          <ion-slide *ngIf="hero.dataPurchase.plans.length > 0" >
-            <img *ngFor="let item of hero.dataPurchase.plans" class="img-depos" src="assets/img/pyp/{{item.img_plan}}" alt="" srcset="">
-          </ion-slide>
-          <ion-slide *ngIf="hero.dataPurchase.procedures.length > 0" >
-            <img *ngFor="let item of hero.dataPurchase.procedures" class="img-depos" src="assets/img/pyp/{{item.imagen}}" alt="" srcset="">
-          </ion-slide>
-        </ion-slides>
+        
+          <ion-card>
+            <ion-card-header>
+              <img *ngFor="let item of hero.dataPurchase.plans" class="img-depos" src="assets/img/pyp/{{item.img_plan}}" alt="" srcset="">
+              <img *ngFor="let item of hero.dataPurchase.procedures" class="img-depos" src="assets/img/pyp/{{item.imagen}}" alt="" srcset="">
+          </ion-card-header>
+            <ion-card-content>
+              <h2>Lipo 360 is an all-inclusive liposuction procedure that is used to contour and shape the midsection, 
+                360 degrees around. The possible areas for treatment are the upper and lower abdominals, the flanks on
+                 both sides, and the lower and mid-back.</h2>
+            </ion-card-content>
+          </ion-card>
         
         <p></p>
 
