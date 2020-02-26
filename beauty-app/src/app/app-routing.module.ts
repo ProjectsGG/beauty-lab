@@ -96,7 +96,11 @@ const routes: Routes = [
   {
     path: 'help',
     loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
+  },  {
+    path: 'admplans',
+    loadChildren: () => import('./pages/admplans/admplans.module').then( m => m.AdmplansPageModule)
   }
+
 
 
 ];
