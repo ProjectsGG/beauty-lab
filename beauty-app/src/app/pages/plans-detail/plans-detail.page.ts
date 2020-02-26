@@ -39,6 +39,7 @@ export class PlansDetailPage implements OnInit {
   };
   ngOnInit() {
     this.getPlan();
+    this.styleCalendar();
   }
   getPlan() {
     this.plans = JSON.parse(localStorage.getItem('plans'));
@@ -57,29 +58,39 @@ export class PlansDetailPage implements OnInit {
     const url = `${this.hero.getUrl()}/room/` + id;
     return this.http.get(url, this.httpOptions);
   }
-  payWithPaypal() {
-    console.log('Pay!!!!!!');
-    this.payPal.init({
-      PayPalEnvironmentProduction: 'ARWrJ5pdmpzKphRRLPijQKobEXbgnqV19iWT_kSSGR8HyRnTxcNAYLFxvN4CwtsDEI6aVqUpOt1QW3BE',
-      PayPalEnvironmentSandbox: 'sb-c6oa43982474@business.example.com'
-    }).then(() => {
-      // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
-      this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
-      })).then(() => {
-        const payment = new PayPalPayment(
-          this.paymentAmount, this.currency, this.plans.nombre, 'sale beauty lab ' + this.plans.nombre);
-        this.payPal.renderSinglePaymentUI(payment).then((res) => {
-          console.log('respuesta : ', res);
-          this.toastr.success('Successful payment');
-        }, () => {
-          this.toastr.error('Error or render dialog closed without being successful');
-        });
-      }, () => {
-       this.toastr.error('Error in the configuration the PayPal');
-      });
-    }, () => {
-      this.toastr.error('Paypal initialization failed');
-    });
+  // payWithPaypal() {
+  //   console.log('Pay!!!!!!');
+  //   this.payPal.init({
+  //     PayPalEnvironmentProduction: 'ARWrJ5pdmpzKphRRLPijQKobEXbgnqV19iWT_kSSGR8HyRnTxcNAYLFxvN4CwtsDEI6aVqUpOt1QW3BE',
+  //     PayPalEnvironmentSandbox: 'sb-c6oa43982474@business.example.com'
+  //   }).then(() => {
+  //     // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
+  //     this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+  //     })).then(() => {
+  //       const payment = new PayPalPayment(
+  //         this.paymentAmount, this.currency, this.plans.nombre, 'sale beauty lab ' + this.plans.nombre);
+  //       this.payPal.renderSinglePaymentUI(payment).then((res) => {
+  //         console.log('respuesta : ', res);
+  //         this.toastr.success('Successful payment');
+  //       }, () => {
+  //         this.toastr.error('Error or render dialog closed without being successful');
+  //       });
+  //     }, () => {
+  //      this.toastr.error('Error in the configuration the PayPal');
+  //     });
+  //   }, () => {
+  //     this.toastr.error('Paypal initialization failed');
+  //   });
+  // }
+  backStep() {
+    this.hero.dataPurchase = {
+      procedures: [],
+      plans: [],
+      room: null,
+      date: null,
+      ok: false
+    };
+    this.router.navigate(['/plans']);
   }
   nextStep() {
     if (this.data === undefined) {
@@ -89,5 +100,34 @@ export class PlansDetailPage implements OnInit {
       this.router.navigate(['s-room']);
     }
   }
+  styleCalendar() {
+    const styleElem = document.head.appendChild(
+      document.createElement('style')
+    );
 
+    // tslint:disable-next-line: max-line-length
+    styleElem.innerHTML = `
+                          .month-packer-item > button {
+                            color: aliceblue !important;
+                          }
+                          .this-month > button {
+                            border: 1px solid #fff !important;
+                          }
+                          .switch-btn{
+                            color: aliceblue !important;
+                          }
+                          .transparent{
+                            color: aliceblue !important;
+                          }
+                          button.on-selected{
+                            background-color: #ff00e9 !important;
+                          }
+                          .days-btn {
+                            background-color: #fae6fe !important;
+                          }
+                          button.today > p{
+                            color: #000 !important;
+                            font-weight: 100 !important;
+                          }`;
+  }
 }

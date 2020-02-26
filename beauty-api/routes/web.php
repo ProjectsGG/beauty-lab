@@ -12,6 +12,7 @@
 */
 Route::get('/verify/{token}','APIController@verify')->name('verify');
 Route::get('/file/{filename}','RoomsController@getContenido');
+Route::get('/file/profile/{filename}','RoomsController@getImgPerfil');
 Route::get('/', function () {
     return view('welcome');
 });

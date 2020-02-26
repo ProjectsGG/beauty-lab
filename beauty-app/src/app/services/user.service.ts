@@ -5,6 +5,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { HeroService } from './hero.service';
 import { ToastService } from './toast.service';
 import { Router } from '@angular/router';
+import { Img } from '../interfaces/img';
 @Injectable({
   providedIn: 'root'
 })
@@ -57,5 +58,24 @@ export class UserService {
     return this.http.put(url, data, httpOptions).subscribe((r: any) => {
       console.log(r);
     });
+  }
+  setImgProfile(image) {
+    const data: Img = {
+      img: image
+    };
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
+
+    const url = this.hero.getUrl() + '/setImgProfile';
+
+    return this.http.post(url, data, httpOptions).pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
   }
 }

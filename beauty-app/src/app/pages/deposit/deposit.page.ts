@@ -5,6 +5,8 @@ import {
   PayPalConfiguration
 } from '@ionic-native/paypal/ngx';
 import { ToastService } from '../../services/toast.service';
+import { HeroService } from '../../services/hero.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deposit',
@@ -12,23 +14,44 @@ import { ToastService } from '../../services/toast.service';
   styleUrls: ['./deposit.page.scss']
 })
 export class DepositPage implements OnInit {
-  constructor(private payPal: PayPal, public toastr: ToastService) {}
+  constructor(private payPal: PayPal, public toastr: ToastService, public hero: HeroService, private router: Router) {}
+  slideOpts = {
+    initialSlide: 0,
+    speed: 600
+  };
   paymentAmount = '1.00';
   currency = 'USD';
   currencyIcon = '$';
-  ngOnInit() {}
+  room: any;
+  ngOnInit() {
+    if (this.hero.dataPurchase.procedures.length > 0 || this.hero.dataPurchase.plans.length > 0) {
+      this.room = this.hero.dataPurchase.room;
+    } else {
+      this.router.navigate(['/tabs/home']);
+    }
+  }
+  cancel() {
+    this.hero.dataPurchase = {
+      procedures: [],
+      plans: [],
+      room: null,
+      date: null,
+      ok: false
+    };
+    this.router.navigate(['/tabs/home']);
+  }
   payWithPaypal() {
     this.payPal
       .init({
-        PayPalEnvironmentProduction: 'Ae2Jz-_zB0fS_boKQr7kY9MZwla__TVt_vLAwhEWeCFnYmUV7wpfJOYfUgpGNggGty2QEvclkxqdaYVL',
-        PayPalEnvironmentSandbox: 'yungprince333333-facilitator@gmail.com'
+        PayPalEnvironmentProduction: 'Aa5GzqbCccRgVikINEctQx5mZLUZl63wQjne9IY3NuguQK8DUU0OJjq0FGMUVUETrjqyYqQcypNA1QgN',
+        PayPalEnvironmentSandbox: 'Ae2Jz-_zB0fS_boKQr7kY9MZwla__TVt_vLAwhEWeCFnYmUV7wpfJOYfUgpGNggGty2QEvclkxqdaYVL'
       })
       .then(
         () => {
           // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
           this.payPal
             .prepareToRender(
-              'PayPalEnvironmentSandbox',
+              'PayPalEnvironmentProduction',
               new PayPalConfiguration({
                 // Only needed if you get an 'Internal Service Error' after PayPal login!
                 // payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal

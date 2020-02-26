@@ -10,11 +10,13 @@ import { Purchase } from '../interfaces/purchase';
 export class HeroService {
 
 
-  //private url: any = 'http://18.228.226.191/api';
-    private url: any = 'https://beautylab.app/api';
-    private domain: any = 'https://beautylab.app/api';
+  // private url: any = 'http://18.228.226.191/api';
+  private url: any = 'https://beautylab.app/api';
+  private domain: any = 'https://beautylab.app';
   private token: string = null;
-  private user: User;
+  private user: User = {
+    img_perfil: null
+  };
   public auth = false;
 
   public dataPurchase: Purchase = {

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Componente } from '../../interfaces/interfaces';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { User } from '../../interfaces/user';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,7 +19,8 @@ export class MenuComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private hero: HeroService
   ) {}
 
   ngOnInit() {

@@ -4,6 +4,13 @@
     <ion-icon name="camera" (click)="photoPic()" *ngIf="!srcImg" class="icon-camera color"></ion-icon>
     <p class="color" (click)="photoPic()" *ngIf="!srcImg">Camera</p>
   </ion-card-content>
+  <ion-grid class="grid-photos">
+    <ion-row>
+      <ion-col class="padding-img" *ngFor="let item of images" size="6" size-md="4" size-lg="4">
+        <img src="assets/img/{{item}}" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-card>
 
 

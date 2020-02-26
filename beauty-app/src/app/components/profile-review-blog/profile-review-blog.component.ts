@@ -35,6 +35,7 @@ export class ProfileReviewBlogComponent implements OnInit {
     }
   ];
   srcImg: any;
+  images: any[] = ['girl1.jpg', 'twoGirls.jpg', 'party.jpg', 'girl2.jpg'];
   constructor(private camera: Camera, private toast: ToastService) { }
 
   ngOnInit() {}
