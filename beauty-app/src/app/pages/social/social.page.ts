@@ -18,7 +18,7 @@ export class SocialPage implements OnInit {
     postage: '2 hours ago',
     postext: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur repellat libero blanditiis sunt. Fuga aperiam ad velit minus voluptas sapiente iste ipsam est ipsa autem quis ea, animi sunt sequi.',
     like: false,
-    topcomnt: 'you should visit the little town paisa',
+    topcomnt: '<3',
     topcomnt2: 'what a crazy nice experience'
   },
   {
@@ -29,7 +29,7 @@ export class SocialPage implements OnInit {
     postage: '2 weeks ago',
     postext: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur repellat libero blanditiis sunt. Fuga aperiam ad velit minus voluptas sapiente iste ipsam est ipsa autem quis ea, animi sunt sequi.',
     like: false,
-    topcomnt: 'what a crazy nice experience',
+    topcomnt: '<3',
     topcomnt2: 'what a crazy nice experience'
   },
   {
