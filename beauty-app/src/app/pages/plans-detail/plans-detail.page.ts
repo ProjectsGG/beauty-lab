@@ -41,6 +41,7 @@ export class PlansDetailPage implements OnInit {
   };
   ngOnInit() {
     this.getPlan();
+    this.styleCalendar();
   }
   getPlan() {
     this.plans = JSON.parse(localStorage.getItem('plans'));
@@ -75,8 +76,14 @@ export class PlansDetailPage implements OnInit {
   //   });
   // }
   backStep() {
-    this.hero.dataPurchase.procedures.pop();
-    this.navCtrl.back();
+    this.hero.dataPurchase = {
+      procedures: [],
+      plans: [],
+      room: null,
+      date: null,
+      ok: false
+    };
+    this.router.navigate(['/plans']);
   }
   nextStep() {
     if (this.data === undefined) {
@@ -86,5 +93,34 @@ export class PlansDetailPage implements OnInit {
       this.router.navigate(['s-room']);
     }
   }
+  styleCalendar() {
+    const styleElem = document.head.appendChild(
+      document.createElement('style')
+    );
 
+    // tslint:disable-next-line: max-line-length
+    styleElem.innerHTML = `
+                          .month-packer-item > button {
+                            color: aliceblue !important;
+                          }
+                          .this-month > button {
+                            border: 1px solid #fff !important;
+                          }
+                          .switch-btn{
+                            color: aliceblue !important;
+                          }
+                          .transparent{
+                            color: aliceblue !important;
+                          }
+                          button.on-selected{
+                            background-color: #ff00e9 !important;
+                          }
+                          .days-btn {
+                            background-color: #fae6fe !important;
+                          }
+                          button.today > p{
+                            color: #000 !important;
+                            font-weight: 100 !important;
+                          }`;
+  }
 }

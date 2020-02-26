@@ -9,6 +9,7 @@ use Validator;
 use JWTAuth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -85,11 +86,17 @@ class UserController extends Controller
         try {
             foreach ($input['photos'] as $s) {
                 $image = $s;
-                $imageName = time() . $image->getClientOriginalName();
-                Storage::disk('photosUser')->put($imageName, File::get($image));
+
+                $img = $this->getB64Image($image);
+    
+                $img_extension = $this->getB64Extension($image);
+    
+                $img_name = 'zone' . time() . '.' . $img_extension;
+    
+                Storage::disk('photosUser')->put($img_name, $img);
 
                 ImgAreaAffected::create([
-                    'imagen' => $imageName,
+                    'imagen' => $img_name,
                     'id_usuario' => $this->user->id
                 ]);
 
@@ -105,6 +112,7 @@ class UserController extends Controller
             ]);
         }
     }
+
     public function savePhoto(Request $request)
     {
         $image_avatar_b64 = $request->all()['image'];
@@ -136,5 +144,45 @@ class UserController extends Controller
         // Dependiendo si se pide la extensión completa o no retornar el arreglo con
         // los datos de la extensión en la posición 0 - 1
         return ($full) ?  $img_extension[0] : $img_extension[1];
+    }
+    public function updatePhoto(Request $request)
+    {
+        $input = $request->all();
+
+        $validation = Validator::make($input,[
+            'img' => 'required'
+        ]);
+        if ($validation->fails()) {
+            return response()->json([
+                'ok' => false,
+                'error' => 'La imagen es requerida'
+            ]);
+        } else {
+            try {
+            
+                $img = $this->getB64Image($input['img']);
+    
+                $img_extension = $this->getB64Extension($input['img']);
+    
+                $img_name = 'user_avatar' . time() . '.' . $img_extension;
+    
+                Storage::disk('profile')->put($img_name, $img);
+                Storage::disk('profile')->delete($this->user->img_perfil);
+                $this->user->update([
+                    'img_perfil' => $img_name
+                ]);
+    
+                return response()->json([
+                    'ok' => true,
+                    'message' => 'Updated photo',
+                    'user' => $this->user
+                ]);
+            } catch (\Exception $error) {
+                return response()->json([
+                    'ok' => false,
+                    'error' => $error->getMessage() . 'line: '. $error->getLine()
+                ]);
+            }
+        }
     }
 }
