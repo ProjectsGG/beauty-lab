@@ -7,6 +7,8 @@ import {
 import { ToastService } from '../../services/toast.service';
 import { HeroService } from '../../services/hero.service';
 import { Router } from '@angular/router';
+import { Reservation } from '../../interfaces/reservation';
+import { ReservationService } from '../../services/reservation.service';
 
 @Component({
   selector: 'app-deposit',
@@ -14,7 +16,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./deposit.page.scss']
 })
 export class DepositPage implements OnInit {
-  constructor(private payPal: PayPal, public toastr: ToastService, public hero: HeroService, private router: Router) {}
+  constructor(
+    private service: ReservationService,
+    private payPal: PayPal,
+    public toastr: ToastService,
+    public hero: HeroService,
+    private router: Router
+  ) {}
   slideOpts = {
     initialSlide: 0,
     speed: 600
@@ -24,7 +32,10 @@ export class DepositPage implements OnInit {
   currencyIcon = '$';
   room: any;
   ngOnInit() {
-    if (this.hero.dataPurchase.procedures.length > 0 || this.hero.dataPurchase.plans.length > 0) {
+    if (
+      this.hero.dataPurchase.procedures.length > 0 ||
+      this.hero.dataPurchase.plans.length > 0
+    ) {
       this.room = this.hero.dataPurchase.room;
     } else {
       this.router.navigate(['/tabs/home']);
@@ -104,5 +115,17 @@ export class DepositPage implements OnInit {
           // Error in initialization, maybe PayPal isn't supported or something else
         }
       );
+  }
+  upPayment() {
+    const data: Reservation = {
+      id_usuario: this.hero.getUser().id,
+      fecha_reserva: '',
+      fecha_inicio: '',
+      fecha_fin: '',
+      id_plan: this.hero.dataPurchase.plans[0].id_plan
+    };
+    this.service.savePayment(data).subscribe((r: any) => {
+      console.log(r);
+    });
   }
 }

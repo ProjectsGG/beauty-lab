@@ -1,13 +1,12 @@
 <ion-card color="light">
   <ion-card-content class="ion-text-center">
-    <img [src]="srcImg" *ngIf="srcImg" alt="">
-    <ion-icon name="camera" (click)="photoPic()" *ngIf="!srcImg" class="icon-camera color"></ion-icon>
-    <p class="color" (click)="photoPic()" *ngIf="!srcImg">Camera</p>
+    <ion-icon [name]="upCamera.icon" (click)="photoPic()" class="icon-camera color"></ion-icon>
+    <p class="color" (click)="photoPic()">{{upCamera.text}}</p>
   </ion-card-content>
   <ion-grid class="grid-photos">
     <ion-row>
-      <ion-col class="padding-img" *ngFor="let item of images" size="6" size-md="4" size-lg="4">
-        <img src="assets/img/{{item}}" alt="">
+      <ion-col class="padding-img" *ngFor="let item of img.images" size="6" size-md="4" size-lg="4">
+        <img src="{{item.img}}" alt="">
       </ion-col>
     </ion-row>
   </ion-grid>

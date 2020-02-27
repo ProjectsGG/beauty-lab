@@ -20,7 +20,8 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('setImgProfile', 'UserController@updatePhoto');
     // Room
     Route::resource('/room','RoomsController');
-
+    // Reservation
+    Route::resource('/reservation', 'ReservationController');
     // Examples
     Route::get('tasks', 'TaskController@index');
     Route::get('tasks/{id}', 'TaskController@show');

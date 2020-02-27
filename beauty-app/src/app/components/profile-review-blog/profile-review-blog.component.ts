@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ToastService } from '../../services/toast.service';
+import { Img } from '../../interfaces/img';
 
 @Component({
   selector: 'app-profile-review-blog',
@@ -35,21 +36,43 @@ export class ProfileReviewBlogComponent implements OnInit {
     }
   ];
   srcImg: any;
-  images: any[] = ['girl1.jpg', 'twoGirls.jpg', 'party.jpg', 'girl2.jpg'];
+  img: Img = {
+    images: []
+  };
+  upCamera = {
+    icon: 'camera',
+    text: 'Camera'
+  };
   constructor(private camera: Camera, private toast: ToastService) { }
 
   ngOnInit() {}
   photoPic() {
-      const options: CameraOptions = {
-        destinationType: this.camera.DestinationType.DATA_URL
-      };
-      this.camera.getPicture(options).then(
-        imageData => {
-          this.srcImg = `data:image/jpeg;base64,${imageData}`;
-        },
-        err => {
-          this.toast.error('This option is not available');
-        }
-      );
+      if (this.img.images.length < 3) {
+        const options: CameraOptions = {
+          quality: 25,
+          destinationType: this.camera.DestinationType.DATA_URL,
+          encodingType: this.camera.EncodingType.JPEG,
+          mediaType: this.camera.MediaType.PICTURE
+        };
+        this.camera.getPicture(options).then(
+          imageData => {
+            const image: Img = {
+              img: 'data:image/jpeg;base64,' + imageData
+            };
+            this.img.images.push(image);
+            if (this.img.images.length === 3) {
+              this.upCamera = {
+                icon: 'cloud-upload',
+                text: 'Upload'
+              };
+            }
+          },
+          err => {
+            this.toast.error('This option is not available');
+          }
+        );
+      } else {
+        this.toast.error('Limite');
+      }
   }
 }

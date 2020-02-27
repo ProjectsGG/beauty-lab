@@ -1,6 +1,12 @@
 <app-header></app-header>
 <ion-content fullscream>
-  <ion-grid class="ion-no-padding">
+  <div *ngIf="loading" class="mar-top loading center">
+    <div class="ldio-0crlo2y4m0zh">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <ion-grid *ngIf="!loading" class="ion-no-padding">
     <ion-row>
       <ion-col size="0" size-md="2" size-lg="3"></ion-col>
       <ion-col class="content-img" size="12" size-md="8" size-lg="6">
