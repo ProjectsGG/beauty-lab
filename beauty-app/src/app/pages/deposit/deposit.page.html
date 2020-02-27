@@ -9,7 +9,10 @@
   <ion-grid>
     <ion-row>
       <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
-      <ion-col size="12" size-sm="12" size-md="6" size-lg="4">
+      <ion-col *ngIf="finish" size="12" size-sm="12" size-md="6" size-lg="4">
+        <app-purchase-success></app-purchase-success>
+      </ion-col>
+      <ion-col *ngIf="!finish" size="12" size-sm="12" size-md="6" size-lg="4">
         <div>
           <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="" routerLink="/tabs/home">
         </div>
@@ -103,7 +106,7 @@
             </ion-col>
             <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
               <ion-text color="light">
-                <p class="txtdescription">{{room.nombre}}</p>
+                <p class="txtdescription">{{hero.dataPurchase.room.nombre}}</p>
               </ion-text>
             </ion-col>
           </ion-row>
@@ -115,7 +118,7 @@
             </ion-col>
             <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
               <ion-text color="light">
-                <p class="txtdescription">{{room.comodidades}}</p>
+                <p class="txtdescription">{{hero.dataPurchase.room.comodidades}}</p>
               </ion-text>
             </ion-col>
           </ion-row>
@@ -123,16 +126,20 @@
         <h4 class="ion-text-center">$500 USD</h4>
         <ion-button expand="block" class="button-pay" (click)="payWithPaypal()">Make Deposit</ion-button>
         <ion-row>
-          <ion-col size="6">
+          <ion-col size="12">
             <ion-button color="medium" expand="block" (click)="cancel()">Cancel <ion-icon class="ion-float-right" name="close"></ion-icon>
             </ion-button>
             </ion-col>
-            <ion-col size="6">
+            <!-- <ion-col size="6">
               <ion-button color="primary-bl" expand="block">Add to car <ion-icon class="ion-float-right" name="cart"></ion-icon>
               </ion-button>
-            </ion-col>
+            </ion-col> -->
         </ion-row>
-        <p>{{res }}</p>
+        <ion-row>
+          <ion-col size="6">
+            <h6 class="steps" (click)="backStep()">Back</h6>
+          </ion-col>
+        </ion-row>
       </ion-col>
       <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
     </ion-row>

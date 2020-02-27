@@ -16,7 +16,6 @@ import { ReservationService } from '../../services/reservation.service';
   styleUrls: ['./deposit.page.scss']
 })
 export class DepositPage implements OnInit {
-  res: string;
   constructor(
     private service: ReservationService,
     private payPal: PayPal,
@@ -24,6 +23,8 @@ export class DepositPage implements OnInit {
     public hero: HeroService,
     private router: Router
   ) {}
+  finish = false;
+  res: string;
   slideOpts = {
     initialSlide: 0,
     speed: 600
@@ -70,7 +71,7 @@ export class DepositPage implements OnInit {
           // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
           this.payPal
             .prepareToRender(
-              'PayPalEnvironmentSandbox',
+              'PayPalEnvironmentProduction',
               new PayPalConfiguration({
                 // Only needed if you get an 'Internal Service Error' after PayPal login!
                 // payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
@@ -87,7 +88,8 @@ export class DepositPage implements OnInit {
                 this.payPal.renderSinglePaymentUI(payment).then(
                   res => {
                     if (res.response.state === 'approved') {
-                      this.toastr.successBl('Successful payment!');
+                      this.toastr.success('Successful payment!');
+                      this.finish = true;
                       this.upPayment();
                     } else {
                       this.toastr.light('Your payment has not been approved, try again or later', '', 4000);
@@ -118,12 +120,14 @@ export class DepositPage implements OnInit {
       id_plan: this.hero.dataPurchase.plans[0].id_plan
     };
     this.service.savePayment(data).subscribe((r: any) => {
-      console.log(r);
-      if(r.ok) {
+      if (r.ok) {
         this.res = r.message;
-      }else {
+      } else {
         this.res = r.error;
       }
     });
+  }
+  backStep() {
+    this.router.navigate(['/s-room']);
   }
 }
