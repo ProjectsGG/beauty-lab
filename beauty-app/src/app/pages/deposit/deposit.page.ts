@@ -16,6 +16,7 @@ import { ReservationService } from '../../services/reservation.service';
   styleUrls: ['./deposit.page.scss']
 })
 export class DepositPage implements OnInit {
+  res: string;
   constructor(
     private service: ReservationService,
     private payPal: PayPal,
@@ -27,7 +28,7 @@ export class DepositPage implements OnInit {
     initialSlide: 0,
     speed: 600
   };
-  paymentAmount = '1.00';
+  paymentAmount = '500.00';
   currency = 'USD';
   currencyIcon = '$';
   room: any;
@@ -62,7 +63,7 @@ export class DepositPage implements OnInit {
           // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
           this.payPal
             .prepareToRender(
-              'PayPalEnvironmentProduction',
+              'PayPalEnvironmentSandbox',
               new PayPalConfiguration({
                 // Only needed if you get an 'Internal Service Error' after PayPal login!
                 // payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
@@ -78,35 +79,20 @@ export class DepositPage implements OnInit {
                 );
                 this.payPal.renderSinglePaymentUI(payment).then(
                   res => {
-                    this.toastr.success('Successful payment');
-                    // Successfully paid
-
-                    // Example sandbox response
-                    //
-                    // {
-                    //   'client': {
-                    //     'environment': 'sandbox',
-                    //     'product_name': 'PayPal iOS SDK',
-                    //     'paypal_sdk_version': '2.16.0',
-                    //     'platform': 'iOS'
-                    //   },
-                    //   'response_type': 'payment',
-                    //   'response': {
-                    //     'id': 'PAY-1AB23456CD789012EF34GHIJ',
-                    //     'state': 'approved',
-                    //     'create_time': '2016-10-03T13:33:33Z',
-                    //     'intent': 'sale'
-                    //   }
-                    // }
+                    if (res.response.state === 'approved') {
+                      this.toastr.successBl('Successful payment!');
+                      this.upPayment();
+                    } else {
+                      this.toastr.light('Your payment has not been approved, try again or later', '', 4000);
+                    }
                   },
                   () => {
-                    // Error or render dialog closed without being successful
+                    this.toastr.light('Your payment has not been approved, try again or later', '', 3000);
                   }
                 );
               },
               () => {
-                this.toastr.error('Error in the configuration the PayPal');
-                // Error in configuration
+                this.toastr.error('Error in configuration', '', 3000);
               }
             );
         },
@@ -126,6 +112,11 @@ export class DepositPage implements OnInit {
     };
     this.service.savePayment(data).subscribe((r: any) => {
       console.log(r);
+      if(r.ok) {
+        this.res = r.message;
+      }else {
+        this.res = r.error;
+      }
     });
   }
 }
