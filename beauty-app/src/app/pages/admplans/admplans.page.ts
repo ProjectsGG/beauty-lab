@@ -14,6 +14,7 @@ export class AdmplansPage implements OnInit {
 
   form: FormGroup;
   submitted = false;
+  roomsType: any[];
 
   constructor(
     private http: HttpClient,
@@ -36,22 +37,38 @@ export class AdmplansPage implements OnInit {
         nombre: ['', Validators.required],
         descripcion: ['', Validators.required],
         valor: ['', Validators.required],
+        roomType: ['', Validators.required]
     });
+
+    this.getRoomsType();
   }
 
     // convenience getter for easy access to form fields
-    get f() { return this.form.controls; }
+  get f() { return this.form.controls; }
 
   savePlans( values ) {
     console.log(values);
     values.id_habitacion = 1;
-    this.getService(values)
+    this.getPostService(values)
     .subscribe((model: any) => {
       console.log(model.data);
     });
   }
 
-  getService( values ) {
+  getRoomsType() {
+    this.getService()
+    .subscribe((model: any) => {
+      this.roomsType = model.data;
+      console.log(this.roomsType);
+    });
+  }
+
+  getService() {
+    const url = `${this.hero.getUrl()}/roomstype`;
+    return this.http.get(url, this.httpOptions);
+  }
+
+  getPostService( values ) {
     const url = `${this.hero.getUrl()}/plans`;
     return this.http.post(url, values);
   }
