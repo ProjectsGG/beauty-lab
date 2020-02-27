@@ -32,6 +32,7 @@ export class DepositPage implements OnInit {
   currency = 'USD';
   currencyIcon = '$';
   room: any;
+  public plans: any;
   ngOnInit() {
     if (
       this.hero.dataPurchase.procedures.length > 0 ||
@@ -52,6 +53,12 @@ export class DepositPage implements OnInit {
     };
     this.router.navigate(['/tabs/home']);
   }
+
+  getPlan() {
+    this.plans = JSON.parse(localStorage.getItem('plans'));
+    this.hero.dataPurchase.plans.push(this.plans);
+  }
+
   payWithPaypal() {
     this.payPal
       .init({

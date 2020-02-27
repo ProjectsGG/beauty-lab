@@ -33,5 +33,10 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 });
 
 Route::get('plans', 'PlansController@index');
+Route::post('plans', 'PlansController@store');
+
 Route::get('procedures', 'ProceduresController@index');
+
 Route::get('room/{id}', 'RoomsController@show');
+
+Route::get('roomstype', 'RoomsTypeController@index');
