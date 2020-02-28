@@ -8,8 +8,8 @@ import { SMS } from '@ionic-native/sms/ngx';
 })
 export class ContactPage implements OnInit {
 
-  constructor( public socialMedia: ActionSheetController, private sms: SMS) { }
-  async showActionSheet() {
+  constructor( public socialMedia: ActionSheetController, public sms: SMS) { }
+ /* async showActionSheet() {
     const actionMedia = await this.socialMedia.create({
       header: 'Share',
       buttons: [{
@@ -44,8 +44,14 @@ export class ContactPage implements OnInit {
       }]
     });
     await actionMedia.present();
-  }
+  }*/
+callwhatsapp() {
+  location.href = 'https://wa.me/573003408407?text=%20Hi,%20Im%20interested%20in%20BeautyLab';
+}
 
+callsms() {
+  this.sms.send('+573003408407', 'Hello Im Interested in BeautyLab').then(r => console.log('Error'));
+}
   ngOnInit() {
   }
 

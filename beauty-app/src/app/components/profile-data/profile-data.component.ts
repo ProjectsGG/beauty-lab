@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-profile-data',
@@ -8,30 +9,29 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileDataComponent implements OnInit {
   data: any[];
 
-  constructor() {}
+  constructor(private hero: HeroService) {}
 
   ngOnInit() {
-    const data = JSON.parse(localStorage.getItem('user'));
     this.data = [
       {
         icon: 'person',
         key: 'Name',
-        value: data.nombres
+        value: this.hero.getUser().nombres
       },
       {
         icon: 'person',
         key: 'Surnames',
-        value: data.apellidos
+        value: this.hero.getUser().apellidos
       },
       {
         icon: 'call',
         key: 'Phone',
-        value: data.movil
+        value: this.hero.getUser().movil
       },
       {
         icon: 'mail',
         key: 'Mail',
-        value: data.email
+        value: this.hero.getUser().email
       }
     ];
   }
