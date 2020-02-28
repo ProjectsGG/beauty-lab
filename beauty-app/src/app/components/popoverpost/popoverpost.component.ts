@@ -6,9 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popoverpost.component.scss'],
 })
 export class PopoverpostComponent implements OnInit {
-
   constructor() { }
-
+options = [ {
+  text: 'Save',
+  op: '1'
+},
+{
+  text: 'Share',
+  op: '2'
+},
+{
+  text: 'Report',
+  color: 'danger',
+  op: '3'
+},
+];
   ngOnInit() {}
 
 }

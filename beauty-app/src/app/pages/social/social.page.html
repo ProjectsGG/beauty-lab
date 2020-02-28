@@ -51,7 +51,7 @@
                                 >
                                 <ion-col
                                     size="2"
-                                    class="line-right"
+                                   
                                 >
                                 <ion-col (click)="likeFocus(i)">
                                 <img class="likeicon" src="../../../assets/icon/like.svg" *ngIf="!post.like"> 
@@ -66,23 +66,20 @@
                                     <h1 class="tinytext">{{post.postext}}</h1>
                                 </ion-col>
                                 <ion-col size='12'>
-                                   <div class="line-up">
-                                    <p><strong>Miguel angel </strong>{{post.topcomnt}}</p>
-                                   </div>
-                                    <div class="ion-text-right line-up">
-                                        <p><strong>
-                                        Andres felipe
-                                        </strong>
-                                        happy travel have fun
-                                        </p>
-                                    </div>
                                     <div>
-                                        <ion-title class="ion-text-center tinytext line-up"> 
-                                            show more
-                                        </ion-title>
+                                        <ion-item class="line-up">
+                                           <ion-input placeholder="Add Comment">
+                                               
+                                           </ion-input>
+                                           <ion-button fill='clear' expand='full'>
+                                           <ion-text color="primary-bl" slot="end">
+                                                Comment
+                                            </ion-text>
+                                        </ion-button>
+                                        </ion-item>
+                                        
                                     </div>
-
-                            </ion-col>
+                                    </ion-col>
                                 </ion-row>
                         </ion-grid>
                     </ion-card-content>

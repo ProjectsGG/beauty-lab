@@ -52,7 +52,6 @@ export class SocialPage implements OnInit {
       component: PopoverpostComponent,
       event: ev,
       translucent: true,
-      mode: 'ios'
     });
     return await popover.present();
   }
