@@ -44,7 +44,7 @@ class ReservationController extends Controller
                 'fecha' => $input['fecha_inicio'],
                 'hora' => null,
                 'titulo' => 'Surgery date',
-                'descripcion' => 'This day the operation of the procedures you bought will take place, remember to buy your air ticket to Medellin and get in touch with the beautylab team.',
+                'descripcion' => 'This day 2 the operation of the procedures you bought will take place, remember to buy your air ticket to Medellin and get in touch with the beautylab team.',
                 'usuario_id' => $input['id_usuario']
             ]);
             History::create([
