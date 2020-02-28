@@ -114,9 +114,9 @@ export class DepositPage implements OnInit {
   upPayment() {
     const data: Reservation = {
       id_usuario: this.hero.getUser().id,
-      fecha_reserva: '',
-      fecha_inicio: '',
-      fecha_fin: '',
+      fecha_reserva: this.hero.dataPurchase.fecha_reserva,
+      fecha_inicio: this.hero.dataPurchase.fecha_inicio,
+      fecha_fin: this.hero.dataPurchase.fecha_fin,
       id_plan: this.hero.dataPurchase.plans[0].id_plan
     };
     this.service.savePayment(data).subscribe((r: any) => {
