@@ -21,9 +21,11 @@ class Rooms extends Model
         'nombre',
         'comodidades',
         'precio_noche',
+        'imagen',
         'estado',
         'cantidad_camas',
-        'cantidad_camas_disponibles'
+        'cantidad_camas_disponibles',
+        'id_tipo_habitacion'
     ];
     public $timestamps = false;
 

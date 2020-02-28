@@ -7,26 +7,32 @@ export class ToastService {
 
   constructor(public toastController: ToastController) { }
 
-  private async toastAlert(header, message, color) {
+  private async toastAlert(header, message, color, duration) {
     const toast = await this.toastController.create({
       header,
       message,
-      duration: 2000,
+      duration,
       color,
       buttons: [{icon: 'close'}]
     });
     toast.present();
   }
-  success(tittle, message= null) {
-    this.toastAlert(tittle, message, 'success');
+  successBl(tittle, message= null, duration= 2000) {
+    this.toastAlert(tittle, message, 'primary-bl', duration);
   }
-  error(tittle, message= null) {
-    this.toastAlert(tittle, message, 'danger');
+  success(tittle, message= null, duration= 2000) {
+    this.toastAlert(tittle, message, 'success', duration);
   }
-  info(tittle, message= null) {
-    this.toastAlert(tittle, message, 'primary');
+  error(tittle, message= null, duration= 2000) {
+    this.toastAlert(tittle, message, 'danger', duration);
   }
-  warning(tittle, message= null) {
-    this.toastAlert(tittle, message, 'warning');
+  info(tittle, message= null, duration= 2000) {
+    this.toastAlert(tittle, message, 'primary', duration);
+  }
+  warning(tittle, message= null, duration= 2000) {
+    this.toastAlert(tittle, message, 'warning', duration);
+  }
+  light(tittle, message= null, duration= 2000) {
+    this.toastAlert(tittle, message, 'light', duration);
   }
 }

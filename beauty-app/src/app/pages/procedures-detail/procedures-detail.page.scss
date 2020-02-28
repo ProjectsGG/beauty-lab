@@ -6,21 +6,12 @@ ion-calendar{
 img.plans{
     border-radius: 1.5rem;
     margin: 0 auto;
-    display: flex;
-    width: 70%;
+    width: 100%;
 }
 
 h1.home{
-    margin-top: 0;
-    text-align: center;
-    color: aliceblue;
-    font-size: 35px;
-    font-family: "bioliquidregular";
-}
-h1.title{
-    font-family: 'bioliquidregular';
+    font-family: 'suissnordregular';
     size: 50px;
-    margin-top: 0;
 }
 
 .textCss{
@@ -35,12 +26,4 @@ h1.title{
 
 .img-header{
     width: 50% !important;
-}
-
-.steps{
-    cursor: pointer;
-    color: aliceblue;
-}
-.r{
-    text-align: end;
 }

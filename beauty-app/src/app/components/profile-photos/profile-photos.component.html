@@ -1,36 +1,7 @@
-<h2>Your plan: <span>3D Plan</span></h2> 
-<div class="page">
-  <div class="timeline">
-    <div class="timeline__group">
-      <div class="timeline__box">
-        <div class="timeline__date">
-          <span class="timeline__day">2</span>
-          <span class="timeline__month">Feb</span>
-        </div>
-        <div class="timeline__post">
-          <div class="timeline__content">
-            <p>Attends the Philadelphia Museum School of Industrial Art. Studies design with Alexey Brodovitch, art director at Harper's Bazaar, and works as his assistant.</p>
-          </div>
-        </div>
-      </div>
-      <div class="timeline__box">
-        <div class="timeline__date">
-          <span class="timeline__day">1</span>
-          <span class="timeline__month">Sept</span>
-        </div>
-        <div class="timeline__post">
-          <div class="timeline__content">
-            <p>Started from University of Pennsylvania. This is an important stage of my career. Here I worked in the local magazine. The experience greatly affected me</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- <ion-grid class="grid-photos">
-  <ion-row>
-    <ion-col class="padding-img" *ngFor="let item of images" size="6" size-md="4" size-lg="4">
-      <img src="assets/img/{{item}}" alt="">
-    </ion-col>
-  </ion-row>
-</ion-grid> -->
+<h2>Your plan: <span>{{plan.nombre}}</span></h2> 
+<main>
+  <p *ngFor="let item of list" >
+    <b>{{item.titulo}} - {{item.fecha}} {{item.hora}}</b> <br>
+    {{item.descripcion}}
+  </p>
+</main>

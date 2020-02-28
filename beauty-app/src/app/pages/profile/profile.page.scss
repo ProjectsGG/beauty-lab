@@ -2,6 +2,13 @@ body{
     -webkit-user-select: text;
     user-select: text;
 }
+.center{
+    display: flex;
+    margin: auto auto;
+}
+.mar-top{
+    margin-top: 1.5rem;
+}
 .profile-img {
     height: 100px;
     width: 100px;

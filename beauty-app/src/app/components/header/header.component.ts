@@ -10,20 +10,8 @@ import { User } from '../../interfaces/user';
 export class HeaderComponent implements OnInit {
 
   @Input() titulo: string;
-
-  private user: User;
   constructor(private hero: HeroService) { }
 
   ngOnInit() {
-    this.getUser();
-  }
-
-  getUser() {
-    const dataLs = JSON.parse(localStorage.getItem('user'));
-    if (dataLs === null) {
-      this.user = null;
-    } else {
-      this.user = dataLs;
-    }
   }
 }

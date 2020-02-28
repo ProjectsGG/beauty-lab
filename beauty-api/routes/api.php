@@ -18,9 +18,12 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::put('user/update/{id}', 'UserController@update');
     Route::post('user/upload/photos', 'UserController@uploadPhotos');
     Route::post('setImgProfile', 'UserController@updatePhoto');
+    // Hiatory 
+    Route::get('history','HistoryController@index');
     // Room
     Route::resource('/room','RoomsController');
-
+    // Reservation
+    Route::resource('/reservation', 'ReservationController');
     // Examples
     Route::get('tasks', 'TaskController@index');
     Route::get('tasks/{id}', 'TaskController@show');
