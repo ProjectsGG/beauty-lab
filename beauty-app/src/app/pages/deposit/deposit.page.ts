@@ -71,7 +71,7 @@ export class DepositPage implements OnInit {
           // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
           this.payPal
             .prepareToRender(
-              'PayPalEnvironmentProduction',
+              'PayPalEnvironmentSandbox',
               new PayPalConfiguration({
                 // Only needed if you get an 'Internal Service Error' after PayPal login!
                 // payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
@@ -90,6 +90,13 @@ export class DepositPage implements OnInit {
                     if (res.response.state === 'approved') {
                       this.toastr.success('Successful payment!');
                       this.finish = true;
+                      this.hero.dataPurchase = {
+                        procedures: [],
+                        plans: [],
+                        room: null,
+                        date: null,
+                        ok: false
+                      };
                       this.upPayment();
                     } else {
                       this.toastr.light('Your payment has not been approved, try again or later', '', 4000);
