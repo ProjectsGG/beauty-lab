@@ -4,23 +4,30 @@ import { Location } from '@angular/common';
 import { HeroService } from '../../services/hero.service';
 import { Router } from '@angular/router';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+ 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
 })
+
 export class InicioPage implements OnInit {
   loginDetails: any;
   constructor(
     private router: Router,
     public menuCtrl: MenuController,
     private location: Location,
-    private hero: HeroService) { }
+    private hero: HeroService,
+    private screenOrientation: ScreenOrientation) { }
 
+
+    
+    
   ionViewWillEnter() {
   this.menuCtrl.enable(false);
-   }
+  screen.orientation.lock('landscape');
+  }
 
   //  Login() {
   //   this.googleplus.login({}).then((res) => {
@@ -35,10 +42,12 @@ export class InicioPage implements OnInit {
   //  }
 
   ngOnInit() {
+
     if (this.hero.auth === true) {
       // this.location.back();
       this.router.navigate(['/tabs/home']);
     }
+    
   }
 
 }

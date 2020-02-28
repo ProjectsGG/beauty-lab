@@ -27,7 +27,7 @@ class APIController extends Controller
         $input = $request->only('email', 'password');
         $user = User::where('email', $request->all()['email'])->first();
         if ($user != null) {
-            if ($user->verify == 1) {
+            //if ($user->verify == 1) {
                 $token = null;
                 if (!$token = JWTAuth::attempt($input)) {
                     return response()->json([
@@ -41,12 +41,12 @@ class APIController extends Controller
                     'user' => $user,
                     'token' => $token
                 ]);
-            } else {
+           /* } else {
                 return response()->json([
                     'ok' => false,
                     'message' => 'This account is not verified'
                 ]);
-            }
+            }*/
         }else {
             return response()->json([
                 'ok' => false,

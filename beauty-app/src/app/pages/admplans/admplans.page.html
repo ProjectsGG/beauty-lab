@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Beauty Lab Plans</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <h3 class="title-contact" >Insert New Plans</h3>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+      <ion-col size="12" size-md="6" size-xl="6">
+        <form [formGroup]="form" (ngSubmit)="savePlans(form.value)">
+          <ion-list lines="full" class="ion-no-margin ion-no-padding">
+            <ion-item>
+              <ion-label position="stacked" class="txt-label">Plan Name:</ion-label>
+              <ion-input formControlName="nombre" type="text" name="nombre" 
+                class="input-contact"
+                [ngClass]="{ 'is-invalid': submitted && f.title.errors }"></ion-input>
+                <div *ngIf="submitted && f.nombres.errors" class="invalid-feedback">
+                  <div *ngIf="f.nombres.errors.required">name is required</div>
+              </div>                
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Description Plan:</ion-label>
+              <ion-input formControlName="descripcion" type="text" name="descripcion" class="input-contact"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Plan Value:</ion-label>
+              <ion-input formControlName="valor"  [formGroup]="form"  type="text" name="valor" class="input-contact"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Room Type:</ion-label>
+              <select name="idDepartamento" formControlName="roomType" class="form-control col-md-6" >
+                <option *ngFor="let item of roomsType" value={{item.idTipoHabitacion}} >{{item.nombre}}</option>
+              </select> 
+            </ion-item>
+            <ion-item>
+              <ion-button type="submit" color="dark" expand="full" size="large">Save</ion-button>
+              <ion-button color="dark" expand="full" size="large" routerLink="/admplansdetails">Details</ion-button>
+            </ion-item>
+          </ion-list>
+        </form>
+      </ion-col>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>
