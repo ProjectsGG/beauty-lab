@@ -11,6 +11,7 @@ export class HeroService {
 
 
   // private url: any = 'http://18.228.226.191/api';
+  // private url: any = 'https://localhost/beauty-lab/beauty-api/public/api';
   private url: any = 'https://beautylab.app/api';
   private domain: any = 'https://beautylab.app';
   private token: string = null;
@@ -21,10 +22,12 @@ export class HeroService {
 
   public dataPurchase: Purchase = {
     user_id: '',
+    fecha_reserva: null,
+    fecha_inicio: null,
+    fecha_fin: null,
     procedures: [],
     plans: [],
     room: null,
-    date: null,
     ok: false
   };
   constructor(private storage: Storage,  private router: Router, private http: HttpClient) {}

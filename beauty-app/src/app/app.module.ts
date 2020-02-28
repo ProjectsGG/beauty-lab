@@ -21,6 +21,7 @@ import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { SMS } from '@ionic-native/sms/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 
 
@@ -48,7 +49,8 @@ import { SMS } from '@ionic-native/sms/ngx';
     File,
     WebView,
     FilePath,
-    SMS
+    SMS,
+    ScreenOrientation
   ],
   bootstrap: [AppComponent]
 })

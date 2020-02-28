@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ProfileDataComponent } from './profile-data/profile-data.component';
 import { ProfilePhotosComponent } from './profile-photos/profile-photos.component';
 import { ProfileReviewBlogComponent } from './profile-review-blog/profile-review-blog.component';
-import { PopoverpostComponent } from './popoverpost/popoverpost.component';
+import { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
 
 
 
@@ -19,7 +19,7 @@ import { PopoverpostComponent } from './popoverpost/popoverpost.component';
     ProfileDataComponent,
     ProfilePhotosComponent,
     ProfileReviewBlogComponent,
-    PopoverpostComponent
+    PurchaseSuccessComponent
   ],
   exports: [
     HeaderComponent,
@@ -27,7 +27,7 @@ import { PopoverpostComponent } from './popoverpost/popoverpost.component';
     ProfileDataComponent,
     ProfilePhotosComponent,
     ProfileReviewBlogComponent,
-    PopoverpostComponent
+    PurchaseSuccessComponent
   ],
   imports: [
     CommonModule,
