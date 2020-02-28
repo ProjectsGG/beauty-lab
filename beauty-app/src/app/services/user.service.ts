@@ -83,4 +83,17 @@ export class UserService {
       catchError(this.handleError)
     );
   }
+  getHistory() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
+    return this.http.get(this.hero.getUrl() + '/history', httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
 }
