@@ -43,9 +43,9 @@
                 <option *ngFor="let item of roomsType" value={{item.idTipoHabitacion}} >{{item.nombre}}</option>
               </select> 
             </ion-item>
-            <ion-item>
-              <ion-button type="submit" color="dark" expand="full" size="large">Save</ion-button>
-              <ion-button color="dark" expand="full" size="large" routerLink="/admplansdetails">Details</ion-button>
+            <ion-item class="space-btn">
+              <ion-button type="submit" color="dark" class="btn-save"expand="full" size="large">Save</ion-button>
+              <ion-button color="dark" expand="full" size="large" class="btn-details" routerLink="/admplansdetails">Details</ion-button>
             </ion-item>
           </ion-list>
         </form>
