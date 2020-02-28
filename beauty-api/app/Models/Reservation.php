@@ -19,4 +19,8 @@ class Reservation extends Model
         'id_usuario'
     ];
     public $timestamps = false;
+    public function plan()
+    {
+        return $this->belongsTo(Plans::class, 'id_plan', 'id_plan');
+    }
 }

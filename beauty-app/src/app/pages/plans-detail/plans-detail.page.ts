@@ -42,6 +42,15 @@ export class PlansDetailPage implements OnInit {
   getPlan() {
     this.plans = JSON.parse(localStorage.getItem('plans'));
     this.hero.dataPurchase.plans.push(this.plans);
+    console.log(this.hero.dataPurchase);
+    this.getRoom(this.plans.id_habitacion);
+  }
+  getRoom(id) {
+    this.getService(id)
+    .subscribe((model: any) => {
+      this.rooms = model.data;
+      this.room = this.rooms[0];
+    });
   }
   getService(id) {
     const url = `${this.hero.getUrl()}/room/` + id;

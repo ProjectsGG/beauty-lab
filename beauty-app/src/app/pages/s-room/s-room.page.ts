@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { RoomsService } from '../../services/rooms.service';
 import { HeroService } from '../../services/hero.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-s-room',
@@ -10,6 +11,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./s-room.page.scss'],
 })
 export class SRoomPage implements OnInit {
+  overrides: any;
+
+  
 
   rooms: any[] = [];
   i: number;

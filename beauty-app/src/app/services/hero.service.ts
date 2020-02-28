@@ -54,7 +54,6 @@ export class HeroService {
     return this.auth;
   }
   validateSession() {
-
     const token = localStorage.getItem('token');
     if ( token === null || token === undefined) {
       this.router.navigate(['/inicio']);
