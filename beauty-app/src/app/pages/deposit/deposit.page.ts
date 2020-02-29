@@ -46,10 +46,12 @@ export class DepositPage implements OnInit {
   }
   cancel() {
     this.hero.dataPurchase = {
+      fecha_reserva: null,
+      fecha_inicio: null,
+      fecha_fin: null,
       procedures: [],
       plans: [],
       room: null,
-      date: null,
       ok: false
     };
     this.router.navigate(['/tabs/home']);
@@ -63,15 +65,17 @@ export class DepositPage implements OnInit {
   payWithPaypal() {
     this.payPal
       .init({
-        PayPalEnvironmentProduction: 'Aa5GzqbCccRgVikINEctQx5mZLUZl63wQjne9IY3NuguQK8DUU0OJjq0FGMUVUETrjqyYqQcypNA1QgN',
-        PayPalEnvironmentSandbox: 'Ae2Jz-_zB0fS_boKQr7kY9MZwla__TVt_vLAwhEWeCFnYmUV7wpfJOYfUgpGNggGty2QEvclkxqdaYVL'
+        PayPalEnvironmentProduction:
+          'Aa5GzqbCccRgVikINEctQx5mZLUZl63wQjne9IY3NuguQK8DUU0OJjq0FGMUVUETrjqyYqQcypNA1QgN',
+        PayPalEnvironmentSandbox:
+          'Ae2Jz-_zB0fS_boKQr7kY9MZwla__TVt_vLAwhEWeCFnYmUV7wpfJOYfUgpGNggGty2QEvclkxqdaYVL'
       })
       .then(
         () => {
           // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
           this.payPal
             .prepareToRender(
-              'PayPalEnvironmentProduction',
+              'PayPalEnvironmentSandbox',
               new PayPalConfiguration({
                 // Only needed if you get an 'Internal Service Error' after PayPal login!
                 // payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
@@ -92,11 +96,19 @@ export class DepositPage implements OnInit {
                       this.finish = true;
                       this.upPayment();
                     } else {
-                      this.toastr.light('Your payment has not been approved, try again or later', '', 4000);
+                      this.toastr.light(
+                        'Your payment has not been approved, try again or later',
+                        '',
+                        4000
+                      );
                     }
                   },
                   () => {
-                    this.toastr.light('Your payment has not been approved, try again or later', '', 3000);
+                    this.toastr.light(
+                      'Your payment has not been approved, try again or later',
+                      '',
+                      3000
+                    );
                   }
                 );
               },
@@ -116,12 +128,23 @@ export class DepositPage implements OnInit {
       id_usuario: this.hero.getUser().id,
       fecha_reserva: this.hero.dataPurchase.fecha_reserva,
       fecha_inicio: this.hero.dataPurchase.fecha_inicio,
-      fecha_fin: this.hero.dataPurchase.fecha_fin,
-      id_plan: this.hero.dataPurchase.plans[0].id_plan
+      fecha_fin: this.hero.dataPurchase.fecha_fin
     };
+    if (this.hero.action === '/procedures-detail') {
+      data.id_procedimiento = this.hero.dataPurchase.procedures[0].id_procedimiento;
+    } else {
+      data.id_plan = this.hero.dataPurchase.plans[0].id_plan;
+    }
     this.service.savePayment(data).subscribe((r: any) => {
       if (r.ok) {
         this.res = r.message;
+        this.hero.dataPurchase = {
+          procedures: [],
+          plans: [],
+          room: null,
+          date: null,
+          ok: false
+        };
       } else {
         this.res = r.error;
       }

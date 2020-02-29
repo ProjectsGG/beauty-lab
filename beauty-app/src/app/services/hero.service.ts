@@ -19,7 +19,7 @@ export class HeroService {
     img_perfil: null
   };
   public auth = false;
-
+  public action = '';
   public dataPurchase: Purchase = {
     user_id: '',
     fecha_reserva: null,

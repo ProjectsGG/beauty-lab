@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
 export class SRoomPage implements OnInit {
   overrides: any;
 
-  
+
 
   rooms: any[] = [];
   i: number;
@@ -36,10 +36,11 @@ export class SRoomPage implements OnInit {
   }
   backStep() {
     this.hero.dataPurchase.room = this.rooms[this.i];
-    this.router.navigate(['/plans-detail']);
+    this.router.navigate([this.hero.action]);
   }
   nextStep() {
     this.hero.dataPurchase.room = this.rooms[this.i];
+    console.log(this.hero.dataPurchase);
     this.router.navigate(['deposit']);
   }
 }

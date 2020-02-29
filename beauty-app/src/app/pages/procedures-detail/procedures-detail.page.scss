@@ -1,3 +1,10 @@
+.steps{
+    cursor: pointer;
+    color: aliceblue;
+}
+.r{
+    text-align: end;
+}
 ion-calendar{
     background: transparent;
     // border: aliceblue 2px solid;
@@ -10,7 +17,13 @@ img.plans{
 }
 
 h1.home{
-    font-family: 'suissnordregular';
+    text-align: center;
+    color: aliceblue;
+    font-size: 35px;
+    font-family: "bioliquidregular";
+}
+h1.title{
+    font-family: 'bioliquidregular';
     size: 50px;
 }
 

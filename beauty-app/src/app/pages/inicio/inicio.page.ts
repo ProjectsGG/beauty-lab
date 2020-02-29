@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuController} from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { HeroService } from '../../services/hero.service';
 import { Router } from '@angular/router';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
- 
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+  styleUrls: ['./inicio.page.scss']
 })
-
 export class InicioPage implements OnInit {
   loginDetails: any;
   constructor(
@@ -19,14 +18,12 @@ export class InicioPage implements OnInit {
     public menuCtrl: MenuController,
     private location: Location,
     private hero: HeroService,
-    private screenOrientation: ScreenOrientation) { }
+    private screenOrientation: ScreenOrientation
+  ) {}
 
-
-    
-    
   ionViewWillEnter() {
-  this.menuCtrl.enable(false);
-  screen.orientation.lock('landscape');
+    this.menuCtrl.enable(false);
+    // screen.orientation.lock('landscape');
   }
 
   //  Login() {
@@ -42,12 +39,9 @@ export class InicioPage implements OnInit {
   //  }
 
   ngOnInit() {
-
     if (this.hero.auth === true) {
       // this.location.back();
       this.router.navigate(['/tabs/home']);
     }
-    
   }
-
 }

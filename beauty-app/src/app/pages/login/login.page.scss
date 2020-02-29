@@ -32,15 +32,15 @@ ion-content{
     color: white;
 }
 .input-login{
-    color:white;
-    --background:#0b93f6;
+    color:#0b93f6;
+    --background:aliceblue;
     width: 100%;
     height: 46px;
     -moz-border-radius: 60px;
     -webkit-border-radius: 60px;
     border-radius: 10px;
     margin-bottom: 10px;
-    --placeholder-color: white; 
+    --placeholder-color: #0b93f6; 
     --placeholder-opacity: 80%;
     text-align: center;
 }
