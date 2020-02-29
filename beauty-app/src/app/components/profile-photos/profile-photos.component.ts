@@ -22,7 +22,7 @@ export class ProfilePhotosComponent implements OnInit {
     this.service.getHistory().subscribe((r: any) => {
       if (r.ok) {
         r.data.length === 0 ? this.view = 2 : this.view = 1;
-        this.plan = r.plan !== null ? r.plan.plan : '';
+        this.plan = r.plan.plan !== null ? r.plan.plan : r.plan.procedure;
         this.list = r.data;
       }
     });
