@@ -48,10 +48,10 @@ export class DepositPage implements OnInit {
     this.hero.dataPurchase = {
       fecha_reserva: null,
       fecha_inicio: null,
+      fecha_fin: null,
       procedures: [],
       plans: [],
       room: null,
-      date: null,
       ok: false
     };
     this.router.navigate(['/tabs/home']);
