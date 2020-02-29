@@ -41,8 +41,16 @@ export class PlansDetailPage implements OnInit {
   }
   getPlan() {
     this.plans = JSON.parse(localStorage.getItem('plans'));
+    this.hero.dataPurchase = {
+      fecha_reserva: null,
+      fecha_inicio: null,
+      fecha_fin: null,
+      procedures: [],
+      plans: [],
+      room: null,
+      ok: false
+    };
     this.hero.dataPurchase.plans.push(this.plans);
-    console.log(this.hero.dataPurchase);
     this.getRoom(this.plans.id_habitacion);
   }
   getRoom(id) {
@@ -73,6 +81,7 @@ export class PlansDetailPage implements OnInit {
     if (this.date === undefined) {
       this.toastr.error('Select a date');
     } else {
+      this.hero.action = '/plans-detail';
       this.hero.dataPurchase.fecha_reserva = moment().format('YYYY-MM-DD');
       this.hero.dataPurchase.fecha_inicio = this.date.format('YYYY-MM-DD');
       this.hero.dataPurchase.fecha_fin = this.date.add(8, 'days').format('YYYY-MM-DD');

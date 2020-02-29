@@ -16,11 +16,16 @@ class Reservation extends Model
         'estado',
         'id_cotizacion',
         'id_plan',
+        'id_procedimiento',
         'id_usuario'
     ];
     public $timestamps = false;
     public function plan()
     {
         return $this->belongsTo(Plans::class, 'id_plan', 'id_plan');
+    }
+    public function procedure()
+    {
+        return $this->belongsTo(Procedures::class, 'id_procedimiento', 'id_procedimiento');
     }
 }

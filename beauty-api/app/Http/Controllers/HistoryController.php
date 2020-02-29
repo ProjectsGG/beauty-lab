@@ -18,7 +18,7 @@ class HistoryController extends Controller
     {
 
     $plan = Reservation::where('id_usuario', $this->user->id)
-    ->with('plan')
+    ->with(['plan','procedure'])
     ->first();
 
       return response()->json([
