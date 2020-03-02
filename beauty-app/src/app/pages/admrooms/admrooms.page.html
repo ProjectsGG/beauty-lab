@@ -15,14 +15,12 @@
     <ion-row>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
       <ion-col size="12" size-md="6" size-xl="6">
-        <form>
           <ion-list lines="full" class="ion-no-margin ion-no-padding">
             <ion-item>
               <ion-input type="text" name="nombre" placeholder="Room name" 
-                class="input-contact"
-                [ngClass]="{ 'is-invalid': submitted && f.title.errors }"></ion-input>
-                <div *ngIf="submitted && f.nombres.errors" class="invalid-feedback">
-                  <div *ngIf="f.nombres.errors.required">name is required</div>
+                class="input-contact"></ion-input>
+                <div class="invalid-feedback">
+                  <div>name is required</div>
               </div>                
             </ion-item>
             <ion-item>
@@ -32,17 +30,23 @@
               <ion-input type="text" name="valor" class="input-contact" placeholder="Room value"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="stacked">Room Type:</ion-label>
+              <ion-label position="stacked" color="primary">Room Type:</ion-label>
               <select name="idDepartamento" class="form-control col-md-6" >
-                <option *ngFor="let item of roomsType" value={{item.idTipoHabitacion}} >{{item.nombre}}</option>
+                <option ></option>
               </select> 
             </ion-item>
-            <ion-item class="space-btn">
-              <ion-button type="submit" color="dark" class="btn-save"expand="full" size="large">Save</ion-button>
+            <ion-input color="primary" type='file'>
+              
+            </ion-input>
+            <ion-row class="btn-style">
+              <ion-col size="6">
+              <ion-button color="dark" class="btn-save"expand="full" size="large">Save</ion-button>
+            </ion-col>
+            <ion-col size="6">
               <ion-button color="dark" expand="full" size="large" class="btn-details" routerLink="/admroomsdetails">Details</ion-button>
-            </ion-item>
+            </ion-col>
+            </ion-row>
           </ion-list>
-        </form>
       </ion-col>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
     </ion-row>
