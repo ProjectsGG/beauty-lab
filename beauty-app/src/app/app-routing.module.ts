@@ -105,6 +105,16 @@ const routes: Routes = [
     path: 'admplansdetails',
     loadChildren: () => import('./pages/admplansdetails/admplansdetails.module').then( m => m.AdmplansdetailsPageModule)
   },
+  {
+    path: 'admroomsdetails',
+    loadChildren: () => import('./pages/admroomsdetails/admroomsdetails.module').then( m => m.AdmroomsdetailsPageModule)
+  },
+  {
+    path: 'admrooms',
+    loadChildren: () => import('./pages/admrooms/admrooms.module').then( m => m.AdmroomsPageModule)
+  }
+
+
 
 ];
 
