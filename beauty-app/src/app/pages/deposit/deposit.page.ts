@@ -119,7 +119,6 @@ export class DepositPage implements OnInit {
         },
         () => {
           this.toastr.error('Paypal initialization failed');
-          // Error in initialization, maybe PayPal isn't supported or something else
         }
       );
   }
@@ -136,8 +135,9 @@ export class DepositPage implements OnInit {
       data.id_plan = this.hero.dataPurchase.plans[0].id_plan;
     }
     this.service.savePayment(data).subscribe((r: any) => {
-      if (r.ok) {
+      if (r.ok === true) {
         this.res = r.message;
+        this.hero.action = '';
         this.hero.dataPurchase = {
           procedures: [],
           plans: [],
