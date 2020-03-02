@@ -7,13 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { SRoomPageRoutingModule } from './s-room-routing.module';
 
 import { SRoomPage } from './s-room.page';
+import { ModalSroomPage } from '../modal-sroom/modal-sroom.page';
+import { ModalSroomPageModule } from '../modal-sroom/modal-sroom.module';
 
 @NgModule({
+  entryComponents: [
+    ModalSroomPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SRoomPageRoutingModule
+    SRoomPageRoutingModule,
+    ModalSroomPageModule
   ],
   declarations: [SRoomPage]
 })
