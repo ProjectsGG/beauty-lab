@@ -19,7 +19,7 @@ export class ProfilePhotosComponent implements OnInit {
   getHistory() {
     this.service.getHistory().subscribe((r: any) => {
       if (r.ok) {
-        if (r.reservation !== null) {
+        if (r.reservation.length > 0) {
           this.view = 1;
           this.data = r.reservation;
           this.value = r.reservation.length > 1 ? '' : 0;
