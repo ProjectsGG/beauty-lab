@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\History;
+use App\Models\Plans;
+use App\Models\Procedures;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 
@@ -38,8 +40,24 @@ class ReservationController extends Controller
     {
         $input = $request->all();
         try {
+            $now = new \DateTime();
+            $plan = Plans::where('id_plan', $input['id_plan'])->first();
+            $procedure = Procedures::where('id_procedimiento', $input['id_procedimiento'])->first();
+            $name = '';
+            if ($procedure !== null) {
+                $name = "Your acquired: $procedure->nombre";
+            } else {
+                $name = "Your acquired: $plan->nombre";
+            }
             Reservation::create($input);
 
+            History::create([
+                'fecha' => $now->format('Y-m-d'),
+                'hora' => null,
+                'titulo' => $name,
+                'descripcion' => 'Congratulations on your purchase, the beautylab team will ensure that you live a wonderful experience',
+                'usuario_id' => $input['id_usuario']
+            ]);
             History::create([
                 'fecha' => $input['fecha_inicio'],
                 'hora' => null,
