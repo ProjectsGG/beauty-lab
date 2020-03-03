@@ -4,29 +4,33 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-profile-photos',
   templateUrl: './profile-photos.component.html',
-  styleUrls: ['./profile-photos.component.scss'],
+  styleUrls: ['./profile-photos.component.scss']
 })
 export class ProfilePhotosComponent implements OnInit {
   images: any[] = ['girl1.jpg', 'twoGirls.jpg', 'party.jpg', 'girl2.jpg'];
-  constructor(private service: UserService) { }
+  constructor(private service: UserService) {}
   view = 0;
-  list: any[] = [];
-  plan: any = {
-    nombre: ''
-  };
+  data = [];
+  history = [];
+  value = null;
   ngOnInit() {
     this.getHistory();
   }
-
   getHistory() {
     this.service.getHistory().subscribe((r: any) => {
       if (r.ok) {
-        r.data.length === 0 ? this.view = 2 : this.view = 1;
-        if (r.plan !== null) {
-          this.plan = r.plan.plan !== null ? r.plan.plan : r.plan.procedure;
+        if (r.reservation !== null) {
+          this.view = 1;
+          this.data = r.reservation;
+          this.value = r.reservation.length > 1 ? '' : 0;
+          this.history = r.reservation.length > 1 ? '' : this.data[0].history;
+        } else {
+          this.view = 2;
         }
-        this.list = r.data;
       }
     });
+  }
+  segmentChanged(ev: any) {
+    this.history = this.data[ev.detail.value].history;
   }
 }

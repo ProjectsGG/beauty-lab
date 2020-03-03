@@ -28,4 +28,8 @@ class Reservation extends Model
     {
         return $this->belongsTo(Procedures::class, 'id_procedimiento', 'id_procedimiento');
     }
+    public function history()
+    {
+        return $this->hasMany(History::class,'id_reserva', 'id_reserva');
+    }
 }

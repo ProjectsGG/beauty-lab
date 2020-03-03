@@ -49,9 +49,9 @@ class ReservationController extends Controller
             } else {
                 $name = "Your acquired: $plan->nombre";
             }
-            Reservation::create($input);
-
+            $reserva = Reservation::create($input);
             History::create([
+                'id_reserva' => $reserva->id,
                 'fecha' => $now->format('Y-m-d'),
                 'hora' => null,
                 'titulo' => $name,
@@ -59,6 +59,7 @@ class ReservationController extends Controller
                 'usuario_id' => $input['id_usuario']
             ]);
             History::create([
+                'id_reserva' => $reserva->id,
                 'fecha' => $input['fecha_inicio'],
                 'hora' => null,
                 'titulo' => 'Surgery date',
@@ -66,6 +67,7 @@ class ReservationController extends Controller
                 'usuario_id' => $input['id_usuario']
             ]);
             History::create([
+                'id_reserva' => $reserva->id,
                 'fecha' => $input['fecha_fin'],
                 'hora' => null,
                 'titulo' => 'Last Day',
