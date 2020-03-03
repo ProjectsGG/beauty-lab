@@ -9,6 +9,7 @@ class History extends Model
     protected $table = 'historial';
 
     protected $fillable = [
+        'id_reserva',
         'fecha',
         'hora',
         'titulo',

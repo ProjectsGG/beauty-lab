@@ -17,14 +17,13 @@ class HistoryController extends Controller
     public function index()
     {
 
-    $plan = Reservation::where('id_usuario', $this->user->id)
-    ->with(['plan','procedure'])
-    ->first();
+    $reservation = Reservation::where('id_usuario', $this->user->id)
+    ->with(['plan','procedure','history'])
+    ->get();
 
       return response()->json([
           'ok' => true,
-          'plan' => $plan, 
-          'data' => $this->user->history
+          'reservation' => $reservation
       ]); 
     }
 }
