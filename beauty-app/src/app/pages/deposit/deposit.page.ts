@@ -127,7 +127,9 @@ export class DepositPage implements OnInit {
       id_usuario: this.hero.getUser().id,
       fecha_reserva: this.hero.dataPurchase.fecha_reserva,
       fecha_inicio: this.hero.dataPurchase.fecha_inicio,
-      fecha_fin: this.hero.dataPurchase.fecha_fin
+      fecha_fin: this.hero.dataPurchase.fecha_fin,
+      id_procedimiento: null,
+      id_plan: null
     };
     if (this.hero.action === '/procedures-detail') {
       data.id_procedimiento = this.hero.dataPurchase.procedures[0].id_procedimiento;
