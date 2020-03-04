@@ -119,6 +119,10 @@ const routes: Routes = [
   {
     path: 'admproceduresdetails',
     loadChildren: () => import('./pages/admproceduresdetails/admproceduresdetails.module').then( m => m.AdmproceduresdetailsPageModule)
+  },
+  {
+    path: 'homeadmin',
+    loadChildren: () => import('./pages/homeadmin/homeadmin.module').then( m => m.HomeadminPageModule)
   }
 
 
