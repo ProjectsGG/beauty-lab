@@ -26,7 +26,7 @@ export class HomeadminPage implements OnInit {
     {
       icon: 'wallet',
       name: 'Reservation',
-      redirectTo: '/admprocedures'
+      redirectTo: '/admreservas'
     }
   ];
 

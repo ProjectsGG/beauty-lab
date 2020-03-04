@@ -123,6 +123,10 @@ const routes: Routes = [
   {
     path: 'homeadmin',
     loadChildren: () => import('./pages/homeadmin/homeadmin.module').then( m => m.HomeadminPageModule)
+  },
+  {
+    path: 'admreservas',
+    loadChildren: () => import('./pages/admreservas/admreservas.module').then( m => m.AdmreservasPageModule)
   }
 
 
