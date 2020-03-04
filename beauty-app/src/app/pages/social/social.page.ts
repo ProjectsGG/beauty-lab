@@ -64,15 +64,12 @@ export class SocialPage implements OnInit {
       this.cards[i].nlikes = this.cards[i].nlikes - 1;
     }
   }
-
   // reload page
   doRefresh(event) {
     console.log('Begin async operation');
-
     setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
   }
-
 }
