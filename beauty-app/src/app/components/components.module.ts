@@ -8,6 +8,7 @@ import { ProfileDataComponent } from './profile-data/profile-data.component';
 import { ProfilePhotosComponent } from './profile-photos/profile-photos.component';
 import { ProfileReviewBlogComponent } from './profile-review-blog/profile-review-blog.component';
 import { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
+import { PopoverpostComponent } from './popoverpost/popoverpost.component';
 
 
 
@@ -19,7 +20,8 @@ import { PurchaseSuccessComponent } from './purchase-success/purchase-success.co
     ProfileDataComponent,
     ProfilePhotosComponent,
     ProfileReviewBlogComponent,
-    PurchaseSuccessComponent
+    PurchaseSuccessComponent,
+    PopoverpostComponent
   ],
   exports: [
     HeaderComponent,
@@ -27,7 +29,7 @@ import { PurchaseSuccessComponent } from './purchase-success/purchase-success.co
     ProfileDataComponent,
     ProfilePhotosComponent,
     ProfileReviewBlogComponent,
-    PurchaseSuccessComponent
+    PurchaseSuccessComponent,
   ],
   imports: [
     CommonModule,

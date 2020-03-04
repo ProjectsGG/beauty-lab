@@ -17,55 +17,29 @@
           <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="">
         </div>
         <h3 class="ion-text-center">B u y N o w</h3>
-        
-          <ion-card>
-            <ion-card-header>
+            <div>
               <img *ngFor="let item of hero.dataPurchase.plans" class="img-depos" src="assets/img/pyp/{{item.img_plan}}" alt="" srcset="">
               <img *ngFor="let item of hero.dataPurchase.procedures" class="img-depos" src="assets/img/pyp/{{item.imagen}}" alt="" srcset="">
-          </ion-card-header>
-            <ion-card-content>
-              <h2>Lipo 360 is an all-inclusive liposuction procedure that is used to contour and shape the midsection, 
-                360 degrees around. The possible areas for treatment are the upper and lower abdominals, the flanks on
-                 both sides, and the lower and mid-back.</h2>
-            </ion-card-content>
-          </ion-card>
-        
-        <p></p>
-
+            </div>   
         <ion-grid fixed *ngIf="hero.dataPurchase.plans.length > 0">
-          <ion-row>
-            <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
-              <ion-text color="light">
-                <h3 class="ion-text-center textCss">Details Plan</h3>
-              </ion-text>
-            </ion-col>
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3" class="grid-border">
-              <ion-text color="light">
-                <p class="head txtdescription">Plan</p>
-              </ion-text>
-            </ion-col>
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3" class="grid-border">
-              <ion-text color="light">
-                <p class="head txtdescription">Description</p>
-              </ion-text>
-            </ion-col>
-          </ion-row>
           <ion-row *ngFor="let item of hero.dataPurchase.plans">
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-              <ion-text color="light">
-                <p class="txtdescription">{{item.nombre}}</p>
-              </ion-text>
+            <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
+              <ion-item>
+                <img slot="start" src="./../../../assets/icon/surgeryIco.svg">
+                <h4 class="txtdescription">{{item.nombre}}</h4>
+                <ion-icon slot="end" name="arrow-dropup"> </ion-icon>
+              </ion-item>
             </ion-col>
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-              <ion-text color="light">
-                <p class="txtdescription">{{item.descripcion}}</p>
-              </ion-text>
+            <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
+              <ion-item>
+                <h2 class="txtdescription">{{item.descripcion}}</h2>
+              </ion-item>
             </ion-col>
           </ion-row>
         </ion-grid>
         <ion-grid fixed *ngIf="hero.dataPurchase.procedures.length > 0">
           <ion-row>
-            <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
+            <ion-col size="12" size-lg="12" size-md="12" size-xl="12">
               <ion-text color="light">
                 <h3 class="ion-text-center textCss">Details Procedure</h3>
               </ion-text>
@@ -97,21 +71,11 @@
         <ion-grid fixed *ngIf="hero.dataPurchase.room !== null">
           <ion-row>
             <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
-              <ion-text color="light">
-                <h3 class="ion-text-center textCss">Details Room</h3>
-              </ion-text>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-              <ion-text color="light">
-                <p class="txtdescription">Room:</p>
-              </ion-text>
-            </ion-col>
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-              <ion-text color="light">
-                <p class="txtdescription">{{hero.dataPurchase.room.nombre}}</p>
-              </ion-text>
+              <ion-item color="light">
+                <img class="nopadding" slot="start" src="./../../../assets/icon/roomIco.svg">
+                <h4>{{hero.dataPurchase.room.nombre}}</h4>
+                <ion-icon slot="end" name="arrow-dropup"></ion-icon>
+              </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
