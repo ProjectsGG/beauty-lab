@@ -22,7 +22,12 @@ export class AdmplansPage implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder
   ) {
-    this.form = new FormGroup({});
+    this.form = this.formBuilder.group({
+        nombre: ['', Validators.required],
+        descripcion: ['', Validators.required],
+        valor: ['', Validators.required],
+        idRoomType: ['', Validators.required]
+      });
   }
 
   httpOptions = {
@@ -33,12 +38,7 @@ export class AdmplansPage implements OnInit {
   };
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
-        nombre: ['', Validators.required],
-        descripcion: ['', Validators.required],
-        valor: ['', Validators.required],
-        roomType: ['', Validators.required]
-    });
+
 
     this.getRoomsType();
   }
@@ -48,6 +48,7 @@ export class AdmplansPage implements OnInit {
 
   savePlans( values ) {
     console.log(values);
+    console.log('Select :' + this.form.get('idRoomType').value);
     values.id_habitacion = 1;
     this.getPostService(values)
     .subscribe((model: any) => {
