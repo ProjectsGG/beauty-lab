@@ -30,6 +30,7 @@ import { PopoverpostComponent } from './popoverpost/popoverpost.component';
     ProfilePhotosComponent,
     ProfileReviewBlogComponent,
     PurchaseSuccessComponent,
+    PopoverpostComponent
   ],
   imports: [
     CommonModule,
