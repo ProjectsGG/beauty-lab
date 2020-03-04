@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>Beauty Lab Plans</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +14,7 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-text-center">
-        <h3 class="title-contact" >Insert New Plans</h3>
+        <h3 class="title-contact">Insert New Plans</h3>
       </ion-col>
     </ion-row>
     </ion-grid>
@@ -21,6 +25,7 @@
         <form [formGroup]="form" (ngSubmit)="savePlans(form.value)">
           <ion-list lines="full" class="ion-no-margin ion-no-padding">
             <ion-item>
+
               <ion-label position="stacked" class="txt-label">Plan Name:</ion-label>
               <ion-input formControlName="nombre" type="text" name="nombre" 
                 class="form-control" placeholder="Name" [formGroup]="form" >
@@ -44,11 +49,19 @@
                 <ion-select-option value="" selected>Select Room Type</ion-select-option>
                 <ion-select-option *ngFor="let item of roomsType" value={{item.idTipoHabitacion}}>{{item.nombre}}</ion-select-option>
               </ion-select>
+
             </ion-item>
-            <ion-item class="space-btn">
+            <ion-input color="primary" type='file'>
+              
+            </ion-input>
+            <ion-row class="btn-style">
+              <ion-col size="6">
               <ion-button type="submit" color="dark" class="btn-save"expand="full" size="large">Save</ion-button>
+            </ion-col>
+            <ion-col size="6">
               <ion-button color="dark" expand="full" size="large" class="btn-details" routerLink="/admplansdetails">Details</ion-button>
-            </ion-item>
+            </ion-col>
+            </ion-row>
           </ion-list>
         </form>
       </ion-col>

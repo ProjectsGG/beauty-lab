@@ -1,8 +1,12 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Injectable} from '@angular/core';
 import { RoomsService } from '../../services/rooms.service';
 import { HeroService } from '../../services/hero.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { HammerGestureConfig } from '@angular/platform-browser';
+import { ModalSroomPage } from '../modal-sroom/modal-sroom.page';
+import { ModalController } from '@ionic/angular';
+
 
 
 @Component({
@@ -17,11 +21,29 @@ export class SRoomPage implements OnInit {
 
   rooms: any[] = [];
   i: number;
-  constructor(private location: Location, private router: Router, private service: RoomsService, private hero: HeroService) { }
+  constructor(private location: Location,
+              private router: Router,
+              private service: RoomsService,
+              private hero: HeroService,
+              private modalController: ModalController ) { }
 
   ngOnInit() {
     this.getRooms();
   }
+  async onPress(imagen) {
+    const modal = await this.modalController.create({
+       component: ModalSroomPage,
+       cssClass: 'room-modal',
+       componentProps: {
+        imagenes: imagen
+     }
+      });
+    await modal.present();
+    }
+    async onPressUp() {
+      this.modalController.dismiss();
+   }
+
   getRooms() {
     this.service.list().subscribe((r: any) => {
       this.rooms = r.data;
@@ -43,4 +65,20 @@ export class SRoomPage implements OnInit {
     console.log(this.hero.dataPurchase);
     this.router.navigate(['deposit']);
   }
+}
+Injectable()
+export class IonicGestureConfig extends HammerGestureConfig {
+    buildHammer(element: HTMLElement) {
+      const mc = new (window as any).Hammer(element);
+      // tslint:disable-next-line: forin
+      for (const eventName in this.overrides) {
+        if (eventName) {
+          mc.get(eventName).set(this.overrides[eventName]);
+        }
+        return mc;
+  }
+}
+
+
+
 }

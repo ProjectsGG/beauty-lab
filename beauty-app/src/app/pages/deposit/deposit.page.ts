@@ -119,7 +119,6 @@ export class DepositPage implements OnInit {
         },
         () => {
           this.toastr.error('Paypal initialization failed');
-          // Error in initialization, maybe PayPal isn't supported or something else
         }
       );
   }
@@ -128,7 +127,9 @@ export class DepositPage implements OnInit {
       id_usuario: this.hero.getUser().id,
       fecha_reserva: this.hero.dataPurchase.fecha_reserva,
       fecha_inicio: this.hero.dataPurchase.fecha_inicio,
-      fecha_fin: this.hero.dataPurchase.fecha_fin
+      fecha_fin: this.hero.dataPurchase.fecha_fin,
+      id_procedimiento: null,
+      id_plan: null
     };
     if (this.hero.action === '/procedures-detail') {
       data.id_procedimiento = this.hero.dataPurchase.procedures[0].id_procedimiento;
@@ -136,8 +137,9 @@ export class DepositPage implements OnInit {
       data.id_plan = this.hero.dataPurchase.plans[0].id_plan;
     }
     this.service.savePayment(data).subscribe((r: any) => {
-      if (r.ok) {
+      if (r.ok === true) {
         this.res = r.message;
+        this.hero.action = '';
         this.hero.dataPurchase = {
           procedures: [],
           plans: [],

@@ -96,7 +96,8 @@ const routes: Routes = [
   {
     path: 'help',
     loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
-  },  {
+  },
+  {
     path: 'admplans',
     loadChildren: () => import('./pages/admplans/admplans.module').then( m => m.AdmplansPageModule)
   },
@@ -111,7 +112,19 @@ const routes: Routes = [
   {
     path: 'admrooms',
     loadChildren: () => import('./pages/admrooms/admrooms.module').then( m => m.AdmroomsPageModule)
+  },  {
+    path: 'admprocedures',
+    loadChildren: () => import('./pages/admprocedures/admprocedures.module').then( m => m.AdmproceduresPageModule)
+  },
+  {
+    path: 'admproceduresdetails',
+    loadChildren: () => import('./pages/admproceduresdetails/admproceduresdetails.module').then( m => m.AdmproceduresdetailsPageModule)
+  },
+  {
+    path: 'homeadmin',
+    loadChildren: () => import('./pages/homeadmin/homeadmin.module').then( m => m.HomeadminPageModule)
   }
+
 
 
 
