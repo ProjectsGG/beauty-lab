@@ -10,12 +10,14 @@
     margin-bottom: 0;
     text-align: center;
 }
-h3,h4,h6,p{
+h3,h4,h5,h6,p{
     color: aliceblue;
 }
 
 .img-depos{
     border-radius: 15px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 .img-logo{
     width: 60%;
@@ -26,15 +28,10 @@ p{
     font-family: inherit;
     font-size: 19px;
 }
-h3{
-    font-family: 'suissnordregular';
-}
 h4{
     font-family: inherit;
     font-size: 22px;
     color: black;
-    position: relative;
-    left: 48px;
 }
 h6{
     text-decoration: underline;
@@ -53,4 +50,16 @@ h6{
 }
 .nopadding{
     padding:0;
+}
+h2{
+    margin-top: 18px;
+    font-size: 18px;
+    color: gray;
+}
+.space-items{
+    position: relative;
+    top: 15px;
+}
+h5{
+    margin: 0;
 }

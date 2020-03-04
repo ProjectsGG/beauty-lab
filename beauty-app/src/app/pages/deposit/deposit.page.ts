@@ -23,6 +23,8 @@ export class DepositPage implements OnInit {
     public hero: HeroService,
     private router: Router
   ) {}
+  planAc = true;
+  roomAc = true;
   finish = false;
   res: string;
   slideOpts = {
@@ -155,4 +157,5 @@ export class DepositPage implements OnInit {
   backStep() {
     this.router.navigate(['/s-room']);
   }
+  
 }
