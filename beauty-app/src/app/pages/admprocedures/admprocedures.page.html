@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Beauty Lab Plans</ion-title>
+    <ion-title>Beauty Lab Procedures</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +10,7 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-text-center">
-        <h3 class="title-contact">Insert New Plans</h3>
+        <h3 class="title-contact" >Insert New Procedure</h3>
       </ion-col>
     </ion-row>
     </ion-grid>
@@ -18,26 +18,24 @@
     <ion-row>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
       <ion-col size="12" size-md="6" size-xl="6">
-        <form [formGroup]="form" (ngSubmit)="savePlans(form.value)">
           <ion-list lines="full" class="ion-no-margin ion-no-padding">
             <ion-item>
-              <ion-input placeholder="Plan Name" formControlName="nombre" type="text" name="nombre" 
-                class="input-contact"
-                [ngClass]="{ 'is-invalid': submitted && f.title.errors }"></ion-input>
-                <div *ngIf="submitted && f.nombres.errors" class="invalid-feedback">
-                  <div *ngIf="f.nombres.errors.required">name is required</div>
+              <ion-input placeholder="Procedure Name" type="text" name="nombre" 
+                class="input-contact"></ion-input>
+                <div class="invalid-feedback">
+                 <!-- <div>name is required</div>-->
               </div>                
             </ion-item>
             <ion-item>
-              <ion-input placeholder="Description Plan" formControlName="descripcion" type="text" name="descripcion" class="input-contact"></ion-input>
+              <ion-input placeholder="Description Procedure"  type="text" name="descripcion" class="input-contact"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input placeholder="Plan Value"formControlName="valor"  [formGroup]="form"  type="text" name="valor" class="input-contact"></ion-input>
+              <ion-input placeholder="Procedure Value" type="text" name="valor" class="input-contact"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="stacked" color='primary'>Room Type:</ion-label>
-              <select name="idDepartamento" formControlName="roomType" class="form-control">
-                <option *ngFor="let item of roomsType" value={{item.idTipoHabitacion}} >{{item.nombre}}</option>
+              <select name="idDepartamento"  class="form-control">
+                <option ></option>
               </select> 
             </ion-item>
             <ion-input color="primary" type='file'>
@@ -45,14 +43,13 @@
             </ion-input>
             <ion-row class="btn-style">
               <ion-col size="6">
-              <ion-button type="submit" color="dark" class="btn-save"expand="full" size="large">Save</ion-button>
+              <ion-button color="dark" class="btn-save"expand="full" size="large">Save</ion-button>
             </ion-col>
             <ion-col size="6">
               <ion-button color="dark" expand="full" size="large" class="btn-details" routerLink="/admplansdetails">Details</ion-button>
             </ion-col>
             </ion-row>
           </ion-list>
-        </form>
       </ion-col>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
     </ion-row>
