@@ -25,14 +25,14 @@ export class SharePage implements OnInit {
   }
 
     this.camera.getPicture(options).then(data =>{
-      this.currentImage = 'data:image/jpeg;base64' + data;
+      this.currentImage = 'data:image/jpeg;base64,' + data;
     })
  }
 
 
  shareimage(){
   this.instagram.share(this.currentImage, 'Install BeautyLab').then(() =>{
-    
+
   })
  }
 
