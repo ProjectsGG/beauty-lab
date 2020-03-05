@@ -22,34 +22,34 @@
     <ion-row>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
       <ion-col size="12" size-md="6" size-xl="6">
-        <form [formGroup]="form" (ngSubmit)="savePlans(form.value)">
+        <form (ngSubmit)="savePlans()">
           <ion-list lines="full" class="ion-no-margin ion-no-padding">
             <ion-item>
 
               <ion-label position="stacked" class="txt-label">Plan Name:</ion-label>
-              <ion-input formControlName="nombre" type="text" name="nombre" 
-                class="form-control" placeholder="Name" [formGroup]="form" >
+              <ion-input type="text" name="nombre" 
+                  class="form-control" placeholder="Name" required [(ngModel)]="planes.nombre">
               </ion-input>             
             </ion-item>
             <ion-item>
               <ion-label position="stacked">Description Plan:</ion-label>
-              <ion-input formControlName="descripcion" placeholder="Description"
-                type="text" name="descripcion" class="form-control" [formGroup]="form" >
+              <ion-input placeholder="Description"
+                type="text" name="descripcion" class="form-control" 
+                required [(ngModel)]="planes.descripcion">
               </ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="stacked">Plan Value:</ion-label>
-              <ion-input formControlName="valor"  [formGroup]="form"  
+              <ion-input required [(ngModel)]="planes.valor"
                 type="text" name="valor" class="form-control" placeholder="Value">
               </ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="stacked">Room Type:</ion-label>
-              <ion-select formControlName="idRoomType" name="idRoomType" class="form-control" [formGroup]="form"  >
-                <ion-select-option value="" selected>Select Room Type</ion-select-option>
-                <ion-select-option *ngFor="let item of roomsType" value={{item.idTipoHabitacion}}>{{item.nombre}}</ion-select-option>
+              <ion-select name="idRoomType" class="form-control"
+                [(ngModel)]="planes.roomsType.idTipoHabitacion" >
+                  <ion-select-option *ngFor="let item of roomsTypeList" value={{item.idTipoHabitacion}}>{{item.nombre}}</ion-select-option>
               </ion-select>
-
             </ion-item>
             <ion-input color="primary" type='file'>
               

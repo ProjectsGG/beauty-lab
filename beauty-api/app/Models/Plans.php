@@ -22,7 +22,7 @@ class Plans extends Model
         'descripcion',
         'valor',
         'img_plan',
-        'id_habitacion'
+        'id_tipo_habitacion'
     ];
     public $timestamps = false;
 
