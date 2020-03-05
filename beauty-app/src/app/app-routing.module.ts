@@ -127,6 +127,10 @@ const routes: Routes = [
   {
     path: 'admreservas',
     loadChildren: () => import('./pages/admreservas/admreservas.module').then( m => m.AdmreservasPageModule)
+  },
+  {
+    path: 'share',
+    loadChildren: () => import('./pages/share/share.module').then( m => m.SharePageModule)
   }
 
 

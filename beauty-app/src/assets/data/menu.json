@@ -30,6 +30,11 @@
         "redirectTo": "/profile"
     },
     {
+        "icon": "share",
+        "name": "S h a r e",
+        "redirectTo": "/share"
+    },
+    {
         "icon": "help",
         "name": "F A Q",
         "redirectTo": "/faq"
