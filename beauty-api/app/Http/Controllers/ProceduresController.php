@@ -36,18 +36,18 @@ class ProceduresController extends Controller
     {
 
         $this->validate($request, [
-            'title' => 'required',
-            'description' => 'required',
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'precio' => 'required',
         ]);
         try {
             $input = $request->all();
-            $input['user_id']=$this->user->id;
-            //$task = Task::create($input);
+            $procedures = Procedures::create($input);
 
-            /*return response()->json([
+            return response()->json([
                 'ok' => true,
-                'task' => $task
-            ]);*/
+                'data' => $procedures
+            ]);
         } catch (\Throwable $th) {
             return response()->json([
                 'ok' => false,
@@ -57,16 +57,16 @@ class ProceduresController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $task = $this->user->tasks()->find($id);
+        $procedures = $this->user->procedures()->find($id);
 
-        if (!$task) {
+        if (!$procedures) {
             return response()->json([
                 'ok' => false,
                 'message' => 'Sorry, task with id ' . $id . ' cannot be found.'
             ], 400);
         }
         try {
-            $task->update($request->all());
+            $procedures->update($request->all());
             return response()->json([
                 'ok' => true,
                 'message' => 'Task updated successfully'
@@ -78,27 +78,5 @@ class ProceduresController extends Controller
             ], 500);
         }
     }
-    public function destroy($id)
-    {
-        $task = $this->user->tasks()->find($id);
 
-        if (!$task) {
-            return response()->json([
-                'ok' => false,
-                'message' => 'Sorry, task with id ' . $id . ' cannot be found.'
-            ], 400);
-        }
-
-        if ($task->delete()) {
-            return response()->json([
-                'ok' => true,
-                'message'=>'Task deleted successfully'
-            ]);
-        } else {
-            return response()->json([
-                'ok' => false,
-                'message' => 'Task could not be deleted.'
-            ], 500);
-        }
-    }
 }
