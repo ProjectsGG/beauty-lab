@@ -1,7 +1,7 @@
 <app-header titulo="BeautyLab HomeApp"></app-header>
 
 <ion-content class="background-bl ion-padding">
-    <ion-slides pager="true" [options]="slideOpts">
+    <ion-slides style="padding-bottom: 30px" pager="true" [options]="slideOpts">
         <ion-slide>
             <img (click)="watch('Ldi5QLHKm_U')" class="img-hd" src="assets/img/Video-Tour.png" alt="picture">
         </ion-slide>
@@ -9,9 +9,9 @@
             <img class="img-hd" src="assets/img/confidence.png" alt="picture">
         </ion-slide>
     </ion-slides>
-    <hr><br>
+    
     <h3 class="ion-text-center">P L A N S</h3>
-    <ion-slides pager="true" [options]="slideOpts" class="pos-btn-slides-2">
+    <ion-slides style="padding-bottom: 30px" pager="true" [options]="slideOpts" class="pos-btn-slides-2">
         <ion-slide *ngFor="let item of plans">
             <img src="assets/img/pyp/{{item}}" class="img-plan"  alt="picture" routerLink="/plans">
         </ion-slide>
@@ -31,7 +31,7 @@
         <ion-slide *ngFor="let item of touristic" class="pos-btn-slides" >
             <ion-grid>
                 <ion-row>
-                    <ion-col size="4" *ngFor="let tur of item.items" >
+                    <ion-col style="padding-bottom: 15px" size="4" *ngFor="let tur of item.items" >
                         <img src="assets/img/TOURISTICPLAN{{tur}}.png"alt="service">
                     </ion-col>
                 </ion-row>

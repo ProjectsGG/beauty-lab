@@ -22,7 +22,8 @@ h3{
     text-align : center;
 }
 .pos-btn-slides{
-    padding-bottom: 0.9rem;
+    position: relative;
+    bottom: 11px;
 }
 .pos-btn-slides-2{
     padding-bottom: 1.4rem;
@@ -36,6 +37,12 @@ h3{
     display: block;
     margin: 0 auto;
 
+}
+.swiper-pagination-fraction{
+    position: relative;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
 }
 
 @media (min-width: 1200px) {
