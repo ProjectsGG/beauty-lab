@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ToastService } from '../../services/toast.service';
 import { ActionSheetController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.page.html',
@@ -9,10 +10,27 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class NewPostPage implements OnInit {
   photos: any[] = [];
-  constructor(public actionSheetController: ActionSheetController, private camera: Camera, private toast: ToastService) {}
+  option: any;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    public actionSheetController: ActionSheetController,
+    private camera: Camera,
+    private toast: ToastService) {
+      this.route.queryParams.subscribe(params => {
+        if (this.router.getCurrentNavigation().extras.state) {
+          this.option = this.router.getCurrentNavigation().extras.state.option;
+        }
+      });
+    }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    if (this.option === 'camera') {
+      this.photoPic();
+    } else if (this.option === 'gallery') {
+      this.openGallery();
+    }
+  }
   photoPic() {
     if (this.photos.length > 2) {
       this.toast.error('You cannot upload more than two photos');
@@ -27,9 +45,7 @@ export class NewPostPage implements OnInit {
         imageData => {
           this.photos.push(`data:image/jpeg;base64,${imageData}`);
         },
-        err => {
-          this.toast.error('This option is not available');
-        }
+        err => console.log(err)
       );
     }
   }
@@ -51,12 +67,13 @@ export class NewPostPage implements OnInit {
         imageData => {
           this.photos.push(`data:image/jpeg;base64,${imageData}`);
         },
-        err => this.toast.error('This option is not available')
+        err => console.log(err)
       );
     }
   }
   deletePhoto(i): void {
     this.photos.splice(i, 1);
+    console.log(this.photos);
   }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
@@ -88,5 +105,10 @@ export class NewPostPage implements OnInit {
     });
     await actionSheet.present();
   }
-
+  publish() {
+    const date = new Date().toLocaleTimeString();
+    if (this.photos.length === 0) {
+      this.toast.light('Add photos to your post');
+    }
+  }
 }
