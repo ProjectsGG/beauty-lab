@@ -18,41 +18,57 @@
     <ion-row>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
       <ion-col size="12" size-md="6" size-xl="6">
+        <form (ngSubmit)="saveRoom()">
           <ion-list lines="full" class="ion-no-margin ion-no-padding">
             <ion-item>
               <ion-input type="text" name="nombre" placeholder="Room name" 
-                class="input-contact"></ion-input>
-                <div class="invalid-feedback">
-                  <div>name is required</div>
-              </div>                
+                class="input-contact" required [(ngModel)]="rooms.nombre">
+              </ion-input>
             </ion-item>
             <ion-item>
-              <ion-input type="text" name="descripcion" class="input-contact" placeholder="Description room"></ion-input>
+              <ion-input type="text" name="comodidades" class="input-contact" 
+                placeholder="Comfort room" required [(ngModel)]="rooms.comodidades">
+              </ion-input>
             </ion-item>
             <ion-item>
-              <ion-input type="text" name="valor" class="input-contact" placeholder="Room value"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="stacked" color="primary">Room Type:</ion-label>
-              <select name="idDepartamento" class="form-control col-md-6" >
-                <option ></option>
-              </select> 
-            </ion-item>
-            <ion-input color="primary" type='file'>
-              
+              <ion-input type="text" name="precioNoche" class="input-contact" placeholder="Room value"
+              required [(ngModel)]="rooms.precioNoche">
             </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Room Type:</ion-label>
+              <ion-select name="idRoomType" class="form-control"
+                [(ngModel)]="rooms.roomsType.idTipoHabitacion" >
+                  <ion-select-option *ngFor="let item of roomsTypeList" value={{item.idTipoHabitacion}}>{{item.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-input color="primary" type='file'>
+              </ion-input>
+            </ion-item>
             <ion-row class="btn-style">
               <ion-col size="6">
-              <ion-button color="dark" class="btn-save"expand="full" size="large">Save</ion-button>
+              <ion-button color="dark" class="btn-save"expand="full" size="large" type="submit">Save</ion-button>
             </ion-col>
             <ion-col size="6">
               <ion-button color="dark" expand="full" size="large" class="btn-details" routerLink="/admroomsdetails">Details</ion-button>
             </ion-col>
             </ion-row>
           </ion-list>
+        </form> 
       </ion-col>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="2" size-lg="2" size-md="2"></ion-col>
+      <ion-col size="8" size-lg="8" size-md="8">
+        <img src="../../../assets/img/horizontal_logo.png" alt="" class="img-admin">
+      </ion-col>
+      <ion-col size="2" size-lg="2" size-md="8"></ion-col>
+    </ion-row>
+    </ion-grid>
 </ion-content>
   

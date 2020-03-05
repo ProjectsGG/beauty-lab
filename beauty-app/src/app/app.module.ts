@@ -22,8 +22,8 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { SMS } from '@ionic-native/sms/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-
-
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Instagram } from '@ionic-native/instagram/ngx';
 
 @NgModule({
   declarations: [AppComponent, ViewVideoPage],
@@ -50,7 +50,9 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     WebView,
     FilePath,
     SMS,
-    ScreenOrientation
+    ScreenOrientation,
+    SocialSharing,
+    Instagram
   ],
   bootstrap: [AppComponent]
 })
