@@ -44,7 +44,7 @@ export class AdmplansPage implements OnInit {
   }
 
   addPlans( planes: Plans ){
-    const url = `${this.hero.getUrl()}/plans`;
+    const url = `${this.hero.getUrl()}/plan`;
     return this.http.post<Plans>(url, planes, this.httpOptions);
   }
 

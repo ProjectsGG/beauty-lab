@@ -35,7 +35,7 @@ export class AdmproceduresPage implements OnInit {
   }
 
   addProcedure( procedures: Procedures ){
-    const url = `${this.hero.getUrl()}/procedures`;
+    const url = `${this.hero.getUrl()}/procedure`;
     return this.http.post<Procedures>(url, procedures, this.httpOptions);
   }
 

@@ -20,3 +20,14 @@ ALTER TABLE `planes`
 	ADD COLUMN `id_tipo_habitacion` INT NULL DEFAULT NULL AFTER `img_plan`,
 	ADD CONSTRAINT `fk_plan_tipo_habitacion` FOREIGN KEY (`id_tipo_habitacion`) REFERENCES `tipo_habitaciones` (`id_tipo_habitacion`);
 	
+	
+DROP TABLE `habitaciones_img`;
+
+ALTER TABLE `cotizaciones`
+	DROP COLUMN `id_habitacion`,
+	DROP FOREIGN KEY `fk_cotizaciones_habitaciones1`;
+	
+	
+ALTER TABLE `habitaciones`
+	CHANGE COLUMN `id_habitacion` `id_habitacion` INT(11) NOT NULL AUTO_INCREMENT FIRST,
+	CHANGE COLUMN `nombre` `nombre` VARCHAR(100) NULL DEFAULT NULL AFTER `id_habitacion`;	
