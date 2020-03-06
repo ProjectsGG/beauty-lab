@@ -3,6 +3,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ToastService } from '../../services/toast.service';
 import { ActionSheetController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BlogService } from '../../services/blog.service';
+import { Blog } from '../../interfaces/blog';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.page.html',
@@ -11,7 +13,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NewPostPage implements OnInit {
   photos: any[] = [];
   option: any;
+  data: Blog = {
+    hora: '',
+    descripcion: '',
+  };
   constructor(
+    private service: BlogService,
     private route: ActivatedRoute,
     private router: Router,
     public actionSheetController: ActionSheetController,
@@ -106,9 +113,19 @@ export class NewPostPage implements OnInit {
     await actionSheet.present();
   }
   publish() {
-    const date = new Date().toLocaleTimeString();
-    if (this.photos.length === 0) {
-      this.toast.light('Add photos to your post');
-    }
+    this.toast.info(new Date().toLocaleTimeString(), '', 60000);
+    // if (this.photos.length === 0) {
+    //   this.toast.light('Add photos to your post');
+    // } else {
+    //   this.data.photos = this.photos;
+    //   this.data.hora = new Date().toLocaleTimeString();
+    //   this.service.sendData(this.data).subscribe((r: any) => {
+    //     if (r.ok) {
+    //       this.toast.success(r.message);
+    //     } else {
+    //       this.toast.error(r.error);
+    //     }
+    //   });
+    // }
   }
 }
