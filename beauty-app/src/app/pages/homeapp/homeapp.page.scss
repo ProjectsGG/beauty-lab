@@ -6,20 +6,20 @@ ion-slides{
     --bullet-background-active:#FFF;
 }
 h3{
-    margin: 0.3rem;
+    margin: 0;
     font-family: 'suissnordregular';
 }
 .padding{
     padding: 1.5rem;
 }
 .img-hd{
-    height: 200px;
     border-radius: 1.5em;
 }
 .img-service{
-    border-radius: 1.5rem;
+    border-radius: 0.5rem;
     margin: 0 auto;
     text-align : center;
+    height: 75px;
 }
 .pos-btn-slides{
     position: relative;
