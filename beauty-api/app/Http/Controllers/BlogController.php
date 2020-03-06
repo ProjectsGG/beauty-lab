@@ -17,7 +17,7 @@ class BlogController extends Controller
     }
     public function index()
     {
-        $blogs = Blog::orderBy('id','DESC')->with('images')->get();
+        $blogs = Blog::orderBy('id','DESC')->with(['images','user'])->get();
         return response()->json([
             'ok' => true,
             'data' => $blogs
@@ -49,12 +49,12 @@ class BlogController extends Controller
             $input['id_usuario'] = $this->user->id;
             $input['fecha'] = $now->format('Y-m-d');
             $blog = Blog::create($input);
-            foreach ($input['photos'] as $value) {
+            foreach ($input['photos'] as $key => $value) {
     
                 $img = $this->getB64Image($value);
                 $img_extension = $this->getB64Extension($value);
     
-                $img_name = $this->user->id . 'user-image' . time() . '.' . $img_extension;
+                $img_name = $this->user->id . '-user-image-'. $key . time() . '.' . $img_extension;
     
                 Storage::disk('blog')->put($img_name, $img);
     

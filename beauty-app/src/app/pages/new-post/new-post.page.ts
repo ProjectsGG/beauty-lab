@@ -43,7 +43,7 @@ export class NewPostPage implements OnInit {
       this.toast.error('You cannot upload more than two photos');
     } else {
       const options: CameraOptions = {
-        quality: 75,
+        quality: 50,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE
@@ -80,7 +80,6 @@ export class NewPostPage implements OnInit {
   }
   deletePhoto(i): void {
     this.photos.splice(i, 1);
-    console.log(this.photos);
   }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({

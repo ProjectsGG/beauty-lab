@@ -40,9 +40,6 @@ export class SRoomPage implements OnInit {
       });
     await modal.present();
     }
-    async onPressUp() {
-      this.modalController.dismiss();
-   }
 
   getRooms() {
     this.service.list().subscribe((r: any) => {

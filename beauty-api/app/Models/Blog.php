@@ -21,4 +21,8 @@ class Blog extends Model
     {
         return $this->hasMany(imagesXblog::class, 'id_blog');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_usuario');
+    }
 }

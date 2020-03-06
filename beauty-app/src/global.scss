@@ -134,4 +134,10 @@ ion-menu{
     transform-origin: 0 0; /* see note above */
   }
   .ldio-0crlo2y4m0zh div { box-sizing: content-box; }
-  
+  ion-refresher{
+    --color: rgb(255, 0, 234);
+  }
+
+  div.refresher-pulling-icon > ion-icon{
+    color: rgb(255, 0, 234);
+  }
