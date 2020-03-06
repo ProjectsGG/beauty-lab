@@ -122,7 +122,7 @@ export class NewPostPage implements OnInit {
       this.service.sendData(this.data).subscribe((r: any) => {
         if (r.ok) {
           this.toast.success(r.message);
-          this.router.navigate(['/social']);
+          this.router.navigate(['/tabs/social']);
         } else {
           this.toast.error(r.error);
         }
