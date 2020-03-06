@@ -1,12 +1,10 @@
 <app-header></app-header>
 
 <ion-content>
-        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-          <ion-refresher-content
-            pullingIcon="arrow-up"
-            refreshingSpinner="circles">
-          </ion-refresher-content>
-        </ion-refresher>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-up" refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
 
     <ion-grid>
         <ion-row>
@@ -38,28 +36,28 @@
                     <ion-card-content class="padding-fix">
                         <ion-grid class="padding-fix">
                             <ion-row>
-
                                 <ion-slides *ngIf="post.images.length > 1" pager="true" [options]="slideOpts">
                                     <ion-slide *ngFor="let image of post.images">
                                         <img class="img-post" [src]="hero.getDomain()+'/file/blog/'+image.imagen">
                                     </ion-slide>
                                 </ion-slides>
-                                <img *ngIf="post.images.length === 1" class="img-post" [src]="hero.getDomain()+'/file/blog/'+post.images[0].imagen">
+                                <img *ngIf="post.images.length === 1" class="img-post"
+                                    [src]="hero.getDomain()+'/file/blog/'+post.images[0].imagen">
 
-                                <!-- <ion-col size="2">
-                                    <ion-col (click)="likeFocus(i)">
-                                        <img class="likeicon" src="/assets/icon/like.svg" *ngIf="!post.like">
+                                <ion-col size="2">
+                                    <img (click)="likeFocus(i)" class="likeicon" src="/assets/icon/like.svg"
+                                        *ngIf="!post.like">
 
-                                        <img class="likeicon" src="/assets/icon/likeFocus.svg" *ngIf="post.like">
-                                    </ion-col>
+                                    <img (click)="likeFocus(i)" class="likeicon" src="/assets/icon/likeFocus.svg"
+                                        *ngIf="post.like">
+                                    <br>
 
                                     <h1 class="likes ion-text-center">{{post.likes}}</h1>
-                                </ion-col> -->
-
-                                <ion-col size="10">
-                                    <h1 class="tinytext">{{post.descripcion}}</h1>
                                 </ion-col>
-
+                                <ion-col size="10">
+                                    <h1 class="tinytext">
+                                        {{post.descripcion}}</h1>
+                                </ion-col>
                                 <ion-col size="12">
                                     <div>
                                         <ion-item class="line-up">
