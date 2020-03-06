@@ -18,9 +18,10 @@ class CommentaryController extends Controller
     {
         $input = $request->all();
         $input['id_usuario'] = $this->user->id;
-        Commentary::create($input);
+        $comment = Commentary::create($input);
         return response()->json([
-            'ok' => true
+            'ok' => true,
+            'comment' => $comment
         ]);
     }
 }
