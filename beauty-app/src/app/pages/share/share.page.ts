@@ -34,17 +34,21 @@ export class SharePage implements OnInit {
  }
 
  shareimage(){
-  this.instagram.share(this.currentImage, 'Install BeautyLab').then(() =>{
-  })
- } 
- 
-shareInstagram(){
-  this.socialsharing.shareViaInstagram(this.text,this.currentImage).then((res) =>{
+  this.instagram.share(this.currentImage, 'Install BeautyLab').then((res) =>{
     console.log('Exito');
     this.cleanImage();
   }).catch((e) =>{
     console.log('Errore')
-  })
+  });
+ } 
+ 
+shareWhatsapp(){
+  this.socialsharing.shareViaWhatsApp(this.text, this.currentImage, this.Url).then((res) =>{
+    console.log('Exito');
+    this.cleanImage();
+  }).catch((e) =>{
+    console.log('Errore')
+  });
 }
 
 shareFacebook(){
