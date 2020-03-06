@@ -119,6 +119,10 @@ const routes: Routes = [
   {
     path: 'admproceduresdetails',
     loadChildren: () => import('./pages/admproceduresdetails/admproceduresdetails.module').then( m => m.AdmproceduresdetailsPageModule)
+  },
+  {
+    path: 'medicform',
+    loadChildren: () => import('./pages/medicform/medicform.module').then( m => m.MedicformPageModule)
   }
 
 
