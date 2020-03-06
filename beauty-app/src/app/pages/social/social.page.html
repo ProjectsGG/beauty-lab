@@ -1,9 +1,12 @@
 <app-header></app-header>
 
 <ion-content>
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content color="primary-bl"></ion-refresher-content>
-    </ion-refresher>
+        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="arrow-up"
+            refreshingSpinner="circles">
+          </ion-refresher-content>
+        </ion-refresher>
 
     <ion-grid>
         <ion-row>
