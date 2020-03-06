@@ -55,13 +55,16 @@
                                     <h1 class="tinytext">
                                         {{post.descripcion}}</h1>
                                 </ion-col>
+                                <ion-col *ngIf="post.comments.length > 0" size="12" class="box-comm">
+                                    <p *ngFor="let comm of post.comments">- {{comm.comentario}}</p>
+                                </ion-col>
                                 <ion-col size="12">
                                     <div>
                                         <ion-item class="line-up">
-                                            <ion-input placeholder="Add Comment"></ion-input>
+                                            <ion-input placeholder="Add Comment" [(ngModel)]="this.cards[i].comment"></ion-input>
 
                                             <ion-button fill="clear" expand="full">
-                                                <ion-text color="primary-bl" slot="end">Comment</ion-text>
+                                                <ion-text color="primary-bl" slot="end" (click)="comment(i)">Comment</ion-text>
                                             </ion-button>
                                         </ion-item>
                                     </div>

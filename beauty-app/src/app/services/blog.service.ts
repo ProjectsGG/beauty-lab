@@ -4,6 +4,7 @@ import { HeroService } from './hero.service';
 import { retry, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Blog } from '../interfaces/blog';
+import { Commentary } from '../interfaces/commentary';
 @Injectable({
   providedIn: 'root'
 })
@@ -49,6 +50,20 @@ export class BlogService {
     };
     const url = this.hero.getUrl() + '/blog';
     return this.http.get(url, httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
+  comment(data: Commentary) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
+    const url = this.hero.getUrl() + '/commentary';
+    return this.http.post(url, data, httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError)
