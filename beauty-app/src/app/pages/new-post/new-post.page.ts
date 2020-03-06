@@ -43,7 +43,7 @@ export class NewPostPage implements OnInit {
       this.toast.error('You cannot upload more than two photos');
     } else {
       const options: CameraOptions = {
-        quality: 50,
+        quality: 25,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE
@@ -63,7 +63,7 @@ export class NewPostPage implements OnInit {
       const cameraOptions = {
         sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
         destinationType: this.camera.DestinationType.DATA_URL,
-        quality: 75,
+        quality: 25,
         targetWidth: 1000,
         targetHeight: 1000,
         encodingType: this.camera.EncodingType.JPEG,
@@ -112,8 +112,8 @@ export class NewPostPage implements OnInit {
     await actionSheet.present();
   }
   publish() {
-    if (this.photos.length === 0) {
-      this.toast.light('Add photos to your post');
+    if (this.photos.length === 0 && this.data.descripcion === '') {
+      this.toast.light('Please upload images or comment something');
     } else {
       let date = new Date().toLocaleTimeString();
       date = date.substring(0, (date.length - 5));
@@ -122,6 +122,7 @@ export class NewPostPage implements OnInit {
       this.service.sendData(this.data).subscribe((r: any) => {
         if (r.ok) {
           this.toast.success(r.message);
+          this.router.navigate(['/social']);
         } else {
           this.toast.error(r.error);
         }
