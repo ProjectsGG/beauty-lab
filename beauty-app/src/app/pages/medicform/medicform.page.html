@@ -12,12 +12,14 @@
     </ion-col>
     <input type="number" onkeydown="javascript: return event.keyCode == 69 ? false : true">
         <ion-col size="0" size-md="0" size-lg="3" size-sm="0"></ion-col>
-        <ion-select>
-          Blood Type
+        <ion-select *ngFor="let item of Rhs">
+          <ion-select-option value="{{item}}">
+         {{item}}
+          </ion-select-option>
         </ion-select>
         <ion-select>
-          <ion-select-option>
-          Blood Type
+          <ion-select-option >
+    
         </ion-select-option>
         </ion-select>
     </ion-row>
