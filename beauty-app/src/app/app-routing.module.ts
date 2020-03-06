@@ -136,7 +136,11 @@ const routes: Routes = [
   {
     path: 'medicform',
     loadChildren: () => import('./pages/medicform/medicform.module').then( m => m.MedicformPageModule)
+  },  {
+    path: 'medicalinfo',
+    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule)
   }
+
 
 
 
