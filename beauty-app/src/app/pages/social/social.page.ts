@@ -11,7 +11,11 @@ import { HeroService } from '../../services/hero.service';
   styleUrls: ['./social.page.scss'],
 })
 export class SocialPage implements OnInit {
-  constructor(private hero: HeroService, public service: BlogService, public router: Router, public popoverController: PopoverController) { }
+  constructor(
+    private hero: HeroService,
+    public service: BlogService,
+    public router: Router,
+    public popoverController: PopoverController) { }
 
   cards: any[];
   ngOnInit() {
@@ -34,9 +38,9 @@ export class SocialPage implements OnInit {
     }
   }
   doRefresh(event) {
-    console.log('Begin async operation');
+    this.getPosts();
     setTimeout(() => {
-      console.log('Async operation has ended');
+      this.getPosts();
       event.target.complete();
     }, 2000);
   }

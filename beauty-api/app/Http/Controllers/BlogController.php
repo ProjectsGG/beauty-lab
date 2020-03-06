@@ -17,7 +17,7 @@ class BlogController extends Controller
     }
     public function index()
     {
-        $blogs = Blog::orderBy('id','DESC')->with(['images','user'])->get();
+        $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments','likes'])->get();
         return response()->json([
             'ok' => true,
             'data' => $blogs
