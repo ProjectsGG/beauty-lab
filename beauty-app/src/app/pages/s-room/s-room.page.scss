@@ -32,3 +32,11 @@ ion-list{
 ion-footer > ion-toolbar {
     --background: rgba(10, 146, 245, 1);
 }
+.scroll-fix{
+    position: absolute;
+
+    overflow-y: scroll;
+    
+    overflow-x: hidden;
+    
+}
