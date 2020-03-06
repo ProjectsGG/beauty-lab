@@ -4,6 +4,7 @@ import { PopoverpostComponent } from '../../components/popoverpost/popoverpost.c
 import { NavigationExtras, Router } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
 import { HeroService } from '../../services/hero.service';
+import { Commentary } from '../../interfaces/commentary';
 
 @Component({
   selector: 'app-social',
@@ -11,7 +12,11 @@ import { HeroService } from '../../services/hero.service';
   styleUrls: ['./social.page.scss'],
 })
 export class SocialPage implements OnInit {
-  constructor(private hero: HeroService, public service: BlogService, public router: Router, public popoverController: PopoverController) { }
+  constructor(
+    private hero: HeroService,
+    public service: BlogService,
+    public router: Router,
+    public popoverController: PopoverController) { }
 
   cards: any[];
   ngOnInit() {
@@ -34,9 +39,9 @@ export class SocialPage implements OnInit {
     }
   }
   doRefresh(event) {
-    console.log('Begin async operation');
+    this.getPosts();
     setTimeout(() => {
-      console.log('Async operation has ended');
+      this.getPosts();
       event.target.complete();
     }, 2000);
   }
@@ -51,6 +56,18 @@ export class SocialPage implements OnInit {
   getPosts() {
     this.service.getData().subscribe((r: any) => {
       this.cards = r.data;
+      this.cards.forEach((e) => {
+        e.comment = '';
+      });
+    });
+  }
+  comment(i) {
+    const data: Commentary = {
+      id_blog: this.cards[i].id,
+      comentario: this.cards[i].comment,
+    };
+    this.service.comment(data).subscribe((r: any) => {
+      this.cards[i].comments.push(r.comment);
     });
   }
 }
