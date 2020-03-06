@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
     <ion-title>Beauty Lab Procedures</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,41 +21,48 @@
     <ion-row>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
       <ion-col size="12" size-md="6" size-xl="6">
+        <form (ngSubmit)="saveProcedures()">
           <ion-list lines="full" class="ion-no-margin ion-no-padding">
             <ion-item>
               <ion-input placeholder="Procedure Name" type="text" name="nombre" 
-                class="input-contact"></ion-input>
-                <div class="invalid-feedback">
-                 <!-- <div>name is required</div>-->
-              </div>                
+                class="input-contact" required [(ngModel)]="procedures.nombre">
+              </ion-input>
             </ion-item>
             <ion-item>
-              <ion-input placeholder="Description Procedure"  type="text" name="descripcion" class="input-contact"></ion-input>
+              <ion-input placeholder="Description Procedure"  type="text" 
+                name="descripcion" class="input-contact" required [(ngModel)]="procedures.descripcion">
+              </ion-input>
             </ion-item>
             <ion-item>
-              <ion-input placeholder="Procedure Value" type="text" name="valor" class="input-contact"></ion-input>
+              <ion-input placeholder="Procedure Value" type="text" 
+                name="valor" class="input-contact" required [(ngModel)]="procedures.precio">
+              </ion-input>
             </ion-item>
-            <ion-item>
-              <ion-label position="stacked" color='primary'>Room Type:</ion-label>
-              <select name="idDepartamento"  class="form-control">
-                <option ></option>
-              </select> 
-            </ion-item>
-            <ion-input color="primary" type='file'>
-              
+            <ion-input color="primary" type='file' name="imagen" 
+              required [(ngModel)]="procedures.imagen">
             </ion-input>
             <ion-row class="btn-style">
               <ion-col size="6">
-              <ion-button color="dark" class="btn-save"expand="full" size="large">Save</ion-button>
+              <ion-button color="dark" class="btn-save" expand="full" size="large" type="submit">Save</ion-button>
             </ion-col>
             <ion-col size="6">
               <ion-button color="dark" expand="full" size="large" class="btn-details" routerLink="/admplansdetails">Details</ion-button>
             </ion-col>
             </ion-row>
           </ion-list>
+        </form>
       </ion-col>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
     </ion-row>
   </ion-grid>
   
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="2" size-lg="2" size-md="2"></ion-col>
+      <ion-col size="8" size-lg="8" size-md="8">
+        <img src="../../../assets/img/horizontal_logo.png" alt="" class="img-admin">
+      </ion-col>
+      <ion-col size="2" size-lg="2" size-md="8"></ion-col>
+    </ion-row>
+    </ion-grid>
 </ion-content>

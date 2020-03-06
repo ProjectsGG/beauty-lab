@@ -1,0 +1,9 @@
+<app-header titulo="BeautyLab Share"></app-header>
+
+<ion-content>
+  <img [src]="currentImage" *ngIf="currentImage" alt="">
+  
+  <ion-button expand="full" (click)="loadimage()">Load your Image</ion-button>
+  <ion-button expand="full" (click)="shareimage()">Share on Instagram</ion-button>
+  
+</ion-content>

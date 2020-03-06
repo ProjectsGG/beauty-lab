@@ -1,9 +1,8 @@
+import { Plans } from './../../model/Plans';
+import { RoomsType } from './../../model/RoomsType';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HeroService } from './../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
-
 
 @Component({
   selector: 'app-admplans',
@@ -12,17 +11,15 @@ import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 })
 export class AdmplansPage implements OnInit {
 
-  form: FormGroup;
-  submitted = false;
-  roomsType: any[];
+  planes: Plans = new Plans();
+  roomsType: RoomsType = new RoomsType();
+  roomsTypeList: RoomsType[];
+
 
   constructor(
     private http: HttpClient,
-    private hero: HeroService,
-    private router: Router,
-    private formBuilder: FormBuilder
+    private hero: HeroService
   ) {
-    this.form = new FormGroup({});
   }
 
   httpOptions = {
@@ -33,33 +30,29 @@ export class AdmplansPage implements OnInit {
   };
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
-        nombre: ['', Validators.required],
-        descripcion: ['', Validators.required],
-        valor: ['', Validators.required],
-        roomType: ['', Validators.required]
-    });
-
+    this.planes.roomsType = this.roomsType;
     this.getRoomsType();
   }
 
-    // convenience getter for easy access to form fields
-  get f() { return this.form.controls; }
 
-  savePlans( values ) {
-    console.log(values);
-    values.id_habitacion = 1;
-    this.getPostService(values)
+  savePlans() {
+    console.log(this.planes);
+    this.addPlans(this.planes)
     .subscribe((model: any) => {
       console.log(model.data);
     });
   }
 
+  addPlans( planes: Plans ){
+    const url = `${this.hero.getUrl()}/plan`;
+    return this.http.post<Plans>(url, planes, this.httpOptions);
+  }
+
   getRoomsType() {
     this.getService()
     .subscribe((model: any) => {
-      this.roomsType = model.data;
-      console.log(this.roomsType);
+      this.roomsTypeList = model.data;
+      console.log(this.roomsTypeList);
     });
   }
 
@@ -68,9 +61,6 @@ export class AdmplansPage implements OnInit {
     return this.http.get(url, this.httpOptions);
   }
 
-  getPostService( values ) {
-    const url = `${this.hero.getUrl()}/plans`;
-    return this.http.post(url, values);
-  }
+
 
 }

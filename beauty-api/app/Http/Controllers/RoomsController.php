@@ -36,23 +36,20 @@ class RoomsController extends Controller
         ]);
     }
 
-
     public function store(Request $request)
     {
 
         $this->validate($request, [
-            'title' => 'required',
-            'description' => 'required',
+            'nombre' => 'required'
         ]);
         try {
             $input = $request->all();
-            $input['user_id']=$this->user->id;
-            //$task = Task::create($input);
+            $rooms = Rooms::create($input);
 
-            /*return response()->json([
+            return response()->json([
                 'ok' => true,
-                'task' => $task
-            ]);*/
+                'data' => $rooms
+            ]);
         } catch (\Throwable $th) {
             return response()->json([
                 'ok' => false,
@@ -62,16 +59,16 @@ class RoomsController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $task = $this->user->tasks()->find($id);
+        $rooms = $this->user->rooms()->find($id);
 
-        if (!$task) {
+        if (!$rooms) {
             return response()->json([
                 'ok' => false,
                 'message' => 'Sorry, task with id ' . $id . ' cannot be found.'
             ], 400);
         }
         try {
-            $task->update($request->all());
+            $rooms->update($request->all());
             return response()->json([
                 'ok' => true,
                 'message' => 'Task updated successfully'
@@ -83,35 +80,12 @@ class RoomsController extends Controller
             ], 500);
         }
     }
-    public function destroy($id)
-    {
-        $task = $this->user->tasks()->find($id);
 
-        if (!$task) {
-            return response()->json([
-                'ok' => false,
-                'message' => 'Sorry, task with id ' . $id . ' cannot be found.'
-            ], 400);
-        }
-
-        if ($task->delete()) {
-            return response()->json([
-                'ok' => true,
-                'message'=>'Task deleted successfully'
-            ]);
-        } else {
-            return response()->json([
-                'ok' => false,
-                'message' => 'Task could not be deleted.'
-            ], 500);
-        }
-    }
-
-    public function getContenido($filename)
-    {
+    public function getContenido($filename){
         $file = Storage::disk('rooms')->get($filename);
         return new Response($file);
     }
+
     public function getImgPerfil($filename) {
         $file = Storage::disk('profile')->get($filename);
         return new Response($file);

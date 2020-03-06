@@ -57,16 +57,16 @@ class PlansController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $task = $this->user->tasks()->find($id);
+        $plans = $this->user->plans()->find($id);
 
-        if (!$task) {
+        if (!$plans) {
             return response()->json([
                 'ok' => false,
                 'message' => 'Sorry, task with id ' . $id . ' cannot be found.'
             ], 400);
         }
         try {
-            $task->update($request->all());
+            $plans->update($request->all());
             return response()->json([
                 'ok' => true,
                 'message' => 'Task updated successfully'
@@ -78,27 +78,5 @@ class PlansController extends Controller
             ], 500);
         }
     }
-    public function destroy($id)
-    {
-        $task = $this->user->tasks()->find($id);
 
-        if (!$task) {
-            return response()->json([
-                'ok' => false,
-                'message' => 'Sorry, task with id ' . $id . ' cannot be found.'
-            ], 400);
-        }
-
-        if ($task->delete()) {
-            return response()->json([
-                'ok' => true,
-                'message'=>'Task deleted successfully'
-            ]);
-        } else {
-            return response()->json([
-                'ok' => false,
-                'message' => 'Task could not be deleted.'
-            ], 500);
-        }
-    }
 }

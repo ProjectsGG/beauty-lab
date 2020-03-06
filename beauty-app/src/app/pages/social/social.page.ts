@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverpostComponent } from '../../components/popoverpost/popoverpost.component';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-social',
@@ -8,7 +9,7 @@ import { PopoverpostComponent } from '../../components/popoverpost/popoverpost.c
   styleUrls: ['./social.page.scss'],
 })
 export class SocialPage implements OnInit {
-  constructor(public popoverController: PopoverController) { }
+  constructor(public router: Router, public popoverController: PopoverController) { }
 
   cards = [{
     profileimg: 'siluet1.jpg',
@@ -64,15 +65,20 @@ export class SocialPage implements OnInit {
       this.cards[i].nlikes = this.cards[i].nlikes - 1;
     }
   }
-
   // reload page
   doRefresh(event) {
     console.log('Begin async operation');
-
     setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
   }
-
+  goToNewPost(param) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        option: param
+      }
+    };
+    this.router.navigate(['/new-post'], navigationExtras);
+  }
 }

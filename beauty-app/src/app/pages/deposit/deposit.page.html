@@ -21,12 +21,12 @@
         <ion-grid fixed *ngIf="hero.dataPurchase.plans.length > 0">
           <ion-row *ngFor="let item of hero.dataPurchase.plans">
             <ion-col>
-            <h5 class="ion-text-center"color="light"> plan selected </h5>
+            <h5 class="ion-text-center"color="light"> Plan Selected </h5>
           </ion-col>
             <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
               <ion-item (click)="planAc  = !planAc ">
                 <img slot="start" src="./../../../assets/icon/surgeryIco.svg">
-                <ion-title class="ion-text-center">{{item.nombre}}</ion-title>
+                <ion-title size="undefined">{{item.nombre}}</ion-title>
                 <ion-icon slot="end" name="arrow-dropup" *ngIf="planAc"> </ion-icon>
                 <ion-icon slot="end" name="arrow-dropdown" *ngIf="!planAc"></ion-icon>
               </ion-item>
@@ -72,12 +72,12 @@
         <ion-grid fixed *ngIf="hero.dataPurchase.room !== null">
           <ion-row class="space-items">
             <ion-col>
-            <h5 class="ion-text-center"> room selected </h5>
+            <h5 class="ion-text-center"> Room Selected </h5>
           </ion-col>
             <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
               <ion-item (click)="roomAc = !roomAc ">
                 <img slot="start" src="./../../../assets/icon/roomIco.svg">
-                <ion-title class="ion-text-center">{{hero.dataPurchase.room.nombre}}</ion-title>
+                <ion-title size="undefined">{{hero.dataPurchase.room.nombre}}</ion-title>
                 <ion-icon slot="end" name="arrow-dropup"  *ngIf="roomAc" ></ion-icon>
                 <ion-icon slot="end" name="arrow-dropdown" *ngIf="!roomAc"></ion-icon>
               </ion-item> 

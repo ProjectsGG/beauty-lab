@@ -112,7 +112,8 @@ const routes: Routes = [
   {
     path: 'admrooms',
     loadChildren: () => import('./pages/admrooms/admrooms.module').then( m => m.AdmroomsPageModule)
-  },  {
+  },
+  {
     path: 'admprocedures',
     loadChildren: () => import('./pages/admprocedures/admprocedures.module').then( m => m.AdmproceduresPageModule)
   },
@@ -123,6 +124,18 @@ const routes: Routes = [
   {
     path: 'medicform',
     loadChildren: () => import('./pages/medicform/medicform.module').then( m => m.MedicformPageModule)
+  },
+  {
+    path: 'homeadmin',
+    loadChildren: () => import('./pages/homeadmin/homeadmin.module').then( m => m.HomeadminPageModule)
+  },
+  {
+    path: 'admreservas',
+    loadChildren: () => import('./pages/admreservas/admreservas.module').then( m => m.AdmreservasPageModule)
+  },
+  {
+    path: 'share',
+    loadChildren: () => import('./pages/share/share.module').then( m => m.SharePageModule)
   }
 
 
