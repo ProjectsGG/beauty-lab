@@ -12,10 +12,10 @@
                 <ion-radio color="light" slot="end" [value]="ind"></ion-radio>
               </ion-item>
               <div>
-                <img (press)="onPress(item.imagen)" (pressup)="onPressUp()" class="img-room" src="{{hero.getDomain()}}/file/{{item.imagen}}" alt="">
+                <img class="scroll-fix" (click)="onPress(item.imagen)" class="img-room" src="{{hero.getDomain()}}/file/{{item.imagen}}" alt="">
               </div>
             </div>
-          </ion-radio-group>
+          </ion-radio-group> 
         </ion-list>
         <ion-row>
           <ion-col size="6">
