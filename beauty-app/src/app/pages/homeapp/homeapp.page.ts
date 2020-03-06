@@ -32,7 +32,8 @@ export class HomeappPage implements OnInit {
   plans = [
     '3dplan.png',
     'bootyplan.png',
-    'supermodelplan.png'
+    'supermodelplan.png',
+    'superstar3.png'
   ];
   proc = [
     '360lipo.jpg',
