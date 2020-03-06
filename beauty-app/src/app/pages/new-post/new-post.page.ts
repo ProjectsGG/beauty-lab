@@ -113,19 +113,20 @@ export class NewPostPage implements OnInit {
     await actionSheet.present();
   }
   publish() {
-    this.toast.info(new Date().toLocaleTimeString(), '', 60000);
-    // if (this.photos.length === 0) {
-    //   this.toast.light('Add photos to your post');
-    // } else {
-    //   this.data.photos = this.photos;
-    //   this.data.hora = new Date().toLocaleTimeString();
-    //   this.service.sendData(this.data).subscribe((r: any) => {
-    //     if (r.ok) {
-    //       this.toast.success(r.message);
-    //     } else {
-    //       this.toast.error(r.error);
-    //     }
-    //   });
-    // }
+    if (this.photos.length === 0) {
+      this.toast.light('Add photos to your post');
+    } else {
+      let date = new Date().toLocaleTimeString();
+      date = date.substring(0, (date.length - 5));
+      this.data.photos = this.photos;
+      this.data.hora = date;
+      this.service.sendData(this.data).subscribe((r: any) => {
+        if (r.ok) {
+          this.toast.success(r.message);
+        } else {
+          this.toast.error(r.error);
+        }
+      });
+    }
   }
 }
