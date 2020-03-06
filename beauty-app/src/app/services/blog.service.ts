@@ -40,4 +40,18 @@ export class BlogService {
       catchError(this.handleError)
     );
   }
+  getData() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
+    const url = this.hero.getUrl() + '/blog';
+    return this.http.get(url, httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
 }

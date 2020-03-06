@@ -60,7 +60,7 @@ class BlogController extends Controller
     
                 $images = new imagesXblog();
                 $images->id_blog = $blog->id;
-                $images->imagen = $value;
+                $images->imagen = $img_name;
                 $images->save();
             }
             return response()->json([
