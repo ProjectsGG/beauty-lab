@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\imagesXblog;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Illuminate\Support\Facades\Storage;
@@ -48,6 +49,7 @@ class BlogController extends Controller
             $now = new \DateTime();
             $input['id_usuario'] = $this->user->id;
             $input['fecha'] = $now->format('Y-m-d');
+            $input['hora'] = Carbon::now()->format('h:m:s');
             $blog = Blog::create($input);
             foreach ($input['photos'] as $key => $value) {
     

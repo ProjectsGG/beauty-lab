@@ -115,10 +115,7 @@ export class NewPostPage implements OnInit {
     if (this.photos.length === 0 && this.data.descripcion === '') {
       this.toast.light('Please upload images or comment something');
     } else {
-      let date = new Date().toLocaleTimeString();
-      date = date.substring(0, (date.length - 5));
       this.data.photos = this.photos;
-      this.data.hora = date;
       this.service.sendData(this.data).subscribe((r: any) => {
         if (r.ok) {
           this.toast.success(r.message);
