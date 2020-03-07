@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Beauty Lab</title>
+        <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -14,12 +15,43 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-3 col-xl-3"></div>
-                <div class="col-12 col-sm-12 col-md-6 col-xl-6">
-                    <img src="{{ route('img/horizontal_logo_png') }}" alt="">
+                <div class="col-12 col-sm-12 col-md-6 col-xl-6 center text-center">
+                    <img src="{{ asset('img/horizontal_logo.png') }}" alt="">
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-xl-3"></div>
             </div>
+            <br><br>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-2 col-xl-2"></div>
+                <div class="col-12 col-sm-12 col-md-8 col-xl-8">
+                   <h1 class="text-center text-light">Soon we will help you Build the Body of your Dreams</h1>
+                </div>
+                <div class="col-12 col-sm-12 col-md-2 col-xl-2"></div>
+            </div>
         </div>
+        <br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-xl-6 center text-center">
+                    <img src="{{ asset('img/3dplan.png') }}" alt="">
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-xl-6 center text-center">
+                    <img src="{{ asset('img/bootyplan.png') }}" alt="">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-xl-6 center text-center">
+                    <img src="{{ asset('img/supermodelplan.png') }}" alt="">
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-xl-6 center text-center">
+                    <img src="{{ asset('img/superstar1.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
 
 
 
