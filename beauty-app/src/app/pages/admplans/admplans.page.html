@@ -47,8 +47,8 @@
             <ion-item>
               <ion-label position="stacked">Room Type:</ion-label>
               <ion-select name="idRoomType" class="form-control"
-                [(ngModel)]="planes.roomsType.idTipoHabitacion" >
-                  <ion-select-option *ngFor="let item of roomsTypeList" value={{item.idTipoHabitacion}}>{{item.nombre}}</ion-select-option>
+                [(ngModel)]="planes.id_tipo_habitacion" (ionChange)="change($event)">
+                  <ion-select-option *ngFor="let item of roomsTypeList" value={{item.id_tipo_habitacion}}>{{item.id_tipo_habitacion + '-' + item.nombre}}</ion-select-option>
               </ion-select>
             </ion-item>
             <ion-input color="primary" type='file'>

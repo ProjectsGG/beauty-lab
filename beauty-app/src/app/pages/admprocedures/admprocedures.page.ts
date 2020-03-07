@@ -1,3 +1,4 @@
+import { UtilsService } from './../../utils/utils.service';
 import { HeroService } from './../../services/hero.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Procedures } from './../../model/Procedures';
@@ -15,6 +16,7 @@ export class AdmproceduresPage implements OnInit {
   constructor(
     private http: HttpClient,
     private hero: HeroService,
+    private utils: UtilsService
   ) { }
 
   httpOptions = {
@@ -31,6 +33,8 @@ export class AdmproceduresPage implements OnInit {
     this.addProcedure(this.procedures)
     .subscribe((model: any) => {
       console.log(model.data);
+      this.procedures  = new Procedures();
+      this.utils.showToast('Regitro almacenado correctamente');
     });
   }
 

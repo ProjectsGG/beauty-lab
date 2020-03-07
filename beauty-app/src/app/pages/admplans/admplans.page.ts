@@ -1,3 +1,4 @@
+import { UtilsService } from './../../utils/utils.service';
 import { Plans } from './../../model/Plans';
 import { RoomsType } from './../../model/RoomsType';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,11 +15,13 @@ export class AdmplansPage implements OnInit {
   planes: Plans = new Plans();
   roomsType: RoomsType = new RoomsType();
   roomsTypeList: RoomsType[];
+  data: any = null;
 
 
   constructor(
     private http: HttpClient,
-    private hero: HeroService
+    private hero: HeroService,
+    private utils: UtilsService
   ) {
   }
 
@@ -30,7 +33,6 @@ export class AdmplansPage implements OnInit {
   };
 
   ngOnInit() {
-    this.planes.roomsType = this.roomsType;
     this.getRoomsType();
   }
 
@@ -40,6 +42,8 @@ export class AdmplansPage implements OnInit {
     this.addPlans(this.planes)
     .subscribe((model: any) => {
       console.log(model.data);
+      this.planes  = new Plans();
+      this.utils.showToast('Regitro almacenado correctamente');
     });
   }
 
@@ -61,6 +65,11 @@ export class AdmplansPage implements OnInit {
     return this.http.get(url, this.httpOptions);
   }
 
+  change($event) {
+    if($event == 'a') {
+      this.data = null;
+    }
+  }
 
 
 }

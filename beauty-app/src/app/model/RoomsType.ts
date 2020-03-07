@@ -1,4 +1,5 @@
 export class RoomsType {
-    idTipoHabitacion: number;
+    // tslint:disable-next-line: variable-name
+    id_tipo_habitacion: number;
     nombre: string;
 }
