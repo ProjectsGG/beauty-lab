@@ -7,6 +7,7 @@ use App\Models\Plans;
 use App\Models\Procedures;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
@@ -17,8 +18,21 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $reservations = DB::table('reservas')
+            ->join('usuarios', 'reservas.id_usuario', '=', 'usuarios.id')
+            ->leftJoin('planes', 'reservas.id_plan', '=', 'planes.id_plan')
+            ->leftJoin('procedimientos', 'reservas.id_procedimiento', '=', 'procedimientos.id_procedimiento')
+            ->select('reservas.*', 'usuarios.nombres','usuarios.apellidos', 'planes.nombre as plan',
+                'procedimientos.nombre as procedimiento')
+        ->get();
+
+        return response()->json([
+            'ok' => true,
+            'data' => $reservations
+        ]);
+
     }
+
 
     /**
      * Show the form for creating a new resource.

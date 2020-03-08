@@ -1,8 +1,9 @@
+import { UtilsService } from './../../utils/utils.service';
 import { Plans } from './../../model/Plans';
 import { RoomsType } from './../../model/RoomsType';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HeroService } from './../../services/hero.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-admplans',
@@ -14,11 +15,15 @@ export class AdmplansPage implements OnInit {
   planes: Plans = new Plans();
   roomsType: RoomsType = new RoomsType();
   roomsTypeList: RoomsType[];
+  data: any = null;
+  photoTaken: string;
 
+  @ViewChild('upload', { static: false }) fileInput: ElementRef;
 
   constructor(
     private http: HttpClient,
-    private hero: HeroService
+    private hero: HeroService,
+    private utils: UtilsService
   ) {
   }
 
@@ -30,16 +35,28 @@ export class AdmplansPage implements OnInit {
   };
 
   ngOnInit() {
-    this.planes.roomsType = this.roomsType;
     this.getRoomsType();
   }
 
 
   savePlans() {
+    if (!this.photoTaken || this.photoTaken == null || this.photoTaken === '' ){
+      this.utils.showAlert('No se ha cargado una imagen');
+      return;
+    }
+    this.planes.img_plan = this.photoTaken;
     console.log(this.planes);
     this.addPlans(this.planes)
     .subscribe((model: any) => {
-      console.log(model.data);
+      if (model.ok) {
+        console.log('MODELO: ', model);
+        console.log(model.data);
+        this.planes  = new Plans();
+        this.photoTaken = '';
+        this.utils.showToast('Regitro almacenado correctamente');
+      } else {
+        this.utils.showAlert(model.errors);
+      }
     });
   }
 
@@ -52,7 +69,6 @@ export class AdmplansPage implements OnInit {
     this.getService()
     .subscribe((model: any) => {
       this.roomsTypeList = model.data;
-      console.log(this.roomsTypeList);
     });
   }
 
@@ -61,6 +77,24 @@ export class AdmplansPage implements OnInit {
     return this.http.get(url, this.httpOptions);
   }
 
+  change($event) {
+    if($event == 'a') {
+      this.data = null;
+    }
+  }
+
+  fileChange() {
+    const reader = new FileReader();
+    reader.readAsDataURL(this.fileInput.nativeElement.files[0]);
+    reader.onload = () => {
+      this.photoTaken = reader.result.toString();
+    };
+  } 
+
+  takeFile() {
+    this.fileInput.nativeElement.click();
+  }
 
 
 }
+

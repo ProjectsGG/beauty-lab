@@ -7,5 +7,6 @@ export class Rooms {
     precioNoche: number;
     imagen: string;
     cantidadCamas: number;
-    roomsType: RoomsType;
+    // tslint:disable-next-line: variable-name
+    id_tipo_habitacion: number;
 }

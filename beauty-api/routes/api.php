@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 
     //  Blog
     Route::resource('blog', 'BlogController');
-    // Hiatory 
+    // Hiatory
 
     // Hiatory
 
@@ -49,6 +49,9 @@ Route::get('procedures', 'ProceduresController@index');
 Route::post('procedure', 'ProceduresController@store');
 
 Route::get('room/{id}', 'RoomsController@show');
+Route::get('rooms', 'RoomsController@index');
 Route::post('room', 'RoomsController@store');
 
 Route::get('roomstype', 'RoomsTypeController@index');
+
+Route::get('reversations', 'ReservationController@index');

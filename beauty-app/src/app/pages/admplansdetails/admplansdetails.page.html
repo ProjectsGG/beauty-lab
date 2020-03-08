@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Details Plans</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Beauty Lab Detail Plans</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,9 +16,12 @@
           <ion-item>
             <ion-label position="" class="txt-label">Plan Name</ion-label>
             <ion-label position="">Description Plan</ion-label>
-            <ion-button><ion-icon name="create" color="dark"></ion-icon></ion-button>
-            <ion-button><ion-icon name="close-circle-outline" color="dark"></ion-icon></ion-button>
           </ion-item>
+          <ion-item *ngFor="let data of plans" >
+            <ion-label position="" class="txt-label">{{data.nombre}}</ion-label>
+            <ion-label position="">{{data.descripcion}}</ion-label>
+            <ion-button><ion-icon name="close-circle-outline" color="dark"></ion-icon></ion-button>
+          </ion-item>          
         </ion-list>
       </ion-col>
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>

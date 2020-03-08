@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>admproceduresdetails</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Beauty Lab Detail Procedures</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+      <ion-col size="12" size-md="6" size-xl="6">
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+          <ion-item>
+            <ion-label position="" class="txt-label">Procedure Name</ion-label>
+            <ion-label position="">Description Procedure</ion-label>
+          </ion-item>
+          <ion-item *ngFor="let data of procedures" >
+            <ion-label position="" class="txt-label">{{data.nombre}}</ion-label>
+            <ion-label position="">{{data.descripcion}}</ion-label>
+            <ion-button><ion-icon name="close-circle-outline" color="dark"></ion-icon></ion-button>
+          </ion-item>          
+        </ion-list>
+      </ion-col>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
