@@ -38,14 +38,23 @@
       <ion-col size="0" size-md="2" size-lg="3"></ion-col>
     </ion-row>
   </ion-grid>
-  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="content=='reviewBlog'">
-    <ion-fab-button routerLink="/new-post">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
-  <ion-fab  vertical="bottom" horizontal="end" slot="fixed" *ngIf="content=='personalData'">
+
+<!--   <ion-fab  vertical="bottom" horizontal="end" slot="fixed" *ngIf="content=='personalData'">
     <ion-fab-button color="primary-bl" routerLink="/data-complete">
       <ion-icon name="create"></ion-icon>
     </ion-fab-button>
+  </ion-fab> -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger">
+      <ion-icon name="add" color="dark"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary-bl" size="large" routerLink="/data-complete">
+        <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" size="large" routerLink="/medicform">
+        <ion-icon name="medkit" color="primary"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
   </ion-fab>
 </ion-content>

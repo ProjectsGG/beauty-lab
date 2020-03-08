@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Medical User Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+          <ion-col size="0" size-md="3" size-lg="3" size-sm="0"></ion-col>
+      <ion-col size="12" size-md='6' size-lg="6" size-sm="12">
+        <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="">
+      <ion-col size="12">
+        <ion-text color="light">
+          Medical form.
+        </ion-text>
+      </ion-col>
+      <ion-row>
+    <ion-col size='12'>
+      <ion-item>
+         <ion-input step="0.1" autofocus type="number" slot="start"></ion-input>
+        <ion-text class="form-title " slot='end'> Kg </ion-text>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size='12'>
+      <ion-item>
+         <ion-input step="0.01" type="number" slot="start"></ion-input>
+        <ion-text class="form-title"slot='end'> Mts </ion-text>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size='12'>
+      <ion-item>
+        <ion-label class="form-title">Bt</ion-label>
+          <ion-select>
+            <ion-select-option *ngFor="let item of Rhs" value="{{item}}">
+                {{item}}
+            </ion-select-option>
+          </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let item of titleInp">
+    <ion-col size="12">
+      <ion-label class="title-input" color="light">
+        {{item}}
+      </ion-label>
+        <ion-item>
+          <ion-input>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+  </ion-row>
+  </ion-col> 
+        <ion-col size="0" size-md="3" size-lg="3" size-sm="0"></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of checkList " size="{{item.size}}">
+        <ion-item><ion-label class="title-check"> {{item.title}}</ion-label>
+          <ion-checkbox color="light"></ion-checkbox></ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverpostComponent } from '../../components/popoverpost/popoverpost.component';
 import { NavigationExtras, Router } from '@angular/router';
+import { BlogService } from '../../services/blog.service';
+import { HeroService } from '../../services/hero.service';
+import { Commentary } from '../../interfaces/commentary';
 
 @Component({
   selector: 'app-social',
@@ -9,45 +12,16 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./social.page.scss'],
 })
 export class SocialPage implements OnInit {
-  constructor(public router: Router, public popoverController: PopoverController) { }
+  constructor(
+    private hero: HeroService,
+    public service: BlogService,
+    public router: Router,
+    public popoverController: PopoverController) { }
 
-  cards = [{
-    profileimg: 'siluet1.jpg',
-    images: 'andreaBl.jpg',
-    nlikes: 9,
-    user: 'Andrea Beautylab',
-    postage: '2 hours ago',
-    postext: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur repellat libero blanditiis sunt. Fuga aperiam ad velit minus voluptas sapiente iste ipsam est ipsa autem quis ea, animi sunt sequi.',
-    like: false,
-    topcomnt: '<3',
-    topcomnt2: 'what a crazy nice experience'
-  },
-  {
-    profileimg: 'siluet2.jpeg',
-    images: 'lisaBl.jpg',
-    nlikes: 200,
-    user: 'Lisa Beautylab',
-    postage: '2 weeks ago',
-    postext: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur repellat libero blanditiis sunt. Fuga aperiam ad velit minus voluptas sapiente iste ipsam est ipsa autem quis ea, animi sunt sequi.',
-    like: false,
-    topcomnt: '<3',
-    topcomnt2: 'what a crazy nice experience'
-  },
-  {
-    profileimg: 'siluet3.png',
-    images: 'anaBl.jpg',
-    nlikes: 20,
-    user: 'Ana Beautylab',
-    postage: '3 sec ago',
-    postext: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur repellat libero blanditiis sunt. Fuga aperiam ad velit minus voluptas sapiente iste ipsam est ipsa autem quis ea, animi sunt sequi.',
-    like: false,
-    topcomnt: 'you look great',
-    topcomnt2: 'what a crazy nice experience'
-  },
-];
+  cards: any[];
   ngOnInit() {
+    this.getPosts();
   }
-  // more options
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: PopoverpostComponent,
@@ -56,7 +30,6 @@ export class SocialPage implements OnInit {
     });
     return await popover.present();
   }
- // like color
   likeFocus(i) {
     this.cards[i].like = !this.cards[i].like;
     if (this.cards[i].like) {
@@ -65,11 +38,10 @@ export class SocialPage implements OnInit {
       this.cards[i].nlikes = this.cards[i].nlikes - 1;
     }
   }
-  // reload page
   doRefresh(event) {
-    console.log('Begin async operation');
+    this.getPosts();
     setTimeout(() => {
-      console.log('Async operation has ended');
+      this.getPosts();
       event.target.complete();
     }, 2000);
   }
@@ -80,5 +52,22 @@ export class SocialPage implements OnInit {
       }
     };
     this.router.navigate(['/new-post'], navigationExtras);
+  }
+  getPosts() {
+    this.service.getData().subscribe((r: any) => {
+      this.cards = r.data;
+      this.cards.forEach((e) => {
+        e.comment = '';
+      });
+    });
+  }
+  comment(i) {
+    const data: Commentary = {
+      id_blog: this.cards[i].id,
+      comentario: this.cards[i].comment,
+    };
+    this.service.comment(data).subscribe((r: any) => {
+      this.cards[i].comments.push(r.comment);
+    });
   }
 }

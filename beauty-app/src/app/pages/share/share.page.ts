@@ -29,18 +29,44 @@ export class SharePage implements OnInit {
     })
  }
 
+ cleanImage(){
+   this.currentImage = null;
+ }
 
  shareimage(){
-  this.instagram.share(this.currentImage, 'Install BeautyLab').then(() =>{
-  })
- }   
+  this.instagram.share(this.currentImage, 'Install BeautyLab').then((res) =>{
+    console.log('Exito');
+    this.cleanImage();
+  }).catch((e) =>{
+    console.log('Errore')
+  });
+ } 
+ 
+shareWhatsapp(){
+  this.socialsharing.shareViaWhatsApp(this.text, this.currentImage, this.Url).then((res) =>{
+    console.log('Exito');
+    this.cleanImage();
+  }).catch((e) =>{
+    console.log('Errore')
+  });
+}
 
 shareFacebook(){
  this.socialsharing.shareViaFacebook(this.text, this.currentImage, this.Url).then((res) => {
   console.log('Exito');
+  this.cleanImage();
 }).catch((e) => {
   console.log('Error');
 });
+}
+
+shareTwitter(){
+  this.socialsharing.shareViaTwitter(this.text, this.currentImage, this.Url).then((res) => {
+    console.log('Exito');
+    this.cleanImage();
+  }).catch((e) => {
+    console.log('Error');
+  });
 }
 
   ngOnInit() {

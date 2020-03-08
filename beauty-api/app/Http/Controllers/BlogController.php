@@ -7,6 +7,7 @@ use App\Models\imagesXblog;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use JWTAuth;
+use Illuminate\Support\Facades\Storage;
 class BlogController extends Controller
 {
     protected $user;
@@ -17,7 +18,11 @@ class BlogController extends Controller
     }
     public function index()
     {
-        //
+        $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments','likes'])->get();
+        return response()->json([
+            'ok' => true,
+            'data' => $blogs
+        ]);
     }
 
     /**
@@ -44,19 +49,20 @@ class BlogController extends Controller
             $now = new \DateTime();
             $input['id_usuario'] = $this->user->id;
             $input['fecha'] = $now->format('Y-m-d');
+            $input['hora'] = Carbon::now()->format('h:m:s');
             $blog = Blog::create($input);
-            foreach ($input['photos'] as $value) {
+            foreach ($input['photos'] as $key => $value) {
     
                 $img = $this->getB64Image($value);
                 $img_extension = $this->getB64Extension($value);
     
-                $img_name = $this->user->id . 'user-image' . time() . '.' . $img_extension;
+                $img_name = $this->user->id . '-user-image-'. $key . time() . '.' . $img_extension;
     
                 Storage::disk('blog')->put($img_name, $img);
     
                 $images = new imagesXblog();
                 $images->id_blog = $blog->id;
-                $images->imagen = $value;
+                $images->imagen = $img_name;
                 $images->save();
             }
             return response()->json([
@@ -95,36 +101,14 @@ class BlogController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

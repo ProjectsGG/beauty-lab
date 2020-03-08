@@ -31,13 +31,23 @@ ion-content.background-bl {
   //--background:#000;
   //--background: linear-gradient(to bottom, rgba(232,148,232,1) 0%, rgba(19,19,19,1) 100%);
   --background: rgb(3,99,193);
-  --background: linear-gradient(180deg, rgba(3,99,193,1) 0%, rgba(127,94,209,1) 95%, rgba(186,121,255,1) 100%); 
+  --background: linear-gradient(180deg, 
+  rgb(240, 33, 226) 50%, 
+  rgb(166, 0, 255) 72%, 
+  rgb(48, 121, 247) 100%); 
+  // --background: linear-gradient(180deg, rgba(3,99,193,1) 0%, rgba(127,94,209,1) 95%, rgba(186,121,255,1) 100%); 
+  // --background: linear-gradient(180deg, rgb(89, 171, 252) -10%, rgb(225, 80, 255) 59%, rgba(89, 171, 252, 1) 100%);
 }
 
 ion-content{
   //--background: linear-gradient(180deg, rgb(174, 25, 255) 0%, rgb(43, 58, 221) 90%, rgb(74, 68, 197) 100%);
   --background: rgb(3,99,193);
-  --background: linear-gradient(180deg, rgba(3,99,193,1) 0%, rgba(127,94,209,1) 95%, rgba(186,121,255,1) 100%); 
+  --background: linear-gradient(180deg, 
+  rgb(240, 33, 226) 50%, 
+  rgb(166, 0, 255) 72%, 
+  rgb(48, 121, 247) 100%); 
+  // --background: linear-gradient(180deg, rgba(3,99,193,1) 0%, rgba(127,94,209,1) 95%, rgba(186,121,255,1) 100%); 
+  // --background: linear-gradient(180deg, rgb(89, 171, 252) -10%, rgb(225, 80, 255) 59%, rgba(89, 171, 252, 1) 100%);
 
 }
 
@@ -124,4 +134,10 @@ ion-menu{
     transform-origin: 0 0; /* see note above */
   }
   .ldio-0crlo2y4m0zh div { box-sizing: content-box; }
-  
+  ion-refresher{
+    --color: rgb(255, 0, 234);
+  }
+
+  div.refresher-pulling-icon > ion-icon{
+    color: rgb(255, 0, 234);
+  }

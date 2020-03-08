@@ -33,18 +33,18 @@ export class HomeappPage implements OnInit {
     '3dplan.png',
     'bootyplan.png',
     'supermodelplan.png',
-    'superstar3.png'
+    'superstar1.png',
   ];
   proc = [
-    '360lipo.jpg',
-    'abs.jpg',
-    'booty.jpg',
-    'breast.jpg',
-    'regularlipo.jpg',
-    'nose.jpg',
-    'teeths.jpg',
-    'cheecks.jpg',
-    'chin.jpg'
+    '360lipo.png',
+    'abs.png',
+    'eyebrown.png',
+    'breast.png',
+    'botox.png',
+    'nose.png',
+    'teeths.png',
+    'cheecks.png',
+    'chin.png',
   ];
   touristic = [{
     items: [1, 2, 3]

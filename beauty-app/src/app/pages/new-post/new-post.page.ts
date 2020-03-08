@@ -3,6 +3,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ToastService } from '../../services/toast.service';
 import { ActionSheetController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BlogService } from '../../services/blog.service';
+import { Blog } from '../../interfaces/blog';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.page.html',
@@ -11,7 +13,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NewPostPage implements OnInit {
   photos: any[] = [];
   option: any;
+  data: Blog = {
+    hora: '',
+    descripcion: '',
+  };
   constructor(
+    private service: BlogService,
     private route: ActivatedRoute,
     private router: Router,
     public actionSheetController: ActionSheetController,
@@ -36,7 +43,7 @@ export class NewPostPage implements OnInit {
       this.toast.error('You cannot upload more than two photos');
     } else {
       const options: CameraOptions = {
-        quality: 75,
+        quality: 25,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE
@@ -56,7 +63,7 @@ export class NewPostPage implements OnInit {
       const cameraOptions = {
         sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
         destinationType: this.camera.DestinationType.DATA_URL,
-        quality: 75,
+        quality: 25,
         targetWidth: 1000,
         targetHeight: 1000,
         encodingType: this.camera.EncodingType.JPEG,
@@ -73,7 +80,6 @@ export class NewPostPage implements OnInit {
   }
   deletePhoto(i): void {
     this.photos.splice(i, 1);
-    console.log(this.photos);
   }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
@@ -106,9 +112,18 @@ export class NewPostPage implements OnInit {
     await actionSheet.present();
   }
   publish() {
-    const date = new Date().toLocaleTimeString();
-    if (this.photos.length === 0) {
-      this.toast.light('Add photos to your post');
+    if (this.photos.length === 0 && this.data.descripcion === '') {
+      this.toast.light('Please upload images or comment something');
+    } else {
+      this.data.photos = this.photos;
+      this.service.sendData(this.data).subscribe((r: any) => {
+        if (r.ok) {
+          this.toast.success(r.message);
+          this.router.navigate(['/tabs/social']);
+        } else {
+          this.toast.error(r.error);
+        }
+      });
     }
   }
 }
