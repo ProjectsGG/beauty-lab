@@ -7,4 +7,6 @@ export class Plans {
     valor: number;
     // tslint:disable-next-line: variable-name
     id_tipo_habitacion: number;
+    // tslint:disable-next-line:variable-name
+    img_plan: string;
 }
