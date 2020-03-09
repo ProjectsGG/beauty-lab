@@ -16,6 +16,7 @@ export class HeroService {
   private url: any = 'https://beautylab.app/api';
 
   private domain: any = 'https://beautylab.app';
+  // private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
   private token: string = null;
   private user: User = {
     img_perfil: null
