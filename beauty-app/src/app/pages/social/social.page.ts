@@ -70,4 +70,7 @@ export class SocialPage implements OnInit {
       this.cards[i].comments.push(r.comment);
     });
   }
+  like(i) {
+    const post = this.cards[i].id;
+  }
 }
