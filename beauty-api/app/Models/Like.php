@@ -13,4 +13,8 @@ class Like extends Model
         'id_blog'
     ];
     public $timestamps = false;
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_usuario');
+    }
 }

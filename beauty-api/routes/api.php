@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::resource('/reservation', 'ReservationController');
     // Comments
     Route::post('/commentary', 'CommentaryController@comment');
+    Route::get('blog/like/{blog}', 'BlogController@like');
     // Examples
     Route::get('tasks', 'TaskController@index');
     Route::get('tasks/{id}', 'TaskController@show');
