@@ -11,11 +11,12 @@ import { Blog } from '../../interfaces/blog';
   styleUrls: ['./new-post.page.scss']
 })
 export class NewPostPage implements OnInit {
+  loading = false;
   photos: any[] = [];
   option: any;
   data: Blog = {
     hora: '',
-    descripcion: '',
+    descripcion: ''
   };
   constructor(
     private service: BlogService,
@@ -23,13 +24,14 @@ export class NewPostPage implements OnInit {
     private router: Router,
     public actionSheetController: ActionSheetController,
     private camera: Camera,
-    private toast: ToastService) {
-      this.route.queryParams.subscribe(params => {
-        if (this.router.getCurrentNavigation().extras.state) {
-          this.option = this.router.getCurrentNavigation().extras.state.option;
-        }
-      });
-    }
+    private toast: ToastService
+  ) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.option = this.router.getCurrentNavigation().extras.state.option;
+      }
+    });
+  }
 
   ngOnInit() {
     if (this.option === 'camera') {
@@ -115,11 +117,13 @@ export class NewPostPage implements OnInit {
     await actionSheet.present();
   }
   publish() {
+    this.loading = true;
     if (this.photos.length === 0 && this.data.descripcion === '') {
       this.toast.light('Please upload images or comment something');
     } else {
       this.data.photos = this.photos;
       this.service.sendData(this.data).subscribe((r: any) => {
+        this.loading = false;
         if (r.ok) {
           this.toast.success(r.message);
           this.router.navigate(['/tabs/social']);
