@@ -46,7 +46,10 @@ export class NewPostPage implements OnInit {
         quality: 25,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
-        mediaType: this.camera.MediaType.PICTURE
+        mediaType: this.camera.MediaType.PICTURE,
+        correctOrientation: true,
+        saveToPhotoAlbum: true,
+        cameraDirection: this.camera.Direction.FRONT
       };
       this.camera.getPicture(options).then(
         imageData => {

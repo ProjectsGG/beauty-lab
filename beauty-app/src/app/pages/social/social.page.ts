@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PopoverController, IonContent } from '@ionic/angular';
 import { PopoverpostComponent } from '../../components/popoverpost/popoverpost.component';
 import { NavigationExtras, Router } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
@@ -12,6 +12,8 @@ import { Commentary } from '../../interfaces/commentary';
   styleUrls: ['./social.page.scss'],
 })
 export class SocialPage implements OnInit {
+  @ViewChild(IonContent, {static: false}) content: IonContent;
+  toper = false;
   constructor(
     private hero: HeroService,
     public service: BlogService,
@@ -51,6 +53,7 @@ export class SocialPage implements OnInit {
     this.router.navigate(['/new-post'], navigationExtras);
   }
   getPosts() {
+    this.toper = false;
     this.service.getData().subscribe((r: any) => {
       this.cards = r.data;
       this.cards.forEach((e) => {
@@ -77,5 +80,14 @@ export class SocialPage implements OnInit {
   }
   like(i) {
     const post = this.cards[i].id;
+  }
+  logScrollStart() {
+    this.toper = true;
+  }
+  ScrollToTop() {
+    this.content.scrollToTop(1500);
+    setTimeout(() => {
+    this.toper = false;
+  }, 1500);
   }
 }
