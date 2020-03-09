@@ -43,20 +43,20 @@
                                 </ion-slides>
                                 <img *ngIf="post.images.length === 1"
                                     [src]="hero.getDomain()+'/file/blog/'+post.images[0].imagen">
-                                <!-- <ion-col size="2">
+                                <ion-col size="2">
                                     <img (click)="likeFocus(i)" class="likeicon" src="/assets/icon/like.svg"
-                                        *ngIf="!post.like">
+                                        *ngIf="!post.liked">
                                     <img (click)="likeFocus(i)" class="likeicon" src="/assets/icon/likeFocus.svg"
-                                        *ngIf="post.like">
+                                        *ngIf="post.liked">
                                     <br>
-                                    <h1 class="likes ion-text-center">{{post.likes}}</h1>
-                                </ion-col> -->
+                                    <h1 class="likes ion-text-center">{{post.likes_count}}</h1>
+                                </ion-col>
                                 <ion-col size="10">
                                     <h1 class="tinytext">
                                         {{post.descripcion}}</h1>
                                 </ion-col>
                                 <ion-col *ngIf="post.comments.length > 0" size="12" class="box-comm">
-                                    <p *ngFor="let comm of post.comments">- {{comm.comentario}}</p>
+                                    <p *ngFor="let comm of post.comments"> <b>{{comm.user.nombres}}</b> {{comm.comentario}}</p>
                                 </ion-col>
                                 <ion-col size="12">
                                     <div>

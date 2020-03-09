@@ -31,12 +31,9 @@ export class SocialPage implements OnInit {
     return await popover.present();
   }
   likeFocus(i) {
-    this.cards[i].like = !this.cards[i].like;
-    if (this.cards[i].like) {
-      this.cards[i].nlikes =  this.cards[i].nlikes + 1;
-    } else {
-      this.cards[i].nlikes = this.cards[i].nlikes - 1;
-    }
+    this.cards[i].liked = !this.cards[i].liked;
+    this.cards[i].liked ? this.cards[i].likes_count ++ : this.cards[i].likes_count --;
+    this.service.like(this.cards[i].id).subscribe();
   }
   doRefresh(event) {
     this.getPosts();
@@ -58,6 +55,14 @@ export class SocialPage implements OnInit {
       this.cards = r.data;
       this.cards.forEach((e) => {
         e.comment = '';
+        e.liked = false;
+        e.likes.forEach(like => {
+          if (like.id_usuario === this.hero.getUser().id) {
+            e.liked = true;
+          } else {
+            console.log(like);
+          }
+        });
       });
     });
   }
