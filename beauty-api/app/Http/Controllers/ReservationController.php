@@ -22,7 +22,7 @@ class ReservationController extends Controller
             ->join('usuarios', 'reservas.id_usuario', '=', 'usuarios.id')
             ->leftJoin('planes', 'reservas.id_plan', '=', 'planes.id_plan')
             ->leftJoin('procedimientos', 'reservas.id_procedimiento', '=', 'procedimientos.id_procedimiento')
-            ->select('reservas.*', 'usuarios.nombres','usuarios.apellidos', 'planes.nombre as plan',
+            ->select('reservas.*', 'usuarios.nombres','usuarios.apellidos', 'usuarios.img_perfil', 'planes.nombre as plan',
                 'procedimientos.nombre as procedimiento')
         ->get();
 

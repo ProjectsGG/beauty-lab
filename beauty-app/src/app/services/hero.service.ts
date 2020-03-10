@@ -12,10 +12,10 @@ export class HeroService {
 
   // private url: any = 'http://18.228.226.191/api';
   // private url: any =  'http://127.0.0.1:8000/api';
-  // private url: any = 'https://beautylab.app/api';
-  private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
-  // private domain: any = 'https://beautylab.app';
-  private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
+  private url: any = 'https://beautylab.app/api';
+  // private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
+  private domain: any = 'https://beautylab.app';
+  //  private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
   private token: string = null;
   private user: User = {
     img_perfil: null
