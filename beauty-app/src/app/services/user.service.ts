@@ -58,7 +58,7 @@ export class UserService {
       images
     };
     const url =  this.hero.getUrl() + '/user/upload/photos';
-    return this.http.put(url, data, httpOptions)
+    return this.http.post(url, data, httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError)

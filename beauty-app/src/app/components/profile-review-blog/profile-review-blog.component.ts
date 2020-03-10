@@ -48,7 +48,7 @@ export class ProfileReviewBlogComponent implements OnInit {
 
   ngOnInit() {}
   photoPic(num) {
-      if (this.img.images.length < 5) {
+      if (this.img.images.length < 4) {
         const options: CameraOptions = {
           quality: 25,
           destinationType: this.camera.DestinationType.DATA_URL,
@@ -57,11 +57,9 @@ export class ProfileReviewBlogComponent implements OnInit {
         };
         this.camera.getPicture(options).then(
           imageData => {
-            const image: Img = {
-              img: 'data:image/jpeg;base64,' + imageData
-            };
+            const image = 'data:image/jpeg;base64,' + imageData;
             this.img.images.push(image);
-            if (this.img.images.length === 3) {
+            if (this.img.images.length === 4) {
               this.upCamera = {
                 icon: 'cloud-upload',
                 text: 'Upload'
