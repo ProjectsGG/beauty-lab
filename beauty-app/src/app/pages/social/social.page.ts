@@ -14,6 +14,7 @@ import { Commentary } from '../../interfaces/commentary';
 export class SocialPage implements OnInit {
   @ViewChild(IonContent, {static: false}) content: IonContent;
   toper = false;
+  loading = true;
   constructor(
     private hero: HeroService,
     public service: BlogService,
@@ -62,12 +63,11 @@ export class SocialPage implements OnInit {
         e.likes.forEach(like => {
           if (like.id_usuario === this.hero.getUser().id) {
             e.liked = true;
-          } else {
-            console.log(like);
           }
         });
       });
-    });
+      this.loading = false;
+  });
   }
   comment(i) {
     const data: Commentary = {
