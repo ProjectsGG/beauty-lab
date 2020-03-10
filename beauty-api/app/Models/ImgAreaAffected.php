@@ -13,6 +13,5 @@ class ImgAreaAffected extends Model
         'imagen',
         'id_usuario'
     ];
-
-    
+    public $timestamps = false;    
 }
