@@ -64,6 +64,7 @@ class PlansController extends Controller
                 'ok' => true,
                 'data' => $response
             ]);
+
         } catch (\Throwable $th) {
             return response()->json([
                 'ok' => false,
@@ -115,7 +116,7 @@ class PlansController extends Controller
     }
 
 
-    public function returnPlan($filename)
+    public function getImage($filename)
     {
         $file = Storage::disk('plans')->get($filename);
         return new Response($file);
