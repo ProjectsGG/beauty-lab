@@ -48,7 +48,7 @@ export class ProfileReviewBlogComponent implements OnInit {
 
   ngOnInit() {}
   photoPic(num) {
-      if (this.img.images.length < 3) {
+      if (this.img.images.length < 5) {
         const options: CameraOptions = {
           quality: 25,
           destinationType: this.camera.DestinationType.DATA_URL,
@@ -73,8 +73,13 @@ export class ProfileReviewBlogComponent implements OnInit {
           }
         );
       } else {
-        this.service.uploadPhotos(this.img.images);
-        this.toast.error('Limite');
+        this.service.uploadPhotos(this.img.images).subscribe((r: any) => {
+          if (r.ok) {
+            this.toast.success(r.message);
+          } else {
+            this.toast.error(r.error);
+          }
+        });
       }
   }
 }

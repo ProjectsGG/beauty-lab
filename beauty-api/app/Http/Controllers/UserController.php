@@ -69,12 +69,20 @@ class UserController extends Controller
             }
         }
     }
+    public function imagesZone()
+    {
+        $images = ImgAreaAffected::where('id_usuario', $this->user->id)->get();
+        return response()->json([
+            'ok' => true,
+            'images' => $images
+        ]);
+    }
     public function uploadPhotos(Request $request)
     {
         $input = $request->all();
 
         $validation = Validator::make($input, [
-            'photos' => 'required'
+            'images' => 'required'
         ]);
 
         if ($validation->fails()) {
@@ -84,14 +92,13 @@ class UserController extends Controller
             ]);
         }
         try {
-            foreach ($input['photos'] as $s) {
-                $image = $s;
+            foreach ($input['images'] as $i => $s) {
 
-                $img = $this->getB64Image($image);
+                $img = $this->getB64Image($s);
     
-                $img_extension = $this->getB64Extension($image);
+                $img_extension = $this->getB64Extension($s);
     
-                $img_name = 'zone' . time() . '.' . $img_extension;
+                $img_name = 'zone-'. $i . time() . '.' . $img_extension;
     
                 Storage::disk('photosUser')->put($img_name, $img);
 

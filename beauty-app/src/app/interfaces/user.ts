@@ -19,4 +19,5 @@ export interface User {
     nombre_contacto?: string;
     telefono_contacto?: string;
     rh?: string;
+    admin?: number;
 }
