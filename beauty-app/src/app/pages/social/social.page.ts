@@ -75,6 +75,7 @@ export class SocialPage implements OnInit {
       comentario: this.cards[i].comment,
     };
     this.service.comment(data).subscribe((r: any) => {
+      this.cards[i].comment = '';
       this.cards[i].comments.push(r.comment);
     });
   }
