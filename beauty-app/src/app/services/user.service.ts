@@ -96,4 +96,17 @@ export class UserService {
         catchError(this.handleError)
       );
   }
+  getPhotos() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
+    return this.http.get(this.hero.getUrl() + '/img/zone', httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      );
+  }
 }

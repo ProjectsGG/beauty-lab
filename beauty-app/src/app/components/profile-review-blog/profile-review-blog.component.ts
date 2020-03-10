@@ -10,6 +10,8 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./profile-review-blog.component.scss'],
 })
 export class ProfileReviewBlogComponent implements OnInit {
+  loading = true;
+  picPhotos = true;
   posts: any[] = [
     {
       image: 'girl1.jpg',
@@ -46,8 +48,10 @@ export class ProfileReviewBlogComponent implements OnInit {
   };
   constructor(private camera: Camera, private toast: ToastService, public service: UserService) { }
 
-  ngOnInit() {}
-  photoPic(num) {
+  ngOnInit() {
+    this.getImagesZone();
+  }
+  photoPic() {
       if (this.img.images.length < 4) {
         const options: CameraOptions = {
           quality: 25,
@@ -79,5 +83,14 @@ export class ProfileReviewBlogComponent implements OnInit {
           }
         });
       }
+  }
+  getImagesZone() {
+    this.service.getPhotos().subscribe((r: any) => {
+      this.loading  = false;
+      if (r.images.length > 0) {
+        this.picPhotos = false;
+      }
+      console.log(r);
+    });
   }
 }

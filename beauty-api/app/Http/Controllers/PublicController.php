@@ -13,4 +13,9 @@ class PublicController extends Controller
         $file = Storage::disk('blog')->get($filename);
         return new Response($file);
     }
+    public function returnZoneAff($filename)
+    {
+        $file = Storage::disk('photosUser')->get($filename);
+        return new Response($file);
+    }
 }
