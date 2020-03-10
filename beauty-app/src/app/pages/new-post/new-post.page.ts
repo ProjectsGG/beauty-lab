@@ -11,11 +11,12 @@ import { Blog } from '../../interfaces/blog';
   styleUrls: ['./new-post.page.scss']
 })
 export class NewPostPage implements OnInit {
+  loading = false;
   photos: any[] = [];
   option: any;
   data: Blog = {
     hora: '',
-    descripcion: '',
+    descripcion: ''
   };
   constructor(
     private service: BlogService,
@@ -23,13 +24,14 @@ export class NewPostPage implements OnInit {
     private router: Router,
     public actionSheetController: ActionSheetController,
     private camera: Camera,
-    private toast: ToastService) {
-      this.route.queryParams.subscribe(params => {
-        if (this.router.getCurrentNavigation().extras.state) {
-          this.option = this.router.getCurrentNavigation().extras.state.option;
-        }
-      });
-    }
+    private toast: ToastService
+  ) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.option = this.router.getCurrentNavigation().extras.state.option;
+      }
+    });
+  }
 
   ngOnInit() {
     if (this.option === 'camera') {
@@ -39,14 +41,17 @@ export class NewPostPage implements OnInit {
     }
   }
   photoPic() {
-    if (this.photos.length > 2) {
+    if (this.photos.length > 4) {
       this.toast.error('You cannot upload more than two photos');
     } else {
       const options: CameraOptions = {
         quality: 25,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
-        mediaType: this.camera.MediaType.PICTURE
+        mediaType: this.camera.MediaType.PICTURE,
+        correctOrientation: true,
+        saveToPhotoAlbum: true,
+        cameraDirection: this.camera.Direction.FRONT
       };
       this.camera.getPicture(options).then(
         imageData => {
@@ -57,7 +62,7 @@ export class NewPostPage implements OnInit {
     }
   }
   openGallery(): void {
-    if (this.photos.length > 2) {
+    if (this.photos.length > 4) {
       this.toast.error('You cannot upload more than two photos');
     } else {
       const cameraOptions = {
@@ -112,11 +117,13 @@ export class NewPostPage implements OnInit {
     await actionSheet.present();
   }
   publish() {
+    this.loading = true;
     if (this.photos.length === 0 && this.data.descripcion === '') {
       this.toast.light('Please upload images or comment something');
     } else {
       this.data.photos = this.photos;
       this.service.sendData(this.data).subscribe((r: any) => {
+        this.loading = false;
         if (r.ok) {
           this.toast.success(r.message);
           this.router.navigate(['/tabs/social']);

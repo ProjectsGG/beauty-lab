@@ -21,7 +21,7 @@
         <ion-col size="12" size-lg="3" size-md="4" size-xl="3"></ion-col>
         <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
             <ion-card>
-                <img src="assets/img/pyp/{{data.img_plan}}" class="plans">
+                <img [src]="hero.getDomain()+'/file/plans/'+data.img_plan" class="plans">
                 <ion-card-header>
                   <ion-card-subtitle></ion-card-subtitle>
                   <ion-card-title class="ion-text-center" color="light">{{data.nombre}}</ion-card-title>

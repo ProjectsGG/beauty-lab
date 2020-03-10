@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Plans;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 
 class PlansController extends Controller
 {
@@ -63,6 +64,7 @@ class PlansController extends Controller
                 'ok' => true,
                 'data' => $response
             ]);
+
         } catch (\Throwable $th) {
             return response()->json([
                 'ok' => false,
@@ -111,6 +113,13 @@ class PlansController extends Controller
         // Dependiendo si se pide la extensión completa o no retornar el arreglo con
         // los datos de la extensión en la posición 0 - 1
         return ($full) ?  $img_extension[0] : $img_extension[1];
+    }
+
+
+    public function getImage($filename)
+    {
+        $file = Storage::disk('plans')->get($filename);
+        return new Response($file);
     }
 
 }

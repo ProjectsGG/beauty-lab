@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\imagesXblog;
+use App\Models\Like;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use JWTAuth;
@@ -18,29 +19,51 @@ class BlogController extends Controller
     }
     public function index()
     {
-        $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments','likes'])->get();
+        $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->get();
+        
         return response()->json([
             'ok' => true,
             'data' => $blogs
         ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function getForUser($id)
+    {
+        $blogs = Blog::where('id_usuario', $id)
+        ->orderBy('id','DESC')
+        ->with(['images','user','comments.user','likes.user'])
+        ->withCount('likes')
+        ->get();
+        
+        return response()->json([
+            'ok' => true,
+            'data' => $blogs
+        ]);
+    }
     public function create()
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function like($blog)
+    {
+        $blog = Blog::find($blog);
+        $like = Like::where('id_usuario', $this->user->id)->where('id_blog', $blog->id)->first();
+        if ($like == null) {
+            Like::create([
+                'id_usuario' => $this->user->id,
+                'id_blog' => $blog->id
+            ]);
+            return response()->json([
+                'ok' => true,
+                'message' => 'liked'
+            ]);
+        } else {
+            $like->delete();
+            return response()->json([
+                'ok' => true,
+                'message' => 'disliked'
+            ]); 
+        }
+    }
     public function store(Request $request)
     {
         try {

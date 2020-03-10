@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PopoverController, IonContent } from '@ionic/angular';
 import { PopoverpostComponent } from '../../components/popoverpost/popoverpost.component';
 import { NavigationExtras, Router } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
@@ -12,6 +12,8 @@ import { Commentary } from '../../interfaces/commentary';
   styleUrls: ['./social.page.scss'],
 })
 export class SocialPage implements OnInit {
+  @ViewChild(IonContent, {static: false}) content: IonContent;
+  toper = false;
   constructor(
     private hero: HeroService,
     public service: BlogService,
@@ -31,12 +33,9 @@ export class SocialPage implements OnInit {
     return await popover.present();
   }
   likeFocus(i) {
-    this.cards[i].like = !this.cards[i].like;
-    if (this.cards[i].like) {
-      this.cards[i].nlikes =  this.cards[i].nlikes + 1;
-    } else {
-      this.cards[i].nlikes = this.cards[i].nlikes - 1;
-    }
+    this.cards[i].liked = !this.cards[i].liked;
+    this.cards[i].liked ? this.cards[i].likes_count ++ : this.cards[i].likes_count --;
+    this.service.like(this.cards[i].id).subscribe();
   }
   doRefresh(event) {
     this.getPosts();
@@ -54,10 +53,19 @@ export class SocialPage implements OnInit {
     this.router.navigate(['/new-post'], navigationExtras);
   }
   getPosts() {
+    this.toper = false;
     this.service.getData().subscribe((r: any) => {
       this.cards = r.data;
       this.cards.forEach((e) => {
         e.comment = '';
+        e.liked = false;
+        e.likes.forEach(like => {
+          if (like.id_usuario === this.hero.getUser().id) {
+            e.liked = true;
+          } else {
+            console.log(like);
+          }
+        });
       });
     });
   }
@@ -67,7 +75,20 @@ export class SocialPage implements OnInit {
       comentario: this.cards[i].comment,
     };
     this.service.comment(data).subscribe((r: any) => {
+      this.cards[i].comment = '';
       this.cards[i].comments.push(r.comment);
     });
+  }
+  like(i) {
+    const post = this.cards[i].id;
+  }
+  logScrollStart() {
+    this.toper = true;
+  }
+  ScrollToTop() {
+    this.content.scrollToTop(1500);
+    setTimeout(() => {
+    this.toper = false;
+  }, 1500);
   }
 }

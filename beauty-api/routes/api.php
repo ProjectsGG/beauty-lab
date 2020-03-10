@@ -18,9 +18,11 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::put('user/update/{id}', 'UserController@update');
     Route::post('user/upload/photos', 'UserController@uploadPhotos');
     Route::post('setImgProfile', 'UserController@updatePhoto');
+    Route::get('img/zone', 'UserController@imagesZone');
 
     //  Blog
     Route::resource('blog', 'BlogController');
+    Route::get('blog/user/{id}', 'BlogController@getForUser');
     // Hiatory
 
     // Hiatory
@@ -32,8 +34,12 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::resource('/reservation', 'ReservationController');
     // Comments
     Route::post('/commentary', 'CommentaryController@comment');
+
     // Contact
     Route::post('/contact', 'ContactController@index');
+
+
+    Route::get('blog/like/{blog}', 'BlogController@like');
 
     // Examples
     Route::get('tasks', 'TaskController@index');

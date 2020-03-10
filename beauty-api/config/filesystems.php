@@ -71,7 +71,13 @@ return [
             'root' => storage_path('app/plans'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
-        ],        
+        ],
+        'procedures' => [
+            'driver' => 'local',
+            'root' => storage_path('app/procedures'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
         'profile' => [
             'driver' => 'local',
             'root' => storage_path('app/profile'),

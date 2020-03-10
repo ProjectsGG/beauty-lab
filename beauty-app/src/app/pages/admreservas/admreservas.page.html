@@ -16,7 +16,7 @@
 
   <ion-item *ngFor="let data of reservations" >
     <ion-avatar slot="start">
-      <img src="./../../../assets/img/PROFILEPICTURE.png">
+      <img src="{{hero.getDomain()}}/file/profile/{{data.img_perfil}}">
     </ion-avatar>
     <ion-label>
       <h2>{{data.nombres + " " + data.apellidos}}</h2>

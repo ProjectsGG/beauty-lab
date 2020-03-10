@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ToastService } from '../../services/toast.service';
 import { Img } from '../../interfaces/img';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile-review-blog',
@@ -43,11 +44,11 @@ export class ProfileReviewBlogComponent implements OnInit {
     icon: 'camera',
     text: 'Camera'
   };
-  constructor(private camera: Camera, private toast: ToastService) { }
+  constructor(private camera: Camera, private toast: ToastService, public service: UserService) { }
 
   ngOnInit() {}
-  photoPic() {
-      if (this.img.images.length < 3) {
+  photoPic(num) {
+      if (this.img.images.length < 5) {
         const options: CameraOptions = {
           quality: 25,
           destinationType: this.camera.DestinationType.DATA_URL,
@@ -72,7 +73,13 @@ export class ProfileReviewBlogComponent implements OnInit {
           }
         );
       } else {
-        this.toast.error('Limite');
+        this.service.uploadPhotos(this.img.images).subscribe((r: any) => {
+          if (r.ok) {
+            this.toast.success(r.message);
+          } else {
+            this.toast.error(r.error);
+          }
+        });
       }
   }
 }

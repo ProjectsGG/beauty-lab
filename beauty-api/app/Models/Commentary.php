@@ -15,4 +15,8 @@ class Commentary extends Model
         'estado'
     ];
     public $timestamps = false;
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_usuario');
+    }
 }

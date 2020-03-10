@@ -11,10 +11,10 @@ import { Router } from '@angular/router';
 export class PlansPage implements OnInit {
 
   public plans: any[];
-
+ 
   constructor(
     private http: HttpClient,
-    private hero: HeroService,
+    public hero: HeroService,
     private router: Router
   ) {}
 

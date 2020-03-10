@@ -2,7 +2,7 @@ import { UtilsService } from './../../utils/utils.service';
 import { HeroService } from './../../services/hero.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RoomsType } from './../../model/RoomsType';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Rooms } from 'src/app/model/Rooms';
 
 @Component({
@@ -15,6 +15,10 @@ export class AdmroomsPage implements OnInit {
   rooms: Rooms = new Rooms();
   roomsType: RoomsType = new RoomsType();
   roomsTypeList: RoomsType[];
+  data: any = null;
+  photoTaken: string;
+
+  @ViewChild('upload', { static: false }) fileInput: ElementRef;
 
 
   constructor(
@@ -49,10 +53,16 @@ export class AdmroomsPage implements OnInit {
 
   saveRoom() {
     console.log(this.rooms);
+    if (!this.photoTaken || this.photoTaken == null || this.photoTaken === '' ){
+      this.utils.showAlert('No se ha cargado una imagen');
+      return;
+    }
+    this.rooms.imagen = this.photoTaken;
     this.addPlans(this.rooms)
     .subscribe((model: any) => {
       console.log(model.data);
       this.rooms  = new Rooms();
+      this.photoTaken = '';
       this.utils.showToast('Regitro almacenado correctamente');
 
     });
@@ -61,6 +71,24 @@ export class AdmroomsPage implements OnInit {
   addPlans( rooms: Rooms ){
     const url = `${this.hero.getUrl()}/room`;
     return this.http.post<Rooms>(url, rooms, this.httpOptions);
+  }
+
+  change($event) {
+    if($event == 'a') {
+      this.data = null;
+    }
+  }
+
+  fileChange() {
+    const reader = new FileReader();
+    reader.readAsDataURL(this.fileInput.nativeElement.files[0]);
+    reader.onload = () => {
+      this.photoTaken = reader.result.toString();
+    };
+  } 
+
+  takeFile() {
+    this.fileInput.nativeElement.click();
   }
 
 }

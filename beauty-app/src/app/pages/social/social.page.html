@@ -1,6 +1,8 @@
 <app-header></app-header>
 
-<ion-content>
+<ion-content 
+[scrollEvents]="true"
+(ionScrollStart)="logScrollStart()">
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingIcon="arrow-up" refreshingSpinner="circles">
         </ion-refresher-content>
@@ -43,28 +45,31 @@
                                 </ion-slides>
                                 <img *ngIf="post.images.length === 1"
                                     [src]="hero.getDomain()+'/file/blog/'+post.images[0].imagen">
-                                <!-- <ion-col size="2">
+                                <ion-col size="2">
                                     <img (click)="likeFocus(i)" class="likeicon" src="/assets/icon/like.svg"
-                                        *ngIf="!post.like">
+                                        *ngIf="!post.liked">
                                     <img (click)="likeFocus(i)" class="likeicon" src="/assets/icon/likeFocus.svg"
-                                        *ngIf="post.like">
+                                        *ngIf="post.liked">
                                     <br>
-                                    <h1 class="likes ion-text-center">{{post.likes}}</h1>
-                                </ion-col> -->
+                                    <h1 class="likes ion-text-center">{{post.likes_count}}</h1>
+                                </ion-col>
                                 <ion-col size="10">
                                     <h1 class="tinytext">
                                         {{post.descripcion}}</h1>
                                 </ion-col>
                                 <ion-col *ngIf="post.comments.length > 0" size="12" class="box-comm">
-                                    <p *ngFor="let comm of post.comments">- {{comm.comentario}}</p>
+                                    <p *ngFor="let comm of post.comments"> <b>{{comm.user.nombres}}</b>
+                                        {{comm.comentario}}</p>
                                 </ion-col>
                                 <ion-col size="12">
                                     <div>
                                         <ion-item class="line-up">
-                                            <ion-input placeholder="Add Comment" [(ngModel)]="this.cards[i].comment"></ion-input>
+                                            <ion-input placeholder="Add Comment" [(ngModel)]="this.cards[i].comment">
+                                            </ion-input>
 
                                             <ion-button fill="clear" expand="full">
-                                                <ion-text color="primary-bl" slot="end" (click)="comment(i)">Comment</ion-text>
+                                                <ion-text color="primary-bl" slot="end" (click)="comment(i)">Comment
+                                                </ion-text>
                                             </ion-button>
                                         </ion-item>
                                     </div>
@@ -76,7 +81,11 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-
+    <ion-fab *ngIf="toper" horizontal="start" vertical="bottom" slot="fixed">
+        <ion-fab-button size="small" (click)="ScrollToTop()" color="primary">
+            <ion-icon name="arrow-up"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
     <ion-fab horizontal="end" vertical="bottom" slot="fixed">
         <ion-fab-button color="primary-bl">
             <ion-icon name="add"></ion-icon>

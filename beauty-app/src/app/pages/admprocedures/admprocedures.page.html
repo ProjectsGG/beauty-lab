@@ -22,6 +22,7 @@
       <ion-col size="12" size-md="3" size-xl="3"></ion-col>
       <ion-col size="12" size-md="6" size-xl="6">
         <form (ngSubmit)="saveProcedures()">
+          <input hidden #upload id="upload" type="file" (change)="fileChange()"/>
           <ion-list lines="full" class="ion-no-margin ion-no-padding">
             <ion-item>
               <ion-input placeholder="Procedure Name" type="text" name="nombre" 
@@ -38,9 +39,13 @@
                 name="valor" class="input-contact" required [(ngModel)]="procedures.precio">
               </ion-input>
             </ion-item>
-            <ion-input color="primary" type='file' name="imagen" 
-              required [(ngModel)]="procedures.imagen">
-            </ion-input>
+						<ion-item>
+							<ion-label position="stacked">Image:</ion-label>
+              <ion-button color="dark" (click)="takeFile()">
+                <ion-icon name="folder"></ion-icon>
+              </ion-button>
+              <img *ngIf="photoTaken" [src]="photoTaken" style="max-width:100px;height:100px;margin:auto;cursor:pointer;">
+						</ion-item>
             <ion-row class="btn-style">
               <ion-col size="6">
               <ion-button color="dark" class="btn-save" expand="full" size="large" type="submit">Save</ion-button>
