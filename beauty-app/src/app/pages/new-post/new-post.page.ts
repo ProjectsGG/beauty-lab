@@ -41,7 +41,7 @@ export class NewPostPage implements OnInit {
     }
   }
   photoPic() {
-    if (this.photos.length > 2) {
+    if (this.photos.length > 4) {
       this.toast.error('You cannot upload more than two photos');
     } else {
       const options: CameraOptions = {
@@ -62,7 +62,7 @@ export class NewPostPage implements OnInit {
     }
   }
   openGallery(): void {
-    if (this.photos.length > 2) {
+    if (this.photos.length > 4) {
       this.toast.error('You cannot upload more than two photos');
     } else {
       const cameraOptions = {

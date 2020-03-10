@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ToastService } from '../../services/toast.service';
 import { Img } from '../../interfaces/img';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile-review-blog',
@@ -43,10 +44,10 @@ export class ProfileReviewBlogComponent implements OnInit {
     icon: 'camera',
     text: 'Camera'
   };
-  constructor(private camera: Camera, private toast: ToastService) { }
+  constructor(private camera: Camera, private toast: ToastService, public service: UserService) { }
 
   ngOnInit() {}
-  photoPic() {
+  photoPic(num) {
       if (this.img.images.length < 3) {
         const options: CameraOptions = {
           quality: 25,
@@ -72,6 +73,7 @@ export class ProfileReviewBlogComponent implements OnInit {
           }
         );
       } else {
+        this.service.uploadPhotos(this.img.images);
         this.toast.error('Limite');
       }
   }
