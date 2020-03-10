@@ -26,12 +26,19 @@ class BlogController extends Controller
             'data' => $blogs
         ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function getForUser($id)
+    {
+        $blogs = Blog::where('id_usuario', $id)
+        ->orderBy('id','DESC')
+        ->with(['images','user','comments.user','likes.user'])
+        ->withCount('likes')
+        ->get();
+        
+        return response()->json([
+            'ok' => true,
+            'data' => $blogs
+        ]);
+    }
     public function create()
     {
         //
