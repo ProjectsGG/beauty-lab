@@ -19,7 +19,15 @@
     </ion-grid>
   </div>
   <div *ngIf="!picPhotos">
-
+    <ion-card-content class="ion-text-center">
+      <ion-grid class="grid-photos">
+        <ion-row>
+          <ion-col class="padding-img" *ngFor="let item of img.images" size="6" size-md="4" size-lg="4">
+            <img [src]="hero.getDomain() + '/file/zone/' + item.imagen" alt="">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
   </div>
 </ion-card>
 
