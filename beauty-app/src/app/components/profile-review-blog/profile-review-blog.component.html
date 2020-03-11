@@ -1,15 +1,26 @@
-<ion-card color="light">
-  <ion-card-content class="ion-text-center">
-    <ion-icon [name]="upCamera.icon" (click)="photoPic()" class="icon-camera color"></ion-icon>
-    <p class="color" (click)="photoPic()">{{upCamera.text}}</p>
-  </ion-card-content>
-  <ion-grid class="grid-photos">
-    <ion-row>
-      <ion-col class="padding-img" *ngFor="let item of img.images" size="6" size-md="4" size-lg="4">
-        <img src="{{item.img}}" alt="">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<div *ngIf="loading" class="mar-top loading center">
+  <div class="ldio-0crlo2y4m0zh">
+      <div></div>
+      <div></div>
+  </div>
+</div>
+<ion-card *ngIf="!loading" color="light">
+  <div *ngIf="picPhotos">
+    <ion-card-content class="ion-text-center">
+      <ion-icon [name]="upCamera.icon" (click)="photoPic()" class="icon-camera color"></ion-icon>
+      <p class="color" (click)="photoPic()">{{upCamera.text}}</p>
+    </ion-card-content>
+    <ion-grid class="grid-photos">
+      <ion-row>
+        <ion-col class="padding-img" *ngFor="let item of img.images" size="6" size-md="4" size-lg="4">
+          <img src="{{item}}" alt="">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="!picPhotos">
+
+  </div>
 </ion-card>
 
 

@@ -1,4 +1,4 @@
 export interface Img {
     img?: any;
-    images?: Img[];
+    images?: any[];
 }

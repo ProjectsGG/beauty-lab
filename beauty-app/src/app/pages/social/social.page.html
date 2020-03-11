@@ -1,8 +1,6 @@
 <app-header></app-header>
 
-<ion-content *ngIf="!loading" 
-[scrollEvents]="true"
-(ionScrollStart)="logScrollStart()">
+<ion-content *ngIf="!loading" [scrollEvents]="true" (ionScrollStart)="logScrollStart()">
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingIcon="arrow-up" refreshingSpinner="circles">
         </ion-refresher-content>
@@ -101,11 +99,11 @@
     </ion-fab>
 </ion-content>
 <ion-content *ngIf="loading">
-    <div  class="mar-top loading center">
+    <div class="mar-top loading center">
         <div class="ldio-0crlo2y4m0zh">
-          <div></div>
-          <div></div>
+            <div></div>
+            <div></div>
         </div>
-      </div>
-      <p class="loader ion-text-center">Loading..</p>
+    </div>
+    <p class="loader ion-text-center">Loading..</p>
 </ion-content>

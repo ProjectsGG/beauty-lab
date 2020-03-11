@@ -10,6 +10,8 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./profile-review-blog.component.scss'],
 })
 export class ProfileReviewBlogComponent implements OnInit {
+  loading = true;
+  picPhotos = true;
   posts: any[] = [
     {
       image: 'girl1.jpg',
@@ -46,9 +48,11 @@ export class ProfileReviewBlogComponent implements OnInit {
   };
   constructor(private camera: Camera, private toast: ToastService, public service: UserService) { }
 
-  ngOnInit() {}
-  photoPic(num) {
-      if (this.img.images.length < 5) {
+  ngOnInit() {
+    this.getImagesZone();
+  }
+  photoPic() {
+      if (this.img.images.length < 4) {
         const options: CameraOptions = {
           quality: 25,
           destinationType: this.camera.DestinationType.DATA_URL,
@@ -57,11 +61,9 @@ export class ProfileReviewBlogComponent implements OnInit {
         };
         this.camera.getPicture(options).then(
           imageData => {
-            const image: Img = {
-              img: 'data:image/jpeg;base64,' + imageData
-            };
+            const image = 'data:image/jpeg;base64,' + imageData;
             this.img.images.push(image);
-            if (this.img.images.length === 3) {
+            if (this.img.images.length === 4) {
               this.upCamera = {
                 icon: 'cloud-upload',
                 text: 'Upload'
@@ -81,5 +83,14 @@ export class ProfileReviewBlogComponent implements OnInit {
           }
         });
       }
+  }
+  getImagesZone() {
+    this.service.getPhotos().subscribe((r: any) => {
+      this.loading  = false;
+      if (r.images.length > 0) {
+        this.picPhotos = false;
+      }
+      console.log(r);
+    });
   }
 }

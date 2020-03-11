@@ -106,12 +106,11 @@ class UserController extends Controller
                     'imagen' => $img_name,
                     'id_usuario' => $this->user->id
                 ]);
-
-                return response()->json([
-                    'ok' => true,
-                    'message' => 'photos uploaded successfully!'
-                ]);
             }
+            return response()->json([
+                'ok' => true,
+                'message' => 'photos uploaded successfully!'
+            ]);
         } catch (\Exception $ex) {
             return response()->json([
                 "ok" => false,
