@@ -69,6 +69,20 @@ export class BlogService {
       catchError(this.handleError)
     );
   }
+  blogUser(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
+    const url = this.hero.getUrl() + '/blog/user/' + id;
+    return this.http.get(url, httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
   like(id) {
     const httpOptions = {
       headers: new HttpHeaders({
