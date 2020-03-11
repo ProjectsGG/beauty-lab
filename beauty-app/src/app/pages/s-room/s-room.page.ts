@@ -63,7 +63,7 @@ export class SRoomPage implements OnInit {
     this.router.navigate(['deposit']);
   }
 }
-Injectable()
+Injectable();
 export class IonicGestureConfig extends HammerGestureConfig {
     buildHammer(element: HTMLElement) {
       const mc = new (window as any).Hammer(element);

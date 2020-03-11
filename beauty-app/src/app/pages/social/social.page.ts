@@ -15,6 +15,14 @@ export class SocialPage implements OnInit {
   @ViewChild(IonContent, {static: false}) content: IonContent;
   toper = false;
   loading = true;
+  slideOpts = {
+    zoom: true,
+    initialSlide: 0,
+    direction: 'horizontal',
+    speed: 600,
+    effect: 'slide',
+    loop: true
+  };
   constructor(
     private hero: HeroService,
     public service: BlogService,

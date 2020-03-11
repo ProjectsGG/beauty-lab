@@ -1,0 +1,49 @@
+body{
+    -webkit-user-select: text;
+    user-select: text;
+}
+.center{
+    display: flex;
+    margin: auto auto;
+}
+.mar-top{
+    margin-top: 1.5rem;
+}
+.profile-img {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    margin: 0 auto; 
+}
+
+.content-img {
+    padding-top: 0.5rem;
+    height: 100%;
+}
+
+.logo-img {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding-top: 0.5rem;
+}
+
+.font-title {
+    font-family: 'suissnordregular';
+    margin-top: 12px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ion-label {
+    color: white;
+}
+h4{
+    margin-top: 0rem !important;
+}

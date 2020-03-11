@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\imagesXblog;
 use App\Models\Like;
 use Carbon\Carbon;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Illuminate\Support\Facades\Storage;
@@ -33,9 +34,10 @@ class BlogController extends Controller
         ->with(['images','user','comments.user','likes.user'])
         ->withCount('likes')
         ->get();
-        
+        $user = User::find($id);
         return response()->json([
             'ok' => true,
+            'user' => $user,
             'data' => $blogs
         ]);
     }
