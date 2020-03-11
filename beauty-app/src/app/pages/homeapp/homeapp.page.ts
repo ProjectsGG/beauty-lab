@@ -36,15 +36,15 @@ export class HomeappPage implements OnInit {
     'superstar1.png',
   ];
   proc = [
-    '360lipo.png',
-    'abs.png',
-    'eyebrown.png',
-    'breast.png',
-    'botox.png',
-    'nose.png',
-    'teeths.png',
-    'cheecks.png',
-    'chin.png',
+    {'img':'360lipo.png','txt': '360Lipo'},
+    {'img':'abs.png', 'txt': 'Abs'},
+    {'img':'eyebrown.png', 'txt': 'Eyebrown'},
+    {'img':'breast.png', 'txt': 'Breast'},
+    {'img':'botox.png','txt': 'Botox'},
+    {'img':'nose.png','txt': 'Nose'},
+    {'img':'teeths.png','txt': 'Theets'},
+    {'img':'cheecks.png','txt': 'Cheecks'},
+    {'img':'chin.png','txt': 'Chin'},
   ];
   touristic = [{
     items: [1, 2, 3]
