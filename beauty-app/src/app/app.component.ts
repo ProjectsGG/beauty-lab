@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HeroService } from './services/hero.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -16,7 +15,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private hero: HeroService
+    private hero: HeroService,
   ) {
     this.initializeApp();
   }

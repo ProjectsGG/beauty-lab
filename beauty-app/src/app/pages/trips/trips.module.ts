@@ -8,6 +8,9 @@ import { TripsPageRoutingModule } from './trips-routing.module';
 
 import { TripsPage } from './trips.page';
 import { ComponentsModule } from '../../components/components.module';
+
+ 
+
 @NgModule({
   imports: [
     CommonModule,
