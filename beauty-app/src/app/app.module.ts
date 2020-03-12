@@ -24,6 +24,8 @@ import { SMS } from '@ionic-native/sms/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Instagram } from '@ionic-native/instagram/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 
 @NgModule({
   declarations: [AppComponent, ViewVideoPage],
@@ -52,7 +54,8 @@ import { Instagram } from '@ionic-native/instagram/ngx';
     SMS,
     ScreenOrientation,
     SocialSharing,
-    Instagram
+    Instagram,
+    InAppBrowser
   ],
   bootstrap: [AppComponent]
 })

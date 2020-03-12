@@ -144,7 +144,11 @@ const routes: Routes = [
   {
     path: 'profile/:id',
     loadChildren: () => import('./pages/v-profile/v-profile.module').then( m => m.VProfilePageModule)
+  },  {
+    path: 'trips',
+    loadChildren: () => import('./pages/trips/trips.module').then( m => m.TripsPageModule)
   }
+
 
 
 
