@@ -139,6 +139,10 @@ const routes: Routes = [
   },  {
     path: 'medicalinfo',
     loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule)
+  },
+  {
+    path: 'medicpatient',
+    loadChildren: () => import('./pages/medicpatient/medicpatient.module').then( m => m.MedicpatientPageModule)
   }
 
 

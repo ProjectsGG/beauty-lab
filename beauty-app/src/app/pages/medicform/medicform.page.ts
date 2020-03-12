@@ -11,11 +11,11 @@ export class MedicformPage implements OnInit {
   // blood type
   Rhs = ['O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+'];
 
-  titleInp = ['Are you taking medication?',
-              'Are you taking allucinogen',
-              'Are you allergic',
-              'Previous surgery general',
-              'Previous plastic surgery '];
+  titleInp = ['Are you taking medication?.',
+              'Are you taking allucinogen?.',
+              'Are you allergic?.',
+              'Previous surgery general?.',
+              'Previous plastic surgery?.'];
 
 checkList = [
             {title: 'Heart Desease',
@@ -33,7 +33,7 @@ checkList = [
              size: '6'
             },
 
-            {title: 'Previous plastic surgery',
+            {title: 'VIH Sida',
              size: '12'
             },
           ];
