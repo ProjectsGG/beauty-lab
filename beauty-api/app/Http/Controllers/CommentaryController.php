@@ -19,7 +19,7 @@ class CommentaryController extends Controller
         $input = $request->all();
         $input['id_usuario'] = $this->user->id;
         $comment = Commentary::create($input);
-        $commentary = Commentary::where('id_usuario', $this->user->id)->where('id_blog', $comment->id_blog)->with('user')->first();
+        $commentary = Commentary::where('id', $comment->id)->with('user')->first();
         return response()->json([
             'ok' => true,
             'comment' => $commentary

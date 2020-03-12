@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('user/upload/photos', 'UserController@uploadPhotos');
     Route::post('setImgProfile', 'UserController@updatePhoto');
     Route::get('img/zone', 'UserController@imagesZone');
-
+    Route::get('user', 'UserController@getUser');
     //  Blog
     Route::resource('blog', 'BlogController');
     Route::get('blog/user/{id}', 'BlogController@getForUser');
@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     // Comments
     Route::post('/commentary', 'CommentaryController@comment');
     Route::get('blog/like/{blog}', 'BlogController@like');
+    Route::get('blog/likes/{id}', 'BlogController@likes');
     // Examples
     Route::get('tasks', 'TaskController@index');
     Route::get('tasks/{id}', 'TaskController@show');

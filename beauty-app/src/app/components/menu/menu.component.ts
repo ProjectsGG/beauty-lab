@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.componentes = this.dataService.getMenuOpts();
-    this.genNameUser();
+    // this.genNameUser();
   }
   logout() {
       this.auth.logout();

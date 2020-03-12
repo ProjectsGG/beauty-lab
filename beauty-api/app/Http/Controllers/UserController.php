@@ -191,4 +191,10 @@ class UserController extends Controller
             }
         }
     }
+    public function getUser() {
+        return response()->json([
+            'ok' => true,
+            'data' => $this->user
+        ]);
+    }
 }

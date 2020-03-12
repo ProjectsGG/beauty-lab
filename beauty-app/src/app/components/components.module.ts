@@ -9,7 +9,8 @@ import { ProfilePhotosComponent } from './profile-photos/profile-photos.componen
 import { ProfileReviewBlogComponent } from './profile-review-blog/profile-review-blog.component';
 import { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
 import { PopoverpostComponent } from './popoverpost/popoverpost.component';
-
+import { PostComponent } from './post/post.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { PopoverpostComponent } from './popoverpost/popoverpost.component';
     ProfilePhotosComponent,
     ProfileReviewBlogComponent,
     PurchaseSuccessComponent,
-    PopoverpostComponent
+    PopoverpostComponent,
+    PostComponent
   ],
   exports: [
     HeaderComponent,
@@ -30,12 +32,14 @@ import { PopoverpostComponent } from './popoverpost/popoverpost.component';
     ProfilePhotosComponent,
     ProfileReviewBlogComponent,
     PurchaseSuccessComponent,
-    PopoverpostComponent
+    PopoverpostComponent,
+    PostComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class ComponentsModule { }
