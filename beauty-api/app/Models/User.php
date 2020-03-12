@@ -35,6 +35,7 @@ class User extends Authenticatable implements JWTSubject
         'fecha_cumpleanos',
         'ciudad',
         'img_perfil',
+        'bl_points',
         'nombre_contacto',
         'telefono_contacto',
         'rh',

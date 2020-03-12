@@ -1,7 +1,7 @@
 export interface User {
     id?: number;
     nombres?: string;
-    apellidos?: null;
+    apellidos?: string;
     movil?: string;
     email?: string;
     password?: string;
@@ -16,6 +16,7 @@ export interface User {
     fecha_cumpleanos?: string;
     ciudad?: string;
     img_perfil?: string;
+    bl_points?: number;
     nombre_contacto?: string;
     telefono_contacto?: string;
     rh?: string;
