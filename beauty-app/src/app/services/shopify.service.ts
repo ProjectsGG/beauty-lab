@@ -19,7 +19,7 @@ export class ShopifyService {
   getProdcutsShop(){
     const httpOptions = {
       headers: new HttpHeaders({
-        'X-Shopify-Storefront-Access-Token': '981fa8d8ae8f586057eac1318fe9a2f1'
+        'X-Shopify-Storefront-Access-Token': 'c4e4a2414eed48ff01f4355382e19bd3'
       })
     };
     return this.http.get<RespuestaProducts>(`https://844672ed6d0f31d8ad2fb844a0636e80:c4e4a2414eed48ff01f4355382e19bd3@beauty-lab-merch.myshopify.com/admin/api/2020-01/collections/173830930491/products.json`, httpOptions);
