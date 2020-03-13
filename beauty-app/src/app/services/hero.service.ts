@@ -116,7 +116,7 @@ export class HeroService {
         Authorization: 'bearer ' + this.token
       })
     };
-    const url = this.getUrl() + 'user';
+    const url = this.getUrl() + '/user';
     return this.http.get(url, httpOptions).pipe(
       retry(2),
       catchError(this.handleError)

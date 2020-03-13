@@ -20,10 +20,15 @@
   </div>
   <div *ngIf="!picPhotos">
     <ion-card-content class="ion-text-center">
+      <h3 class="text-desc">These images are only visible by the doctor</h3>
       <ion-grid class="grid-photos">
         <ion-row>
-          <ion-col class="padding-img" *ngFor="let item of img.images" size="6" size-md="4" size-lg="4">
-            <img [src]="hero.getDomain() + '/file/zone/' + item.imagen" alt="">
+          <ion-col class="padding-img" size="12">
+            <ion-slides pager="true" [options]="slideOpts">
+              <ion-slide *ngFor="let item of img.images">
+                <img [src]="hero.getDomain() + '/file/zone/' + item.imagen" alt="">
+              </ion-slide>
+            </ion-slides>
           </ion-col>
         </ion-row>
       </ion-grid>
