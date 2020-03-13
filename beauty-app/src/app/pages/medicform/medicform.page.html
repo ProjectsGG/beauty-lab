@@ -8,65 +8,109 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row>
-          <ion-col size="0" size-md="3" size-lg="3" size-sm="0"></ion-col>
-      <ion-col size="12" size-md='6' size-lg="6" size-sm="12">
-        <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="">
-      <ion-col size="12">
-        <ion-text color="light">
-          Medical form.
-        </ion-text>
-      </ion-col>
+    <ion-grid>
       <ion-row>
-    <ion-col size='12'>
-      <ion-item>
-         <ion-input step="0.1" autofocus type="number" slot="start"></ion-input>
-        <ion-text class="form-title " slot='end'> Kg </ion-text>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size='12'>
-      <ion-item>
-         <ion-input step="0.01" type="number" slot="start"></ion-input>
-        <ion-text class="form-title"slot='end'> Mts </ion-text>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size='12'>
-      <ion-item>
-        <ion-label class="form-title">Bt</ion-label>
-          <ion-select>
-            <ion-select-option *ngFor="let item of Rhs" value="{{item}}">
-                {{item}}
-            </ion-select-option>
-          </ion-select>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-  <ion-row *ngFor="let item of titleInp">
-    <ion-col size="12">
-      <ion-label class="title-input" color="light">
-        {{item}}
-      </ion-label>
-        <ion-item>
-          <ion-input>
-          </ion-input>
-        </ion-item>
-      </ion-col>
-  </ion-row>
-  </ion-col> 
-        <ion-col size="0" size-md="3" size-lg="3" size-sm="0"></ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let item of checkList " size="{{item.size}}">
-        <ion-item><ion-label class="title-check"> {{item.title}}</ion-label>
-          <ion-checkbox color="light"></ion-checkbox></ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+          <ion-col size='1' size-sm='1' size-md='4' size-lg='4'></ion-col>
+          <ion-col size='12' size-sm='12' size-md='4' size-lg='4'>
+            <ion-item>
+              <ion-col size='12'>
+                  <ion-input [(ngModel)]="data.peso" class="input-complete" placeholder="Weight" maxlength="4"></ion-input>
+              </ion-col>
+            </ion-item>
+            <ion-item>
+              <ion-col size='12'>
+                  <ion-input [(ngModel)]="data.estatura" class="input-complete" placeholder="Height"  maxlength="4"></ion-input>
+              </ion-col>
+            </ion-item>
+            <ion-item>
+              <ion-col size='12'>
+                  <ion-select [(ngModel)]="data.rh" class="select-complete" placeholder="RH">
+                      <ion-select-option value="O-" >'O-'</ion-select-option>
+                      <ion-select-option value="O+" >'O+'</ion-select-option>
+                      <ion-select-option value="A-" >'A-'</ion-select-option>
+                      <ion-select-option value="A+" >'A+'</ion-select-option>
+                      <ion-select-option value="B-" >'B-'</ion-select-option>
+                      <ion-select-option value="B+" >'B+'</ion-select-option>
+                      <ion-select-option value="AB-" >'AB-'</ion-select-option>
+                      <ion-select-option value="AB+" >'AB+'</ion-select-option>
+                  </ion-select>
+              </ion-col>
+            </ion-item>
+            <ion-item>
+              <ion-col size='12'>
+                  <ion-input [(ngModel)]="data.medicamentos" class="input-complete" 
+                    placeholder="Mention medications you take"  maxlength="500">
+                  </ion-input>
+              </ion-col>
+            </ion-item>  
+            <ion-item>
+              <ion-col size='12'>
+                  <ion-input [(ngModel)]="data.alucinogenos" class="input-complete" 
+                    placeholder="Mention if you consume any hallucinogen"  maxlength="500">
+                  </ion-input>
+              </ion-col>
+            </ion-item>
+            <ion-item>
+              <ion-col size='12'>
+                  <ion-input [(ngModel)]="data.alergias" class="input-complete" 
+                    placeholder="Mention if you have any type of allergy"  maxlength="500">
+                  </ion-input>
+              </ion-col>
+            </ion-item>
+            <ion-item>
+              <ion-col size='12'>
+                  <ion-input [(ngModel)]="data.cirugias_genarales" class="input-complete" 
+                    placeholder="Mention if you have had general surgery"  maxlength="500">
+                  </ion-input>
+              </ion-col>
+            </ion-item> 
+            <ion-item>
+              <ion-col size='12'>
+                  <ion-input [(ngModel)]="data.cirugias_plasticas" class="input-complete" 
+                    placeholder="Mention if you have had plastic surgery before"  
+                    maxlength="500">
+                  </ion-input>
+              </ion-col>
+            </ion-item>
+            <ion-item>
+              <ion-col size="9">
+                <ion-label>You have had heart attacks.</ion-label>
+              </ion-col>
+              <ion-col size="3">
+                <ion-checkbox [(ngModel)]="data.infartos" class="check ion-float-left" color="primary"></ion-checkbox>
+              </ion-col>
+            </ion-item>  
+            <ion-item>
+              <ion-col size="9">
+                <ion-label>Have diabetes.</ion-label>
+              </ion-col>
+              <ion-col size="3">
+                <ion-checkbox [(ngModel)]="data.diabetes" class="check ion-float-left" color="primary"></ion-checkbox>
+              </ion-col>
+            </ion-item>                       
+            <ion-item>
+              <ion-col size="9">
+                <ion-label>Have VIH SIDA.</ion-label>
+              </ion-col>
+              <ion-col size="3">
+                <ion-checkbox [(ngModel)]="data.vih" class="check ion-float-left" color="primary"></ion-checkbox>
+              </ion-col>
+            </ion-item>
+            <ion-item>
+              <ion-col size="9">
+                <ion-label>Have high blood pressure.</ion-label>
+              </ion-col>
+              <ion-col size="3">
+                <ion-checkbox [(ngModel)]="data.presion_alta" class="check ion-float-left" color="primary"></ion-checkbox>
+              </ion-col>
+            </ion-item>            
+            <ion-item>
+              <ion-col size="12">
+                  <ion-button expand="block" (click)="update()">SAVE</ion-button>
+              </ion-col>
+            </ion-item>
+          </ion-col>
+          <ion-col size='1' size-sm='1' size-md='4' size-lg='4'></ion-col>
+      </ion-row>
+  </ion-grid>  
 </ion-content>
