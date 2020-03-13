@@ -3,6 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ToastService } from '../../services/toast.service';
 import { Img } from '../../interfaces/img';
 import { UserService } from '../../services/user.service';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-profile-review-blog',
@@ -46,7 +47,7 @@ export class ProfileReviewBlogComponent implements OnInit {
     icon: 'camera',
     text: 'Camera'
   };
-  constructor(private camera: Camera, private toast: ToastService, public service: UserService) { }
+  constructor(public hero: HeroService, private camera: Camera, private toast: ToastService, public service: UserService) { }
 
   ngOnInit() {
     this.getImagesZone();
@@ -75,8 +76,10 @@ export class ProfileReviewBlogComponent implements OnInit {
           }
         );
       } else {
+        this.loading = true;
         this.service.uploadPhotos(this.img.images).subscribe((r: any) => {
-          if (r.ok) {
+        this.picPhotos = false;
+        if (r.ok) {
             this.toast.success(r.message);
           } else {
             this.toast.error(r.error);
@@ -89,8 +92,8 @@ export class ProfileReviewBlogComponent implements OnInit {
       this.loading  = false;
       if (r.images.length > 0) {
         this.picPhotos = false;
+        this.img.images = r.images;
       }
-      console.log(r);
     });
   }
 }

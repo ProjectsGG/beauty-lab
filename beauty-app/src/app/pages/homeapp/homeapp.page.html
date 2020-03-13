@@ -21,7 +21,8 @@
     <ion-grid fixed class="center">
         <ion-row>
            <ion-col *ngFor="let img of proc" size="4" size-md="4" size-lg="4">
-               <img src="assets/img/pyp/{{img}}" class="img-service center" alt="service" routerLink="/procedures">
+               <img src="assets/img/pyp/{{img['img']}}" class="img-service center" alt="service" routerLink="/procedures">
+               <ion-text class="ion-text-center">{{img['txt']}}</ion-text>
            </ion-col>
          </ion-row>
     </ion-grid>

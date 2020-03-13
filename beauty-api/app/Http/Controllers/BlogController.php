@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\imagesXblog;
 use App\Models\Like;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use JWTAuth;
@@ -33,9 +34,10 @@ class BlogController extends Controller
         ->with(['images','user','comments.user','likes.user'])
         ->withCount('likes')
         ->get();
-        
+        $user = User::find($id);
         return response()->json([
             'ok' => true,
+            'user' => $user,
             'data' => $blogs
         ]);
     }
@@ -64,6 +66,14 @@ class BlogController extends Controller
             ]); 
         }
     }
+    public function likes($id)
+    {
+        $likes = Like::where('id_blog', $id)->with('user')->get();
+        return response()->json([
+            'ok' => true,
+            'data' => $likes
+        ]);
+    }
     public function store(Request $request)
     {
         try {
@@ -74,23 +84,30 @@ class BlogController extends Controller
             $input['fecha'] = $now->format('Y-m-d');
             $input['hora'] = Carbon::now()->format('h:m:s');
             $blog = Blog::create($input);
-            foreach ($input['photos'] as $key => $value) {
+            if (isset($input['photos'])) {
+                foreach ($input['photos'] as $key => $value) {
     
-                $img = $this->getB64Image($value);
-                $img_extension = $this->getB64Extension($value);
-    
-                $img_name = $this->user->id . '-user-image-'. $key . time() . '.' . $img_extension;
-    
-                Storage::disk('blog')->put($img_name, $img);
-    
-                $images = new imagesXblog();
-                $images->id_blog = $blog->id;
-                $images->imagen = $img_name;
-                $images->save();
+                    $img = $this->getB64Image($value);
+                    $img_extension = $this->getB64Extension($value);
+        
+                    $img_name = $this->user->id . '-user-image-'. $key . time() . '.' . $img_extension;
+        
+                    Storage::disk('blog')->put($img_name, $img);
+        
+                    $images = new imagesXblog();
+                    $images->id_blog = $blog->id;
+                    $images->imagen = $img_name;
+                    $images->save();
+                }
             }
+            
+            $this->user->update([
+                'bl_points' => $this->user->bl_points + 5,
+            ]);
             return response()->json([
                 'ok' => true,
-                'message' => 'Post upload succesfully'
+                'message' => 'Post upload succesfully',
+                'bl_points' => 5
             ]);   
         } catch (\Throwable $th) {
             return response()->json([
@@ -98,8 +115,6 @@ class BlogController extends Controller
                 'error' => $th->getMessage()
             ]);
         }
-        
-        // return response()->json($input);
     }
 
     public function getB64Image($base64_image)

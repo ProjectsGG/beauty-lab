@@ -15,6 +15,14 @@ export class SocialPage implements OnInit {
   @ViewChild(IonContent, {static: false}) content: IonContent;
   toper = false;
   loading = true;
+  slideOpts = {
+    zoom: true,
+    initialSlide: 0,
+    direction: 'horizontal',
+    speed: 600,
+    effect: 'slide',
+    loop: true
+  };
   constructor(
     private hero: HeroService,
     public service: BlogService,
@@ -24,19 +32,6 @@ export class SocialPage implements OnInit {
   cards: any[];
   ngOnInit() {
     this.getPosts();
-  }
-  async presentPopover(ev: any) {
-    const popover = await this.popoverController.create({
-      component: PopoverpostComponent,
-      event: ev,
-      translucent: true,
-    });
-    return await popover.present();
-  }
-  likeFocus(i) {
-    this.cards[i].liked = !this.cards[i].liked;
-    this.cards[i].liked ? this.cards[i].likes_count ++ : this.cards[i].likes_count --;
-    this.service.like(this.cards[i].id).subscribe();
   }
   doRefresh(event) {
     this.getPosts();
@@ -68,19 +63,6 @@ export class SocialPage implements OnInit {
       });
       this.loading = false;
   });
-  }
-  comment(i) {
-    const data: Commentary = {
-      id_blog: this.cards[i].id,
-      comentario: this.cards[i].comment,
-    };
-    this.service.comment(data).subscribe((r: any) => {
-      this.cards[i].comment = '';
-      this.cards[i].comments.push(r.comment);
-    });
-  }
-  like(i) {
-    const post = this.cards[i].id;
   }
   logScrollStart() {
     this.toper = true;

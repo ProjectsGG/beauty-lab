@@ -136,14 +136,29 @@ const routes: Routes = [
   {
     path: 'medicform',
     loadChildren: () => import('./pages/medicform/medicform.module').then( m => m.MedicformPageModule)
-  },  {
+  },
+  {
+    path: 'medicalinfo',
+    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule)
+  },
+  {
+    path: 'profile/:id',
+    loadChildren: () => import('./pages/v-profile/v-profile.module').then( m => m.VProfilePageModule)
+  },
+  {
+
     path: 'medicalinfo',
     loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule)
   },
   {
     path: 'medicpatient',
     loadChildren: () => import('./pages/medicpatient/medicpatient.module').then( m => m.MedicpatientPageModule)
+
+    path: 'trips',
+    loadChildren: () => import('./pages/trips/trips.module').then( m => m.TripsPageModule)
+
   }
+
 
 
 

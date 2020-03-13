@@ -5,6 +5,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
 import { Blog } from '../../interfaces/blog';
+import { HeroService } from '../../services/hero.service';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.page.html',
@@ -24,7 +25,8 @@ export class NewPostPage implements OnInit {
     private router: Router,
     public actionSheetController: ActionSheetController,
     private camera: Camera,
-    private toast: ToastService
+    private toast: ToastService,
+    private hero: HeroService
   ) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -129,6 +131,10 @@ export class NewPostPage implements OnInit {
           this.router.navigate(['/tabs/social']);
         } else {
           this.toast.error(r.error);
+        }
+        if (r.bl_points) {
+          this.toast.light('Has won ' + r.bl_points + ' BL Points!');
+          this.hero.updateDataUser();
         }
       });
     }

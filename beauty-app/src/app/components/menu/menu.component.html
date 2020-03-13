@@ -9,11 +9,11 @@
               <img [src]="hero.getUser().img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain() + '/file/profile/' + hero.getUser().img_perfil" class="img-profile">
             </ion-avatar>
           </ion-menu-toggle>
-            <h4 class="margins">{{name}} </h4>
+            <h4 class="margins">{{hero.getUser().nombres}} </h4>
             <h6 class="margins link">https://beautylab.com.co</h6>
             <p class="bl-points">
               B L P o i n t s <br>
-              0
+              {{hero.getUser().bl_points}}
              </p>
             <img (click)="redirect()" class="center bl-logo" src="assets/logoBL/whiteLogoV.png" alt="">
           </ion-col>
