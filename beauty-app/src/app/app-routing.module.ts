@@ -153,7 +153,8 @@ const routes: Routes = [
   {
     path: 'medicpatient',
     loadChildren: () => import('./pages/medicpatient/medicpatient.module').then( m => m.MedicpatientPageModule)
-
+  },
+  {
     path: 'trips',
     loadChildren: () => import('./pages/trips/trips.module').then( m => m.TripsPageModule)
 
