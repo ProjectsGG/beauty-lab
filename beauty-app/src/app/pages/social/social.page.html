@@ -1,30 +1,42 @@
 <app-header></app-header>
 
 <ion-content *ngIf="!loading" [scrollEvents]="true" (ionScrollStart)="logScrollStart()">
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content pullingIcon="arrow-up" refreshingSpinner="circles">
-        </ion-refresher-content>
-    </ion-refresher>
-
-    <app-post [posts]="cards"></app-post>
-    <ion-fab *ngIf="toper" horizontal="start" vertical="bottom" slot="fixed">
-        <ion-fab-button size="small" (click)="ScrollToTop()" color="primary">
-            <ion-icon name="arrow-up"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
-    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-        <ion-fab-button color="primary-bl">
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-list side="top">
-            <ion-fab-button (click)="goToNewPost('gallery')" color="primary">
-                <ion-icon class="icon-c-g" name="images"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button (click)="goToNewPost('camera')" color="primary">
-                <ion-icon class="icon-c-g" name="camera"></ion-icon>
-            </ion-fab-button>
-        </ion-fab-list>
-    </ion-fab>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="4">
+                <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+                    <ion-refresher-content pullingIcon="arrow-up" refreshingSpinner="circles">
+                    </ion-refresher-content>
+                </ion-refresher>
+            
+                <app-post [posts]="cards"></app-post>
+                
+                <ion-fab *ngIf="toper" horizontal="start" vertical="bottom" slot="fixed">
+                    <ion-fab-button size="small" (click)="ScrollToTop()" color="primary">
+                        <ion-icon name="arrow-up"></ion-icon>
+                    </ion-fab-button>
+                </ion-fab>
+                <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+                    <ion-fab-button color="primary-bl">
+                        <ion-icon name="add"></ion-icon>
+                    </ion-fab-button>
+                    <ion-fab-list side="top">
+                        <ion-fab-button (click)="goToNewPost('gallery')" color="primary">
+                            <ion-icon class="icon-c-g" name="images"></ion-icon>
+                        </ion-fab-button>
+                        <ion-fab-button (click)="goToNewPost('text')" color="primary">
+                            <ion-icon class="icon-c-g" name="create"></ion-icon>
+                        </ion-fab-button>
+                        <ion-fab-button (click)="goToNewPost('camera')" color="primary">
+                            <ion-icon class="icon-c-g" name="camera"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab-list>
+                </ion-fab>
+            </ion-col>
+            <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
 <ion-content *ngIf="loading">
     <div class="mar-top loading center">

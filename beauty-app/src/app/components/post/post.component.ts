@@ -46,6 +46,7 @@ export class PostComponent implements OnInit {
     });
   }
   viewProfile(id) {
+    console.log(id);
     this.router.navigate(['/profile/' + id]);
   }
 }
