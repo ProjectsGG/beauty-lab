@@ -40,7 +40,18 @@ class User extends Authenticatable implements JWTSubject
         'telefono_contacto',
         'rh',
         'verify_token',
-        'verify'
+        'verify',
+        'peso',
+        'estatura',
+        'medicamentos',
+        'alucinogenos',
+        'alergias',
+        'cirugias_genarales',
+        'cirugias_plasticas',
+        'infartos',
+        'diabetes',
+        'vih',
+        'presion_alta'
     ];
     public $timestamps = false;
     /**

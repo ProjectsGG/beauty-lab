@@ -21,4 +21,15 @@ export interface User {
     telefono_contacto?: string;
     rh?: string;
     admin?: number;
+    peso?: number;
+    estatura?: number;
+    medicamentos?: string;
+    alucinogenos?: string;
+    alergias?: string;
+    cirugias_genarales?: string;
+    cirugias_plasticas?: string;
+    infartos?: string;
+    diabetes?: string;
+    vih?: string;
+    presion_alta?: string;
 }

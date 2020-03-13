@@ -11,8 +11,10 @@ import { throwError } from 'rxjs';
 })
 export class HeroService {
 
-  private url: any = 'https://beautylab.app/api';
-  private domain: any = 'https://beautylab.app';
+  // private url: any = 'https://beautylab.app/api';
+  // private domain: any = 'https://beautylab.app';
+  private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
+  private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
   private token: string = null;
   private user: User = {
     bl_points: 0,

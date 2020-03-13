@@ -1,3 +1,7 @@
+import { ToastService } from './../../services/toast.service';
+import { HeroService } from './../../services/hero.service';
+import { UserService } from './../../services/user.service';
+import { User } from './../../interfaces/user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,36 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicformPage implements OnInit {
 
-  constructor() { }
-  // blood type
-  Rhs = ['O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+'];
+  data: User;
 
-  titleInp = ['Are you taking medication?.',
-              'Are you taking allucinogen?.',
-              'Are you allergic?.',
-              'Previous surgery general?.',
-              'Previous plastic surgery?.'];
-
-checkList = [
-            {title: 'Heart Desease',
-             size: '6'
-            },
-
-            {title: 'Diabetes',
-             size: '6'
-            },
-            {title: 'VIH Sida',
-             size: '6'
-            },
-
-            {title: 'High Pression',
-             size: '6'
-            },
-
-            {title: 'VIH Sida',
-             size: '12'
-            },
-          ];
+  constructor(
+    private service: UserService,
+    private hero: HeroService,
+    private toastr: ToastService) { }
+  
   ngOnInit() {
-}
+    this.data = this.hero.getUser();
+  }
+
+  update() {
+    this.service.update(this.data, this.data.id);
+  }
+
+  
 }
