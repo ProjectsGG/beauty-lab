@@ -1,0 +1,60 @@
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col size="12" size-sm="12" size-md="3" size-lg="3"></ion-col>
+  <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
+    <ion-row>
+      <ion-col>
+      <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="">
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <ion-avatar class="profile-img">
+          <img src="./../../../assets/img/siluet2.jpeg">
+        </ion-avatar>
+      <ion-text color="light">User Name</ion-text>
+      </ion-col>
+      <ion-col size="9">
+        <ion-row>
+          <ion-col size="6" *ngFor="let item of data">
+            <ion-text class="info-value ">
+              {{item.info}}
+            </ion-text>
+            <ion-text color="light">
+              {{item.value}}
+            </ion-text>
+          </ion-col>  
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card class="card">
+          <ion-card-header >
+            <h4 class="header-card" >Medical User Info</h4>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row *ngFor="let item of cardinfo">
+            <ion-col size="8">
+            <h1 class="text-card">
+              {{item.question}}
+          </h1>
+        </ion-col>
+        <ion-col  size="4" *ngIf="item.result ==='Yes' || item.result ==='Breast' || item.result ==='Heart'">
+          <h4 class="result-style">{{item.result}} <ion-icon name="ios-information-circle-outline"></ion-icon></h4>
+          
+        </ion-col>
+        <ion-col  size="4" *ngIf="item.result !== 'Yes' && item.result !== 'Breast' && item.result !== 'Heart'">
+          <h4 >{{item.result}}</h4>
+        </ion-col>
+      </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-col>
+  <ion-col size="12" size-sm="12" size-md="3" size-lg="3"></ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>
