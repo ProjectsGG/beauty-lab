@@ -66,3 +66,5 @@ Route::post('room', 'RoomsController@store');
 Route::get('roomstype', 'RoomsTypeController@index');
 
 Route::get('reversations', 'ReservationController@index');
+
+Route::get('products', 'APIController@getProductService');
