@@ -58,6 +58,7 @@
     "cordova-sqlite-storage": "^4.0.0",
     "cordova-universal-clipboard": "git+https://github.com/Visigo/CordovaClipboard.git",
     "core-js": "^2.5.4",
+    "es6-promise-plugin": "^4.2.2",
     "hammerjs": "^2.0.8",
     "intl": "^1.2.5",
     "ion2-calendar": "^3.0.0-rc.0",
@@ -103,16 +104,21 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-camera": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "438863470815-ijsjiack8t9k246ucv8n7919bk8oj34e.apps.googleusercontent.com"
+        "REVERSED_CLIENT_ID": "438863470815-ijsjiack8t9k246ucv8n7919bk8oj34e.apps.googleusercontent.com",
+        "PLAY_SERVICES_VERSION": "15.0.1"
       },
       "com.paypal.cordova.mobilesdk": {},
       "cordova-plugin-youtube-video-player": {},

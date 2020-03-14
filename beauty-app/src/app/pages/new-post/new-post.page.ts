@@ -34,7 +34,6 @@ export class NewPostPage implements OnInit {
       }
     });
   }
-
   ngOnInit() {
     if (this.option === 'camera') {
       this.photoPic();

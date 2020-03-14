@@ -9,6 +9,7 @@
     <ion-row>
       <ion-col size="0" size-md="2" size-md="4"></ion-col>
       <ion-col *ngIf="!loading" size="12" size-md="8" size-md="4">
+        <ion-icon routerLink="/tabs/social" class="icon-close" name="arrow-round-back"></ion-icon>
         <div *ngIf="photos.length === 1">
           <ion-row>
             <ion-col size="6">
@@ -50,7 +51,7 @@
         </div>
         <div class="content-btn">
           <br>
-          <ion-button color="primary-bl" (click)="publish()" class="center" shape="round">
+          <ion-button color="primary" (click)="publish()" class="center" shape="round">
             Publish <ion-icon name="add"></ion-icon>
           </ion-button>
         </div>
