@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShopifyService } from 'src/app/services/shopify.service';
+import { Product } from 'src/app/interfaces/shopify';
 
 @Component({
   selector: 'app-shop',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopPage implements OnInit {
 
-  constructor() { }
+  products : Product[] = [];
+  constructor(private shopifyService: ShopifyService) { }
 
   ngOnInit() {
+    this.shopifyService.getProdcutsShop()
+    .subscribe( resp =>{
+      console.log('Productos', resp);
+      this.products.push( ...resp.products );
+    });
   }
 
 }
