@@ -1,3 +1,21 @@
+:host {
+    .item-interactive.ion-invalid{
+     --highlight-background: rgb(255, 123, 0) !important;
+   }
+   .item-interactive.ion-valid{
+     --highlight-background: rgb(255, 149, 229) !important;
+   }
+ }
+ion-textarea{
+    --padding-top: 0rem;
+    --padding-bottom: 0rem;
+}
+.no-padding{
+    padding: 0.1rem;
+}
+.no-margin{
+    margin: 0rem;
+}
 .slider-slides{
     display: flex;
     flex-direction: row;

@@ -4,12 +4,14 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { HeroService } from '../../services/hero.service';
 import { UserService } from '../../services/user.service';
 import { ToastService } from '../../services/toast.service';
+import { BlogService } from '../../services/blog.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
+  posts: any[];
   loading = true;
   content = 'photos';
   data: any;
@@ -20,12 +22,14 @@ export class ProfilePage implements OnInit {
     public actionSheetController: ActionSheetController,
     private hero: HeroService,
     private service: UserService,
+    private blog: BlogService,
     private toastr: ToastService
   ) {}
 
   ngOnInit() {
     this.data = JSON.parse(localStorage.getItem('user'));
     this.loading = false;
+    this.getPosts();
   }
   segmentChanged(ev: any) {
     this.hero.getDomain();
@@ -119,5 +123,11 @@ export class ProfilePage implements OnInit {
         });
       },
       err => console.log(err));
+  }
+  getPosts() {
+    this.blog.blogUser(this.hero.getUser().id).subscribe((r: any) => {
+      console.log(r);
+      this.posts = r.data;
+    });
   }
 }
