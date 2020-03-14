@@ -10,14 +10,14 @@ import { Product } from 'src/app/interfaces/shopify';
 export class ShopPage implements OnInit {
 
   products : Product[] = [];
-  constructor(private shopifyService: ShopifyService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.shopifyService.getProdcutsShop()
+    /* this.shopifyService.getProdcutsShop()
     .subscribe( resp =>{
       console.log('Productos', resp);
       this.products.push( ...resp.products );
-    });
+    }); */
   }
 
 }
