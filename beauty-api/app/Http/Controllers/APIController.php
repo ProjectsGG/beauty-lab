@@ -171,7 +171,7 @@ class APIController extends Controller
     }
 
     public function getProductService(){
-        $res = file_get_contents("https://844672ed6d0f31d8ad2fb844a0636e80:c4e4a2414eed48ff01f4355382e19bd3@beauty-lab-merch.myshopify.com/admin/api/2020-01/collections/173830930491/products.json");
+        $res = file_get_contents("https://844672ed6d0f31d8ad2fb844a0636e80:c4e4a2414eed48ff01f4355382e19bd3@beauty-lab-merch.myshopify.com/admin/api/2020-01/products.json");
         return $res;
     }
 }

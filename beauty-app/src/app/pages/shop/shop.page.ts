@@ -34,6 +34,7 @@ export class ShopPage implements OnInit {
     .subscribe((model: any) => {
       const myArrStr = JSON.stringify(model.products);
       this.products = JSON.parse(myArrStr);
+      console.log(this.products);
     });
   }
 
