@@ -158,6 +158,18 @@ const routes: Routes = [
     path: 'trips',
     loadChildren: () => import('./pages/trips/trips.module').then( m => m.TripsPageModule)
 
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'change-password',
+    loadChildren: () => import('./pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule)
+  },
+  {
+    path: 'modal-likes',
+    loadChildren: () => import('./pages/modal-likes/modal-likes.module').then( m => m.ModalLikesPageModule)
   }
 
 
