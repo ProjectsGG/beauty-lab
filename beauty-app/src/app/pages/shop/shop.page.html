@@ -6,7 +6,7 @@
         <ion-row>
             <ion-col *ngFor="let producto of products">
                 <ion-card>
-                    <img [src]="producto.image"/>
+                    <img [src]="producto.image.src"/>
                     <ion-card-content>
                         <ion-card-title>
                             {{ producto.title }}

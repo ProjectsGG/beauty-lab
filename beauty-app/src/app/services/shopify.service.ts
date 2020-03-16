@@ -1,6 +1,7 @@
+import { Product } from './../interfaces/shopify';
+import { retry, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RespuestaProducts } from '../interfaces/shopify';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { HeroService } from './hero.service';
 
 
@@ -9,16 +10,29 @@ import { HeroService } from './hero.service';
 })
 export class ShopifyService {
 
+  products : Product[] = [];
+
   constructor( private http: HttpClient,  private hero: HeroService) { }
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'bearer ' + this.hero.getToken()
+    })
+  };
 
-  getProdcutsShop() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin' : '*',
-      })
-    };
-    return this.http.get(`/admin/api/2020-01/collections/173830930491/products.json`, httpOptions);
+  getProducts() {
+    this.getService()
+    .subscribe((model: any) => {
+      this.products = model.data;
+      console.log(this.products);
+    });
   }
+
+  getService() {
+    const url = `${this.hero.getUrl()}/products`;
+    return this.http.get(url, this.httpOptions);
+  }
+
+
 }
