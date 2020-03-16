@@ -166,6 +166,10 @@ const routes: Routes = [
   {
     path: 'change-password',
     loadChildren: () => import('./pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule)
+  },
+  {
+    path: 'modal-likes',
+    loadChildren: () => import('./pages/modal-likes/modal-likes.module').then( m => m.ModalLikesPageModule)
   }
 
 

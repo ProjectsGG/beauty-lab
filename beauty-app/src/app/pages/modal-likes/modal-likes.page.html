@@ -1,0 +1,25 @@
+<ion-header collapse="condense">
+  <ion-toolbar>
+  <ion-buttons slot='start'>
+  <ion-button (click)="closeMd()">
+    <ion-icon name="ios-close"></ion-icon>
+</ion-button>
+</ion-buttons>
+</ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <ion-grid>
+    <ion-row *ngFor="let item of likes">
+      <ion-col>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/{{item.img}}" alt="">
+          </ion-avatar>
+          <ion-text>
+            {{item.name}}
+          </ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

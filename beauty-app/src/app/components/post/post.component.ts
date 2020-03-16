@@ -1,10 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core';
 import { HeroService } from '../../services/hero.service';
 import { BlogService } from '../../services/blog.service';
 import { Router } from '@angular/router';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, ModalController } from '@ionic/angular';
 import { PopoverpostComponent } from '../popoverpost/popoverpost.component';
 import { Commentary } from '../../interfaces/commentary';
+import { ModalLikesPage } from 'src/app/pages/modal-likes/modal-likes.page';
+import { ModalLikesPageModule } from '../../pages/modal-likes/modal-likes.module';
+
 
 @Component({
   selector: 'app-post',
@@ -13,14 +16,14 @@ import { Commentary } from '../../interfaces/commentary';
 })
 export class PostComponent implements OnInit {
   // tslint:disable-next-line: no-input-rename
-  @Input('posts') cards: any[];
+  @Input('posts') cards: any[]; Id;
   constructor(
     public hero: HeroService,
     public service: BlogService,
     public router: Router,
-    public popoverController: PopoverController) { }
-
-  ngOnInit() {
+    public popoverController: PopoverController,
+    private modalCtrl: ModalController ) { } 
+ngOnInit() {
   }
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
@@ -49,4 +52,14 @@ export class PostComponent implements OnInit {
     console.log(id);
     this.router.navigate(['/profile/' + id]);
   }
-}
+    async openModal(Id) {
+      const modal = await this.modalCtrl.create({
+         component: ModalLikesPage,
+         componentProps: {
+          identificador: Id
+       }
+        });
+      await modal.present();
+      }
+  }
+
