@@ -25,6 +25,7 @@
     "@ionic-native/file": "^5.22.0",
     "@ionic-native/file-path": "^5.22.0",
     "@ionic-native/google-plus": "^5.22.0",
+    "@ionic-native/in-app-browser": "^5.22.0",
     "@ionic-native/instagram": "^5.22.0",
     "@ionic-native/ionic-webview": "^5.22.0",
     "@ionic-native/paypal": "^5.22.0",
@@ -128,7 +129,8 @@
       "cordova-plugin-x-socialsharing": {
         "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
       },
-      "cordova-instagram-plugin": {}
+      "cordova-instagram-plugin": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "ios",
