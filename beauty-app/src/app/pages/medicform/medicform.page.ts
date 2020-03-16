@@ -17,7 +17,7 @@ export class MedicformPage implements OnInit {
     private service: UserService,
     private hero: HeroService,
     private toastr: ToastService) { }
-  
+
   ngOnInit() {
     this.data = this.hero.getUser();
   }
@@ -25,6 +25,4 @@ export class MedicformPage implements OnInit {
   update() {
     this.service.update(this.data, this.data.id);
   }
-
-  
 }

@@ -41,7 +41,7 @@
                                 <img (click)="likeFocus(i)" class="likeicon" src="/assets/icon/likeFocus.svg"
                                     *ngIf="post.liked">
                                 <br>
-                                <h1 class="likes ion-text-center">{{post.likes_count}}</h1>
+                                <h1 (click)="openModal()" class="likes ion-text-center">{{post.likes_count}}</h1>
                             </ion-col>
                             <ion-col class="no-padding" size="10">
                                 <ion-textarea class="textarea no-margin" autoGrow="true" rows="4" readonly [(ngModel)]="post.descripcion"></ion-textarea>
