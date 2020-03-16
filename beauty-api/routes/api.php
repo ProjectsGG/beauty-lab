@@ -7,6 +7,8 @@
 Route::post('saveImg','UserController@savePhoto');
 Route::post('login', 'APIController@login');
 Route::post('register', 'APIController@register');
+Route::post('/forgot-password', 'APIController@sendEmail');
+Route::get('/change-password/{id}', 'APIController@changePasswordJs');
 Route::get('products' , 'ProductsController@getProducts');
 Route::group(['middleware' => 'auth.jwt'], function () {
     // Auth
