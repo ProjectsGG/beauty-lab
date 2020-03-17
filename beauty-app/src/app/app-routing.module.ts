@@ -170,6 +170,10 @@ const routes: Routes = [
   {
     path: 'modal-likes',
     loadChildren: () => import('./pages/modal-likes/modal-likes.module').then( m => m.ModalLikesPageModule)
+  },
+  {
+    path: 'medicregister',
+    loadChildren: () => import('./pages/medicregister/medicregister.module').then( m => m.MedicregisterPageModule)
   }
 
 
