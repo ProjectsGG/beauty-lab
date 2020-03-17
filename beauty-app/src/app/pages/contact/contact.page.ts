@@ -10,7 +10,7 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
 })
 export class ContactPage implements OnInit {
 
-  email = '';
+  subject = '';
   message = '';
   constructor( 
     public socialMedia: ActionSheetController,
@@ -25,7 +25,7 @@ send(){
     cc:[],
     bcc:[],
     attachment:[],
-    subjet:"Message from App BeautyLab",
+    subjet:this.subject,
     body:this.message,
     IsHtml:false,
     app: "Gmail"
