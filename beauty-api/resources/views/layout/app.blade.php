@@ -57,7 +57,7 @@
     <script src="{{asset('styles/app-assets/js/core/app-menu.js')}}"></script>
     <script src="{{asset('styles/app-assets/js/core/app.js')}}"></script>
     <script src="{{asset('styles/app-assets/js/scripts/components.js')}}"></script>
-
+    @yield('script')
 </body>
 
 </html>
