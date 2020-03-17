@@ -6,6 +6,7 @@ import { HeroService } from './hero.service';
 import { ToastService } from './toast.service';
 import { Router } from '@angular/router';
 import { Img } from '../interfaces/img';
+import { User } from '../interfaces/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +27,6 @@ export class UserService {
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
   }
-
   update(user, id) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -108,5 +108,15 @@ export class UserService {
         retry(2),
         catchError(this.handleError)
       );
+  }
+  forgotPassword(email) {
+    const url = this.hero.getUrl() + '/forgot-password';
+    const data: User = {
+      email
+    };
+    return this.http.post(url, data).pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
   }
 }

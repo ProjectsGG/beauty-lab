@@ -97,4 +97,18 @@ export class BlogService {
       catchError(this.handleError)
     );
   }
+  likes(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
+    const url = this.hero.getUrl() + '/blog/likes/' + id;
+    return this.http.get(url, httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
 }

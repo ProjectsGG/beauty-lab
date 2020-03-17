@@ -18,7 +18,7 @@ Route::get('/file/plans/{filename}','PlansController@getImage');
 Route::get('/file/rooms/{filename}','RoomsController@getImage');
 Route::get('/file/procedures/{filename}','ProceduresController@getImage');
 Route::get('/file/zone/{filename}','PublicController@returnZoneAff');
-
+Route::get('/forgot/{token}', 'APIController@changePassword');
 Route::get('/', function () {
     return view('welcome');
 });

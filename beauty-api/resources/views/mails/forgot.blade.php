@@ -34,8 +34,28 @@ height: 100vh;">
             <div class="card-title">
                 <h3 style=" color: #ff5ae9;
                 font-size: 18px;
-                text-transform: uppercase;">Contact</h3>
-                <h4 style="color: rgba(0,0,0,0.6);">{{$message}}</h4>
+                text-transform: uppercase;">You have made a request to change your password</h3>
+                <h4 style="color: rgba(0,0,0,0.6);">{{$data->user->nombres}}, to change your password and recover your account click on the following button.</h4>
+            </div>
+            <br>
+            <div class="card-action">
+                <a href="{{$URL}}"
+                class="m_-3268472636288069364button m_-3268472636288069364button-primary" role="button" style="cursor: pointer;
+                text-decoration: 
+                none;
+                margin: 0 auto;
+                background: #ff00de;
+                border: 2px solid #ff00de;
+                border-radius: 30px;
+                color: #fff;
+                cursor: pointer;
+                display: block;
+                font-size: 15px;
+                font-weight: bold;
+                padding: 20px;
+                width: 60%;
+                text-transform: uppercase;
+                transition: all 0.3s ease-in-out;">Go retrieve my password</a>
             </div>
             <br>
             <p class="color:gray;
@@ -43,7 +63,11 @@ height: 100vh;">
             text-align:center;">If you didn't apply ignore this message</p>
         </div>
     </div>
-
+    
+    <p style="color:gray;
+            font-size: 13px;
+            text-align:center;">If the button fail, copy and paste this link in your browser <a href="{{$URL}}" class="m_-3268472636288069364button m_-3268472636288069364button-primary" style="text-decoration:underline; color: #8c79f5; cursor: pointer;" href="">link</a> .</p>
+    
     <p style="color:gray;
             font-size: 13px;
             text-align:center;">This email was automatically sent by Beautylab, please do not reply.</p>
