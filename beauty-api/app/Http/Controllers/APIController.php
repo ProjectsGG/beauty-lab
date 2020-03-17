@@ -11,6 +11,7 @@ use App\Mail\ForgotPassword;
 use App\Mail\Verify;
 use App\Models\ForgotPassword as AppForgotPassword;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Validator;
 
@@ -212,8 +213,22 @@ class APIController extends Controller
         }
         return view('password.forgotPassword',compact(['message','id']));
     }
-    public function changePasswordJs($id)
+    public function changePasswordJs(Request $request, $id)
     {
-        return response()->json("Message $id ");
+        try {
+            $user = User::find($id);
+            $user->update([
+                'password' => Hash::make($request->all()['password'])
+            ]);
+            return response()->json([
+                'ok' => true,
+                'message' => 'Password change successful, now you can log in with your new password'
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'ok' => false,
+                'message' => 'An error has occurred'
+            ]);
+        }
     }
 }

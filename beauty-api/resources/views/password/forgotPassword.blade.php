@@ -26,8 +26,8 @@
   }
 </style>
 <div class="container" style="align-items:center;">
-  <h1 class="message">{{$message}}</h1>
-  <div class="row">
+  <h1 class="message" id="message">{{$message}}</h1>
+  <div id="form" class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <br>
@@ -51,21 +51,45 @@
 @section('script')
 <script>
   function change() {
-    let pass = document.getElementById('password').value;
-    let passConfirm = document.getElementById('password-confirm').value;
+    let pass = document.getElementById('password').value
+    let passConfirm = document.getElementById('password-confirm').value
 
-    if (pass === passConfirm) {
-      document.getElementById('alert').style.display = 'none';
-      fetch('http://localhost:8080/beauty-lab/beauty-api/public/api/change-password/'+id)
-        .then(function(response) {
-          return response.json();
+    let error = ''
+
+    if (pass.length > 8) error = 'Very long password'
+    if (pass.length < 5) error = 'Very short password'
+    if (pass.length === 0 || passConfirm.length === 0) error = 'Both fields are required'
+    if (pass !== passConfirm) error = 'Passwords do not match'
+    if (error==='') {
+      data = {
+        password: pass
+      };
+      document.getElementById('alert').style.display = 'none'
+      fetch('http://localhost:8080/beauty-lab/beauty-api/public/api/change-password/'+id, 
+      {
+        method: 'POST',
+        body: JSON.stringify(data), 
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(function(response) {
+          return response.json()
         })
-        .then(function(myJson) {
-          console.log(myJson);
-        });
+        .then(function(response) {
+          if (response.ok) {
+            document.getElementById('message').innerHTML = response.message;
+            document.getElementById('form').style.display = 'none';
+          } else {
+            document.getElementById('alert').innerHTML = response.message
+            document.getElementById('alert').style.display = 'block'
+            error=''
+          }
+        })
     } else { 
-      document.getElementById('alert').innerHTML = 'Passwords do not match';
-      document.getElementById('alert').style.display = 'block';
+      document.getElementById('alert').innerHTML = error
+      document.getElementById('alert').style.display = 'block'
+      error=''
     }
   }
 </script>
