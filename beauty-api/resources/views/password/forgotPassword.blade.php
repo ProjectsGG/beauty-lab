@@ -65,7 +65,7 @@
         password: pass
       };
       document.getElementById('alert').style.display = 'none'
-      fetch('http://localhost:8080/beauty-lab/beauty-api/public/api/change-password/'+id, 
+      fetch('https://beautylab.app/api/change-password/'+id, 
       {
         method: 'POST',
         body: JSON.stringify(data), 
