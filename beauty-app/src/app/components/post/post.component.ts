@@ -16,7 +16,7 @@ import { ModalLikesPage } from 'src/app/pages/modal-likes/modal-likes.page';
 export class PostComponent implements OnInit {
   // tslint:disable-next-line: no-input-rename
   @Input('posts') cards: any[]; Id;
-  slideOpts = {
+  public slideOpts = {
     zoom: true,
     initialSlide: 0,
     direction: 'horizontal',
