@@ -56,14 +56,13 @@ export class DepositPage implements OnInit {
       room: null,
       ok: false
     };
+    this.hero.action = '';
     this.router.navigate(['/tabs/home']);
   }
-
   getPlan() {
     this.plans = JSON.parse(localStorage.getItem('plans'));
     this.hero.dataPurchase.plans.push(this.plans);
   }
-
   payWithPaypal() {
     this.payPal
       .init({
@@ -77,7 +76,7 @@ export class DepositPage implements OnInit {
           // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
           this.payPal
             .prepareToRender(
-              'PayPalEnvironmentSandbox',
+              'PayPalEnvironmentProduction',
               new PayPalConfiguration({
                 // Only needed if you get an 'Internal Service Error' after PayPal login!
                 // payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
@@ -157,5 +156,9 @@ export class DepositPage implements OnInit {
   backStep() {
     this.router.navigate(['/s-room']);
   }
-  
+  addCar() {
+    this.hero.shoppingcart.push(this.hero.dataPurchase);
+    localStorage.setItem('shoppingcart', JSON.stringify(this.hero.shoppingcart));
+    this.cancel();
+  }
 }

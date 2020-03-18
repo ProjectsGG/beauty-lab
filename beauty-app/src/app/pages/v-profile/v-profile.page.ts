@@ -9,6 +9,7 @@ import { Commentary } from '../../interfaces/commentary';
   styleUrls: ['./v-profile.page.scss'],
 })
 export class VProfilePage implements OnInit {
+  loading = true;
   data: any[];
   user: any = {
     nombres: '',
@@ -22,6 +23,7 @@ export class VProfilePage implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getData(this.id);
+    this.loading = false;
   }
   segmentChanged(ev: any) {
     this.content = ev.detail.value;

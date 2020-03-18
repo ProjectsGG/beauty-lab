@@ -10,7 +10,7 @@ import { HeroService } from './hero.service';
 })
 export class ShopifyService {
 
-  products : Product[] = [];
+  products: Product[] = [];
 
   constructor( private http: HttpClient,  private hero: HeroService) { }
 

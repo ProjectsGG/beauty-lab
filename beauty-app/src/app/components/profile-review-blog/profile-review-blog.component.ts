@@ -13,6 +13,13 @@ import { HeroService } from '../../services/hero.service';
 export class ProfileReviewBlogComponent implements OnInit {
   loading = true;
   picPhotos = true;
+  public slideOpts = {
+    zoom: true,
+    initialSlide: 0,
+    direction: 'horizontal',
+    speed: 600,
+    effect: 'slide',
+  };
   posts: any[] = [
     {
       image: 'girl1.jpg',
