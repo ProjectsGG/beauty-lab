@@ -10,26 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopPage implements OnInit {
 
-  products: any[];
+products: any[];
 
   constructor(
     private hero: HeroService,
     private http: HttpClient) { }
 
-  httpOptions = {
+ httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: 'bearer ' + this.hero.getToken()
     })
-  };
+  }; 
 
   ngOnInit(){ };
 
   ionViewDidEnter(){
-    this.getProducts();
+    this.getProducts(); 
   }
 
-  getProducts() {
+ getProducts() {
     this.getService()
     .subscribe((model: any) => {
       const myArrStr = JSON.stringify(model.products);
@@ -41,6 +41,6 @@ export class ShopPage implements OnInit {
   getService() {
     const url = `${this.hero.getUrl()}/products`;
     return this.http.get(url, this.httpOptions);
-  }
+  } 
 
 }

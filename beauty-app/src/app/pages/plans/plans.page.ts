@@ -49,6 +49,4 @@ export class PlansPage implements OnInit {
   }
 
 
-
-
 }

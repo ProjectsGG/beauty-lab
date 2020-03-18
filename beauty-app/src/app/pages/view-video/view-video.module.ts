@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ViewVideoPageRoutingModule } from './view-video-routing.module';
 
-import { ViewVideoPage } from './view-video.page';
+
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { ViewVideoPage } from './view-video.page';
     IonicModule,
     ViewVideoPageRoutingModule
   ],
-  declarations: [ViewVideoPage]
+ 
 })
 export class ViewVideoPageModule {}

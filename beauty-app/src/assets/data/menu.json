@@ -35,7 +35,7 @@
         "redirectTo": "/profile"
     },
     {
-        "icon": "share    ",
+        "icon": "share",
         "name": "S h a r e",
         "redirectTo": "/share"
     },
