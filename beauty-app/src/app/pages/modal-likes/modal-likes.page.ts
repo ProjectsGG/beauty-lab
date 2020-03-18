@@ -15,7 +15,7 @@ export class ModalLikesPage implements OnInit {
   id: string;
   likes: any[] = [];
   loading = true;
-  constructor(private hero: HeroService,
+  constructor(public hero: HeroService,
               private route: ActivatedRoute, private service: BlogService) { }
 
   ngOnInit() {

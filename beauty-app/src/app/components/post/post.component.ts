@@ -6,7 +6,6 @@ import { PopoverController, ModalController } from '@ionic/angular';
 import { PopoverpostComponent } from '../popoverpost/popoverpost.component';
 import { Commentary } from '../../interfaces/commentary';
 import { ModalLikesPage } from 'src/app/pages/modal-likes/modal-likes.page';
-import { ModalLikesPageModule } from '../../pages/modal-likes/modal-likes.module';
 
 
 @Component({
@@ -17,12 +16,19 @@ import { ModalLikesPageModule } from '../../pages/modal-likes/modal-likes.module
 export class PostComponent implements OnInit {
   // tslint:disable-next-line: no-input-rename
   @Input('posts') cards: any[]; Id;
+  public slideOpts = {
+    zoom: true,
+    initialSlide: 0,
+    direction: 'horizontal',
+    speed: 600,
+    effect: 'slide',
+  };
   constructor(
     public hero: HeroService,
     public service: BlogService,
     public router: Router,
     public popoverController: PopoverController,
-    private modalCtrl: ModalController ) { } 
+    private modalCtrl: ModalController ) { }
 ngOnInit() {
   }
   async presentPopover(ev: any) {

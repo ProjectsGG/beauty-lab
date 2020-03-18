@@ -14,7 +14,7 @@ export class ProceduresPage implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private hero: HeroService,
+    public hero: HeroService,
     private router: Router
   ) {}
 

@@ -20,7 +20,7 @@ export class ProfilePage implements OnInit {
   constructor(
     private camera: Camera,
     public actionSheetController: ActionSheetController,
-    private hero: HeroService,
+    public hero: HeroService,
     private service: UserService,
     private blog: BlogService,
     private toastr: ToastService
