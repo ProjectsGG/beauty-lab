@@ -12,7 +12,7 @@ export class AdmreservasPage implements OnInit {
   public reservations: any[];
   constructor(
     private http: HttpClient,
-    private hero: HeroService,
+    public hero: HeroService,
   ) {}
 
   httpOptions = {
