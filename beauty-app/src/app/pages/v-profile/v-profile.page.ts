@@ -11,6 +11,7 @@ import { Commentary } from '../../interfaces/commentary';
 export class VProfilePage implements OnInit {
   loading = true;
   data: any[];
+  images: string[] = [];
   user: any = {
     nombres: '',
     apellidos: '',
@@ -40,6 +41,10 @@ export class VProfilePage implements OnInit {
             e.liked = true;
           }
         });
+        if (e.images.length > 0) {
+         this.images.push(e.images[0].imagen);
+         console.log(this.images);
+        }
       });
     });
   }

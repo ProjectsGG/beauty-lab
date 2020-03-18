@@ -33,8 +33,8 @@
           <ion-card color="light" class="no-margin">
             <ion-grid class="grid-photos">
               <ion-row>
-                <ion-col class="no-padding" *ngFor="let item of data" size="6">
-                  <img *ngIf="item.images.length > 0" class="img-carr" [src]="hero.getDomain() + '/file/blog/' + item.images[0].imagen" alt="">
+                <ion-col class="no-padding" *ngFor="let item of images" size="6">
+                  <img class="img-carr" [src]="hero.getDomain() + '/file/blog/' + item" alt="">
                 </ion-col>
               </ion-row>
             </ion-grid>
