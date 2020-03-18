@@ -25,7 +25,7 @@ send(){
     cc:[],
     bcc:[],
     attachment:[],
-    subjet:this.subject,
+    subject:this.subject,
     body:this.message,
     IsHtml:false,
     app: "Gmail"
