@@ -14,13 +14,7 @@ export class CarShopPage implements OnInit {
   total = 0;
   constructor(public hero: HeroService) {}
   ngOnInit() {
-    this.hero.shoppingcart.forEach(e => {
-      if (e.procedures.length > 0) {
-        this.total = this.total + e.procedures[0].precio;
-      } else if (e.plans.length > 0) {
-        this.total = this.total + e.plans[0].valor;
-      }
-    });
+    this.calculateTotal();
   }
   delete(i: number) {
     this.hero.shoppingcart.splice(i, 1);
@@ -28,5 +22,15 @@ export class CarShopPage implements OnInit {
       'shoppingcart',
       JSON.stringify(this.hero.shoppingcart)
     );
+    this.calculateTotal();
+  }
+  calculateTotal() {
+    this.hero.shoppingcart.forEach(e => {
+      if (e.procedures.length > 0) {
+        this.total = this.total + e.procedures[0].precio;
+      } else if (e.plans.length > 0) {
+        this.total = this.total + e.plans[0].valor;
+      }
+    });
   }
 }
