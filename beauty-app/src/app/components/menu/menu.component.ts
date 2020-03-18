@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
     private dataService: DataService,
     private auth: AuthService,
     private router: Router,
-    private hero: HeroService
+    public hero: HeroService
   ) {}
 
   ngOnInit() {

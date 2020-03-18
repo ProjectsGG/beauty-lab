@@ -19,6 +19,13 @@ export class NewPostPage implements OnInit {
     hora: '',
     descripcion: ''
   };
+  public slideOpts = {
+    zoom: true,
+    initialSlide: 0,
+    direction: 'horizontal',
+    speed: 600,
+    effect: 'slide',
+  };
   constructor(
     private service: BlogService,
     private route: ActivatedRoute,

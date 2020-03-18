@@ -8,7 +8,7 @@ import { HeroService } from '../../services/hero.service';
 })
 export class CarShopPage implements OnInit {
 
-  constructor(private hero: HeroService) {}
+  constructor(public hero: HeroService) {}
   ngOnInit() {
     console.log(this.hero.shoppingcart);
   }

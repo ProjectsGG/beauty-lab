@@ -10,7 +10,7 @@ import { User } from '../../interfaces/user';
 export class HeaderComponent implements OnInit {
 
   @Input() titulo: string;
-  constructor(private hero: HeroService) { }
+  constructor(public hero: HeroService) { }
 
   ngOnInit() {
   }
