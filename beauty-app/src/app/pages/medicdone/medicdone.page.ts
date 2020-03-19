@@ -7,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicdonePage implements OnInit {
 
+    pypdone = [{
+      name: 'Booty Plan',
+      date: 'Dec 22 - Jan 2'
+    },
+    {
+      name: 'Super Model Plan',
+      date: 'Dec 22 - Jan 2'
+    },
+    {
+      name: 'Booty Plan',
+      date: 'Dec 22 - Jan 2'
+    }
+  ];
   constructor() { }
 
   ngOnInit() {
