@@ -3,10 +3,5 @@
   "integrations": {
     "cordova": {}
   },
-  "proxies": [
-    {
-      "proxyUrl": "https://beauty-lab-merch.myshopify.com"
-    }
-  ],
   "type": "angular"
 }

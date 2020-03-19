@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-tabs',
@@ -8,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TabsPage implements OnInit {
   iconSocial = false;
-  constructor(private router: Router) { }
+  constructor(private router: Router, public hero: HeroService) { }
 
   ngOnInit() {
     if (this.router.url === '/tabs/make-body') {
