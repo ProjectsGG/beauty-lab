@@ -110,7 +110,8 @@ class ReservationController extends Controller
     }
     public function storeReservations(Request $request)
     {
-        $input = $request->all();
+        try {
+            $input = $request->all();
         foreach ($input['reservations'] as $key => $value) {
             $this->saveReservation($value);
         }
@@ -118,6 +119,12 @@ class ReservationController extends Controller
             'ok' => true,
             'message' => 'Payment succesfully!'
         ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'ok' => false,
+                'message' => $th->getMessage()
+            ]);
+        }
     }
     public function show(Reservation $reservation)
     {
