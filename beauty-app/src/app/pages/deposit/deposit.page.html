@@ -39,6 +39,7 @@
           </ion-row>
         </ion-grid>
         <ion-grid fixed *ngIf="hero.dataPurchase.procedures.length > 0">
+          <h5 class="ion-text-center"> Procedure Selected </h5>
           <ion-row *ngFor="let item of hero.dataPurchase.procedures">
             <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
               <ion-item (click)="procAc = !procAc ">
