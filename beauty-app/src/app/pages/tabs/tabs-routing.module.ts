@@ -39,6 +39,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'make-body',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../make-body/make-body.module').then(m => m.MakeBodyPageModule)
+          }
+        ]
+      },
+      {
         path: 'car-shop',
         children: [
           {
