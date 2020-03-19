@@ -6,6 +6,7 @@ import {
 } from '@ionic-native/paypal/ngx';
 import { HeroService } from '../../services/hero.service';
 import { ReservationService } from '../../services/reservation.service';
+import { ToastService } from '../../services/toast.service';
 @Component({
   selector: 'app-car-shop',
   templateUrl: './car-shop.page.html',
@@ -13,7 +14,7 @@ import { ReservationService } from '../../services/reservation.service';
 })
 export class CarShopPage implements OnInit {
   total = 0;
-  constructor(public hero: HeroService, public service: ReservationService) {}
+  constructor(private toastr: ToastService, public hero: HeroService, public service: ReservationService) {}
   ngOnInit() {
     this.calculateTotal();
   }
@@ -36,7 +37,12 @@ export class CarShopPage implements OnInit {
   }
   payment() {
     this.service.saveShoppincart().subscribe((r: any) => {
-      console.log(r);
+      if (r.ok) {
+        this.hero.shoppingcart = [];
+        this.toastr.success(r.message);
+      } else {
+        this.toastr.error('An error has occurred');
+      }
     });
   }
 }

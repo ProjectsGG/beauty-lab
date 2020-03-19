@@ -110,6 +110,7 @@ export class HeroService {
     });
   }
   updateDataUser() {
+    
     this.getUserFromApi().subscribe((r: any) => {
       this.user = r.data;
       localStorage.setItem('user', JSON.stringify(r.data));
