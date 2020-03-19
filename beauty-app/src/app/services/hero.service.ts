@@ -7,6 +7,7 @@ import { Purchase } from '../interfaces/purchase';
 import { retry, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Reservation } from '../interfaces/reservation';
+import { Network } from '@ionic-native/network/ngx';
 @Injectable({
   providedIn: 'root'
 })
@@ -37,7 +38,7 @@ export class HeroService {
     room: null,
     ok: false
   };
-  constructor(private storage: Storage,  private router: Router, private http: HttpClient) {}
+  constructor(private net: Network, private storage: Storage,  private router: Router, private http: HttpClient) {}
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
