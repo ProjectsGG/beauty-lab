@@ -6,6 +6,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Purchase } from '../interfaces/purchase';
 import { retry, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Reservation } from '../interfaces/reservation';
 @Injectable({
   providedIn: 'root'
 })

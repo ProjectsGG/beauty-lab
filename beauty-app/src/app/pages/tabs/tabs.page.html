@@ -16,6 +16,7 @@
     </ion-tab-button>
     <ion-tab-button tab="car-shop" (click)="setValue(1)">
       <ion-icon name="cart"></ion-icon>
+      <ion-badge *ngIf="hero.shoppingcart.length > 0" color="danger">{{hero.shoppingcart.length}}</ion-badge>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
