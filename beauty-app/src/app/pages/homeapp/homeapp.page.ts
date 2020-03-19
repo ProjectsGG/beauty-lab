@@ -34,23 +34,31 @@ export class HomeappPage implements OnInit {
     'bootyplan.png',
     'supermodelplan.png',
     'superstar1.png',
+    'iconplan.png'
   ];
   proc = [
-    {'img':'360lipo.png','txt': '360Lipo'},
-    {'img':'abs.png', 'txt': 'Abs'},
-    {'img':'eyebrown.png', 'txt': 'Eyebrown'},
-    {'img':'breast.png', 'txt': 'Breast'},
-    {'img':'botox.png','txt': 'Botox'},
-    {'img':'nose.png','txt': 'Nose'},
-    {'img':'teeths.png','txt': 'Theets'},
-    {'img':'cheecks.png','txt': 'Cheecks'},
-    {'img':'chin.png','txt': 'Chin'},
+    '360lipoexp.png',
+    'absexp.png',
+    'eyebrown.png',
+    'breastexp.png',
+    'botoxexp.png',
+    'nose.png',
+    'teethsexp.png',
+    'cheeksexp.png',
+    'chinexp.png',
   ];
   touristic = [{
-    items: [1, 2, 3]
-  },
+    items: [
+      'medellin1.jpg', 
+      'medelllin2.jpg', 
+      'guatape1.jpg'
+  ]},
   {
-    items: [1 , 2, 3]
+    items: [
+      'guatape2.jpg', 
+      'guatape3.jpg', 
+      'finca.jpg'
+    ]
   }];
   constructor(
     private toast: ToastService,

@@ -11,8 +11,12 @@ import { throwError } from 'rxjs';
 })
 export class HeroService {
 
+  // private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
+  // private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
   private url: any = 'https://beautylab.app/api';
   private domain: any = 'https://beautylab.app';
+
+  public shoppingcart: any[] = [];
   private token: string = null;
   private user: User = {
     bl_points: 0,
@@ -77,6 +81,7 @@ export class HeroService {
       this.user = JSON.parse(localStorage.getItem('user'));
       this.auth = true;
       this.dataPurchase.user_id = JSON.parse(localStorage.getItem('user')).id;
+      this.getDataShopping();
       // this.router.navigate(['/tabs/home']);
       // this.refreshToken();
     }
@@ -121,5 +126,11 @@ export class HeroService {
       retry(2),
       catchError(this.handleError)
     );
+  }
+  getDataShopping() {
+    const data = JSON.parse(localStorage.getItem('shoppingcart'));
+    if (data !== null) {
+      this.shoppingcart = data;
+    }
   }
 }

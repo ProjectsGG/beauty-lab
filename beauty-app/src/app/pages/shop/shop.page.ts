@@ -1,6 +1,7 @@
+import { HeroService } from './../../services/hero.service';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ShopifyService } from 'src/app/services/shopify.service';
-import { Product } from 'src/app/interfaces/shopify';
+
 
 @Component({
   selector: 'app-shop',
@@ -9,15 +10,37 @@ import { Product } from 'src/app/interfaces/shopify';
 })
 export class ShopPage implements OnInit {
 
-  products : Product[] = [];
-  constructor(private shopifyService: ShopifyService) { }
+products: any[];
 
-  ngOnInit() {
-    this.shopifyService.getProdcutsShop()
-    .subscribe( resp =>{
-      console.log('Productos', resp);
-      this.products.push( ...resp.products );
+  constructor(
+    private hero: HeroService,
+    private http: HttpClient) { }
+
+ httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'bearer ' + this.hero.getToken()
+    })
+  }; 
+
+  ngOnInit(){ };
+
+  ionViewDidEnter(){
+    this.getProducts(); 
+  }
+
+ getProducts() {
+    this.getService()
+    .subscribe((model: any) => {
+      const myArrStr = JSON.stringify(model.products);
+      this.products = JSON.parse(myArrStr);
+      console.log(this.products);
     });
   }
+
+  getService() {
+    const url = `${this.hero.getUrl()}/products`;
+    return this.http.get(url, this.httpOptions);
+  } 
 
 }

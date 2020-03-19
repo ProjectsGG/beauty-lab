@@ -24,7 +24,7 @@ export class SRoomPage implements OnInit {
   constructor(private location: Location,
               private router: Router,
               private service: RoomsService,
-              private hero: HeroService,
+              public hero: HeroService,
               private modalController: ModalController ) { }
 
   ngOnInit() {

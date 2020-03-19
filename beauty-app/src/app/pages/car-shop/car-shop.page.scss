@@ -1,4 +1,6 @@
-
+ion-label.title{
+    font-weight: 600;
+}
 h1{
     font-family: 'bioliquidregular';
     font-size:33px;
@@ -6,3 +8,24 @@ h1{
     text-align: center ;
     padding-top: 10rem;
    }
+   .description{
+    color: darkgray !important;
+}
+.price{
+    font-size: 23px;
+    color: #44cc63;
+    float: right;
+}
+.button-pay{
+    color:#0C94F7;
+    --background: aliceblue ;
+    --background-activated: #0C94F7;
+    --color-activated: aliceblue;
+    border-radius: 40px;
+    width: 100%;
+    height: 50px;
+}
+.price-ti{
+    padding-top: 2rem;
+    color: aliceblue;
+}

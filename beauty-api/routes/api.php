@@ -7,7 +7,9 @@
 Route::post('saveImg','UserController@savePhoto');
 Route::post('login', 'APIController@login');
 Route::post('register', 'APIController@register');
-
+Route::post('/forgot-password', 'APIController@sendEmail');
+Route::post('/change-password/{id}', 'APIController@changePasswordJs');
+Route::get('products' , 'ProductsController@getProducts');
 Route::group(['middleware' => 'auth.jwt'], function () {
     // Auth
     Route::post('logout', 'APIController@logout');
@@ -34,15 +36,8 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::resource('/reservation', 'ReservationController');
     // Comments
     Route::post('/commentary', 'CommentaryController@comment');
-
-    // Contact
-    Route::post('/contact', 'ContactController@index');
-
-
     Route::get('blog/like/{blog}', 'BlogController@like');
-
     Route::get('blog/likes/{id}', 'BlogController@likes');
-
     // Examples
     Route::get('tasks', 'TaskController@index');
     Route::get('tasks/{id}', 'TaskController@show');
@@ -66,3 +61,5 @@ Route::post('room', 'RoomsController@store');
 Route::get('roomstype', 'RoomsTypeController@index');
 
 Route::get('reversations', 'ReservationController@index');
+
+Route::get('products', 'APIController@getProductService');

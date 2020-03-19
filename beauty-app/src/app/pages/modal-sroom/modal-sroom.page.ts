@@ -10,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class ModalSroomPage implements OnInit {
   @Input() imagenes;
-  constructor(private hero: HeroService,
+  constructor(public hero: HeroService,
               private modalCtrl: ModalController) { }
   closeMd() {
     this.modalCtrl.dismiss();

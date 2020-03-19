@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
+
 @Component({
   selector: 'app-trips',
   templateUrl: './trips.page.html',
@@ -7,8 +7,8 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/
 })
 export class TripsPage implements OnInit {
 
-  constructor(private iab : InAppBrowser ) { }
-  options : InAppBrowserOptions = {
+  constructor() { }
+/*   options : InAppBrowserOptions = {
     location : 'yes',//Or 'no' 
     hidden : 'no', //Or  'yes'
     clearcache : 'yes',
@@ -24,7 +24,7 @@ export class TripsPage implements OnInit {
     allowInlineMediaPlayback : 'no',//iOS only 
     presentationstyle : 'pagesheet',//iOS only 
     fullscreen : 'yes',//Windows only    
-};
+}; */
 
  /*  ionViewWillEnter(){
     this.iab.create("http://old.travelpayouts.com/widgets/0a549d7d65737569518aac55ca623554.html?v=1916", "_self",this.options);

@@ -21,8 +21,7 @@
     <ion-grid fixed class="center">
         <ion-row>
            <ion-col *ngFor="let img of proc" size="4" size-md="4" size-lg="4">
-               <img src="assets/img/pyp/{{img['img']}}" class="img-service center" alt="service" routerLink="/procedures">
-               <ion-text class="ion-text-center">{{img['txt']}}</ion-text>
+               <img src="assets/img/pyp/{{img}}" class="img-service center" alt="service" routerLink="/procedures">
            </ion-col>
          </ion-row>
     </ion-grid>
@@ -32,14 +31,8 @@
         <ion-slide *ngFor="let item of touristic" class="pos-btn-slides" >
             <ion-grid>
                 <ion-row>
-                    <ion-col style="padding-bottom: 15px" size="4">
-                        <img class="img-tour2"src="assets/img/Parapente-medellin.jpg"alt="service">
-                    </ion-col>
-                    <ion-col style="padding-bottom: 15px" size="4">
-                        <img src="assets/img/Fat-tour.jpg" class="img-tour" alt="service">
-                    </ion-col>
-                    <ion-col style="padding-bottom: 15px" size="4">
-                        <img src="assets/img/Penol-tour.jpg"alt="service">
+                    <ion-col style="padding-bottom: 15px" size="4" *ngFor="let tur of item.items" >
+                        <img src="assets/img/{{tur}}"alt="service" class="img-service">
                     </ion-col>
                 </ion-row>
             </ion-grid>

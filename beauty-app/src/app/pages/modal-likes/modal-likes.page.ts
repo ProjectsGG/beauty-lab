@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { HeroService } from '../../services/hero.service';
+import { ActivatedRoute } from '@angular/router';
+import { BlogService } from '../../services/blog.service';
 
 @Component({
   selector: 'app-modal-likes',
@@ -10,26 +12,20 @@ import { HeroService } from '../../services/hero.service';
 
 export class ModalLikesPage implements OnInit {
 
-  @Input() Id;
-  likes = [{
-    img: 'PROFILEPICTURE.png',
-    name: 'Miguel Angel'
-  },
-  {
-    img: 'PROFILEPICTURE.png',
-    name: 'Andres Rendon'
-  },
-  {
-    img: 'PROFILEPICTURE.png',
-    name: 'Richard Albeiro'
-  }];
-  constructor(private hero: HeroService,
-              private modalCtrl: ModalController) { }
-  closeMd() {
-    this.modalCtrl.dismiss();
-  }
+  id: string;
+  likes: any[] = [];
+  loading = true;
+  constructor(public hero: HeroService,
+              private route: ActivatedRoute, private service: BlogService) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.getLikes();
   }
-
+  getLikes() {
+    this.service.likes(this.id).subscribe((r: any) => {
+      this.likes = r.data;
+      this.loading = false;
+    });
+  }
 }

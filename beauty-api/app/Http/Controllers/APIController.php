@@ -7,54 +7,49 @@ use JWTAuth;
 use App\Models\User;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\RegistrationFormRequest;
+use App\Mail\ForgotPassword;
 use App\Mail\Verify;
+use App\Models\ForgotPassword as AppForgotPassword;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Validator;
 
 class APIController extends Controller
 {
-    /**
-     * @var bool
-     */
     public $loginAfterSignUp = true;
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function login(Request $request)
     {
         $input = $request->only('email', 'password');
         $user = User::where('email', $request->all()['email'])->first();
         if ($user != null) {
             //if ($user->verify == 1) {
-                $token = null;
-                if (!$token = JWTAuth::attempt($input)) {
-                    return response()->json([
-                        'ok' => false,
-                        'message' => 'Invalid Email or Password',
-                    ]);
-                }
+            $token = null;
+            if (!$token = JWTAuth::attempt($input)) {
                 return response()->json([
-                    'ok' => true,
-                    'message' => "Welcome to beautylab!",
-                    'user' => $user,
-                    'token' => $token
+                    'ok' => false,
+                    'message' => 'Invalid Email or Password',
                 ]);
-           /* } else {
+            }
+            return response()->json([
+                'ok' => true,
+                'message' => "Welcome to beautylab!",
+                'user' => $user,
+                'token' => $token
+            ]);
+            /* } else {
                 return response()->json([
                     'ok' => false,
                     'message' => 'This account is not verified'
                 ]);
             }*/
-        }else {
+        } else {
             return response()->json([
                 'ok' => false,
                 'message' => 'Invalid Email or Password',
             ]);
         }
     }
-
     public function refresh()
     {
         $token = JWTAuth::getToken();
@@ -63,15 +58,8 @@ class APIController extends Controller
             'new_token' => $new_token
         ]);
     }
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function logout(Request $request)
     {
-        // dd($request->all());
         $this->validate($request, [
             'token' => 'required'
         ]);
@@ -90,11 +78,6 @@ class APIController extends Controller
             ], 500);
         }
     }
-
-    /**
-     * @param RegistrationFormRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function register(Request $request)
     {
         try {
@@ -168,5 +151,84 @@ class APIController extends Controller
             $message = 'Could not find this account';
         }
         return view('auth.verify', compact('message'));
+    }
+    public function getProductService()
+    {
+        $res = file_get_contents("https://844672ed6d0f31d8ad2fb844a0636e80:c4e4a2414eed48ff01f4355382e19bd3@beauty-lab-merch.myshopify.com/admin/api/2020-01/products.json");
+        return $res;
+    }
+    public function sendEmail(Request $request)
+    {
+        $input = $request->all();
+
+        $validation = Validator::make($input, [
+            'email' => 'required|email'
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json([
+                'ok' => false,
+                'message' => $validation->errors()->first()
+            ]);
+        } else {
+            $user = User::where('email', $input['email'])->first();
+            if ($user !== null) {
+                $token = str_shuffle("abcdefghijklmnopqrstuvwxyz0123456789" . uniqid());
+                $data = AppForgotPassword::create([
+                    'id_usuario' => $user->id,
+                    'token' => $token,
+                ]);
+
+                Mail::to($user->email)->send(new ForgotPassword($data));
+
+                return response()->json([
+                    'ok' => true,
+                    'message' => 'We will send an email with the steps so you can change your password',
+                ]);
+            } else {
+                return response()->json([
+                    'ok' => false,
+                    'message' => 'This email is not found in our users'
+                ]);
+            }
+        }
+    }
+    public function changePassword($token)
+    {
+        $search = AppForgotPassword::where('token', $token)->first();
+        $message = '';
+        $id = '';
+        if ($search === null) {
+            $message = 'This authentication token is not found';
+        } else {
+            $carbon = new \Carbon\Carbon();
+            $date = $carbon->now()->format('Y-m-d');
+            if ($date === $search->created_at->format('Y-m-d')) {
+                $id = $search->user->id;
+                $message = 'Enter a new password';
+            } else {
+                $message = 'This token has expired';
+            }
+            
+        }
+        return view('password.forgotPassword',compact(['message','id']));
+    }
+    public function changePasswordJs(Request $request, $id)
+    {
+        try {
+            $user = User::find($id);
+            $user->update([
+                'password' => Hash::make($request->all()['password'])
+            ]);
+            return response()->json([
+                'ok' => true,
+                'message' => 'Password change successful, now you can log in with your new password'
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'ok' => false,
+                'message' => 'An error has occurred'
+            ]);
+        }
     }
 }

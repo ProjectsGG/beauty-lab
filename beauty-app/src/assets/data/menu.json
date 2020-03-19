@@ -25,6 +25,11 @@
         "redirectTo": "/contact"
     },
     {
+        "icon": "airplane",
+        "name": "F l i g h t s",
+        "redirectTo": "/trips"
+    },
+    {
         "icon": "contact",
         "name": "P r o f i l e",
         "redirectTo": "/profile"
