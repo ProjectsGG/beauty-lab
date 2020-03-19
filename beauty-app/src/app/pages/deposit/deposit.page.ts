@@ -25,6 +25,7 @@ export class DepositPage implements OnInit {
   ) {}
   planAc = true;
   roomAc = true;
+  procAc = true;
   finish = false;
   res: string;
   slideOpts = {

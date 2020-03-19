@@ -63,6 +63,7 @@
                 <p
                   *ngIf="item.state"
                   class="font ion-padding"
+                  [innerHtml]="item.text"
                 >{{item.text}}</p>
               </div>
             </div>

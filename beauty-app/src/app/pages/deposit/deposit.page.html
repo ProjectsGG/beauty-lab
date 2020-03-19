@@ -39,33 +39,18 @@
           </ion-row>
         </ion-grid>
         <ion-grid fixed *ngIf="hero.dataPurchase.procedures.length > 0">
-          <ion-row>
-            <ion-col size="12" size-lg="12" size-md="12" size-xl="12">
-              <ion-text color="light">
-                <h3 class="ion-text-center textCss">Details Procedure</h3>
-              </ion-text>
-            </ion-col>
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3" class="grid-border">
-              <ion-text color="light">
-                <p class="head txtdescription">Procedure</p>
-              </ion-text>
-            </ion-col>
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3" class="grid-border">
-              <ion-text color="light">
-                <p class="head txtdescription">Description</p>
-              </ion-text>
-            </ion-col>
-          </ion-row>
+          <h5 class="ion-text-center"> Procedure Selected </h5>
           <ion-row *ngFor="let item of hero.dataPurchase.procedures">
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-              <ion-text color="light">
-                <p class="txtdescription">{{item.nombre}}</p>
-              </ion-text>
-            </ion-col>
-            <ion-col size="6" size-lg="3" size-md="4" size-xl="3">
-              <ion-text color="light">
-                <p class="txtdescription">{{item.descripcion}}</p>
-              </ion-text>
+            <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
+              <ion-item (click)="procAc = !procAc ">
+                <img slot="start" src="./../../../assets/icon/surgeryIco.svg">
+                <ion-title size="undefined">{{item.nombre}}</ion-title>
+                <ion-icon slot="end" name="arrow-dropup"  *ngIf="procAc" ></ion-icon>
+                <ion-icon slot="end" name="arrow-dropdown" *ngIf="!procAc"></ion-icon>
+              </ion-item> 
+              <ion-item *ngIf="procAc">
+                <h2 class="txtdescription">{{item.descripcion}}</h2>
+              </ion-item>
             </ion-col>
           </ion-row>
         </ion-grid>
