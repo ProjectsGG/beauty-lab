@@ -5,6 +5,7 @@ import {
   PayPalConfiguration
 } from '@ionic-native/paypal/ngx';
 import { HeroService } from '../../services/hero.service';
+import { ReservationService } from '../../services/reservation.service';
 @Component({
   selector: 'app-car-shop',
   templateUrl: './car-shop.page.html',
@@ -12,7 +13,7 @@ import { HeroService } from '../../services/hero.service';
 })
 export class CarShopPage implements OnInit {
   total = 0;
-  constructor(public hero: HeroService) {}
+  constructor(public hero: HeroService, public service: ReservationService) {}
   ngOnInit() {
     this.calculateTotal();
   }
@@ -31,6 +32,11 @@ export class CarShopPage implements OnInit {
       } else if (e.plans.length > 0) {
         this.total = this.total + e.plans[0].valor;
       }
+    });
+  }
+  payment() {
+    this.service.saveShoppincart().subscribe((r: any) => {
+      console.log(r);
     });
   }
 }
