@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsPage implements OnInit {
   iconSocial = false;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    if (this.router.url === '/tabs/make-body') {
+      this.iconSocial = true;
+    }
   }
   setValue(opt) {
     if (opt === 1) {
