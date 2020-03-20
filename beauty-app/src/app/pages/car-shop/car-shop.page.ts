@@ -13,13 +13,12 @@ import { ToastService } from '../../services/toast.service';
   styleUrls: ['./car-shop.page.scss']
 })
 export class CarShopPage implements OnInit {
-  total = 0;
   paymentAmount = '500.00';
   currency = 'USD';
   currencyIcon = '$';
   constructor(private payPal: PayPal, private toastr: ToastService, public hero: HeroService, public service: ReservationService) {}
   ngOnInit() {
-    this.calculateTotal();
+    this.hero.calculateTotal();
   }
   delete(i: number) {
     this.hero.shoppingcart.splice(i, 1);
@@ -27,16 +26,7 @@ export class CarShopPage implements OnInit {
       'shoppingcart',
       JSON.stringify(this.hero.shoppingcart)
     );
-    this.calculateTotal();
-  }
-  calculateTotal() {
-    this.hero.shoppingcart.forEach(e => {
-      if (e.procedures.length > 0) {
-        this.total = this.total + e.procedures[0].precio;
-      } else if (e.plans.length > 0) {
-        this.total = this.total + e.plans[0].valor;
-      }
-    });
+    this.hero.calculateTotal();
   }
   payWithPaypal() {
     this.payPal

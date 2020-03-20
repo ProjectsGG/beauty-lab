@@ -20,6 +20,7 @@ export class HeroService {
   private url: any = 'https://beautylab.app/api';
   private domain: any = 'https://beautylab.app';
   private isConnected = false;
+  public total = 0;
   public shoppingcart: any[] = [];
   private token: string = null;
   private user: User = {
@@ -148,5 +149,15 @@ export class HeroService {
   clearShoppingCart() {
     this.shoppingcart = [];
     localStorage.setItem('shoppingcart', '[]');
+  }
+  calculateTotal() {
+    this.total = 0;
+    this.shoppingcart.forEach(e => {
+      if (e.procedures.length > 0) {
+        this.total = this.total + e.procedures[0].precio;
+      } else if (e.plans.length > 0) {
+        this.total = this.total + e.plans[0].valor;
+      }
+    });
   }
 }
