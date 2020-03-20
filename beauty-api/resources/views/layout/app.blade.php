@@ -88,16 +88,21 @@
     <!-- END: Content-->
     <hr class="bg-light"><br><br><br>
       <footer>
-            <div class="container-fluid fixed-bottom bg-dark">
+            <div class="container-fluid sticky-bottom bg-dark">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 col-xl-4">
                         <h2 class="text-light text-center titles">Beauty Lab</h2>
                     </div>
                     <div class="col-12 col-sm-12 col-md-4 col-xl-4">
                         <h2 class="text-light titles text-center">Follow Us</h2>
+                        <h3 class="text-center text-light subtitles">Instagram</h3>
+                        <h3 class="text-center text-light subtitles">Facebook</h3>
+                        <h3 class="text-center text-light subtitles">Youtube</h3>
                     </div>
                     <div class="col-12 col-sm-12 col-md-4 col-xl-4">
                         <h2 class="text-light titles text-center">About Us</h2>
+                        <h3 class="text-center text-light subtitles">The best place to find your perfect plastic surgery</h3>
+
                     </div>
                 </div>
             </div>
