@@ -33,6 +33,10 @@ body{
     text-align: center;
     margin: 0 auto;
 }
+
+iframe{
+    margin: 0 auto;
+}
 .subtitles{
     font-family: 'advent_promedium';
 }
