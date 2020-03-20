@@ -8,7 +8,8 @@
             <h1 class="text-center text-light titles">P L A N S</h1>
         </div>
     </div>
-</div>
+</div><br>
+<div class="center text-center"><img src="{{ asset('img/whiteLogoH.png') }}" class="logo" alt=""></div>
 <br>
 <br>
 <div class="container">

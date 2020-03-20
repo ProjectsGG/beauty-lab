@@ -31,6 +31,9 @@ body{
     font-family: 'advent_promedium';
 }
 
+.logo{
+    width: 25%;
+}
 .slidee{
     width: 600px !important;
     height: 400px !important;
