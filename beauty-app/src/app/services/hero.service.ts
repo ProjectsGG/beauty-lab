@@ -2,21 +2,25 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders
+} from '@angular/common/http';
 import { Purchase } from '../interfaces/purchase';
 import { retry, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { Reservation } from '../interfaces/reservation';
+import { NetworkService } from './network.service';
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
-
   // private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
   // private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
   private url: any = 'https://beautylab.app/api';
   private domain: any = 'https://beautylab.app';
-
+  private isConnected = false;
+  public total = 0;
   public shoppingcart: any[] = [];
   private token: string = null;
   private user: User = {
@@ -37,7 +41,12 @@ export class HeroService {
     room: null,
     ok: false
   };
-  constructor(private storage: Storage,  private router: Router, private http: HttpClient) {}
+  constructor(
+    private net: NetworkService,
+    private storage: Storage,
+    private router: Router,
+    private http: HttpClient
+  ) {}
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -75,7 +84,7 @@ export class HeroService {
   }
   validateSession() {
     const token = localStorage.getItem('token');
-    if ( token === null || token === undefined) {
+    if (token === null || token === undefined) {
       this.router.navigate(['/inicio']);
     } else {
       this.token = token;
@@ -103,16 +112,20 @@ export class HeroService {
         Authorization: 'bearer ' + this.token
       })
     };
-    this.http.get(this.url + '/refresh', httpOptions)
-    .subscribe((r: any) => {
+    this.http.get(this.url + '/refresh', httpOptions).subscribe((r: any) => {
       this.token = r.new_token;
       localStorage.setItem('token', r.new_token);
     });
   }
   updateDataUser() {
-    this.getUserFromApi().subscribe((r: any) => {
-      this.user = r.data;
-      localStorage.setItem('user', JSON.stringify(r.data));
+    this.net.getNetworkStatus().subscribe((connected: boolean) => {
+      this.isConnected = connected;
+      if (this.isConnected) {
+        this.getUserFromApi().subscribe((r: any) => {
+          this.user = r.data;
+          localStorage.setItem('user', JSON.stringify(r.data));
+        });
+      }
     });
   }
   getUserFromApi() {
@@ -123,15 +136,28 @@ export class HeroService {
       })
     };
     const url = this.getUrl() + '/user';
-    return this.http.get(url, httpOptions).pipe(
-      retry(2),
-      catchError(this.handleError)
-    );
+    return this.http
+      .get(url, httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
   }
   getDataShopping() {
     const data = JSON.parse(localStorage.getItem('shoppingcart'));
     if (data !== null) {
       this.shoppingcart = data;
     }
+  }
+  clearShoppingCart() {
+    this.shoppingcart = [];
+    localStorage.setItem('shoppingcart', '[]');
+  }
+  calculateTotal() {
+    this.total = 0;
+    this.shoppingcart.forEach(e => {
+      if (e.procedures.length > 0) {
+        this.total = this.total + e.procedures[0].precio;
+      } else if (e.plans.length > 0) {
+        this.total = this.total + e.plans[0].valor;
+      }
+    });
   }
 }

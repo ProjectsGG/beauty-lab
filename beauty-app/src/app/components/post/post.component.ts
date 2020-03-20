@@ -30,6 +30,16 @@ export class PostComponent implements OnInit {
     public popoverController: PopoverController,
     private modalCtrl: ModalController ) { }
 ngOnInit() {
+  this.cards.forEach((e) => {
+    e.isCom = false;
+    e.comment = '';
+    e.liked = false;
+    e.likes.forEach(like => {
+      if (like.id_usuario === this.hero.getUser().id) {
+        e.liked = true;
+      }
+    });
+  });
   }
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
@@ -45,11 +55,13 @@ ngOnInit() {
     this.service.like(this.cards[i].id).subscribe();
   }
   comment(i) {
+    this.cards[i].isCom = true;
     const data: Commentary = {
       id_blog: this.cards[i].id,
       comentario: this.cards[i].comment,
     };
     this.service.comment(data).subscribe((r: any) => {
+      this.cards[i].isCom = false;
       this.cards[i].comment = '';
       this.cards[i].comments.push(r.comment);
     });

@@ -25,6 +25,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Instagram } from '@ionic-native/instagram/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { Network } from '@ionic-native/network/ngx';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
     ScreenOrientation,
     SocialSharing,
     Instagram,
-    EmailComposer
+    EmailComposer,
+    Network
   ],
   bootstrap: [AppComponent]
 })

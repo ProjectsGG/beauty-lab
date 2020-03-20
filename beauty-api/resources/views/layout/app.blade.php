@@ -74,7 +74,7 @@
               <a class="nav-link text-light" href="{{ route('roomsweb') }}">Rooms</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="#">Flights</a>
+                <a class="nav-link text-light" href="{{ route('flightweb') }}">Flights</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-light" href="{{ route('contactweb') }}">Contact</a>
