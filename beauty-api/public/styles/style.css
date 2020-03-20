@@ -1,3 +1,13 @@
 body{
-    background-color: rgba(225, 80, 255,0.5) !important;
+    background: rgb(3,99,193);
+    background: linear-gradient(180deg,
+    rgb(240, 33, 226) 50%,
+    rgb(166, 0, 255) 72%,
+    rgb(48, 121, 247) 100%);
+}
+
+
+.slidee{
+    width: 600px !important;
+    height: 400px !important;
 }
