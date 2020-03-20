@@ -55,11 +55,13 @@ ngOnInit() {
     this.service.like(this.cards[i].id).subscribe();
   }
   comment(i) {
+    this.cards[i].isCom = true;
     const data: Commentary = {
       id_blog: this.cards[i].id,
       comentario: this.cards[i].comment,
     };
     this.service.comment(data).subscribe((r: any) => {
+      this.cards[i].isCom = false;
       this.cards[i].comment = '';
       this.cards[i].comments.push(r.comment);
     });
