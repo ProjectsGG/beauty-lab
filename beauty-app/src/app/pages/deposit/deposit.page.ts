@@ -160,6 +160,7 @@ export class DepositPage implements OnInit {
   addCar() {
     this.hero.shoppingcart.push(this.hero.dataPurchase);
     localStorage.setItem('shoppingcart', JSON.stringify(this.hero.shoppingcart));
+    this.hero.calculateTotal();
     this.toastr.successBl('Service added to shopping cart!');
     this.cancel();
   }
