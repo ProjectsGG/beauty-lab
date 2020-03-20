@@ -77,7 +77,7 @@
                 <a class="nav-link" href="#">Flights</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="{{ route('contactweb') }}">Contact</a>
             </li>
           </ul>
         </div>
