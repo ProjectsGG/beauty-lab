@@ -14,8 +14,7 @@
 
 <h2 class="text-center subtitles text-light">Find your Best Flight</h2>
 
-
-            <iframe scrolling="yes" width="1280" height="464" style="position:relative; top:0px; left:60px; bottom:0px; right:0px; border:none; margin:0 auto; padding:1em 0; overflow:hidden; z-index:0;" src="http://old.travelpayouts.com/widgets/0a549d7d65737569518aac55ca623554.html?v=1916" class="fli"></iframe>
+<div class="fli"><script charset="utf-8" src="//old.travelpayouts.com/widgets/0a549d7d65737569518aac55ca623554.js?v=1919" async></script></div>
 
 
 @endsection
