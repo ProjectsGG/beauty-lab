@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-
+<div class="center text-center"><img src="{{ asset('img/horizontal_logo.png') }}" alt=""></div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 text-center center">

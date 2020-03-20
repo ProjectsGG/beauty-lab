@@ -62,22 +62,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ route('homeweb') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('plansweb') }}">Plans</a>
+              <a class="nav-link text-light" href="{{ route('plansweb') }}">Plans</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('proceduresweb') }}">Procedures</a>
+              <a class="nav-link text-light" href="{{ route('proceduresweb') }}">Procedures</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('roomsweb') }}">Rooms</a>
+              <a class="nav-link text-light" href="{{ route('roomsweb') }}">Rooms</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Flights</a>
+                <a class="nav-link text-light" href="#">Flights</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('contactweb') }}">Contact</a>
+              <a class="nav-link text-light" href="{{ route('contactweb') }}">Contact</a>
             </li>
           </ul>
         </div>
