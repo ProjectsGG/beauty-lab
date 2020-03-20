@@ -91,7 +91,6 @@ export class HeroService {
       this.auth = true;
       this.dataPurchase.user_id = JSON.parse(localStorage.getItem('user')).id;
       this.getDataShopping();
-      this.updateDataUser();
       // this.router.navigate(['/tabs/home']);
       // this.refreshToken();
     }
