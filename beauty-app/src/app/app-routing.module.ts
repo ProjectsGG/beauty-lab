@@ -190,6 +190,26 @@ const routes: Routes = [
     path: 'modal-likes/:id',
     loadChildren: () => import('./pages/modal-likes/modal-likes.module').then( m => m.ModalLikesPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'medicregister',
+    loadChildren: () => import('./pages/medicregister/medicregister.module').then( m => m.MedicregisterPageModule)
+  },
+  {
+    path: 'homemedic',
+    loadChildren: () => import('./pages/homemedic/homemedic.module').then( m => m.HomemedicPageModule)
+  },
+  {
+    path: 'medicavailable',
+    loadChildren: () => import('./pages/medicavailable/medicavailable.module').then( m => m.MedicavailablePageModule)
+  },
+  {
+    path: 'medicdone',
+    loadChildren: () => import('./pages/medicdone/medicdone.module').then( m => m.MedicdonePageModule)
+  },
+  {
+    path: 'medicprofile',
+    loadChildren: () => import('./pages/medicprofile/medicprofile.module').then( m => m.MedicprofilePageModule)
   }
 
 

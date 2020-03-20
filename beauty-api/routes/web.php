@@ -22,3 +22,8 @@ Route::get('/forgot/{token}', 'APIController@changePassword');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('plans','PlansWebController@index')->name('plansweb');
+Route::get('procedures','ProceduresWebController@index')->name('proceduresweb');
+Route::get('rooms','RoomsWebController@index')->name('roomsweb');
+Route::get('contact','ContactWebController@index')->name('contactweb');
