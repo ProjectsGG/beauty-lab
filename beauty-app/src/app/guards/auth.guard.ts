@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
  canActivate(
    next: ActivatedRouteSnapshot,
    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-
+   this.hero.updateDataUser();
    const userAuthenticated = this.hero.getAuth();
 
    if (userAuthenticated) {

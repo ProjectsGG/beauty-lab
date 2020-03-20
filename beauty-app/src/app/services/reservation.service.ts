@@ -10,7 +10,9 @@ import { throwError } from 'rxjs';
 })
 export class ReservationService {
 
-  constructor(private http: HttpClient, private hero: HeroService) { }
+  constructor(private http: HttpClient, private hero: HeroService) { 
+    this.asignToken();
+  }
   public httpOptions;
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

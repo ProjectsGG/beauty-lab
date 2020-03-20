@@ -42,8 +42,7 @@ const routes: Routes = [
   },
   {
     path: 'contact',
-    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
   },
   {
     path: 'view-video',
@@ -67,11 +66,13 @@ const routes: Routes = [
   },
   {
     path: 'data-complete',
-    loadChildren: () => import('./pages/data-complete/data-complete.module').then( m => m.DataCompletePageModule)
+    loadChildren: () => import('./pages/data-complete/data-complete.module').then( m => m.DataCompletePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',
-    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'terms',
@@ -79,11 +80,13 @@ const routes: Routes = [
   },
   {
     path: 'deposit',
-    loadChildren: () => import('./pages/deposit/deposit.module').then( m => m.DepositPageModule)
+    loadChildren: () => import('./pages/deposit/deposit.module').then( m => m.DepositPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'faq',
-    loadChildren: () => import('./pages/faq/faq.module').then( m => m.FaqPageModule)
+    loadChildren: () => import('./pages/faq/faq.module').then( m => m.FaqPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'test',
@@ -91,7 +94,8 @@ const routes: Routes = [
   },
   {
     path: 's-room',
-    loadChildren: () => import('./pages/s-room/s-room.module').then( m => m.SRoomPageModule)
+    loadChildren: () => import('./pages/s-room/s-room.module').then( m => m.SRoomPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'help',
@@ -99,39 +103,48 @@ const routes: Routes = [
   },
   {
     path: 'admplans',
-    loadChildren: () => import('./pages/admplans/admplans.module').then( m => m.AdmplansPageModule)
+    loadChildren: () => import('./pages/admplans/admplans.module').then( m => m.AdmplansPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'admplansdetails',
-    loadChildren: () => import('./pages/admplansdetails/admplansdetails.module').then( m => m.AdmplansdetailsPageModule)
+    loadChildren: () => import('./pages/admplansdetails/admplansdetails.module').then( m => m.AdmplansdetailsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'admroomsdetails',
-    loadChildren: () => import('./pages/admroomsdetails/admroomsdetails.module').then( m => m.AdmroomsdetailsPageModule)
+    loadChildren: () => import('./pages/admroomsdetails/admroomsdetails.module').then( m => m.AdmroomsdetailsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'admrooms',
-    loadChildren: () => import('./pages/admrooms/admrooms.module').then( m => m.AdmroomsPageModule)
+    loadChildren: () => import('./pages/admrooms/admrooms.module').then( m => m.AdmroomsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'admprocedures',
-    loadChildren: () => import('./pages/admprocedures/admprocedures.module').then( m => m.AdmproceduresPageModule)
+    loadChildren: () => import('./pages/admprocedures/admprocedures.module').then( m => m.AdmproceduresPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'admproceduresdetails',
-    loadChildren: () => import('./pages/admproceduresdetails/admproceduresdetails.module').then( m => m.AdmproceduresdetailsPageModule)
+    loadChildren: () => import('./pages/admproceduresdetails/admproceduresdetails.module').then( m => m.AdmproceduresdetailsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'homeadmin',
-    loadChildren: () => import('./pages/homeadmin/homeadmin.module').then( m => m.HomeadminPageModule)
+    loadChildren: () => import('./pages/homeadmin/homeadmin.module').then( m => m.HomeadminPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'admreservas',
-    loadChildren: () => import('./pages/admreservas/admreservas.module').then( m => m.AdmreservasPageModule)
+    loadChildren: () => import('./pages/admreservas/admreservas.module').then( m => m.AdmreservasPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'share',
-    loadChildren: () => import('./pages/share/share.module').then( m => m.SharePageModule)
+    loadChildren: () => import('./pages/share/share.module').then( m => m.SharePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'medicform',
@@ -139,24 +152,29 @@ const routes: Routes = [
   },
   {
     path: 'medicalinfo',
-    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule)
+    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile/:id',
-    loadChildren: () => import('./pages/v-profile/v-profile.module').then( m => m.VProfilePageModule)
+    loadChildren: () => import('./pages/v-profile/v-profile.module').then( m => m.VProfilePageModule),
+    canActivate: [AuthGuard]
   },
   {
 
     path: 'medicalinfo',
-    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule)
+    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'medicpatient',
-    loadChildren: () => import('./pages/medicpatient/medicpatient.module').then( m => m.MedicpatientPageModule)
+    loadChildren: () => import('./pages/medicpatient/medicpatient.module').then( m => m.MedicpatientPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'trips',
-    loadChildren: () => import('./pages/trips/trips.module').then( m => m.TripsPageModule)
+    loadChildren: () => import('./pages/trips/trips.module').then( m => m.TripsPageModule),
+    canActivate: [AuthGuard]
 
   },
   {
@@ -165,11 +183,13 @@ const routes: Routes = [
   },
   {
     path: 'change-password',
-    loadChildren: () => import('./pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule)
+    loadChildren: () => import('./pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'modal-likes/:id',
-    loadChildren: () => import('./pages/modal-likes/modal-likes.module').then( m => m.ModalLikesPageModule)
+    loadChildren: () => import('./pages/modal-likes/modal-likes.module').then( m => m.ModalLikesPageModule),
+    canActivate: [AuthGuard]
   }
 
 
