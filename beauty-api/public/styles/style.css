@@ -27,12 +27,22 @@ body{
     font-family: 'suissnordregular';
 }
 
+
+.fli{
+    height: 600px !important;
+    text-align: center;
+    margin: 0 auto;
+}
 .subtitles{
     font-family: 'advent_promedium';
 }
 
 .logo{
     width: 25%;
+}
+
+.logo2{
+    width: 75%;
 }
 .slidee{
     width: 600px !important;

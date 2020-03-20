@@ -27,3 +27,4 @@ Route::get('plans','PlansWebController@index')->name('plansweb');
 Route::get('procedures','ProceduresWebController@index')->name('proceduresweb');
 Route::get('rooms','RoomsWebController@index')->name('roomsweb');
 Route::get('contact','ContactWebController@index')->name('contactweb');
+Route::get('flight','FlightController@index')->name('flightweb');
