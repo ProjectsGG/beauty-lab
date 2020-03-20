@@ -1,13 +1,45 @@
+@font-face{
+    font-family: suissnordregular;
+    src : url('../fonts/suissnord-webfont.woff')
+}
+
+@font-face{
+    font-family: advent_promedium;
+    src : url('../fonts/adventpro-medium-webfont.woff')
+}
+
+@font-face{
+    font-family: bioliquidregular;
+    src : url('../fonts/bioliquid-regular-webfont.woff')
+}
+
 body{
     background: rgb(3,99,193);
     background: linear-gradient(180deg,
     rgb(240, 33, 226) 50%,
     rgb(166, 0, 255) 72%,
-    rgb(48, 121, 247) 100%);
+    rgb(48, 121, 247) 100%)
+    fixed;
+    background-size: 100%;
 }
 
+.titles{
+    font-family: 'suissnordregular';
+}
+
+.subtitles{
+    font-family: 'advent_promedium';
+}
 
 .slidee{
     width: 600px !important;
     height: 400px !important;
 }
+
+ul li{
+  list-style: none;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
