@@ -30,6 +30,16 @@ export class PostComponent implements OnInit {
     public popoverController: PopoverController,
     private modalCtrl: ModalController ) { }
 ngOnInit() {
+  this.cards.forEach((e) => {
+    e.isCom = false;
+    e.comment = '';
+    e.liked = false;
+    e.likes.forEach(like => {
+      if (like.id_usuario === this.hero.getUser().id) {
+        e.liked = true;
+      }
+    });
+  });
   }
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({

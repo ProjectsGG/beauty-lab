@@ -53,10 +53,10 @@
                             <ion-col size="12" class=no-padding>
                                 <div>
                                     <ion-item class="line-up">
-                                        <ion-input placeholder="Add Comment" [(ngModel)]="this.cards[i].comment">
+                                        <ion-input *ngIf="this.cards[i].isCom" placeholder="Add Comment" [(ngModel)]="this.cards[i].comment">
                                         </ion-input>
-  
-                                        <ion-button fill="clear" expand="full">
+                                        <ion-spinner *ngIf="!this.cards[i].isCom" ></ion-spinner>
+                                        <ion-button *ngIf="this.cards[i].isCom" fill="clear" expand="full">
                                             <ion-text color="primary-bl" slot="end" (click)="comment(i)">Comment
                                             </ion-text>
                                         </ion-button>
