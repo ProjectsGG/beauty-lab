@@ -29,6 +29,11 @@ export class HomeadminPage implements OnInit {
       redirectTo: '/admreservas'
     },
     {
+      icon: 'wallet',
+      name: 'Medics',
+      redirectTo: '/homemedic'
+    },
+    {
       icon: 'home',
       name: 'BeautyLab',
       redirectTo: '/tabs/home'
