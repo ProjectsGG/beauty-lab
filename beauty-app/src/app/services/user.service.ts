@@ -119,4 +119,10 @@ export class UserService {
       catchError(this.handleError)
     );
   }
+  deleteImgProfile() {
+    return this.http.get(this.hero.getUrl() + '/delete-photo').pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
 }

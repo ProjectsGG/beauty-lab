@@ -53,7 +53,7 @@ export class NewPostPage implements OnInit {
       this.toast.error('You cannot upload more than two photos');
     } else {
       const options: CameraOptions = {
-        quality: 25,
+        quality: 50,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE,
@@ -76,7 +76,7 @@ export class NewPostPage implements OnInit {
       const cameraOptions = {
         sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
         destinationType: this.camera.DestinationType.DATA_URL,
-        quality: 25,
+        quality: 50,
         targetWidth: 1000,
         targetHeight: 1000,
         encodingType: this.camera.EncodingType.JPEG,

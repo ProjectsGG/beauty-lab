@@ -54,24 +54,31 @@ export class ProfilePage implements OnInit {
           }
         },
         {
+          text: 'Delete',
+          icon: 'trash',
+          handler: () => {
+            this.deleteImgProfile();
+          }
+        },
+        {
           text: 'Cancel',
           icon: 'close',
           role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
+          handler: () => {}
         }
       ]
     });
     await actionSheet.present();
   }
-
   takePhoto() {
     const options: CameraOptions = {
-      quality: 25,
+      quality: 50,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true,
+      saveToPhotoAlbum: true,
+      cameraDirection: this.camera.Direction.FRONT
     };
     this.camera.getPicture(options).then(
       imageData => {
@@ -82,18 +89,16 @@ export class ProfilePage implements OnInit {
         this.service.setImgProfile(this.imgSrc).subscribe((r: any) => {
           if (r.ok) {
             this.toastr.success(r.message);
-            this.hero.setUser(r.user);
-            localStorage.setItem('user', JSON.stringify(r.user));
-            this.loading = false;
+            this.hero.updateDataUser();
           } else {
             this.toastr.error(r.error);
-            this.loading = false;
           }
+          this.loading = false;
         });
-        // let base64Image = 'data:image/jpeg;base64,' + imageData;
       },
       err => {
-        // Handle error
+        this.toastr.error(err);
+        this.loading = false;
       }
     );
   }
@@ -101,7 +106,7 @@ export class ProfilePage implements OnInit {
     const cameraOptions = {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.DATA_URL,
-      quality: 25,
+      quality: 50,
       targetWidth: 1000,
       targetHeight: 1000,
       encodingType: this.camera.EncodingType.JPEG,
@@ -109,25 +114,32 @@ export class ProfilePage implements OnInit {
       correctOrientation: true
     };
 
-    this.camera.getPicture(cameraOptions)
-      .then(imageData => {
+    this.camera.getPicture(cameraOptions).then(
+      imageData => {
+        this.loading = true;
         this.imgSrc = 'data:image/jpeg;base64,' + imageData;
         this.service.setImgProfile(this.imgSrc).subscribe((r: any) => {
           if (r.ok) {
             this.toastr.success(r.message);
-            this.hero.setUser(r.user);
-            localStorage.setItem('user', JSON.stringify(r.user));
+            this.hero.updateDataUser();
           } else {
             this.toastr.error(r.error);
           }
-        });
+          this.loading = false;
+      });
       },
-      err => console.log(err));
+      err => console.log(err)
+    );
   }
   getPosts() {
     this.blog.blogUser(this.hero.getUser().id).subscribe((r: any) => {
-      console.log(r);
       this.posts = r.data;
+    });
+  }
+  deleteImgProfile() {
+    this.service.deleteImgProfile().subscribe((r: any) => {
+      this.hero.updateDataUser();
+      console.log(r);
     });
   }
 }
