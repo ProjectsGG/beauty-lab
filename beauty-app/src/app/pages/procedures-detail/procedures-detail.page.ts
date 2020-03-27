@@ -34,7 +34,6 @@ export class ProceduresDetailPage implements OnInit {
     private router: Router,
     private navCtrl: NavController
   ) {}
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -46,6 +45,15 @@ export class ProceduresDetailPage implements OnInit {
     this.getProcedure();
     this.styleCalendar();
   }
+  async onPress(imagen) {
+    const modal = await this.modalCtrl.create({
+       component: ModalSpypPage,
+       componentProps: {
+        imagenes: imagen
+     }
+      });
+    await modal.present();
+    }
   getProcedure() {
     this.procedures = JSON.parse(localStorage.getItem('procedures'));
     this.hero.dataPurchase = {
