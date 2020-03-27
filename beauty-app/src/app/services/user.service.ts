@@ -120,7 +120,13 @@ export class UserService {
     );
   }
   deleteImgProfile() {
-    return this.http.get(this.hero.getUrl() + '/delete-photo').pipe(
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
+      })
+    };
+    return this.http.get(this.hero.getUrl() + '/delete-photo', httpOptions).pipe(
       retry(2),
       catchError(this.handleError)
     );

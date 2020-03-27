@@ -139,7 +139,11 @@ export class ProfilePage implements OnInit {
   deleteImgProfile() {
     this.service.deleteImgProfile().subscribe((r: any) => {
       this.hero.updateDataUser();
-      console.log(r);
+      if (r.ok) {
+        this.toastr.success('Photo deleted');
+      } else {
+        this.toastr.error('An error has occurred');
+      }
     });
   }
 }
