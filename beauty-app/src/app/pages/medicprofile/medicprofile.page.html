@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Beauty Lab Medic Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <ion-grid>
+    <ion-row>
+        <ion-col size='1' size-sm='1' size-md='4' size-lg='4'></ion-col>
+        <ion-col size='12' size-sm='12' size-md='4' size-lg='4'>
+          <ion-row>
+            <ion-col *ngFor="let data of medicdata" [size]="data.size">
+              <ion-item> 
+              <ion-label class="label-txt">
+                {{data.title}}
+              </ion-label>
+              <ion-text> {{data.value}}</ion-text>
+            </ion-item>
+          </ion-col>
+          </ion-row>
+          <ion-row>
+          <ion-col size="2" size-lg="2" size-md="2"></ion-col>
+          <ion-col size="8" size-lg="8" size-md="8">
+            <img src="../../../assets/img/horizontal_logo.png" alt="" class="img-medic">
+          </ion-col>
+          <ion-col size="2" size-lg="2" size-md="8"></ion-col>
+        </ion-row>
+        </ion-col>
+        <ion-col size='1' size-sm='1' size-md='4' size-lg='4'></ion-col>
+    </ion-row>
+</ion-grid>  
+</ion-content>

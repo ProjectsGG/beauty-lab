@@ -1,0 +1,72 @@
+<ion-grid>
+    <ion-row>
+        <ion-col class="no-padding" *ngFor="let post of cards; index as i;" size="12">
+            <ion-card class="card-social">
+                <ion-card-header class="padding-fix">
+                    <ion-grid class="height-fix">
+                        <ion-row>
+                            <ion-col size="2" class="no-padding">
+                                <ion-avatar class="avatar-social">
+                                    <img (click)="viewProfile(post.user.id)" src="{{hero.getDomain()}}/file/profile/{{post.user.img_perfil}}">
+                                </ion-avatar>
+                            </ion-col>
+  
+                            <ion-col size="9" class="no-padding">
+                                <h2 class="social-name" (click)="viewProfile(post.user.id)">{{post.user.nombres}}</h2>
+  
+                                <h5 class="postage">Posted {{post.fecha}}</h5>
+                            </ion-col>
+  
+                            <ion-col size="1" class="no-padding">
+                                <ion-icon (click)="presentPopover($event)" class="icon-more" name="md-more">
+                                </ion-icon>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-header>
+  
+                <ion-card-content class="padding-fix">
+                    <ion-grid class="padding-fix">
+                        <ion-row>
+                            <ion-slides *ngIf="post.images.length > 1" pager="true" [options]="slideOpts">
+                                <ion-slide style="height: 100%; width: 100%; object-fit: contain" *ngFor="let image of post.images">
+                                    <img [src]="hero.getDomain()+'/file/blog/'+image.imagen">
+                                </ion-slide>
+                            </ion-slides>
+                            <img *ngIf="post.images.length === 1"
+                                [src]="hero.getDomain()+'/file/blog/'+post.images[0].imagen">
+                            <ion-col class="no-padding" size="2">
+                                <img (click)="likeFocus(i)" class="likeicon" src="/assets/icon/like.svg"
+                                    *ngIf="!post.liked">
+                                <img (click)="likeFocus(i)" class="likeicon" src="/assets/icon/likeFocus.svg"
+                                    *ngIf="post.liked">
+                                <br>
+                                <h1 routerLink="/modal-likes/{{post.id}}" class="likes ion-text-center">{{post.likes_count}}</h1>
+                            </ion-col>
+                            <ion-col class="no-padding" size="10">
+                                <ion-textarea class="textarea no-margin" autoGrow="true" readonly [(ngModel)]="post.descripcion"></ion-textarea>
+                            </ion-col>
+                            <ion-col *ngIf="post.comments.length > 0" size="12" class="box-comm">
+                                <p *ngFor="let comm of post.comments"> <b>{{comm.user.nombres}}</b>
+                                    {{comm.comentario}}</p>
+                            </ion-col>
+                            <ion-col size="12" class=no-padding>
+                                <div>
+                                    <ion-item class="line-up">
+                                        <ion-input *ngIf="!this.cards[i].isCom" placeholder="Add Comment" [(ngModel)]="this.cards[i].comment">
+                                        </ion-input>
+                                        <ion-spinner name="dots" class="center" color="primary-bl" *ngIf="this.cards[i].isCom" ></ion-spinner>
+                                        <ion-button *ngIf="!this.cards[i].isCom" fill="clear" expand="full">
+                                            <ion-text color="primary-bl" slot="end" (click)="comment(i)">Comment
+                                            </ion-text>
+                                        </ion-button>
+                                    </ion-item>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+  </ion-grid>

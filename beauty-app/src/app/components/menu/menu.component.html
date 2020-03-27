@@ -1,0 +1,49 @@
+<ion-menu side="start" menuId="first" contentId="main" color="light">
+  <ion-content>
+    <div class="user-info">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="content-user" size="12">
+            <ion-menu-toggle>
+            <ion-avatar class="center" routerLink="/profile">
+              <img [src]="hero.getUser().img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain() + '/file/profile/' + hero.getUser().img_perfil" class="img-profile">
+            </ion-avatar>
+          </ion-menu-toggle>
+            <h4 class="margins">{{hero.getUser().nombres}} </h4>
+            <h6 class="margins link">https://beautylab.com.co</h6>
+            <p class="bl-points">
+              B L P o i n t s <br>
+              {{hero.getUser().bl_points}}
+             </p>
+            <img (click)="redirect()" class="center bl-logo" src="assets/logoBL/whiteLogoV.png" alt="">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ion-list lines="none">
+<!--       <ion-menu-toggle> 
+        <ion-item routerLink="/inicio">
+        <ion-icon slot="start" name="arrow-dropright"></ion-icon>
+        <ion-label class="font">Start</ion-label>
+        </ion-item> 
+      </ion-menu-toggle> -->
+      <ion-menu-toggle *ngFor="let c of componentes | async"> 
+        <ion-item [routerLink]="c.redirectTo">
+        <ion-icon slot="start" [name]="c.icon"></ion-icon>
+        <ion-label class="font">{{c.name}}</ion-label>
+        </ion-item> 
+      </ion-menu-toggle>
+    </ion-list>
+    <hr>
+    <div class="settings">
+      <ion-list lines="none">
+        <ion-menu-toggle> 
+          <ion-item lines="none" (click)="logout()" >
+          <ion-icon slot="start" name="log-out"></ion-icon>
+          <ion-label class="font">L o g o u t</ion-label>
+          </ion-item> 
+        </ion-menu-toggle>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-menu>

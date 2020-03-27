@@ -1,0 +1,52 @@
+<div *ngIf="loading" class="mar-top loading center">
+  <div class="ldio-0crlo2y4m0zh">
+      <div></div>
+      <div></div>
+  </div>
+</div>
+<ion-card *ngIf="!loading" color="light">
+  <div *ngIf="picPhotos">
+    <ion-card-content class="ion-text-center">
+      <ion-icon [name]="upCamera.icon" (click)="photoPic()" class="icon-camera color"></ion-icon>
+      <p class="color" (click)="photoPic()">{{upCamera.text}}</p>
+    </ion-card-content>
+    <ion-grid class="grid-photos">
+      <ion-row>
+        <ion-col class="padding-img" *ngFor="let item of img.images" size="6" size-md="4" size-lg="4">
+          <img src="{{item}}" alt="">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="!picPhotos">
+    <ion-card-content class="ion-text-center">
+      <h3 class="text-desc">These images are only visible by the doctor</h3>
+      <ion-grid class="grid-photos">
+        <ion-row>
+          <ion-col class="padding-img" size="12">
+            <ion-slides pager="true" [options]="slideOpts">
+              <ion-slide *ngFor="let item of img.images">
+                <img [src]="hero.getDomain() + '/file/zone/' + item.imagen" alt="">
+              </ion-slide>
+            </ion-slides>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </div>
+</ion-card>
+
+
+<!-- This data is for the posts -->
+
+
+<!-- <ion-card color="light" *ngFor="let item of posts" >
+  <img src="./../../../assets/img/{{item.image}}" />
+  <ion-card-header>
+    <ion-card-subtitle>{{item.date}}</ion-card-subtitle>
+    <ion-card-title>{{item.title}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    {{item.text}}
+  </ion-card-content>
+</ion-card> -->

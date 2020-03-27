@@ -1,0 +1,27 @@
+<app-header titulo="BeautyLab Procedures"></app-header>
+
+<ion-content>
+    <ion-content class="ion-padding">
+        <ion-grid fixed>
+            <ion-row>
+                <ion-col size="12" size-lg="3" size-md="4" size-xl="3"></ion-col>
+                <ion-col size="12" size-lg="6" size-md="4" size-xl="6">
+                    <ion-text color="light">
+                        <h1 class="ion-text-center home">P R O C E D U R E S</h1>
+                        <h3 class="ion-text-center textCss">These are Our Procedures, <br> Specially for You</h3>
+                      </ion-text>
+                </ion-col>
+                <ion-col size="12" size-lg="3" size-md="4" size-xl="3"></ion-col>
+            </ion-row>
+        </ion-grid>
+    
+    <ion-grid fixed>
+        <ion-row *ngIf="procedures">
+            <ion-col size="6" size-lg="4" size-md="4" size-xl="4" *ngFor="let data of procedures" (click)="getDetail(data)">
+                <img [src]="hero.getDomain()+'/file/procedures/'+data.imagen" class="procedures">
+                <ion-text color="light" ><h4 class="ion-text-center txtProc">{{data.nombre}}</h4></ion-text>
+            </ion-col>  
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

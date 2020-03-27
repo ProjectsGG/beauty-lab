@@ -1,0 +1,46 @@
+h1.home{
+    font-family: 'suissnordregular';
+    size: 50px;
+}
+
+ion-content{ 
+    --background: #6a1d8a url('../../../assets/img/background3.png') no-repeat center center / cover !important;
+     }  
+
+.img-home{
+    width: 65%;
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-home{
+    display: block;
+    margin: 0 auto;
+    border-color: #fff;
+}
+
+ion-button{
+    --border-color:#fff;
+}
+
+ion-text.text-home{
+    display: block;
+    margin: 0 auto;
+    size: 10px;
+}
+.space{
+    padding-bottom: 3em;
+    margin-bottom: 2.5em;
+}
+
+.redes{
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+}
+
+ion-col.centerObj{
+display: flex;
+justify-content: center;
+}

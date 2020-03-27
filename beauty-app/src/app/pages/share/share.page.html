@@ -1,0 +1,14 @@
+<app-header titulo="BeautyLab Share"></app-header>
+
+<ion-content>
+  <ion-label class="ion-text-center" color="light">Your Image</ion-label>
+  <br><hr>
+  <img [src]="currentImage" *ngIf="currentImage" alt="">
+  <br>
+  <ion-button expand="full" (click)="loadimage()" color="secondary">Load your Image</ion-button>
+  <ion-button expand="full" (click)="shareimage()" color="danger"><ion-icon name="logo-instagram" size="large"></ion-icon> Share on Instagram  
+  </ion-button>
+  <ion-button expand="full" (click)="shareFacebook()" color="primary"><ion-icon name="logo-facebook" size="large"></ion-icon> Share on Facebook </ion-button>
+  <ion-button expand="full" (click)="shareTwitter()"><ion-icon name="logo-twitter" size="large"></ion-icon> Share on Twitter </ion-button>
+  <ion-button expand="full" (click)="shareWhatsapp()" color="success"><ion-icon name="logo-whatsapp" size="large"></ion-icon> Share on Whatsapp </ion-button>
+</ion-content>

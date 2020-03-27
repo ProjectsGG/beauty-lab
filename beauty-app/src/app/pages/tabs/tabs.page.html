@@ -1,0 +1,23 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" (click)="setValue(1)">
+      <ion-icon name="home"></ion-icon>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="shop" (click)="setValue(1)">
+      <ion-icon ios="ios-basket" md="md-basket"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="social" (click)="setValue(1)">
+      <ion-icon name="globe"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="make-body" (click)="setValue(2)">
+      <img class="tab-logo" src="assets/logo/Gray Logo Bl.png" *ngIf="!iconSocial">
+      <img class="tab-logo" src="assets/logo/Focus Beautylab icon.png" *ngIf="iconSocial">
+    </ion-tab-button>
+    <ion-tab-button tab="car-shop" (click)="setValue(1)">
+      <ion-icon name="cart"></ion-icon>
+      <ion-badge *ngIf="hero.shoppingcart.length > 0" color="danger">{{hero.shoppingcart.length}}</ion-badge>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+ 

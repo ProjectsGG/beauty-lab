@@ -1,0 +1,96 @@
+.slider-slides{
+        display: flex;
+        flex-direction: row;
+   }
+.loader{
+        margin-top: 0;
+        color: aliceblue;
+        font-family: unset;
+        font-size: 18px;
+}
+.mar-top{
+        margin-top: 3.5rem !important;
+}
+.center{
+        display: flex;
+        margin: 0 auto;
+}
+.box-comm{
+        border-top: #ececec 1px solid;
+}
+.icon-c-g{
+        color: aliceblue;
+        font-size: 25px;
+}
+.button-opt{
+        width: 88%;
+        height: 45px;
+}
+ion-card{
+        border-radius: 0;
+}
+.padding-fix{
+        padding: 0;
+}
+.height-fix{
+        height: 65px;
+
+}
+.img-post{
+        width: 550px;
+        height: 350px;
+}
+.card-social{
+        --background:white;
+        margin-inline-end: -10px;
+        margin-inline-start: -10px;
+}
+.social-name{ 
+        position: relative;
+        bottom: 20px;
+        color:#292929;
+        font-size: 20px;
+}
+
+.postage{
+        color: darkgray;
+        position: relative;
+        bottom: 36px;
+        font-size: 12px;
+}
+.icon-more{
+        width: 28px;
+        height: 28px;
+        position: relative;
+        top: 8px;
+        right: 5px;
+}
+.tinytext{
+        font-size: 15px;
+}
+.likeicon{
+        width: 3em;
+        height: 3em;
+        display: flex;
+        margin: 0 auto;
+        padding-right: 6px;
+      
+}
+.line-right{
+        border-right:#DADADA 1px solid;
+}
+.line-up{
+        border-top: #DADADA 1px solid;
+}
+.avatar-social{
+        width: 45px;
+        height: 45px;
+}
+.likes{
+        position: relative;
+        font-size: 16px;
+        bottom: 25px;
+}
+.button-comment{
+        background-color: transparent;;
+}

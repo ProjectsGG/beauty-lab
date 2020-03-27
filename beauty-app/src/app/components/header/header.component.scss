@@ -1,0 +1,17 @@
+
+
+.img-header{
+    width: 50% !important;
+}
+
+
+@media (min-width: 1200px) {
+    .img-header{
+        width: 10% !important;
+        margin-left: 4rem;
+    }
+
+    .img-profile{
+        width: auto !important;
+    }
+}

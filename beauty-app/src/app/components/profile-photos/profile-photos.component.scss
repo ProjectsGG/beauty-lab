@@ -1,0 +1,122 @@
+// Message
+.center{
+  display: flex;
+  margin: 0 auto;
+}
+.ajust{
+  padding-top: 2rem;
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+.recom{
+  padding-top: 4rem;
+  color: aliceblue;
+  text-align: center;
+  font-size: 30px;
+}
+.visit-site{
+  padding-top: 1rem;
+  color: aliceblue;
+  text-align: center;
+  font-size: 20px;
+}
+.grid-photos{
+    background: aliceblue;
+}
+.padding-img{
+    padding:0.1rem;
+}
+
+h2, span{
+    color: aliceblue;
+}
+h2 {
+    font-weight: 600;
+}
+span {
+    font-weight: 100;
+}
+
+
+// Timeline
+//Text Styles 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+$font-sans: 'Open Sans', sans-serif;
+
+//Colors
+$black: aliceblue;
+$white: #ffffff;
+
+body {
+  font-family: $font-sans;
+  margin: 0;
+  padding: 0 4em;
+}
+
+main {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.75em;
+  border-top: 3px solid;
+  border-image: linear-gradient(to right, aliceblue 0%, #d53a9d 100%);
+  border-image-slice: 1;
+  border-width: 3px;
+  margin: 0;
+  padding: 40px;
+  counter-increment: section;
+  position: relative;
+  color: $black;
+  
+  //numbers
+  &:before {
+    content: counter(section);
+    position: absolute;
+    border-radius: 50%;
+    padding: 10px;
+    height: 1.25em;
+    width: 1.25em;
+    background-color: $black;
+    text-align: center;
+    line-height: 1.25em;
+    color: $white;
+    font-size: 1em;
+  }
+}
+//odd number borders
+p:nth-child(odd) {
+  border-right: 3px solid;
+  padding-left: 0;
+  
+  &:before {
+    left: 100%; 
+    margin-left: -20px;
+    background: aliceblue;
+    color: #f603d8e6;
+  }
+}
+//even number borders
+p:nth-child(even) {
+  border-left: 3px solid;
+  padding-right: 0;
+  
+  &:before {
+    right: 100%; 
+    margin-right: -20px;
+    background: #f603d8e6;
+    color: aliceblue;
+  }
+}
+//handle first and last
+p:first-child {
+  border-top: 0;
+  border-top-right-radius:0;
+  border-top-left-radius:0;
+}
+p:last-child {
+  border-bottom-right-radius:0;
+  border-bottom-left-radius:0;
+}

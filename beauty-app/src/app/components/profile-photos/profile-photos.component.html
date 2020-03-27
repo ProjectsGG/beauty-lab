@@ -1,0 +1,28 @@
+<div *ngIf="view === 1" >
+  <ion-segment (ionChange)="segmentChanged($event)" color="light" scrollable value="{{value}}">
+    <ion-segment-button *ngFor="let item of data ; let i = index; " value="{{i}}">
+      <span *ngIf="item.plan !== null">{{item.plan.nombre}}</span>
+      <span *ngIf="item.procedure !== null">{{item.procedure.nombre}}</span>
+    </ion-segment-button>
+  </ion-segment>
+  <main>
+    <p *ngFor="let item of history" >
+      <b>{{item.titulo}}</b> <br>
+      <b>{{item.fecha}} / {{item.hora}}</b> <br>
+      {{item.descripcion}}
+    </p>
+  </main>
+</div>
+<div *ngIf="view === 2" >
+  <div class="recom">
+    You haven't purchased any plans yet
+  </div>
+  <div class="visit-site">
+    Visit our plans section
+  </div>
+  <div class="ajust">
+    <ion-button routerLink="/plans" class="center" color="primary-bl">
+      View Plans
+    </ion-button>
+  </div>
+</div>

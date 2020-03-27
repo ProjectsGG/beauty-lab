@@ -1,0 +1,96 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button slot="start"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
+      <ion-col *ngIf="finish" size="12" size-sm="12" size-md="6" size-lg="4">
+        <app-purchase-success></app-purchase-success>
+      </ion-col>
+      <ion-col *ngIf="!finish" size="12" size-sm="12" size-md="6" size-lg="4">
+        <div>
+          <img class="img-logo" src="assets/logoBL/whiteLogoH.png" alt="">
+              <img *ngFor="let item of hero.dataPurchase.plans" class="img-depos" src="assets/img/pyp/{{item.img_plan}}" alt="" srcset="">
+              <img *ngFor="let item of hero.dataPurchase.procedures" class="img-depos" src="assets/img/pyp/{{item.imagen}}" alt="" srcset="">
+            </div>   
+        <ion-grid fixed *ngIf="hero.dataPurchase.plans.length > 0">
+          <ion-row *ngFor="let item of hero.dataPurchase.plans">
+            <ion-col>
+            <h5 class="ion-text-center"color="light"> Plan Selected </h5>
+          </ion-col>
+            <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
+              <ion-item (click)="planAc  = !planAc ">
+                <img slot="start" src="./../../../assets/icon/surgeryIco.svg">
+                <ion-title size="undefined">{{item.nombre}}</ion-title>
+                <ion-icon slot="end" name="arrow-dropup" *ngIf="planAc"> </ion-icon>
+                <ion-icon slot="end" name="arrow-dropdown" *ngIf="!planAc"></ion-icon>
+              </ion-item>
+            </ion-col>
+            <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
+              <ion-item *ngIf="planAc"> 
+                <h2 class="txtdescription">{{item.descripcion}}</h2>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid fixed *ngIf="hero.dataPurchase.procedures.length > 0">
+          <h5 class="ion-text-center"> Procedure Selected </h5>
+          <ion-row *ngFor="let item of hero.dataPurchase.procedures">
+            <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
+              <ion-item (click)="procAc = !procAc ">
+                <img slot="start" src="./../../../assets/icon/surgeryIco.svg">
+                <ion-title size="undefined">{{item.nombre}}</ion-title>
+                <ion-icon slot="end" name="arrow-dropup"  *ngIf="procAc" ></ion-icon>
+                <ion-icon slot="end" name="arrow-dropdown" *ngIf="!procAc"></ion-icon>
+              </ion-item> 
+              <ion-item *ngIf="procAc">
+                <h2 class="txtdescription">{{item.descripcion}}</h2>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid fixed *ngIf="hero.dataPurchase.room !== null">
+          <ion-row class="space-items">
+            <ion-col>
+            <h5 class="ion-text-center"> Room Selected </h5>
+          </ion-col>
+            <ion-col class="nopadding" size="12" size-lg="12" size-md="12" size-xl="12">
+              <ion-item (click)="roomAc = !roomAc ">
+                <img slot="start" src="./../../../assets/icon/roomIco.svg">
+                <ion-title size="undefined">{{hero.dataPurchase.room.nombre}}</ion-title>
+                <ion-icon slot="end" name="arrow-dropup"  *ngIf="roomAc" ></ion-icon>
+                <ion-icon slot="end" name="arrow-dropdown" *ngIf="!roomAc"></ion-icon>
+              </ion-item> 
+              <ion-item *ngIf="roomAc">
+                <h2 class="txtdescription">{{hero.dataPurchase.room.comodidades}}</h2>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <h3 class="ion-text-center" style="padding-top: 2rem;">$500 USD</h3>
+        <ion-button expand="block" class="button-pay" (click)="upPayment()">Make Deposit</ion-button>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button color="medium" expand="block" (click)="cancel()">Cancel <ion-icon class="ion-float-right" name="close"></ion-icon>
+            </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button (click)="addCar()" color="primary-bl" expand="block">Add to car <ion-icon class="ion-float-right" name="cart"></ion-icon>
+              </ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <h6 class="steps" (click)="backStep()">Back</h6>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

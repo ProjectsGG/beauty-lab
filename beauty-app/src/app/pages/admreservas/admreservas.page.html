@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>List of Reservations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+<ion-list>
+  <ion-list-header>
+    Reservations
+  </ion-list-header>
+
+  <ion-item *ngFor="let data of reservations" >
+    <ion-avatar slot="start">
+      <img src="{{hero.getDomain()}}/file/profile/{{data.img_perfil}}">
+    </ion-avatar>
+    <ion-label>
+      <h2>{{data.nombres + " " + data.apellidos}}</h2>
+      <h3 *ngIf="data.plan" >Plan: {{data.plan}}</h3>
+      <h3 *ngIf="data.procedimiento" >Procedure: {{data.procedimiento}}</h3>
+      <p>Date: {{data.fecha_reserva | date:"dd-MM-yyyy" }}</p>
+      <ion-button color="dark">Details</ion-button>
+    </ion-label>
+  </ion-item>
+
+</ion-list>
+
+
+</ion-content>
