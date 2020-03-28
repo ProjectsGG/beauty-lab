@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/admreservas"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Reservations Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+<ion-list>
+  <ion-list-header>
+    Detail Reservations
+  </ion-list-header>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="{{hero.getDomain()}}/file/profile/{{reservation.img_perfil}}">
+    </ion-avatar>
+    <ion-label>
+      <h2>{{reservation.nombres + " " + reservation.apellidos}}</h2>
+      <h3 *ngIf="reservation.plan" >Plan: {{reservation.plan}}</h3>
+      <h3 *ngIf="reservation.procedimiento" >Procedure: {{reservation.procedimiento}}</h3>
+      <h3>Date: {{reservation.fecha_reserva | date:"dd-MM-yyyy" }}</h3> 
+      <h3>Start Date: {{reservation.fecha_inicio | date:"dd-MM-yyyy" }}</h3> 
+      <h3>End Date: {{reservation.fecha_fin | date:"dd-MM-yyyy" }}</h3>
+    </ion-label>
+  </ion-item>
+
+  <ion-list-header>
+    Professional
+  </ion-list-header>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="{{hero.getDomain()}}/file/profile/{{reservation.img_perfil}}">
+    </ion-avatar>
+    <ion-label>
+      <h2>Doctor Carlos Ramos</h2>
+      <h3>Consultorio: El tesoro</h3>
+      <h3>Profesional de la Universidad EAFIT</h3>
+      <h3>Especialiasta en Cirujia plastica</h3>
+    </ion-label>
+  </ion-item>  
+
+</ion-list>
+
+
+</ion-content>
