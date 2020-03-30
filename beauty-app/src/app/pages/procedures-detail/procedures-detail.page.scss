@@ -42,8 +42,16 @@ h1.title{
     font-family: 'bioliquidregular';
     font-size: 15px;
     color: aliceblue;
+    text-align: justify;
 }
-
+.title-procedure{
+    color: aliceblue;
+    font-family:'bioliquidregular'; 
+    font-size:20px;
+    display: table;
+    margin: auto;
+    margin-bottom: 7px;
+}
 .img-header{
     width: 50% !important;
 }
