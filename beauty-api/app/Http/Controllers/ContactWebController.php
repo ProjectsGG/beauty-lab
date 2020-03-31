@@ -13,7 +13,7 @@ class ContactWebController extends Controller
      */
     public function index()
     {
-        return view('Contact');
+        return view('contact');
     }
 
     /**

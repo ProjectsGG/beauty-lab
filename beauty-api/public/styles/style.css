@@ -31,10 +31,6 @@ body{
 .fli{
     height: 600px !important;
     text-align: center;
-    margin-left: 10em;
-}
-
-iframe{
     margin: 0 auto;
 }
 .subtitles{

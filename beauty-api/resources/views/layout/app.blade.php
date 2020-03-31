@@ -86,29 +86,7 @@
                 @yield('content')
 
     <!-- END: Content-->
-    <hr class="bg-light"><br><br><br>
-      <footer>
-            <div class="container-fluid sticky-bottom bg-dark">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-4 col-xl-4">
-                        <h2 class="text-light text-center titles">Beauty Lab</h2>}
-                        <h3 class="text-center text-light subtitles">Medellin - Colombia</h3>
-                        <h3 class="text-center text-light subtitles">2020 All rights reserved</h3>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-xl-4">
-                        <h2 class="text-light titles text-center">Follow Us</h2>
-                        <h3 class="text-center text-light subtitles">Instagram</h3>
-                        <h3 class="text-center text-light subtitles">Facebook</h3>
-                        <h3 class="text-center text-light subtitles">Youtube</h3>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-xl-4">
-                        <h2 class="text-light titles text-center">About Us</h2>
-                        <h3 class="text-center text-light subtitles">The best place to find your perfect plastic surgery</h3>
 
-                    </div>
-                </div>
-            </div>
-      </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
