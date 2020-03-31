@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('delete-photo', 'UserController@deletePhoto');
     //  Blog
     Route::resource('blog', 'BlogController');
+    Route::get('blog/posts/{option}/{id?}', 'BlogController@index');
     Route::get('blog/user/{id}', 'BlogController@getForUser');
     // Hiatory
 

@@ -18,10 +18,21 @@ class BlogController extends Controller
     {
         $this->user = JWTAuth::parseToken()->authenticate();
     }
-    public function index()
+    public function index($option, $id = "null")
     {
+        if ($option == 1) {
+            $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->take(5)->get();
+        } else if ($option == 2) {
+            dd($option." ".$id);
+        }else if ($option == 3) {
+            dd($option." ".$id);
+        }
+
+        return response()->json([
+            'blogs' => $blogs
+        ]);
         $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->get();
-        
+
         return response()->json([
             'ok' => true,
             'data' => $blogs
@@ -63,7 +74,7 @@ class BlogController extends Controller
             return response()->json([
                 'ok' => true,
                 'message' => 'disliked'
-            ]); 
+            ]);
         }
     }
     public function likes($id)
@@ -86,21 +97,21 @@ class BlogController extends Controller
             $blog = Blog::create($input);
             if (isset($input['photos'])) {
                 foreach ($input['photos'] as $key => $value) {
-    
+
                     $img = $this->getB64Image($value);
                     $img_extension = $this->getB64Extension($value);
-        
+
                     $img_name = $this->user->id . '-user-image-'. $key . time() . '.' . $img_extension;
-        
+
                     Storage::disk('blog')->put($img_name, $img);
-        
+
                     $images = new imagesXblog();
                     $images->id_blog = $blog->id;
                     $images->imagen = $img_name;
                     $images->save();
                 }
             }
-            
+
             $this->user->update([
                 'bl_points' => $this->user->bl_points + 5,
             ]);
@@ -108,7 +119,7 @@ class BlogController extends Controller
                 'ok' => true,
                 'message' => 'Post upload succesfully',
                 'bl_points' => 5
-            ]);   
+            ]);
         } catch (\Throwable $th) {
             return response()->json([
                 'ok' => false,
@@ -119,9 +130,9 @@ class BlogController extends Controller
 
     public function getB64Image($base64_image)
     {
-        // Obtener el String base-64 de los datos         
+        // Obtener el String base-64 de los datos
         $image_service_str = substr($base64_image, strpos($base64_image, ",") + 1);
-        // Decodificar ese string y devolver los datos de la imagen        
+        // Decodificar ese string y devolver los datos de la imagen
         $image = base64_decode($image_service_str);
         // Retornamos el string decodificado
         return $image;
@@ -129,7 +140,7 @@ class BlogController extends Controller
     public function getB64Extension($base64_image, $full = null)
     {
         // Obtener mediante una expresión regular la extensión imagen y guardarla
-        // en la variable "img_extension"        
+        // en la variable "img_extension"
         preg_match("/^data:image\/(.*);base64/i", $base64_image, $img_extension);
         // Dependiendo si se pide la extensión completa o no retornar el arreglo con
         // los datos de la extensión en la posición 0 - 1

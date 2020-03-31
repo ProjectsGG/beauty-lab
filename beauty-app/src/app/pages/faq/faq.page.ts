@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroService } from '../../services/hero.service';
 
 
 
@@ -143,7 +144,7 @@ export class FaqPage implements OnInit {
   }
 ];
 
-  constructor() { }
+  constructor(public hero: HeroService) { }
 
   ngOnInit() {
   }
