@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | TestBeauty</title>
+    <script src="Build/UnityLoader.js"></script>
+
+    <style>
+      #unityContainer{
+        float:left;
+      }
+
+      #main{
+        float:right;
+      }
+
+      #main select{
+        width: 80%;
+      }
+    </style>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/html2.json");
+
+      function fl(value){
+        unityInstance.SendMessage("Main Camera","ctrl",value);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="unityContainer" style="width: 960px; height: 600px; margin: auto"></div>
+
+    <div id="main">
+      <select onchange="fl(this.value)">
+        <option value=""></option>
+        <option value="1">sphere</option>
+        <option value="2">cylinder</option>
+        <option value="3">All</option>
+        <option value="4">None</option>
+      </select>
+    </div>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HeroService } from '../../services/hero.service';
+import { ModalSroomPageModule } from './modal-sroom.module';
 import { ModalController } from '@ionic/angular';
 
 @Component({
