@@ -103,4 +103,7 @@ export class ProfileReviewBlogComponent implements OnInit {
       }
     });
   }
+  trash(i) {
+    this.img.images.splice(i, 1);
+  }
 }

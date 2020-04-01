@@ -7,7 +7,7 @@
                         <ion-row>
                             <ion-col size="2" class="no-padding">
                                 <ion-avatar class="avatar-social">
-                                    <img (click)="viewProfile(post.user.id)" src="{{hero.getDomain()}}/file/profile/{{post.user.img_perfil}}">
+                                    <img (click)="viewProfile(post.user.id)" [src]="post.user.img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain()+'/file/profile/'+post.user.img_perfil">
                                 </ion-avatar>
                             </ion-col>
   

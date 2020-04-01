@@ -22,8 +22,10 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('setImgProfile', 'UserController@updatePhoto');
     Route::get('img/zone', 'UserController@imagesZone');
     Route::get('user', 'UserController@getUser');
+    Route::get('delete-photo', 'UserController@deletePhoto');
     //  Blog
     Route::resource('blog', 'BlogController');
+    Route::get('blog/posts/{option}/{id?}', 'BlogController@index');
     Route::get('blog/user/{id}', 'BlogController@getForUser');
     // Hiatory
 

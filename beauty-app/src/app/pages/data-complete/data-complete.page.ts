@@ -21,6 +21,7 @@ export class DataCompletePage implements OnInit {
 
   update() {
     this.service.update(this.data, this.data.id);
+    this.hero.updateDataUser();
   }
 
 }
