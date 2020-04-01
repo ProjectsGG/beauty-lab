@@ -10,7 +10,6 @@
                                     <img (click)="viewProfile(post.user.id)" [src]="post.user.img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain()+'/file/profile/'+post.user.img_perfil">
                                 </ion-avatar>
                             </ion-col>
-  
                             <ion-col size="9" class="no-padding">
                                 <h2 class="social-name" (click)="viewProfile(post.user.id)">{{post.user.nombres}}</h2>
   
