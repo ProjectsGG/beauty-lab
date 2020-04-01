@@ -31,12 +31,11 @@ export class SocialPage implements OnInit {
 
   cards: any[];
   ngOnInit() {
-    this.getPosts();
+    this.getPosts(1);
   }
   doRefresh(event) {
-    this.getPosts();
     setTimeout(() => {
-      this.getPosts();
+      this.getPosts(3, this.cards[this.cards.length - 1]);
       event.target.complete();
     }, 2000);
   }
@@ -48,9 +47,9 @@ export class SocialPage implements OnInit {
     };
     this.router.navigate(['/new-post'], navigationExtras);
   }
-  getPosts() {
+  getPosts(opt, id = null) {
     this.toper = false;
-    this.service.getData().subscribe((r: any) => {
+    this.service.getData(opt, id).subscribe((r: any) => {
       this.cards = r.data;
       this.cards.forEach((e) => {
         e.comment = '';

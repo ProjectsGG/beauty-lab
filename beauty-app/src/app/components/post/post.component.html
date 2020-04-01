@@ -56,10 +56,12 @@
                                         <ion-input *ngIf="!this.cards[i].isCom" placeholder="Add Comment" [(ngModel)]="this.cards[i].comment">
                                         </ion-input>
                                         <ion-spinner name="dots" class="center" color="primary-bl" *ngIf="this.cards[i].isCom" ></ion-spinner>
-                                        <ion-button *ngIf="!this.cards[i].isCom" fill="clear" expand="full">
-                                            <ion-text color="primary-bl" slot="end" (click)="comment(i)">Comment
-                                            </ion-text>
-                                        </ion-button>
+                                        <ion-buttons  *ngIf="!this.cards[i].isCom" slot="end">
+                                            <ion-button (click)="comment(i)">
+                                                <ion-text color="primary-bl">Comment
+                                                </ion-text>
+                                            </ion-button>
+                                        </ion-buttons>
                                     </ion-item>
                                 </div>
                             </ion-col>

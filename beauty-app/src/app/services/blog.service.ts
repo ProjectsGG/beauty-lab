@@ -40,14 +40,19 @@ export class BlogService {
       catchError(this.handleError)
     );
   }
-  getData() {
+  getData(option, id = null) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'bearer ' + this.hero.getToken()
       })
     };
-    const url = this.hero.getUrl() + '/blog';
+    let url = '';
+    if (id !== null) {
+      url = this.hero.getUrl() + '/blog/posts/' + option + '/' + id;
+    } else {
+      url = this.hero.getUrl() + '/blog/posts/' + option;
+    }
     return this.http.get(url, httpOptions)
     .pipe(
       retry(2),

@@ -60,11 +60,15 @@ ngOnInit() {
       id_blog: this.cards[i].id,
       comentario: this.cards[i].comment,
     };
-    this.service.comment(data).subscribe((r: any) => {
+    if (data.comentario !== '') {
+      this.service.comment(data).subscribe((r: any) => {
+        this.cards[i].isCom = false;
+        this.cards[i].comment = '';
+        this.cards[i].comments.push(r.comment);
+      });
+    } else {
       this.cards[i].isCom = false;
-      this.cards[i].comment = '';
-      this.cards[i].comments.push(r.comment);
-    });
+    }
   }
   viewProfile(id) {
     console.log(id);

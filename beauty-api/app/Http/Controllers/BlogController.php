@@ -18,21 +18,20 @@ class BlogController extends Controller
     {
         $this->user = JWTAuth::parseToken()->authenticate();
     }
-    public function index($option, $id = "null")
+    public function index($option, $id = null)
     {
         if ($option == 1) {
-            $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->take(5)->get();
+            // Get normal posts
+            $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->take(3)->get();
         } else if ($option == 2) {
-            dd($option." ".$id);
+            // Charge posts
+            $idS = $id - 3;
+            $blogs = Blog::whereBetween('id', [$idS, ($id-1)])->orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->get();
         }else if ($option == 3) {
-            dd($option." ".$id);
+            // New posts
+            $idS = $id + 3;
+            $blogs = Blog::whereBetween('id', [($id+1) ,$idS ])->orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->get();
         }
-
-        return response()->json([
-            'blogs' => $blogs
-        ]);
-        $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->get();
-
         return response()->json([
             'ok' => true,
             'data' => $blogs
