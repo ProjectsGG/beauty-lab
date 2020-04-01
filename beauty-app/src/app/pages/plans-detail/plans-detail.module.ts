@@ -9,15 +9,22 @@ import { PlansDetailPageRoutingModule } from './plans-detail-routing.module';
 import { PlansDetailPage } from './plans-detail.page';
 import { ComponentsModule } from '../../components/components.module';
 import { CalendarModule} from 'ion2-calendar';
+import { ModalSpypPageModule } from '../modal-spyp/modal-spyp.module';
+import { ModalSpypPage } from '../modal-spyp/modal-spyp.page';
+
 
 @NgModule({
+  entryComponents: [
+    ModalSpypPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     PlansDetailPageRoutingModule,
     ComponentsModule,
-    CalendarModule
+    CalendarModule,
+    ModalSpypPageModule
   ],
   declarations: [PlansDetailPage]
 })

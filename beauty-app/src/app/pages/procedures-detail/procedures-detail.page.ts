@@ -13,16 +13,6 @@ import * as moment from 'moment';
   styleUrls: ['./procedures-detail.page.scss'],
 })
 export class ProceduresDetailPage implements OnInit {
-  date: any;
-  type: 'string';
-  data: any;
-  public procedures: any;
-  public rooms: any[];
-  public room: any;
-
-  public paymentAmount = '500';
-  public currency = 'USD';
-  public currencyIcon = '$';
 
 
   constructor(
@@ -34,7 +24,16 @@ export class ProceduresDetailPage implements OnInit {
     private router: Router,
     private navCtrl: NavController
   ) {}
+  date: any;
+  type: 'string';
+  data: any;
+  public procedures: any;
+  public rooms: any[];
+  public room: any;
 
+  public paymentAmount = '500';
+  public currency = 'USD';
+  public currencyIcon = '$';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

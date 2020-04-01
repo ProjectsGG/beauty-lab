@@ -210,6 +210,10 @@ const routes: Routes = [
   {
     path: 'medicprofile',
     loadChildren: () => import('./pages/medicprofile/medicprofile.module').then( m => m.MedicprofilePageModule)
+  },
+  {
+    path: 'modal-spyp',
+    loadChildren: () => import('./pages/modal-spyp/modal-spyp.module').then( m => m.ModalSpypPageModule)
   }
 
 

@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { ToastService } from '../../services/toast.service';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { ModalSpypPage } from '../modal-spyp/modal-spyp.page';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-plans',
@@ -11,9 +13,18 @@ import * as moment from 'moment';
   styleUrls: ['./plans-detail.page.scss'],
 })
 export class PlansDetailPage implements OnInit {
+
+  constructor(
+    private modalCtrl: ModalController,
+    private http: HttpClient,
+    private hero: HeroService,
+    private toastr: ToastService,
+    private router: Router
+  ) {}
   date: any;
   type: 'string';
   data: any;
+  public plan: any[];
   public plans: any;
   public rooms: any[];
   public room: any;
@@ -22,19 +33,21 @@ export class PlansDetailPage implements OnInit {
   public currency = 'USD';
   public currencyIcon = '$';
 
-  constructor(
-    private http: HttpClient,
-    private hero: HeroService,
-    private toastr: ToastService,
-    private router: Router
-  ) {}
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: 'bearer ' + this.hero.getToken()
     })
   };
+  async onPress(imagen) {
+    const modal = await this.modalCtrl.create({
+       component: ModalSpypPage,
+       componentProps: {
+        imagenes: imagen
+     }
+      });
+    await modal.present();
+    }
   ngOnInit() {
     this.getPlan();
     this.styleCalendar();
@@ -53,6 +66,7 @@ export class PlansDetailPage implements OnInit {
     this.hero.dataPurchase.plans.push(this.plans);
     this.getRoom(this.plans.id_habitacion);
   }
+ 
   getRoom(id) {
     this.getService(id)
     .subscribe((model: any) => {
