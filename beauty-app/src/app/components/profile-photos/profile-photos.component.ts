@@ -13,8 +13,10 @@ export class ProfilePhotosComponent implements OnInit {
   data = [];
   history = [];
   value = null;
+  loading = true;
   ngOnInit() {
     this.getHistory();
+    this.loading = false;
   }
   getHistory() {
     this.service.getHistory().subscribe((r: any) => {

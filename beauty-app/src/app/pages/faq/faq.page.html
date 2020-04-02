@@ -3,10 +3,10 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <img routerLink=" /tabs/home" src="../../../assets/img/horizontal_logo.png" class="img-header">
+    <img routerLink="/tabs/home" src="../../../assets/img/horizontal_logo.png" class="img-header">
     <ion-buttons slot="end">
       <ion-avatar routerLink="/profile">
-        <img  class="header-style" src="/assets/img/PROFILEPICTURE.png">
+        <img  class="header-style" [src]="hero.getUser().img_perfil === null ? '/assets/img/no-profile.png' : hero.getDomain() + '/file/profile/' + hero.getUser().img_perfil">
       </ion-avatar>
     </ion-buttons>
   </ion-toolbar>

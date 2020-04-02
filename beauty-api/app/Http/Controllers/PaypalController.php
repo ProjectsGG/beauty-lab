@@ -101,4 +101,5 @@ class PaypalController extends BaseController
 				break;
 			}
 		}
+    }
 }
