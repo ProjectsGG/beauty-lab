@@ -35,7 +35,7 @@ export class SocialPage implements OnInit {
   }
   doRefresh(event) {
     setTimeout(() => {
-      this.getPosts(3, this.cards[this.cards.length - 1]);
+      this.getPosts(3, this.cards[0].id);
       event.target.complete();
     }, 2000);
   }
@@ -50,7 +50,24 @@ export class SocialPage implements OnInit {
   getPosts(opt, id = null) {
     this.toper = false;
     this.service.getData(opt, id).subscribe((r: any) => {
-      this.cards = r.data;
+      if (opt === 1) {
+        this.cards = r.data;
+      } else {
+        r.data.forEach(e => {
+          e.comment = '';
+          e.liked = false;
+          e.likes.forEach(like => {
+          if (like.id_usuario === this.hero.getUser().id) {
+            e.liked = true;
+          }
+        });
+          if (opt === 2) {
+            this.cards.push(e);
+          } else {
+            this.cards.unshift(e);
+          }
+        });
+      }
       this.cards.forEach((e) => {
         e.comment = '';
         e.liked = false;
@@ -71,5 +88,11 @@ export class SocialPage implements OnInit {
     setTimeout(() => {
     this.toper = false;
   }, 1500);
+  }
+  loadData(event) {
+    this.getPosts(2, this.cards[this.cards.length - 1].id);
+    setTimeout(() => {
+    event.target.complete();
+    }, 700);
   }
 }
