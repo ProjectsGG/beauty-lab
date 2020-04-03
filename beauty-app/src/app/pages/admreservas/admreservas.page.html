@@ -14,7 +14,7 @@
     Reservations
   </ion-list-header>
 
-  <ion-item *ngFor="let data of reservations" (click)="getDetail(data)">
+  <ion-item *ngFor="let data of reservations" >
     <ion-avatar slot="start">
       <img src="{{hero.getDomain()}}/file/profile/{{data.img_perfil}}">
     </ion-avatar>
@@ -23,7 +23,7 @@
       <h3 *ngIf="data.plan" >Plan: {{data.plan}}</h3>
       <h3 *ngIf="data.procedimiento" >Procedure: {{data.procedimiento}}</h3>
       <p>Date: {{data.fecha_reserva | date:"dd-MM-yyyy" }}</p>
-      <ion-button color="dark" (click)="getDetail(data)">Details</ion-button>
+      <ion-button color="dark">Details</ion-button>
     </ion-label>
   </ion-item>
 

@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { HeroService } from './../../services/hero.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +13,6 @@ export class AdmreservasPage implements OnInit {
   constructor(
     private http: HttpClient,
     public hero: HeroService,
-    private router: Router
   ) {}
 
   httpOptions = {
@@ -40,12 +38,6 @@ export class AdmreservasPage implements OnInit {
   getService() {
     const url = `${this.hero.getUrl()}/reversations`;
     return this.http.get(url, this.httpOptions);
-  }
-
-  getDetail( reserva ) {
-    console.log(reserva);
-    localStorage.setItem('reserva', JSON.stringify(reserva));
-    this.router.navigate(['/admreservas-detail']);
   }
 
 }

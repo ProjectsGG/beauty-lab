@@ -34,9 +34,24 @@ h1.title{
 
 .txtdescription{
     font-family: 'advent_promedium';
-    size: 28px;
+    color: aliceblue;
+    font-size: 11px;
+        
 }
-
+.description{
+    font-family: 'bioliquidregular';
+    font-size: 15px;
+    color: aliceblue;
+    text-align: justify;
+}
+.title-procedure{
+    color: aliceblue;
+    font-family:'bioliquidregular'; 
+    font-size:23px;
+    display: table;
+    margin: auto;
+    margin-bottom: 12px;
+}
 .img-header{
     width: 50% !important;
 }

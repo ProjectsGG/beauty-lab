@@ -142,11 +142,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'admreservas-detail',
-    loadChildren: () => import('./pages/admreservas-detail/admreservas-detail.module').then( m => m.AdmreservasDetailPageModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'share',
     loadChildren: () => import('./pages/share/share.module').then( m => m.SharePageModule),
     canActivate: [AuthGuard]
@@ -215,6 +210,10 @@ const routes: Routes = [
   {
     path: 'medicprofile',
     loadChildren: () => import('./pages/medicprofile/medicprofile.module').then( m => m.MedicprofilePageModule)
+  },
+  {
+    path: 'modal-spyp',
+    loadChildren: () => import('./pages/modal-spyp/modal-spyp.module').then( m => m.ModalSpypPageModule)
   }
 
 
