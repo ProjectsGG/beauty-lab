@@ -41,6 +41,11 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('/commentary', 'CommentaryController@comment');
     Route::get('blog/like/{blog}', 'BlogController@like');
     Route::get('blog/likes/{id}', 'BlogController@likes');
+
+    // BeforeAfter
+    Route::get('/beforeafter/{id}', 'BeforeAfterController@getData');
+    Route::post('/beforeafter', 'BeforeAfterController@saveData');
+
     // Examples
     Route::get('tasks', 'TaskController@index');
     Route::get('tasks/{id}', 'TaskController@show');

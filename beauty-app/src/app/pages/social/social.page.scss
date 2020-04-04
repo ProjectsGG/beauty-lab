@@ -1,96 +1,122 @@
-.slider-slides{
+.ispinner .spinner {
+        stroke: #ef473a;
+        fill: #ef473a;
+}
+
+.slider-slides {
         display: flex;
         flex-direction: row;
-   }
-.loader{
+}
+
+.loader {
         margin-top: 0;
         color: aliceblue;
         font-family: unset;
         font-size: 18px;
 }
-.mar-top{
+
+.mar-top {
         margin-top: 3.5rem !important;
 }
-.center{
+
+.center {
         display: flex;
         margin: 0 auto;
 }
-.box-comm{
+
+.box-comm {
         border-top: #ececec 1px solid;
 }
-.icon-c-g{
+
+.icon-c-g {
         color: aliceblue;
         font-size: 25px;
 }
-.button-opt{
+
+.button-opt {
         width: 88%;
         height: 45px;
 }
-ion-card{
+
+ion-card {
         border-radius: 0;
 }
-.padding-fix{
+
+.padding-fix {
         padding: 0;
 }
-.height-fix{
+
+.height-fix {
         height: 65px;
 
 }
-.img-post{
+
+.img-post {
         width: 550px;
         height: 350px;
 }
-.card-social{
-        --background:white;
+
+.card-social {
+        --background: white;
         margin-inline-end: -10px;
         margin-inline-start: -10px;
 }
-.social-name{ 
+
+.social-name {
         position: relative;
         bottom: 20px;
-        color:#292929;
+        color: #292929;
         font-size: 20px;
 }
 
-.postage{
+.postage {
         color: darkgray;
         position: relative;
         bottom: 36px;
         font-size: 12px;
 }
-.icon-more{
+
+.icon-more {
         width: 28px;
         height: 28px;
         position: relative;
         top: 8px;
         right: 5px;
 }
-.tinytext{
+
+.tinytext {
         font-size: 15px;
 }
-.likeicon{
+
+.likeicon {
         width: 3em;
         height: 3em;
         display: flex;
         margin: 0 auto;
         padding-right: 6px;
-      
+
 }
-.line-right{
-        border-right:#DADADA 1px solid;
+
+.line-right {
+        border-right: #DADADA 1px solid;
 }
-.line-up{
+
+.line-up {
         border-top: #DADADA 1px solid;
 }
-.avatar-social{
+
+.avatar-social {
         width: 45px;
         height: 45px;
 }
-.likes{
+
+.likes {
         position: relative;
         font-size: 16px;
         bottom: 25px;
 }
-.button-comment{
-        background-color: transparent;;
+
+.button-comment {
+        background-color: transparent;
+        ;
 }

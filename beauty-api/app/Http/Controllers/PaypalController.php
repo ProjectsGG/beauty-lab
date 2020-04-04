@@ -100,6 +100,6 @@ class PaypalController extends BaseController
 				$redirect_url = $link->getHref();
 				break;
 			}
-		}
+        }
     }
 }
