@@ -13,6 +13,7 @@ import { Commentary } from '../../interfaces/commentary';
 })
 export class SocialPage implements OnInit {
   @ViewChild(IonContent, {static: false}) content: IonContent;
+  public chargeData = false;
   toper = false;
   loading = true;
   slideOpts = {
@@ -35,7 +36,7 @@ export class SocialPage implements OnInit {
   }
   doRefresh(event) {
     setTimeout(() => {
-      this.getPosts(3, this.cards[0].id);
+      this.getPosts(1);
       event.target.complete();
     }, 2000);
   }
@@ -92,7 +93,6 @@ export class SocialPage implements OnInit {
   loadData(event) {
     this.getPosts(2, this.cards[this.cards.length - 1].id);
     setTimeout(() => {
-    event.target.complete();
     }, 700);
   }
 }

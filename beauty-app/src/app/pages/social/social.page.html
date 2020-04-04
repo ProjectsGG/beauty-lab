@@ -9,9 +9,7 @@
     <app-post [posts]="cards"></app-post>
 
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-        <ion-infinite-scroll-content         
-          loadingSpinner="bubbles">
-        </ion-infinite-scroll-content>
+          <ion-spinner class="center" color="light" name="crescent"></ion-spinner>
       </ion-infinite-scroll>
 
     <ion-fab *ngIf="toper" horizontal="center" vertical="bottom" slot="fixed">

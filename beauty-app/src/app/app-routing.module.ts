@@ -214,7 +214,18 @@ const routes: Routes = [
   {
     path: 'modal-spyp',
     loadChildren: () => import('./pages/modal-spyp/modal-spyp.module').then( m => m.ModalSpypPageModule)
+  },
+  {
+    path: 'blog',
+    loadChildren: () => import('./pages/blog/blog.module').then( m => m.BlogPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'before-after',
+    loadChildren: () => import('./pages/before-after/before-after.module').then( m => m.BeforeAfterPageModule),
+    canActivate: [AuthGuard]
   }
+
 
 
 
