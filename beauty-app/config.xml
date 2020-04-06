@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="app.beautylab.appdev" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Beauty Lab</name>
-    <description>The Best Stetic Surgery App</description>
-    <author email="apps.beauty@gmail.com" href="http://beautylab.app">Beauty Team (RichardB, Felipe, Miguel, Steven)</author>
+<widget id="app.beautylab.appdev" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>BeautyLab</name>
+    <description>The App for your Esthetic Surgery</description>
+    <author email="apps.beauty@gmail.com" href="http://beautylab.app">Beauty Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
