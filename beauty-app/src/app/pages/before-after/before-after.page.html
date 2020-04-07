@@ -6,10 +6,15 @@
             <ion-col size="0" size-sm="0" size-lg="3" size-lg="4"></ion-col>
             <ion-col size="12" size-sm="12" size-lg="3" size-lg="4">
                 <p class="text-desc">
-                    Here you can see your results before and after your experience with beautylab
+                    Here you can see the results of some of our clients
                 </p>
-                <ion-toolbar>
-                    <ion-segment color="primary-bl" (ionChange)="segmentChanged($event)">          
+                <ion-card *ngFor="let item of results; index as i" color="light">
+                    
+                    <ion-card-header>
+                        <ion-card-title>{{item.surgery}}</ion-card-title>
+                        <ion-card-subtitle>{{item.client}}</ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-segment color="primary-bl" (ionChange)="segmentChanged($event, i)" [value]="item.segment">
                         <ion-segment-button value="before">
                             Before
                         </ion-segment-button>
@@ -17,26 +22,23 @@
                             After
                         </ion-segment-button>
                     </ion-segment>
-                </ion-toolbar>
-                <ion-card color="light" *ngIf="segment === 'before'" >
-                    <ion-card-content>
-                        <ion-list lines="none">
-                            <ion-item>
-                                <ion-label>Comfort</ion-label>
-                                <ion-avatar>
-                                    <img src="assets/icon/meh.svg" />
-                                </ion-avatar>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>Weight</ion-label>
-                                <ion-text slot="end" color="dark">
-                                    <h6 class="kg">65 kg</h6>
-                                </ion-text>
-                            </ion-item>
-                        </ion-list>
+                    <ion-card-content *ngIf="item.segment === 'before'">
                         <ion-slides>
+                            <ion-slide *ngFor="let image of item.before">
+                                <img [src]="image" alt="">
+                            </ion-slide>
                             <ion-slide>
-                                <img src="https://www1.plasticsurgery.org/include/images/photogallery/cases/46141/35462-102132b_scaled.jpg" alt="">
+                                <h1>Awesome Slide Content</h1>
+                            </ion-slide>
+                            <ion-slide>
+                                <h1>Awesome Slide Content</h1>
+                            </ion-slide>
+                        </ion-slides>
+                    </ion-card-content>
+                    <ion-card-content *ngIf="item.segment === 'after'">
+                        <ion-slides>
+                            <ion-slide *ngFor="let image of item.after">
+                                <img [src]="image" alt="" srcset="">
                             </ion-slide>
                             <ion-slide>
                                 <h1>Awesome Slide Content</h1>
@@ -47,36 +49,6 @@
                         </ion-slides>
                     </ion-card-content>
                 </ion-card>
-                <ion-card color="light" *ngIf="segment === 'after'" >
-                    <ion-card-content>
-                        <ion-list lines="none">
-                            <ion-item>
-                                <ion-label>Comfort</ion-label>
-                                <ion-avatar>
-                                    <img src="assets/icon/smile.svg" />
-                                </ion-avatar>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>Weight</ion-label>
-                                <ion-text slot="end" color="dark">
-                                    <h6 class="kg">50 kg</h6>
-                                </ion-text>
-                            </ion-item>
-                        </ion-list>
-                        <ion-slides>
-                            <ion-slide>
-                                <img src="https://www1.plasticsurgery.org/include/images/photogallery/cases/46141/35462-102132a_scaled.jpg" alt="" srcset="">
-                            </ion-slide>
-                            <ion-slide>
-                                <h1>Awesome Slide Content</h1>
-                            </ion-slide>
-                            <ion-slide>
-                                <h1>Awesome Slide Content</h1>
-                            </ion-slide>
-                        </ion-slides>
-                    </ion-card-content>
-                </ion-card>
-
             </ion-col>
             <ion-col size="0" size-sm="0" size-lg="3" size-lg="4"></ion-col>
         </ion-row>

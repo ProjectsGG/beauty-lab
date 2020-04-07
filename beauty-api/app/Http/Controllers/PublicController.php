@@ -18,4 +18,9 @@ class PublicController extends Controller
         $file = Storage::disk('photosUser')->get($filename);
         return new Response($file);
     }
+    public function returnBeforeOrAfter($filename)
+    {
+        $file = Storage::disk('beforeAfter')->get($filename);
+        return new Response($file);
+    }
 }
