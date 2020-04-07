@@ -3,10 +3,10 @@
 
 <br>
 <hr>
-<h1 class="text-center text-light"></h1>
+<h1 class="text-center text-light">Privacy Policy</h1>
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 text-white">
     Your privacy is important to the Beauty Lab App. Please review our privacy policy below to learn how we collect and use information. If you have any questions or concerns, we welcome you to contact us via our contact form. For further information on your privacy rights, please see the Office of the Australian Information Commissioner website.'
     + '<br><br>What is personal information?'
     + '<br><br>Personal information is information that identifies you or could identify you. Your name and address are obvious examples. Personal information can also include medical records, bank account details, photographs, videos, and even information about your opinions and where you work – basically, any information where you are reasonably identifiable.   '
