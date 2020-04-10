@@ -12,8 +12,9 @@
     </ion-card-content>
     <ion-grid class="grid-photos">
       <ion-row>
-        <ion-col class="padding-img" *ngFor="let item of img.images" size="6" size-md="4" size-lg="4">
+        <ion-col class="padding-img" *ngFor="let item of img.images; index as i;" size="6" size-md="4" size-lg="4">
           <img src="{{item}}" alt="">
+          <ion-icon class="icon-trash" name="close" (click)="trash(i)"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-grid>

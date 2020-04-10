@@ -1,3 +1,5 @@
+import { HeroService } from './../../services/hero.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,25 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicavailablePage implements OnInit {
 
-  pypdone = [{
-    name: '360 lipo',
-    date: '12 feb - 22 feb'
-  },
-  {
-    name: 'Abs',
-    date: '2 jan - 20 jan'
-  },
-{
-  name: 'Botox',
-  date: '2 mar - 6 mar'
-},
-{
-  name: 'Nose',
-  date: '3 feb - 10 feb'
-}];
-  constructor() { }
+  public reservations: any[];
+  
+  constructor(
+    private http: HttpClient,
+    public hero: HeroService,
+  ) {}
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'bearer ' + this.hero.getToken()
+    })
+  };
 
   ngOnInit() {
+    this.getReservations();
+  }
+
+  getReservations() {
+    this.getService()
+    .subscribe((model: any) => {
+      this.reservations = model.data;
+      console.log(this.reservations);
+    });
+  }
+
+
+  getService() {
+    const url = `${this.hero.getUrl()}/reversations`;
+    return this.http.get(url, this.httpOptions);
   }
 
 }

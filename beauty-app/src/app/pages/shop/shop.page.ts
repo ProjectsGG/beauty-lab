@@ -25,11 +25,11 @@ products: any[];
 
   ngOnInit(){ };
 
-  ionViewDidEnter(){
+ /*  ionViewDidEnter(){
     this.getProducts(); 
   }
-
- getProducts() {
+ */
+/*  getProducts() {
     this.getService()
     .subscribe((model: any) => {
       const myArrStr = JSON.stringify(model.products);
@@ -41,6 +41,6 @@ products: any[];
   getService() {
     const url = `${this.hero.getUrl()}/products`;
     return this.http.get(url, this.httpOptions);
-  } 
+  }  */
 
 }

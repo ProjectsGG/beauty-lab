@@ -7,10 +7,9 @@
                         <ion-row>
                             <ion-col size="2" class="no-padding">
                                 <ion-avatar class="avatar-social">
-                                    <img (click)="viewProfile(post.user.id)" src="{{hero.getDomain()}}/file/profile/{{post.user.img_perfil}}">
+                                    <img (click)="viewProfile(post.user.id)" [src]="post.user.img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain()+'/file/profile/'+post.user.img_perfil">
                                 </ion-avatar>
                             </ion-col>
-  
                             <ion-col size="9" class="no-padding">
                                 <h2 class="social-name" (click)="viewProfile(post.user.id)">{{post.user.nombres}}</h2>
   
@@ -56,10 +55,12 @@
                                         <ion-input *ngIf="!this.cards[i].isCom" placeholder="Add Comment" [(ngModel)]="this.cards[i].comment">
                                         </ion-input>
                                         <ion-spinner name="dots" class="center" color="primary-bl" *ngIf="this.cards[i].isCom" ></ion-spinner>
-                                        <ion-button *ngIf="!this.cards[i].isCom" fill="clear" expand="full">
-                                            <ion-text color="primary-bl" slot="end" (click)="comment(i)">Comment
-                                            </ion-text>
-                                        </ion-button>
+                                        <ion-buttons  *ngIf="!this.cards[i].isCom" slot="end">
+                                            <ion-button (click)="comment(i)">
+                                                <ion-text color="primary-bl">Comment
+                                                </ion-text>
+                                            </ion-button>
+                                        </ion-buttons>
                                     </ion-item>
                                 </div>
                             </ion-col>

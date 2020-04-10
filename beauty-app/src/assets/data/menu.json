@@ -30,6 +30,16 @@
         "redirectTo": "/trips"
     },
     {
+        "icon": "camera",
+        "name": "B e f o r e a n d A f t e r",
+        "redirectTo": "/before-after"
+    },
+    {
+        "icon": "analytics",
+        "name": "B l o g",
+        "redirectTo": "/blog"
+    },
+    {
         "icon": "contact",
         "name": "P r o f i l e",
         "redirectTo": "/profile"
@@ -43,6 +53,6 @@
         "icon": "help",
         "name": "F A Q",
         "redirectTo": "/faq"
-    }    
+    }   
 ]
 

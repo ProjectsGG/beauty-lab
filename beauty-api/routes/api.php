@@ -22,8 +22,10 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('setImgProfile', 'UserController@updatePhoto');
     Route::get('img/zone', 'UserController@imagesZone');
     Route::get('user', 'UserController@getUser');
+    Route::get('delete-photo', 'UserController@deletePhoto');
     //  Blog
     Route::resource('blog', 'BlogController');
+    Route::get('blog/posts/{option}/{id?}', 'BlogController@index');
     Route::get('blog/user/{id}', 'BlogController@getForUser');
     // Hiatory
 
@@ -39,6 +41,11 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('/commentary', 'CommentaryController@comment');
     Route::get('blog/like/{blog}', 'BlogController@like');
     Route::get('blog/likes/{id}', 'BlogController@likes');
+
+    // BeforeAfter
+    Route::get('/beforeafter/{id}', 'BeforeAfterController@getData');
+    Route::post('/beforeafter', 'BeforeAfterController@saveData');
+
     // Examples
     Route::get('tasks', 'TaskController@index');
     Route::get('tasks/{id}', 'TaskController@show');

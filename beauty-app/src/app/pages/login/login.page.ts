@@ -16,6 +16,7 @@ export class LoginPage implements OnInit {
     email: null,
     password: null
   };
+  public validate = false;
   constructor(
     private location: Location,
     private auth: AuthService,
@@ -30,8 +31,10 @@ export class LoginPage implements OnInit {
     }
   }
   login() {
+    this.validate = true;
     this.auth.login(this.data)
     .subscribe((r: any) => {
+      this.validate = false;
       if (r.ok) {
         this.clear();
         // this.storage.set('user', r.user);

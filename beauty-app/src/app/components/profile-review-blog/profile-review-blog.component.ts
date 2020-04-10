@@ -62,7 +62,7 @@ export class ProfileReviewBlogComponent implements OnInit {
   photoPic() {
       if (this.img.images.length < 4) {
         const options: CameraOptions = {
-          quality: 25,
+          quality: 30,
           destinationType: this.camera.DestinationType.DATA_URL,
           encodingType: this.camera.EncodingType.JPEG,
           mediaType: this.camera.MediaType.PICTURE
@@ -102,5 +102,8 @@ export class ProfileReviewBlogComponent implements OnInit {
         this.img.images = r.images;
       }
     });
+  }
+  trash(i) {
+    this.img.images.splice(i, 1);
   }
 }

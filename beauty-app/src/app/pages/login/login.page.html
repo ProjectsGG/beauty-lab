@@ -29,7 +29,8 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-button expand='block' class="button-login" (click)="login()">Login</ion-button>
+            <ion-spinner *ngIf="validate" class="center-e" color="light" name="crescent"></ion-spinner>
+            <ion-button  *ngIf="!validate" expand='block' class="button-login" (click)="login()">Login</ion-button>
           </ion-col>
         </ion-row>
         <ion-row>

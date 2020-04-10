@@ -13,6 +13,7 @@ import { Commentary } from '../../interfaces/commentary';
 })
 export class SocialPage implements OnInit {
   @ViewChild(IonContent, {static: false}) content: IonContent;
+  public chargeData = false;
   toper = false;
   loading = true;
   slideOpts = {
@@ -31,12 +32,11 @@ export class SocialPage implements OnInit {
 
   cards: any[];
   ngOnInit() {
-    this.getPosts();
+    this.getPosts(1);
   }
   doRefresh(event) {
-    this.getPosts();
     setTimeout(() => {
-      this.getPosts();
+      this.getPosts(1);
       event.target.complete();
     }, 2000);
   }
@@ -48,10 +48,27 @@ export class SocialPage implements OnInit {
     };
     this.router.navigate(['/new-post'], navigationExtras);
   }
-  getPosts() {
+  getPosts(opt, id = null) {
     this.toper = false;
-    this.service.getData().subscribe((r: any) => {
-      this.cards = r.data;
+    this.service.getData(opt, id).subscribe((r: any) => {
+      if (opt === 1) {
+        this.cards = r.data;
+      } else {
+        r.data.forEach(e => {
+          e.comment = '';
+          e.liked = false;
+          e.likes.forEach(like => {
+          if (like.id_usuario === this.hero.getUser().id) {
+            e.liked = true;
+          }
+        });
+          if (opt === 2) {
+            this.cards.push(e);
+          } else {
+            this.cards.unshift(e);
+          }
+        });
+      }
       this.cards.forEach((e) => {
         e.comment = '';
         e.liked = false;
@@ -72,5 +89,10 @@ export class SocialPage implements OnInit {
     setTimeout(() => {
     this.toper = false;
   }, 1500);
+  }
+  loadData(event) {
+    this.getPosts(2, this.cards[this.cards.length - 1].id);
+    setTimeout(() => {
+    }, 700);
   }
 }
