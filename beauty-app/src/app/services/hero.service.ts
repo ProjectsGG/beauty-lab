@@ -15,10 +15,10 @@ import { NetworkService } from './network.service';
   providedIn: 'root'
 })
 export class HeroService {
-  private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
-  private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
-  // private url: any = 'https://beautylab.app/api';
-  // private domain: any = 'https://beautylab.app';
+  // private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
+  // private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
+  private url: any = 'https://beautylab.app/api';
+  private domain: any = 'https://beautylab.app';
   private isConnected = false;
   public total = 0;
   public shoppingcart: any[] = [];
