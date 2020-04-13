@@ -14,7 +14,6 @@ import { ViewVideoPage } from './pages/view-video/view-video.page';
 import { ModalroomsPageModule } from './pages/modalrooms/modalrooms.module';
 import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { PayPal } from '@ionic-native/paypal/ngx';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 import { File } from '@ionic-native/File/ngx';
@@ -46,7 +45,7 @@ import { Network } from '@ionic-native/network/ngx';
     StatusBar,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    GooglePlus,
+
     PayPal,
     YoutubeVideoPlayer,
     File,

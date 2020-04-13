@@ -25,7 +25,6 @@
     "@ionic-native/email-composer": "^5.22.0",
     "@ionic-native/file": "^5.22.0",
     "@ionic-native/file-path": "^5.22.0",
-    "@ionic-native/google-plus": "^5.22.0",
     "@ionic-native/in-app-browser": "^5.22.0",
     "@ionic-native/instagram": "^5.22.0",
     "@ionic-native/ionic-webview": "^5.22.0",
@@ -51,7 +50,6 @@
     "cordova-plugin-email-composer": "^0.9.2",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-filepath": "^1.5.8",
-    "cordova-plugin-googleplus": "^8.2.1",
     "cordova-plugin-inappbrowser": "^3.2.0",
     "cordova-plugin-network-information": "^2.0.2",
     "cordova-plugin-screen-orientation": "^3.0.2",
@@ -115,24 +113,23 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {
-        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-      },
+      "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {},
-      "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "438863470815-ijsjiack8t9k246ucv8n7919bk8oj34e.apps.googleusercontent.com",
-        "PLAY_SERVICES_VERSION": "15.0.1"
-      },
       "com.paypal.cordova.mobilesdk": {},
       "cordova-plugin-youtube-video-player": {},
       "cordova-plugin-file": {},
       "cordova-plugin-filepath": {},
-      "cordova-plugin-calendar": {},
+      "cordova-plugin-calendar": {
+        "CALENDAR_USAGE_DESCRIPTION": " ",
+        "CONTACTS_USAGE_DESCRIPTION": " "
+      },
       "cordova-sms-plugin": {},
       "cordova-plugin-screen-orientation": {},
       "cordova-plugin-x-socialsharing": {
-        "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
+        "ANDROID_SUPPORT_V4_VERSION": "24.1.1+",
+        "PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly."
       },
       "cordova-instagram-plugin": {},
       "cordova-plugin-inappbrowser": {},
@@ -142,7 +139,6 @@
       "cordova-plugin-network-information": {}
     },
     "platforms": [
-      "ios",
       "android"
     ]
   }

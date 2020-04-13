@@ -104,7 +104,7 @@
                     <div class="col-12 col-sm-12 col-md-4 col-xl-4">
                         <h2 class="text-light titles text-center">About Us</h2>
                         <h3 class="text-center text-light subtitles">The best place to find your perfect plastic surgery</h3>
-
+                        <a href="{{ route('PrivacyPolicy') }}"><h4 class="text-center text-light subtitles">Privacy Policy</h4></a>
                     </div>
                 </div>
             </div>
