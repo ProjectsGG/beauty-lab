@@ -74,4 +74,12 @@ class BeforeAfterController extends Controller
         // los datos de la extensión en la posición 0 - 1
         return ($full) ?  $img_extension[0] : $img_extension[1];
     }
+    public function getCases()
+    {
+        $data = BeforeAfter::with(['user', 'images'])->get();
+
+        return response()->json([
+            'data' => $data
+        ]);
+    }
 }

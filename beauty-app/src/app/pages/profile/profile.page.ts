@@ -146,4 +146,8 @@ export class ProfilePage implements OnInit {
       }
     });
   }
+  clear() {
+    localStorage.clear();
+    location.reload();
+  }
 }
