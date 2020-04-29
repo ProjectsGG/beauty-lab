@@ -1,3 +1,8 @@
 <app-header></app-header>
 
-<iframe  src="https://beautylabapp.blogspot.com/" frameborder=0 style="width: 100%; height: 100vh;"></iframe>
+<!-- <iframe  src="https://www.tumblr.com/blog/beautylabapp" frameborder=0 style="width: 100%; height: 100vh;"></iframe> -->
+<ion-content class="text-center">   
+	<object *ngIf="blogUrl" [data]="blogUrl" width="100%" height="100%" style="position: fixed-top;">
+		<embed [src]="blogUrl" [type]="blogUrl" width="100%" height="100%"/>
+	</object>  
+</ion-content>

@@ -31,7 +31,6 @@ export class HomeappPage implements OnInit {
   ];
   plans = [
     '3dplan.png',   
-    'supermodelplan.png',
     'superstar1.png',
     'iconplan.png'
   ];
@@ -39,7 +38,7 @@ export class HomeappPage implements OnInit {
     '360lipoexp.png',
     'absexp.png',
     'eyebrown.png',
-    'breastexp.png',
+    'teeths.png',
     'botoxexp.png',
     'nose.png',
     'teethsexp.png',
