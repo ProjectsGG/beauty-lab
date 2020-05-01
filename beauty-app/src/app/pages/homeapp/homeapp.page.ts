@@ -39,7 +39,7 @@ export class HomeappPage implements OnInit {
     'absexp.png',
     'eyebrown.png',
     'teeths.png',
-    'botoxexp.png',
+    'botoxexp.png',  
     'nose.png',
     'teethsexp.png',
     'cheeksexp.png',
