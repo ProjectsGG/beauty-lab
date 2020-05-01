@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TumblrService } from '../../services/tumblr.service';
+import { NavController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import {DomSanitizer,SafeResourceUrl} from '@angular/platform-browser';
-
 
 @Component({
   selector: 'app-blog',
@@ -9,17 +9,31 @@ import {DomSanitizer,SafeResourceUrl} from '@angular/platform-browser';
   styleUrls: ['./blog.page.scss'],
 })
 export class BlogPage implements OnInit {
-  blogUrl:SafeResourceUrl;
-  constructor(private browser : InAppBrowser, 
-    private domSanitizer : DomSanitizer) { }
+  loading = false;
+  data: any = {
+    blog: {
+      avatar: [
+        {
+          url: '',
+        }
+      ]
+    },
+    posts: []
+  };
 
-    url = "https://beautylabapp.blogspot.com"; 
-    OpenUrl(url:string, target:string){
-      const link = url;
-      this.browser.create(link,target); 
-    }
+  constructor(private service: TumblrService, private navCtrl: NavController, private iab: InAppBrowser) { }
+
   ngOnInit() {
-    this.blogUrl = this.domSanitizer.bypassSecurityTrustResourceUrl("https://beautylabapp.blogspot.com");
+    this.getData();
   }
 
+  getData() {
+    this.service.getPosts().subscribe((r: any) => {
+      this.data = r.response;
+    });
+  }
+
+  openTumblr() {
+    this.iab.create('https://beautylabapp.tumblr.com/', '_blank');
+  }
 }

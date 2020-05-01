@@ -1,0 +1,35 @@
+ion-card-subtitle{
+    color: rgb(122, 122, 122) !important;
+}
+ion-card-header{
+    padding-bottom: 0rem;
+}
+ion-card-content{
+    padding: 0;
+}
+ion-grid,ion-row,ion-col{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+div.header{
+    width: 100%;
+    height: 22%;
+    background: url('https://66.media.tumblr.com/19cfb108d9bd74982d4d3e1faa3058e3/375fd7fbfd495e02-c8/s2048x3072_c3191,12309,99113,45425/3934d65b9d4eb384c095a93604da0f326779b6dc.jpg');
+    background-size: cover;
+}
+div.avatar{
+    padding-top: 2rem;
+    padding-bottom: 0.3rem;
+}
+ion-avatar.avatar{
+    margin: 0 auto;
+}
+div.button{
+    text-align: center;
+}
+p.desc{
+    // text-align: center;
+    padding: 1rem;
+    padding-top: 0rem;
+    padding-bottom: 0.5rem;
+}

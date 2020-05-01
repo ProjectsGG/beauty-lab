@@ -1,8 +1,39 @@
 <app-header></app-header>
 
-<!-- <iframe  src="https://www.tumblr.com/blog/beautylabapp" frameborder=0 style="width: 100%; height: 100vh;"></iframe> -->
-<ion-content class="text-center">   
-	<object *ngIf="blogUrl" [data]="blogUrl" width="100%" height="100%" style="position: fixed-top;">
-		<embed [src]="blogUrl" [type]="blogUrl" width="100%" height="100%"/>
-	</object>  
+<ion-content>
+    <div class="header">
+        <div class="avatar">
+            <ion-avatar class="avatar">
+                <img [src]="data.blog.avatar[0].url" />
+            </ion-avatar>
+        </div>
+        <div class="button">
+            <ion-button (click)="openTumblr()" size="small" color="light" fill="outline" shape="round">
+                View in Tumblr
+            </ion-button>
+        </div>
+    </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="0" size-md="2" size-lg="4" ></ion-col>
+            <ion-col size="12" size-md="8" size-lg="4" >
+                <ion-card *ngFor="let item of data.posts" color="light">
+                    <ion-card-header>
+                        <ion-card-subtitle [innerHtml]="item.date.substring(0, 10)" ></ion-card-subtitle>
+                    </ion-card-header>
+            
+                    <ion-card-content>
+                        <p class="desc">
+                            {{item.summary}}
+                        </p>
+                        <img [src]="item.photos[0].original_size.url"
+                            alt="">
+                                    
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="0" size-md="2" size-lg="4" ></ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
+<!-- <iframe  src="https://beautylabapp.blogspot.com/" frameborder=0 style="width: 100%; height: 100vh;"></iframe> -->
