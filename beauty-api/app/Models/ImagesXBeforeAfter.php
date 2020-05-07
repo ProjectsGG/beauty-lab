@@ -11,6 +11,7 @@ class ImagesXBeforeAfter extends Model
     protected $fillable = [
         'id_referencia',
         'imagen',
+        'tipo'
     ];
     public $timestamps = false;
 }
