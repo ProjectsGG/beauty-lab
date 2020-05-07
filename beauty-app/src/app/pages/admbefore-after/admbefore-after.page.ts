@@ -86,6 +86,7 @@ export class AdmbeforeAfterPage implements OnInit {
       this.utils.showAlert('Fill the form', 'Error');
       return;
     } else {
+      this.service.saveResult(this.data);
       this.utils.showAlert('', 'Success');
 
     }

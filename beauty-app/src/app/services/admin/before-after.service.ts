@@ -12,7 +12,9 @@ export class BeforeAfterService {
 
   private httpOptions;
 
-  constructor(private http: HttpClient, private hero: HeroService) { }
+  constructor(private http: HttpClient, private hero: HeroService) { 
+    this.toAsignToken();
+  }
 
   toAsignToken() {
     this.httpOptions = {
@@ -36,7 +38,7 @@ export class BeforeAfterService {
     // return an observable with a user-facing error message
     return throwError('Something bad happened; please try again later.');
   }
-  saveResullt(data: BeforeAfter) {
+  saveResult(data: BeforeAfter) {
     const url = this.hero.getUrl() + '/before-after';
     return this.http.post(url, data , this.httpOptions)
     .pipe(
