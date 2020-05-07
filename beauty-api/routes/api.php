@@ -44,8 +44,8 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 
     // BeforeAfter
     Route::get('/before-after', 'BeforeAfterController@getCases');
-    Route::get('/clients', 'BeforeAfterController@getClients');
     Route::post('/before-after', 'BeforeAfterController@saveData');
+    Route::get('/clients', 'BeforeAfterController@getClients');
 
     // Examples
     Route::get('tasks', 'TaskController@index');
