@@ -142,4 +142,5 @@
     </plugin>
     <plugin name="cordova-plugin-network-information" spec="^2.0.2" />
     <allow-navigation href="http://localhost:8100" sessionid="41f628da" />
+    <allow-navigation href="http://localhost:8101" sessionid="03a30924" />
 </widget>

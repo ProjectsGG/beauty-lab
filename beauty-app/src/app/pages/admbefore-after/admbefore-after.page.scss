@@ -1,0 +1,52 @@
+h3{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+ion-badge.type{
+    position: absolute;
+    top: 3px;
+    left: 5px;
+}
+ion-label.attr{
+    font-weight: 600;
+    color: rgb(68, 68, 68);
+}
+p.message{
+    text-align: center;
+    margin: 0;
+    color: gray;
+}
+.input-contact{
+    color: #000;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;    
+
+}
+
+.title-contact{
+    font-family: 'advent_promedium';
+    color:#000;
+    size:50px;
+}
+
+*{
+    --background:#fff;
+}
+
+.txt-label{
+    size:1.5rem;
+}
+.btn-style{
+    // padding-top: 4rem;
+}
+.clients{
+    height: 150px;
+    overflow-y: auto;
+}
+.img-admin{
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+}
