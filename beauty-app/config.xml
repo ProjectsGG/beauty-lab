@@ -3,7 +3,7 @@
     <name>Beauty Lab</name>
     <description>Plastic surgeries at your fingertips</description>
     <author email="apps.beauty@gmail.com" href="http://beautylab.app">Beauty Team</author>
-    <content original-src="index.html" src="http://localhost:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
