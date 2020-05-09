@@ -27,7 +27,7 @@ class BeforeAfterController extends Controller
     }
     public function getClients() {
         $clients = DB::table('usuarios')
-        ->select('usuarios.id', 'usuarios.nombres', 'usuarios.apellidos', 'usuarios.direccion', 'usuarios.movil', 'usuarios.email')
+        ->select('usuarios.id', 'usuarios.nombres', 'usuarios.apellidos', 'usuarios.direccion', 'usuarios.movil', 'usuarios.email', 'usuarios.img_perfil')
         ->join('reservas','usuarios.id','reservas.id_usuario')
         ->distinct()
         ->get();

@@ -19,7 +19,7 @@ export class HeroService {
   // private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
   private url: any = 'https://beautylab.app/api';
   private domain: any = 'https://beautylab.app';
-  private isConnected = false;
+  public isConnected = false;
   public total = 0;
   public shoppingcart: any[] = [];
   private token: string = null;
@@ -126,6 +126,11 @@ export class HeroService {
           localStorage.setItem('user', JSON.stringify(r.data));
         });
       }
+    });
+  }
+  validateConnection() {
+    this.net.getNetworkStatus().subscribe((connected: boolean) => {
+      this.isConnected = connected;
     });
   }
   getUserFromApi() {

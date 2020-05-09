@@ -11,6 +11,7 @@ import { PurchaseSuccessComponent } from './purchase-success/purchase-success.co
 import { PopoverpostComponent } from './popoverpost/popoverpost.component';
 import { PostComponent } from './post/post.component';
 import { FormsModule } from '@angular/forms';
+import { NotConnectionComponent } from './not-connection/not-connection.component';
 
 
 
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     ProfileReviewBlogComponent,
     PurchaseSuccessComponent,
     PopoverpostComponent,
-    PostComponent
+    PostComponent,
+    NotConnectionComponent
   ],
   exports: [
     HeaderComponent,
@@ -33,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     ProfileReviewBlogComponent,
     PurchaseSuccessComponent,
     PopoverpostComponent,
-    PostComponent
+    PostComponent,
+    NotConnectionComponent
   ],
   imports: [
     CommonModule,

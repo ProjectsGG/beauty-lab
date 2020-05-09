@@ -29,9 +29,9 @@
           <div *ngIf="results.length > 0" class="clients">
             <ion-list lines="none">
               <ion-item button *ngFor="let item of results; index as i " (click)="selected(i)">
-                <ion-label>{{item.name}}</ion-label>
+                <ion-label>{{item.nombres}} {{item.apellidos}}</ion-label>
                 <ion-avatar slot="end">
-                  <img [src]="item.avatar" />
+                  <img src="https://beautylab.app/file/profile/{{item.img_perfil}}" />
                 </ion-avatar>
               </ion-item>
             </ion-list>
@@ -43,7 +43,7 @@
               <ion-avatar slot="start">
                 <img [src]="selectedData.avatar" />
               </ion-avatar>
-              <ion-label>{{selectedData.name}}</ion-label>
+              <ion-label>{{selectedData.nombres}} {{selectedData.apellidos}}</ion-label>
               <ion-icon slot="end" name="close" (click)="deselect()"></ion-icon>
             </ion-item>
 
@@ -53,19 +53,19 @@
                   <ion-label class="attr">Phone:</ion-label>
                 </ion-col>
                 <ion-col size="8">
-                  <p> 321452 </p>
+                  <p> {{selectedData.movil}} </p>
                 </ion-col>
                 <ion-col size="4">
                   <ion-label class="attr">Email:</ion-label>
                 </ion-col>
                 <ion-col size="8">
-                  <p> barney205@gmail.com </p>
+                  <p> {{selectedData.email}} </p>
                 </ion-col>
                 <ion-col size="4">
                   <ion-label class="attr">Address:</ion-label>
                 </ion-col>
                 <ion-col size="8">
-                  <p> calle 66 # 135, Boston - California </p>
+                  <p> {{selectedData.direccion}} </p>
                 </ion-col>
               </ion-row>
             </ion-card-content>
