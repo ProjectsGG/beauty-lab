@@ -41,7 +41,7 @@
           <ion-card *ngIf="isSelected">
             <ion-item>
               <ion-avatar slot="start">
-                <img [src]="selectedData.avatar" />
+                <img src="https://beautylab.app/file/profile/{{selectedData.img_perfil}}" />
               </ion-avatar>
               <ion-label>{{selectedData.nombres}} {{selectedData.apellidos}}</ion-label>
               <ion-icon slot="end" name="close" (click)="deselect()"></ion-icon>
