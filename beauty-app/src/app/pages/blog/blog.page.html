@@ -1,7 +1,8 @@
 <app-header></app-header>
 
 <ion-content>
-    <iframe  src="https://beautylabapp.tumblr.com/" frameborder=0 style="width: 100%; height: 100vh;"></iframe>
+    <iframe *ngIf="frame" src="https://beautylabapp.tumblr.com/" frameborder=0 style="width: 100%; height: 100vh;"></iframe>
+    <app-not-connection *ngIf="!frame"></app-not-connection>
     <!-- <div class="header">
         <div class="avatar">
             <ion-avatar class="avatar">
