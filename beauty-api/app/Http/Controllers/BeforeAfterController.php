@@ -44,8 +44,8 @@ class BeforeAfterController extends Controller
             if (isset($input['photos'])) {
                 foreach ($input['photos'] as $key => $value) {
 
-                    $img = $this->getB64Image($value->img);
-                    $img_extension = $this->getB64Extension($value->img);
+                    $img = $this->getB64Image($value['img']);
+                    $img_extension = $this->getB64Extension($value['img']);
 
                     $img_name = $this->user->id . '-beforeAfter-' . $key . time() . '.' . $img_extension;
 
@@ -54,7 +54,7 @@ class BeforeAfterController extends Controller
                     ImagesXBeforeAfter::create([
                         'id_referencia' => $beforeAfter->id,
                         'imagen' => $img_name,
-                        'tipo' => $value->tipo
+                        'tipo' => $value['tipo']
                     ]);
                 }
             }

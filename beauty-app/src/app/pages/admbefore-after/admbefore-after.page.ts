@@ -68,9 +68,15 @@ export class AdmbeforeAfterPage implements OnInit {
       this.utils.showAlert('Fill the form', 'Error');
       return;
     } else {
-      this.service.saveResult(this.data);
-      this.utils.showAlert('', 'Success');
-
+      this.data.id_usuario = this.selectedData.id;
+      this.service.saveResult(this.data).subscribe((r: any) => {
+        if (r.ok) {
+          this.utils.showAlert(r.message, 'Success');
+        } else {
+         this.utils.showAlert(r.error, 'Error');
+        }
+      });
+      // this.utils.showAlert('', 'Success');
     }
   }
   async actionSheet() {
