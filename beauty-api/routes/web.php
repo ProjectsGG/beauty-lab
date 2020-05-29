@@ -30,3 +30,4 @@ Route::get('rooms','RoomsWebController@index')->name('roomsweb');
 Route::get('contact','ContactWebController@index')->name('contactweb');
 Route::get('flight','FlightController@index')->name('flightweb');
 Route::get('policy','ControllerPrivacy@index')->name('PrivacyPolicy');
+Route::get('ggapp','LiveController@index')->name('appgg');
