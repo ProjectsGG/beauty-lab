@@ -27,7 +27,7 @@
     "@ionic-native/file-path": "^5.22.0",
     "@ionic-native/in-app-browser": "^5.23.0",
     "@ionic-native/instagram": "^5.22.0",
-    "@ionic-native/ionic-webview": "^5.22.0",
+    "@ionic-native/ionic-webview": "^5.26.0",
     "@ionic-native/network": "^5.22.0",
     "@ionic-native/paypal": "^5.22.0",
     "@ionic-native/screen-orientation": "^5.22.0",
