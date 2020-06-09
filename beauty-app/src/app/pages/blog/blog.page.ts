@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TumblrService } from '../../services/tumblr.service';
 import { NavController } from '@ionic/angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { HeroService } from '../../services/hero.service';
 import { NetworkService } from '../../services/network.service';
 
 @Component({
@@ -24,7 +22,10 @@ export class BlogPage implements OnInit {
     posts: []
   };
 
-  constructor(private service: TumblrService, private navCtrl: NavController, private iab: InAppBrowser, public net: NetworkService) { }
+  constructor(
+      private service: TumblrService,
+      private navCtrl: NavController,
+      public net: NetworkService) { }
 
   ngOnInit() {
     this.net.getNetworkStatus().subscribe((connect: boolean) => {
@@ -43,6 +44,6 @@ export class BlogPage implements OnInit {
   }
 
   openTumblr() {
-    this.iab.create('https://beautylabapp.tumblr.com/', '_blank');
+    // this.iab.create('https://beautylabapp.tumblr.com/', '_blank');
   }
 }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -45,7 +44,6 @@ import { Network } from '@ionic-native/network/ngx';
     StatusBar,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    InAppBrowser,
     PayPal,
     YoutubeVideoPlayer,
     File,

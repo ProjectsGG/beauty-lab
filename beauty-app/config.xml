@@ -140,7 +140,6 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="This app requires photo library access to function properly." />
     </plugin>
     <plugin name="cordova-instagram-plugin" spec="^0.5.8" />
-    <plugin name="cordova-plugin-inappbrowser" spec="~3.2.0" />
     <plugin name="cordova-plugin-email-composer" spec="^0.9.2">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
