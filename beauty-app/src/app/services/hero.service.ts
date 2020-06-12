@@ -85,7 +85,8 @@ export class HeroService {
   validateSession() {
     const token = localStorage.getItem('token');
     if (token === null || token === undefined) {
-      this.router.navigate(['/inicio']);
+      // this.router.navigate(['/inicio']);
+      this.token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYmVhdXR5bGFiLmFwcFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MTk4OTMzNCwibmJmIjoxNTkxOTg5MzM0LCJqdGkiOiJCTnVOZ2hlT1hGa1FJTU1YIiwic3ViIjowLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.kq5uwedhUfg4DHN2BpuBppB2nHrOOofKYPQW4jkaLuY'
     } else {
       this.token = token;
       this.user = JSON.parse(localStorage.getItem('user'));
@@ -99,8 +100,13 @@ export class HeroService {
   logout() {
     localStorage.clear();
 
-    this.token = null;
-    this.user = null;
+    // this.token = null;
+    this.user = {
+      bl_points: 0,
+      nombres: '',
+      apellidos: '',
+      img_perfil: null
+    };
     this.auth = false;
     location.reload();
     // this.validateSession();

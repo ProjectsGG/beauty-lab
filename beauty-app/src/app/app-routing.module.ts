@@ -17,28 +17,23 @@ const routes: Routes = [
   },
   {
     path: 'plans',
-    loadChildren: () => import('./pages/plans/plans.module').then( m => m.PlansPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/plans/plans.module').then( m => m.PlansPageModule)
   },
   {
     path: 'plans-detail',
-    loadChildren: () => import('./pages/plans-detail/plans-detail.module').then( m => m.PlansDetailPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/plans-detail/plans-detail.module').then( m => m.PlansDetailPageModule)
   },
   {
     path: 'procedures',
-    loadChildren: () => import('./pages/procedures/procedures.module').then( m => m.ProceduresPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/procedures/procedures.module').then( m => m.ProceduresPageModule)
   },
   {
     path: 'procedures-detail',
-    loadChildren: () => import('./pages/procedures-detail/procedures-detail.module').then( m => m.ProceduresDetailPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/procedures-detail/procedures-detail.module').then( m => m.ProceduresDetailPageModule)
   },
   {
     path: 'rooms',
-    loadChildren: () => import('./pages/rooms/rooms.module').then( m => m.RoomsPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/rooms/rooms.module').then( m => m.RoomsPageModule)
   },
   {
     path: 'contact',
@@ -46,33 +41,27 @@ const routes: Routes = [
   },
   {
     path: 'view-video',
-    loadChildren: () => import('./pages/view-video/view-video.module').then( m => m.ViewVideoPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/view-video/view-video.module').then( m => m.ViewVideoPageModule)
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: 'modalrooms',
-    loadChildren: () => import('./pages/modalrooms/modalrooms.module').then( m => m.ModalroomsPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/modalrooms/modalrooms.module').then( m => m.ModalroomsPageModule)
   },
   {
     path: 'new-post',
-    loadChildren: () => import('./pages/new-post/new-post.module').then( m => m.NewPostPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/new-post/new-post.module').then( m => m.NewPostPageModule)
   },
   {
     path: 'data-complete',
-    loadChildren: () => import('./pages/data-complete/data-complete.module').then( m => m.DataCompletePageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/data-complete/data-complete.module').then( m => m.DataCompletePageModule)
   },
   {
     path: '',
-    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
     path: 'terms',
@@ -80,13 +69,11 @@ const routes: Routes = [
   },
   {
     path: 'deposit',
-    loadChildren: () => import('./pages/deposit/deposit.module').then( m => m.DepositPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/deposit/deposit.module').then( m => m.DepositPageModule)
   },
   {
     path: 'faq',
-    loadChildren: () => import('./pages/faq/faq.module').then( m => m.FaqPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/faq/faq.module').then( m => m.FaqPageModule)
   },
   {
     path: 'test',
@@ -94,8 +81,7 @@ const routes: Routes = [
   },
   {
     path: 's-room',
-    loadChildren: () => import('./pages/s-room/s-room.module').then( m => m.SRoomPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/s-room/s-room.module').then( m => m.SRoomPageModule)
   },
   {
     path: 'help',
@@ -103,48 +89,39 @@ const routes: Routes = [
   },
   {
     path: 'admplans',
-    loadChildren: () => import('./pages/admplans/admplans.module').then( m => m.AdmplansPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/admplans/admplans.module').then( m => m.AdmplansPageModule)
   },
   {
     path: 'admplansdetails',
-    loadChildren: () => import('./pages/admplansdetails/admplansdetails.module').then( m => m.AdmplansdetailsPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/admplansdetails/admplansdetails.module').then( m => m.AdmplansdetailsPageModule)
   },
   {
     path: 'admroomsdetails',
-    loadChildren: () => import('./pages/admroomsdetails/admroomsdetails.module').then( m => m.AdmroomsdetailsPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/admroomsdetails/admroomsdetails.module').then( m => m.AdmroomsdetailsPageModule)
   },
   {
     path: 'admrooms',
-    loadChildren: () => import('./pages/admrooms/admrooms.module').then( m => m.AdmroomsPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/admrooms/admrooms.module').then( m => m.AdmroomsPageModule)
   },
   {
     path: 'admprocedures',
-    loadChildren: () => import('./pages/admprocedures/admprocedures.module').then( m => m.AdmproceduresPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/admprocedures/admprocedures.module').then( m => m.AdmproceduresPageModule)
   },
   {
     path: 'admproceduresdetails',
-    loadChildren: () => import('./pages/admproceduresdetails/admproceduresdetails.module').then( m => m.AdmproceduresdetailsPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/admproceduresdetails/admproceduresdetails.module').then( m => m.AdmproceduresdetailsPageModule)
   },
   {
     path: 'homeadmin',
-    loadChildren: () => import('./pages/homeadmin/homeadmin.module').then( m => m.HomeadminPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/homeadmin/homeadmin.module').then( m => m.HomeadminPageModule)
   },
   {
     path: 'admreservas',
-    loadChildren: () => import('./pages/admreservas/admreservas.module').then( m => m.AdmreservasPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/admreservas/admreservas.module').then( m => m.AdmreservasPageModule)
   },
   {
     path: 'share',
-    loadChildren: () => import('./pages/share/share.module').then( m => m.SharePageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/share/share.module').then( m => m.SharePageModule)
   },
   {
     path: 'medicform',
@@ -152,29 +129,24 @@ const routes: Routes = [
   },
   {
     path: 'medicalinfo',
-    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule)
   },
   {
     path: 'profile/:id',
-    loadChildren: () => import('./pages/v-profile/v-profile.module').then( m => m.VProfilePageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/v-profile/v-profile.module').then( m => m.VProfilePageModule)
   },
   {
 
     path: 'medicalinfo',
-    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/medicalinfo/medicalinfo.module').then( m => m.MedicalinfoPageModule)
   },
   {
     path: 'medicpatient',
-    loadChildren: () => import('./pages/medicpatient/medicpatient.module').then( m => m.MedicpatientPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/medicpatient/medicpatient.module').then( m => m.MedicpatientPageModule)
   },
   {
     path: 'trips',
-    loadChildren: () => import('./pages/trips/trips.module').then( m => m.TripsPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/trips/trips.module').then( m => m.TripsPageModule)
 
   },
   {
@@ -183,13 +155,11 @@ const routes: Routes = [
   },
   {
     path: 'change-password',
-    loadChildren: () => import('./pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule)
   },
   {
     path: 'modal-likes/:id',
-    loadChildren: () => import('./pages/modal-likes/modal-likes.module').then( m => m.ModalLikesPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/modal-likes/modal-likes.module').then( m => m.ModalLikesPageModule)
   },
   {
     path: 'medicregister',
@@ -217,14 +187,13 @@ const routes: Routes = [
   },
   {
     path: 'blog',
-    loadChildren: () => import('./pages/blog/blog.module').then( m => m.BlogPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/blog/blog.module').then( m => m.BlogPageModule)
   },
   {
     path: 'before-after',
-    loadChildren: () => import('./pages/before-after/before-after.module').then( m => m.BeforeAfterPageModule),
-    canActivate: [AuthGuard]
-  },  {
+    loadChildren: () => import('./pages/before-after/before-after.module').then( m => m.BeforeAfterPageModule)
+  },
+  {
     path: 'admbefore-after',
     loadChildren: () => import('./pages/admbefore-after/admbefore-after.module').then( m => m.AdmbeforeAfterPageModule)
   }

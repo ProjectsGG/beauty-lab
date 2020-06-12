@@ -35,7 +35,7 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     if (this.hero.auth === true) {
-      this.location.back();
+      // this.location.back();
     }
   }
   register() {

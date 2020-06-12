@@ -37,7 +37,7 @@
     <hr>
     <div class="settings">
       <ion-list lines="none">
-        <ion-menu-toggle> 
+        <ion-menu-toggle *ngIf="hero.auth"> 
           <ion-item lines="none" (click)="logout()" >
           <ion-icon slot="start" name="log-out"></ion-icon>
           <ion-label class="font">L o g o u t</ion-label>

@@ -65,7 +65,8 @@ export class DepositPage implements OnInit {
     this.hero.dataPurchase.plans.push(this.plans);
   }
   payWithPaypal() {
-    this.payPal
+    if (this.hero.auth) {
+      this.payPal
       .init({
         PayPalEnvironmentProduction:
           'Aa5GzqbCccRgVikINEctQx5mZLUZl63wQjne9IY3NuguQK8DUU0OJjq0FGMUVUETrjqyYqQcypNA1QgN',
@@ -123,6 +124,9 @@ export class DepositPage implements OnInit {
           this.toastr.error('Paypal initialization failed');
         }
       );
+    } else {
+      this.router.navigate(['/login'])
+    }
   }
   upPayment() {
     const data: Reservation = {
