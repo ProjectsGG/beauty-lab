@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     if (this.hero.auth === true) {
-      this.location.back();
+      // this.location.back();
     }
   }
   login() {

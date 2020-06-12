@@ -30,6 +30,9 @@ export class InicioPage implements OnInit {
     if (this.hero.auth === true) {
       // this.location.back();
       this.router.navigate(['/tabs/home']);
+    }else {
+      // this.hero.setToken('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYmVhdXR5bGFiLmFwcFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MTk3OTgyOSwibmJmIjoxNTkxOTc5ODI5LCJqdGkiOiJyZjY0WHZsRFZJVTNBUFY2Iiwic3ViIjowLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.7I09IkiqH2VaUz_cW6PcO_5_qLD2vkWslBIHqXLAsDU');
+      // this.router.navigate(['/tabs/home'])
     }
   }
 }

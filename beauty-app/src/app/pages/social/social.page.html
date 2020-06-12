@@ -17,7 +17,7 @@
             <ion-icon name="arrow-up"></ion-icon>
         </ion-fab-button>
     </ion-fab>
-    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="hero.auth">
         <ion-fab-button color="primary-bl">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>

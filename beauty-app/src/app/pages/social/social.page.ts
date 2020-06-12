@@ -25,7 +25,7 @@ export class SocialPage implements OnInit {
     loop: true
   };
   constructor(
-    private hero: HeroService,
+    public hero: HeroService,
     public service: BlogService,
     public router: Router,
     public popoverController: PopoverController) { }
