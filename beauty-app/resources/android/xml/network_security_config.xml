@@ -9,5 +9,7 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">localhost</domain>
         <domain includeSubdomains="true">http://travelpayouts.com/widgets/0a549d7d65737569518aac55ca623554.html?v=1916</domain>
+        <domain includeSubdomains="true">http://sassweb.com.co/test/</domain>
+        
     </domain-config>
 </network-security-config>

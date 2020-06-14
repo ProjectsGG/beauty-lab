@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
