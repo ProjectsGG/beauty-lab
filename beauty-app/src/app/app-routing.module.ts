@@ -224,7 +224,11 @@ const routes: Routes = [
     path: 'before-after',
     loadChildren: () => import('./pages/before-after/before-after.module').then( m => m.BeforeAfterPageModule),
     canActivate: [AuthGuard]
+  },  {
+    path: 'admbefore-after',
+    loadChildren: () => import('./pages/admbefore-after/admbefore-after.module').then( m => m.AdmbeforeAfterPageModule)
   }
+
 
 
 

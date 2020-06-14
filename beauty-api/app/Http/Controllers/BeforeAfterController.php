@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\BeforeAfter;
 use App\Models\ImagesXBeforeAfter;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use JWTAuth;
 class BeforeAfterController extends Controller
@@ -23,6 +25,17 @@ class BeforeAfterController extends Controller
             'data' => $data
         ]);
     }
+    public function getClients() {
+        $clients = DB::table('usuarios')
+        ->select('usuarios.id', 'usuarios.nombres', 'usuarios.apellidos', 'usuarios.direccion', 'usuarios.movil', 'usuarios.email', 'usuarios.img_perfil')
+        ->join('reservas','usuarios.id','reservas.id_usuario')
+        ->distinct()
+        ->get();
+
+        return response()->json([
+            'data' => $clients
+        ]);
+    }
     public function saveData(Request $request)
     {
         try {
@@ -31,8 +44,8 @@ class BeforeAfterController extends Controller
             if (isset($input['photos'])) {
                 foreach ($input['photos'] as $key => $value) {
 
-                    $img = $this->getB64Image($value);
-                    $img_extension = $this->getB64Extension($value);
+                    $img = $this->getB64Image($value['img']);
+                    $img_extension = $this->getB64Extension($value['img']);
 
                     $img_name = $this->user->id . '-beforeAfter-' . $key . time() . '.' . $img_extension;
 
@@ -41,6 +54,7 @@ class BeforeAfterController extends Controller
                     ImagesXBeforeAfter::create([
                         'id_referencia' => $beforeAfter->id,
                         'imagen' => $img_name,
+                        'tipo' => $value['tipo']
                     ]);
                 }
             }
@@ -73,5 +87,13 @@ class BeforeAfterController extends Controller
         // Dependiendo si se pide la extensión completa o no retornar el arreglo con
         // los datos de la extensión en la posición 0 - 1
         return ($full) ?  $img_extension[0] : $img_extension[1];
+    }
+    public function getCases()
+    {
+        $data = BeforeAfter::with(['user', 'images'])->get();
+
+        return response()->json([
+            'data' => $data
+        ]);
     }
 }

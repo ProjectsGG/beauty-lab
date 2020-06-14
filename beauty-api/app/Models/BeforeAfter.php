@@ -10,10 +10,7 @@ class BeforeAfter extends Model
 
     protected $fillable = [
         'id_usuario',
-        'comfort-b',
-        'kg-b',
-        'comfort-a',
-        'kg-a',
+        'cirugias',
     ];
     public $timestamps = false;
     public function user()
@@ -22,6 +19,6 @@ class BeforeAfter extends Model
     }
     public function images()
     {
-        return $this->hasMany(ImagesXBeforeAfter::class, 'id_referenca');
+        return $this->hasMany(ImagesXBeforeAfter::class, 'id_referencia');
     }
 }

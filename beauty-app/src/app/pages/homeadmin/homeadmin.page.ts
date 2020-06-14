@@ -34,6 +34,11 @@ export class HomeadminPage implements OnInit {
       redirectTo: '/homemedic'
     },
     {
+      icon: 'color-wand',
+      name: 'Before and After',
+      redirectTo: '/admbefore-after'
+    },
+    {
       icon: 'home',
       name: 'BeautyLab',
       redirectTo: '/tabs/home'

@@ -1,6 +1,9 @@
 ion-toolbar{
     border-radius: 0.5rem;
 }
+ion-card-subtitle{
+    color: #626262 !important;
+}
 .kg{
     font-size: 20px;
 }
@@ -8,6 +11,19 @@ ion-toolbar{
     color: aliceblue;
     text-align: center;
     font-size: 20px;
+}
+ion-segment{
+    --ion-color-base: aliceblue;
+}
+ion-segment-button{
+    height: 10px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.segment-button-checked{
+    border-radius: 0.5rem;
+    border: 1px solid #ff00deb8;
+    color: #ff00deb8 !important;
 }
 
 

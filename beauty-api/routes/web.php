@@ -18,6 +18,7 @@ Route::get('/file/plans/{filename}','PlansController@getImage');
 Route::get('/file/rooms/{filename}','RoomsController@getImage');
 Route::get('/file/procedures/{filename}','ProceduresController@getImage');
 Route::get('/file/zone/{filename}','PublicController@returnZoneAff');
+Route::get('/file/before-after/{filename}','PublicController@returnBeforeOrAfter');
 Route::get('/forgot/{token}', 'APIController@changePassword');
 Route::get('/', function () {
     return view('welcome');
@@ -29,3 +30,4 @@ Route::get('rooms','RoomsWebController@index')->name('roomsweb');
 Route::get('contact','ContactWebController@index')->name('contactweb');
 Route::get('flight','FlightController@index')->name('flightweb');
 Route::get('policy','ControllerPrivacy@index')->name('PrivacyPolicy');
+Route::get('ggapp','LiveController@index')->name('appgg');
