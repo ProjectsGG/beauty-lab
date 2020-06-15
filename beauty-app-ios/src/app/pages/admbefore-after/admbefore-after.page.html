@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Beauty Lab Before and After</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <h3 class="title-contact">Insert New Result</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+      <ion-col size="12" size-md="6" size-xl="6">
+        <form (ngSubmit)="saveResult()">
+          <ion-toolbar *ngIf="!isSelected">
+            <ion-searchbar class="ion-no-padding" (ionClear)="clear()" (keyup)="search($event)" animated="true"
+              placeholder="Search client" type="text"></ion-searchbar>
+          </ion-toolbar>
+          <p *ngIf="!isSelected" class="message">{{message}}</p>
+          <div *ngIf="results.length > 0" class="clients">
+            <ion-list lines="none">
+              <ion-item button *ngFor="let item of results; index as i " (click)="selected(i)">
+                <ion-label>{{item.nombres}} {{item.apellidos}}</ion-label>
+                <ion-avatar slot="end">
+                  <img src="https://beautylab.app/file/profile/{{item.img_perfil}}" />
+                </ion-avatar>
+              </ion-item>
+            </ion-list>
+          </div>
+
+          <!-- Data selected -->
+          <ion-card *ngIf="isSelected">
+            <ion-item>
+              <ion-avatar slot="start">
+                <img src="https://beautylab.app/file/profile/{{selectedData.img_perfil}}" />
+              </ion-avatar>
+              <ion-label>{{selectedData.nombres}} {{selectedData.apellidos}}</ion-label>
+              <ion-icon slot="end" name="close" (click)="deselect()"></ion-icon>
+            </ion-item>
+
+            <ion-card-content>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-label class="attr">Phone:</ion-label>
+                </ion-col>
+                <ion-col size="8">
+                  <p> {{selectedData.movil}} </p>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-label class="attr">Email:</ion-label>
+                </ion-col>
+                <ion-col size="8">
+                  <p> {{selectedData.email}} </p>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-label class="attr">Address:</ion-label>
+                </ion-col>
+                <ion-col size="8">
+                  <p> {{selectedData.direccion}} </p>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-list *ngIf="isSelected" lines="full" class="ion-no-margin ion-no-padding">
+            <ion-item expandable="true">
+              <ion-textarea [(ngModel)]="data.cirugias" placeholder="Surgeries or description" name="descripcion"
+                class="input-contact" required></ion-textarea>
+            </ion-item>
+          </ion-list>
+          <ion-button (click)="actionSheet()" expand="block" fill="clear" shape="round">
+            Add image +
+          </ion-button>
+          <ion-slides *ngIf="data.photos.length > 0" mode="ios" scrollbar="ios">
+            <ion-slide *ngFor="let item of data.photos">
+              <div>
+                <ion-badge class="type" *ngIf="item.tipo === 1" color="primary">Before</ion-badge>
+                <ion-badge class="type" *ngIf="item.tipo === 2" color="success">After</ion-badge>
+                <img [src]="item.img">
+              </div>
+            </ion-slide>
+          </ion-slides>
+          <ion-row class="btn-style">
+            <ion-col size="6">
+              <ion-button color="dark" class="btn-save" expand="full" size="large" type="submit">Save</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button color="dark" expand="full" size="large" class="btn-details"
+                routerLink="/admproceduresdetails">Details</ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="2" size-lg="2" size-md="2"></ion-col>
+      <ion-col size="8" size-lg="8" size-md="8">
+        <img src="../../../assets/img/horizontal_logo.png" alt="" class="img-admin">
+      </ion-col>
+      <ion-col size="2" size-lg="2" size-md="8"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

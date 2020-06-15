@@ -1,0 +1,56 @@
+<ion-content>
+  <ion-text color="light">
+    <h1 class="ion-text-center home">S I G N U P</h1>
+  </ion-text>
+  <ion-grid>
+    <ion-row>
+      <ion-col size='0' size-md='3' size-lg='4'></ion-col>
+      <ion-col size='12' size-md='6' size-lg='4'>
+        <ion-row>
+          <ion-col size='12'>
+            <img class="img-logo" src="assets/logo/whiteLogoH.png">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size='2'>
+            <ion-icon class='icons-login' name='mail'></ion-icon>
+          </ion-col>
+          <ion-col size='10'>
+            <ion-input type="mail" class="input-login" placeholder="example@youremail" [(ngModel)]="data.email">
+            </ion-input>
+          </ion-col>
+          <ion-col size='2'>
+            <ion-icon class='icons-login' name='lock'></ion-icon>
+          </ion-col>
+          <ion-col size='10'>
+            <ion-input type="password" class="input-login" placeholder="password" [(ngModel)]="data.password">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-spinner *ngIf="validate" class="center-e" color="light" name="crescent"></ion-spinner>
+            <ion-button  *ngIf="!validate" expand='block' class="button-login" (click)="login()">Login</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <!-- <img class="icon-img" src="./../../../assets/img/face-recognition.png" alt=""> -->
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size='12' class='ion-text-center'>
+            <a routerLink="/register" class="reg">create an account</a>
+          </ion-col>
+          <ion-col size='12' class='ion-text-center'>
+            <a routerLink="/forgot-password" class="reg">Forgot your password?</a>
+          </ion-col>
+          <ion-col size='12' class="ion-text-center">
+            <!-- <a routerLink="/terms" class="reg">Terms And Conditions</a> -->
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size='0' size-md='3' size-lg='4'></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

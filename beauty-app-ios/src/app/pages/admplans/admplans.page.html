@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Beauty Lab Plans</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <h3 class="title-contact">Insert New Plans</h3>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+      <ion-col size="12" size-md="6" size-xl="6">
+        <form (ngSubmit)="savePlans()">
+          <input hidden #upload id="upload" type="file" (change)="fileChange()"/>
+          <ion-list lines="full" class="ion-no-margin ion-no-padding">
+            <ion-item>
+
+              <ion-label position="stacked" class="txt-label">Plan Name:</ion-label>
+              <ion-input type="text" name="nombre" 
+                  class="form-control" placeholder="Name" required [(ngModel)]="planes.nombre">
+              </ion-input>             
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Description Plan:</ion-label>
+              <ion-input placeholder="Description"
+                type="text" name="descripcion" class="form-control" 
+                required [(ngModel)]="planes.descripcion">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Plan Value:</ion-label>
+              <ion-input required [(ngModel)]="planes.valor"
+                type="text" name="valor" class="form-control" placeholder="Value">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Room Type:</ion-label>
+              <ion-select name="idRoomType" class="form-control"
+                [(ngModel)]="planes.id_tipo_habitacion" (ionChange)="change($event)">
+                  <ion-select-option *ngFor="let item of roomsTypeList" value={{item.id_tipo_habitacion}}>{{item.id_tipo_habitacion + '-' + item.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+						<ion-item>
+							<ion-label position="stacked">Image:</ion-label>
+              <ion-button color="dark" (click)="takeFile()">
+                <ion-icon name="folder"></ion-icon>
+              </ion-button>
+              <img *ngIf="photoTaken" [src]="photoTaken" style="max-width:100px;height:100px;margin:auto;cursor:pointer;">
+						</ion-item>
+            <ion-row class="btn-style">
+              <ion-col size="6">
+              <ion-button type="submit" color="dark" class="btn-save"expand="full" size="large">Save</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button color="dark" expand="full" size="large" class="btn-details" routerLink="/admplansdetails">Details</ion-button>
+            </ion-col>
+            </ion-row>
+          </ion-list>
+        </form>
+      </ion-col>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="2" size-lg="2" size-md="2"></ion-col>
+      <ion-col size="8" size-lg="8" size-md="8">
+        <img src="../../../assets/img/horizontal_logo.png" alt="" class="img-admin">
+      </ion-col>
+      <ion-col size="2" size-lg="2" size-md="8"></ion-col>
+    </ion-row>
+    </ion-grid>
+</ion-content>

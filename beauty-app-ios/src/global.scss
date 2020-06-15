@@ -1,0 +1,143 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+ion-content.background-bl {
+  //--background: linear-gradient(180deg, rgb(174, 25, 255) 0%, rgb(43, 58, 221) 90%, rgb(74, 68, 197) 100%);
+  //--background:#000;
+  //--background: linear-gradient(to bottom, rgba(232,148,232,1) 0%, rgba(19,19,19,1) 100%);
+  --background: rgb(3,99,193);
+  --background: linear-gradient(180deg, 
+  rgb(240, 33, 226) 50%, 
+  rgb(166, 0, 255) 72%, 
+  rgb(48, 121, 247) 100%); 
+  // --background: linear-gradient(180deg, rgba(3,99,193,1) 0%, rgba(127,94,209,1) 95%, rgba(186,121,255,1) 100%); 
+  // --background: linear-gradient(180deg, rgb(89, 171, 252) -10%, rgb(225, 80, 255) 59%, rgba(89, 171, 252, 1) 100%);
+}
+
+ion-content{
+  //--background: linear-gradient(180deg, rgb(174, 25, 255) 0%, rgb(43, 58, 221) 90%, rgb(74, 68, 197) 100%);
+  --background: rgb(3,99,193);
+  --background: linear-gradient(180deg, 
+  rgb(240, 33, 226) 50%, 
+  rgb(166, 0, 255) 72%, 
+  rgb(48, 121, 247) 100%); 
+  // --background: linear-gradient(180deg, rgba(3,99,193,1) 0%, rgba(127,94,209,1) 95%, rgba(186,121,255,1) 100%); 
+  // --background: linear-gradient(180deg, rgb(89, 171, 252) -10%, rgb(225, 80, 255) 59%, rgba(89, 171, 252, 1) 100%);
+
+}
+
+img.img-header{
+    width: 50%;
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+}
+
+ion-menu{
+    --background: var(--ion-color-light) !important; 
+       ion-content{            
+           --background: var(--ion-color-light) !important; 
+           ion-list-header{ 
+               --background: var(--ion-color-primary) !important;
+               --color: #FFFFFF !important;   
+           }
+        }
+    }
+
+.header-style{
+    max-width: 58px;
+    max-height: 60px;
+    padding-top: 2px;
+}
+.green-wpp span, .green-wpp .action-sheet-button-inner, .green-wpp .sc-ion-action-sheet-md{
+    color: #80C764 !important;
+}
+.blue-mail span, .blue-mail .action-sheet-icon, .blue-mail .sc-ion-action-sheet-md {
+    color: #76B7F8
+}
+.gray-msg span{
+    color: #B2BCBF;
+}
+@keyframes ldio-0crlo2y4m0zh {
+    0% {
+      top: 48.72px;
+      left: 48.72px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 97.44px;
+      height: 97.44px;
+      opacity: 0;
+    }
+  }
+  
+  .ldio-0crlo2y4m0zh div {
+    position: absolute;
+    border-width: 52.779999999999994px;
+    border-style: solid;
+    opacity: 1;
+    border-radius: 50%;
+    animation: ldio-0crlo2y4m0zh 1.7543859649122806s cubic-bezier(0,0.2,0.8,1) infinite;
+  }
+  
+  .ldio-0crlo2y4m0zh div:nth-child(1) {
+    border-color: #abc5fc
+  }
+  
+  .ldio-0crlo2y4m0zh div:nth-child(2) {
+    border-color: #fafafa;
+    animation-delay: -0.8771929824561403s;
+  }
+  
+  .loading {
+    width: 203px;
+    height: 203px;
+    display: inline-block;
+    overflow: hidden;
+    background: none;
+  }
+  .ldio-0crlo2y4m0zh {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+  }
+  .ldio-0crlo2y4m0zh div { box-sizing: content-box; }
+  ion-refresher{
+    --color: rgb(255, 0, 234);
+  }
+
+  div.refresher-pulling-icon > ion-icon{
+    color: rgb(255, 0, 234);
+  }

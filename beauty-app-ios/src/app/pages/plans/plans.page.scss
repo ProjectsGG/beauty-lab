@@ -1,0 +1,25 @@
+img.plans{
+    margin: 0 auto;
+    width: 100%;
+}
+h1.home{
+    font-family: 'suissnordregular';
+    size: 50px;
+}
+
+.textCss{
+    font-family: 'advent_promedium';
+    size: 40px;
+}
+
+ion-grid{
+    ion-card{
+        width:100%;
+        margin-left:0 !important;
+        margin-right:0 !important;
+        border-radius: 0rem;
+        ion-card-content{
+            padding: 0 !important; 
+        }
+    }
+}

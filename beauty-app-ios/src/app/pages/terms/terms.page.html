@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <img src="../../../assets/img/horizontal_logo.png" class="img-hd">
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col
+      size="12"
+      size-sm="12"
+      size-md="3"
+      size-lg="3"
+    ></ion-col>
+    <ion-col
+      size="12"
+      size-sm="12"
+      size-md="3"
+      size-lg="3"
+    ></ion-col>
+  </ion-row>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size="12"
+        size-sm="12"
+        size-md="3"
+        size-lg="3"
+      ></ion-col>
+
+      <ion-col
+        size="12"
+        size-sm="12"
+        size-md="6"
+        size-lg="6"
+      >
+        <ion-card>
+          <ion-list
+            class="noborder"
+            lines="full"
+          >
+            <div *ngFor="let item of termsContent; let i = index">
+              <ion-item (click)="showText(i)">
+                <ion-label>{{item.title}}</ion-label>
+
+                <ion-icon
+                  slot="end"
+                  name="ios-arrow-up"
+                  *ngIf="item.state"
+                ></ion-icon>
+
+                <ion-icon
+                  slot="end"
+                  name="ios-arrow-down"
+                  *ngIf="!item.state"
+                ></ion-icon>
+              </ion-item>
+
+              <div class="border-terms">
+                <p
+                  *ngIf="item.state"
+                  class="font ion-padding"
+                  [innerHtml]="item.text"
+                >{{item.text}}</p>
+              </div>
+            </div>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+
+      <ion-col
+        size="12"
+        size-sm="12"
+        size-md="3"
+        size-lg="3"
+      ></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

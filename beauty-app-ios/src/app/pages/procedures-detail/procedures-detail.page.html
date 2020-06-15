@@ -1,0 +1,39 @@
+<ion-content class="ion-padding">
+<ion-grid>
+    <ion-row>
+      <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
+      <ion-col size="12" size-sm="12" size-md="6" size-lg="4">
+        <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
+        <ion-col size="12" size-sm="12" size-md="6" size-lg="4">
+        <div><ion-text class="title-procedure">{{procedures.nombre}}</ion-text></div>
+        </ion-col>
+        <img class="plans" src="assets/img/pyp/{{procedures.imagen}}" alt="" srcset="">
+        <br>
+        <ion-text color="light">
+          <h3 class="description">Description Procedure: <br> {{procedures.descripcion}}</h3>
+        </ion-text>
+        <br>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-calendar [(ngModel)]="date"
+                [type]="type"
+                [format]="'YYYY-MM-DD'">
+              </ion-calendar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6">
+              <h6 class="steps" (click)="backStep()" >Back</h6>
+            </ion-col>
+            <ion-col size="6">
+              <h6 class="steps r" (click)="nextStep()">Next</h6>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col size="0" size-sm="0" size-md="3" size-lg="4"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

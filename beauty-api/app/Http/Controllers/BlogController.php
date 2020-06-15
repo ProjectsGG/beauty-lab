@@ -8,21 +8,16 @@ use App\Models\Like;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use JWTAuth;
 use Illuminate\Support\Facades\Storage;
 class BlogController extends Controller
 {
     protected $user;
 
-    public function __construct()
-    {
-        $this->user = JWTAuth::parseToken()->authenticate();
-    }
     public function index($option, $id = null)
     {
         if ($option == 1) {
             // Get normal posts
-            $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->take(3)->get();
+            $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->where('estado','1')->take(3)->get();
         } else if ($option == 2) {
             // Charge posts
             $idS = $id - 3;
@@ -160,5 +155,11 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function report($id)
+    {
+      $blog = Blog::find($id);
+      $blog->reportado = 'S';
+      $blog->save();
     }
 }

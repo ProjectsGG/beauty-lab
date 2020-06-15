@@ -1,0 +1,76 @@
+<app-header></app-header>
+<ion-content fullscream>
+  <div *ngIf="loading" class="mar-top loading center">
+    <div class="ldio-0crlo2y4m0zh">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <ion-grid *ngIf="!loading" class="ion-no-padding">
+    <ion-row>
+      <ion-col size="0" size-md="2" size-lg="3"></ion-col>
+      <ion-col class="content-img" size="12" size-md="8" size-lg="6">
+        <div class="ion-text-center">
+          <h2 class="font-title">Y o u r P r o f i l e</h2>
+          <ion-avatar class="profile-img">
+            <img
+              [src]="hero.getUser().img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain() + '/file/profile/' + hero.getUser().img_perfil"
+              alt="profileuser" (click)="presentActionSheet()">
+          </ion-avatar>
+          <h4>{{data.nombres}}</h4>
+          <h5>{{data.email}}</h5>
+        </div>
+        <ion-toolbar>
+          <ion-segment color="primary-bl" (ionChange)="segmentChanged($event)" value="photos">
+            <ion-segment-button value="personalData">
+              <ion-icon name="card"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="blog">
+              <ion-icon name="globe"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="photos">
+              <ion-icon name="alarm"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="reviewBlog">
+              <ion-icon name="camera"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+        <app-profile-data *ngIf="content=='personalData'"></app-profile-data>
+        <ion-card *ngIf="content=='blog'" color="light">
+          <app-post [posts]="posts"></app-post>
+        </ion-card>
+        <app-profile-photos *ngIf="content=='photos'"></app-profile-photos>
+        <app-profile-review-blog *ngIf="content=='reviewBlog'"></app-profile-review-blog>
+      </ion-col>
+      <ion-col size="0" size-md="2" size-lg="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--   <ion-fab  vertical="bottom" horizontal="end" slot="fixed" *ngIf="content=='personalData'">
+    <ion-fab-button color="primary-bl" routerLink="/data-complete">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+  <ion-fab *ngIf="hero.getUser().admin === 1" vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="dark" routerLink="/homeadmin">
+      <ion-icon name="pulse"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger">
+      <ion-icon name="add" color="dark"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary-bl" size="large" routerLink="/data-complete">
+        <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" size="large" routerLink="/medicform">
+        <ion-icon name="medkit" color="primary"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <!-- <ion-button color="light" (click)="clear()" expand="block" fill="outline">
+    <ion-icon name="trash"></ion-icon> Drop data of cache <ion-icon name="trash"></ion-icon>
+  </ion-button> -->
+</ion-content>

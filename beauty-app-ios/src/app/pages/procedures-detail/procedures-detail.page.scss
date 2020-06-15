@@ -1,0 +1,57 @@
+.steps{
+    cursor: pointer;
+    color: aliceblue;
+}
+.r{
+    text-align: end;
+}
+ion-calendar{
+    background: transparent;
+    // border: aliceblue 2px solid;
+    border-radius: 49px;
+}
+img.plans{
+    border-radius: 1.5rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1.home{
+    text-align: center;
+    color: aliceblue;
+    font-size: 35px;
+    font-family: "bioliquidregular";
+}
+h1.title{
+    font-family: 'bioliquidregular';
+    size: 50px;
+}
+
+.textCss{
+    font-family: 'advent_promedium';
+    size: 40px;
+}
+
+.txtdescription{
+    font-family: 'advent_promedium';
+    color: aliceblue;
+    font-size: 11px;
+        
+}
+.description{
+    font-family: 'bioliquidregular';
+    font-size: 15px;
+    color: aliceblue;
+    text-align: justify;
+}
+.title-procedure{
+    color: aliceblue;
+    font-family:'bioliquidregular'; 
+    font-size:23px;
+    display: table;
+    margin: auto;
+    margin-bottom: 12px;
+}
+.img-header{
+    width: 50% !important;
+}

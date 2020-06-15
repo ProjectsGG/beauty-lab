@@ -1,0 +1,53 @@
+[
+    {
+        "icon": "home",
+        "name": "H o m e",
+        "redirectTo": "tabs/home"
+    },
+    {
+        "icon": "flask",
+        "name": "P l a n s",
+        "redirectTo": "/plans"
+    },
+    {
+        "icon": "medkit",
+        "name": "P r o c e d u r e s",
+        "redirectTo": "/procedures"
+    },
+    {
+        "icon": "bed",
+        "name": "R o o m s",
+        "redirectTo": "/rooms"
+    },
+        {
+        "icon": "mail",
+        "name": "C o n t a c t  U s",
+        "redirectTo": "/contact"
+    },
+    {
+        "icon": "airplane",
+        "name": "F l i g h t s",
+        "redirectTo": "/trips"
+    },
+    {
+        "icon": "camera",
+        "name": "B e f o r e a n d A f t e r",
+        "redirectTo": "/before-after"
+    },
+    {
+        "icon": "contact",
+        "name": "P r o f i l e",
+        "redirectTo": "/profile"
+    },
+    {
+        "icon": "share",
+        "name": "S h a r e",
+        "redirectTo": "/share"
+    },
+    {
+        "icon": "help",
+        "name": "F A Q",
+        "redirectTo": "/faq"
+    }   
+]
+

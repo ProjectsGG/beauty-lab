@@ -15,6 +15,7 @@ class Blog extends Model
         'fecha',
         'hora',
         'likes',
+        'reportado'
     ];
     public $timestamps = false;
     public function images()

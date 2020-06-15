@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary" menu="first">
+      </ion-menu-button>
+    </ion-buttons>
+    <img routerLink="/tabs/home" src="../../../assets/img/horizontal_logo.png" class="img-header">
+    <ion-buttons slot="end">
+      <ion-avatar (click)="navigate()" >
+        <img  class="header-style" [src]="hero.getUser().img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain() + '/file/profile/' + hero.getUser().img_perfil" class="img-profile">
+      </ion-avatar>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 

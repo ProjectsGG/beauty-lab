@@ -1,0 +1,7 @@
+{
+  "name": "BeautyLab",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

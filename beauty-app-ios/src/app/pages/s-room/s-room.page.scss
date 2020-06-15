@@ -1,0 +1,42 @@
+.img-room{
+    border-radius: 15px;
+}
+.steps{
+    cursor: pointer;
+    color: aliceblue;
+}
+.r{
+    text-align: end;
+}
+h3{
+    text-align: center;
+    color: aliceblue;
+    font-size: 35px;
+    font-family: 'bioliquidregular';
+}
+ion-item {
+	border-color: transparent;
+	color: aliceblue; 
+    --background: transparent;
+    --color-activated: #fff;
+}
+ion-item:hover {
+	--color: #fff; 
+}
+ion-label{
+    font-size: 23px !important;
+}
+ion-list{
+    background-color: transparent;
+}
+ion-footer > ion-toolbar {
+    --background: rgba(10, 146, 245, 1);
+}
+.scroll-fix{
+    position: absolute;
+
+    overflow-y: scroll;
+    
+    overflow-x: hidden;
+    
+}

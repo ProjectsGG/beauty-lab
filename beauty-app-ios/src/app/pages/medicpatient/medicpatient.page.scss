@@ -1,0 +1,39 @@
+.img-logo{
+
+        width: 40%;
+        margin: 0 auto;
+        display: block;
+        padding-bottom: 2rem;
+
+}
+.profile-img{
+    position:relative;
+    left: 6px;
+}
+.info-value{
+    color:#b7b7b7;
+}
+.card{
+    --background:white;
+}
+.text-card{
+    font-size: 18px;
+}
+.title{
+    font-size: 13px;
+}
+.header-card{
+    display: flex;
+    margin:auto;
+
+}
+ion-card-header{
+    display:flex;
+}
+.result-style{
+    color: red;
+}
+.grid-change{
+    position: relative;
+    bottom: 9px;
+}

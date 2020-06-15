@@ -23,10 +23,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('img/zone', 'UserController@imagesZone');
     Route::get('user', 'UserController@getUser');
     Route::get('delete-photo', 'UserController@deletePhoto');
-    //  Blog
-    Route::resource('blog', 'BlogController');
-    Route::get('blog/posts/{option}/{id?}', 'BlogController@index');
-    Route::get('blog/user/{id}', 'BlogController@getForUser');
+
     // Hiatory
 
     // Hiatory
@@ -72,3 +69,9 @@ Route::get('roomstype', 'RoomsTypeController@index');
 Route::get('reversations', 'ReservationController@index');
 
 Route::get('products', 'APIController@getProductService');
+
+//  Blog
+Route::resource('blog', 'BlogController');
+Route::get('blog/posts/{option}/{id?}', 'BlogController@index');
+Route::get('blog/user/{id}', 'BlogController@getForUser');
+Route::post('blog/report/{id?}', 'BlogController@report');

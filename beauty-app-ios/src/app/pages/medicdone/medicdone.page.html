@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Beauty Lab Medic Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+      <ion-col size="12" size-md="6" size-xl="6">
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+          <ion-item>
+            <ion-label position="" class="txt-label">Plan/Procedure Name</ion-label>
+            <ion-label class="date-style" position="">Date</ion-label>
+          </ion-item>
+          <ion-item *ngFor="let data of reservations" >
+            <ion-label *ngIf="data.plan" position="" class="txt-label">{{data.plan}}</ion-label>
+            <ion-label *ngIf="data.procedimiento" position="" class="txt-label">{{data.procedimiento}}</ion-label>
+            <ion-label position="" class="date-style">{{data.fecha_reserva | date:"dd-MM-yyyy" }}</ion-label>
+          </ion-item>          
+      </ion-list>
+      </ion-col>
+      <ion-col size="12" size-md="3" size-xl="3"></ion-col>
+      <ion-col size="2" size-lg="2" size-md="2"></ion-col>
+      <ion-row>
+        <ion-col size="2" size-lg="2" size-md="2"></ion-col>
+        <ion-col size="8" size-lg="8" size-md="8">
+          <img src="../../../assets/img/horizontal_logo.png" alt="" class="img-medic">
+        </ion-col>
+        <ion-col size="2" size-lg="2" size-md="8"></ion-col>
+          </ion-row>
+          <ion-col size="2" size-lg="2" size-md="8"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,52 @@
+<app-header></app-header>
+<ion-content fullscream>
+  <div *ngIf="loading" class="mar-top loading center">
+    <div class="ldio-0crlo2y4m0zh">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <ion-grid *ngIf="!loading" class="ion-no-padding">
+    <ion-row>
+      <ion-col size="0" size-md="2" size-lg="3"></ion-col>
+      <ion-col class="content-img" size="12" size-md="8" size-lg="6">
+        <div class="ion-text-center">
+          <ion-avatar class="profile-img">
+            <img
+              [src]="user.img_perfil === null ? '/assets/img/no-profile.png' : hero.getDomain() + '/file/profile/' + user.img_perfil"
+              alt="profileuser">
+          </ion-avatar>
+          <h4>{{user.nombres}} {{user.apellidos}}</h4>
+          <br>
+        </div>
+        <ion-toolbar>
+          <ion-segment color="primary-bl" (ionChange)="segmentChanged($event)" value="images">
+            <ion-segment-button value="images">
+              <ion-icon name="images"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="albums">
+              <ion-icon name="globe"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+        <div *ngIf="content==='images'">
+          <ion-card color="light" class="no-margin">
+            <ion-grid class="grid-photos">
+              <ion-row>
+                <ion-col class="no-padding" *ngFor="let item of images" size="6">
+                  <img class="img-carr" [src]="hero.getDomain() + '/file/blog/' + item" alt="">
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </div>
+        <div *ngIf="content==='albums'">
+          <ion-card color="light" class="no-margin" >
+            <app-post [posts]="data"></app-post>
+          </ion-card>
+        </div>
+      </ion-col>
+      <ion-col size="0" size-md="2" size-lg="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

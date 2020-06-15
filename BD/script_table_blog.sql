@@ -1,0 +1,1 @@
+ALTER TABLE blog ADD COLUMN ( reportado VARCHAR(1));

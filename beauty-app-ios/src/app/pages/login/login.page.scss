@@ -1,0 +1,72 @@
+.img-logo{
+    max-width: 74%;
+    border: 0;
+    display: flex;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+}
+ion-content{
+    h2,h4{
+        color:white;
+    }
+    ion-grid{
+        padding-top: 4em;
+       }
+    }
+.center{
+    text-align: center;
+}
+.center-e{
+    display: flex;
+    margin: 0 auto;
+}
+.padding{
+    padding: 1rem;
+}
+
+.logo-login{
+    max-width: 80%;
+    border: 0;
+    padding-left: 4rem;
+    padding-top: 4rem;
+}
+.icons-login{
+    width:45px;
+    height:45px;
+    color: white;
+}
+.input-login{
+    color:#0b93f6;
+    --background:aliceblue;
+    width: 100%;
+    height: 46px;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    --placeholder-color: #0b93f6; 
+    --placeholder-opacity: 80%;
+    text-align: center;
+}
+.button-login{
+    color:#0C94F7;
+    --background: #E6E7E9 ;
+    --background-activated: #d9d9db;
+    border-radius: 40px;
+    width: 100%;
+    height: 50px;
+    --color-hover:#f2f3f4;
+}
+
+
+h1.home{
+    font-family: 'suissnordregular';
+    size: 50px;
+}
+
+
+a.reg{
+    color: #fff;
+    text-decoration: none;
+}
+
