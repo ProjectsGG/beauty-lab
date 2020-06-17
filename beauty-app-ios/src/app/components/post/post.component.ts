@@ -7,6 +7,8 @@ import { PopoverpostComponent } from '../popoverpost/popoverpost.component';
 import { Commentary } from '../../interfaces/commentary';
 import { ModalLikesPage } from 'src/app/pages/modal-likes/modal-likes.page';
 import { ToastService } from '../../services/toast.service';
+import { User } from 'src/app/interfaces/user';
+
 
 
 @Component({
@@ -19,6 +21,12 @@ export class PostComponent implements OnInit {
   @Input('posts') cards: any[]; Id;
 
   auth;
+  user;
+
+  private userBlock: User = {
+    user_blocked_id: 0,
+    user_id: 0
+  };
 
   public slideOpts = {
     zoom: true,
@@ -46,6 +54,7 @@ ngOnInit() {
     });
   });
   this.auth = this.hero.auth;
+  this.user = this.hero.getUser().id;
   }
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
@@ -56,17 +65,13 @@ ngOnInit() {
     return await popover.present();
   }
   likeFocus(i) {
+    this.validateUser();
     this.cards[i].liked = !this.cards[i].liked;
     this.cards[i].liked ? this.cards[i].likes_count ++ : this.cards[i].likes_count --;
     this.service.like(this.cards[i].id).subscribe();
   }
   comment(i) {
-
-    if (!this.auth) {
-      this.toast.error('ups! To make a comment, you must log in');
-      this.router.navigate(['login']);
-    }
-
+    this.validateUser();
     this.cards[i].isCom = true;
     const data: Commentary = {
       id_blog: this.cards[i].id,
@@ -84,25 +89,47 @@ ngOnInit() {
   }
 
   report(i) {
+    this.validateUser();
     const idBlog =  this.cards[i].id;
     this.service.report(idBlog).subscribe((r: any) => {
-      this.toast.success('Thanks for your report. Your request has been sent for'+ 
+      this.toast.success('Thanks for your report. Your request has been sent for' +
         'review by the administration of BeautyLab');
     });
   }
 
+  block(i) {
+    this.validateUser();
+    this.userBlock.user_id = this.hero.getUser().id;
+    this.userBlock.user_blocked_id = i.user.id;
+    console.log(this.userBlock);
+    this.service.block(this.userBlock).subscribe((r: any) => {
+      this.toast.success('The user has been successfully blocked. ' +
+        'From this moment you will not be able to see or comment on your publications');
+    });
+  }
+
+
   viewProfile(id) {
-    console.log(id);
+    this.validateUser();
     this.router.navigate(['/profile/' + id]);
   }
-    async openModal(Id) {
-      const modal = await this.modalCtrl.create({
-         component: ModalLikesPage,
-         componentProps: {
-          identificador: Id
-       }
-        });
-      await modal.present();
+
+  async openModal(Id) {
+    const modal = await this.modalCtrl.create({
+        component: ModalLikesPage,
+        componentProps: {
+        identificador: Id
       }
+      });
+    await modal.present();
+    }
+
+  validateUser() {
+    if (!this.auth) {
+      this.toast.error('ups! To make a comment, you must log in');
+      this.router.navigate(['login']);
+    }
   }
+
+}
 
