@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/homeadmin"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>List of reported publications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+<ion-list>
+  <ion-list-header>
+    Reservations
+  </ion-list-header>
+
+  <ion-item *ngFor="let data of publications" >
+    <ion-avatar class="avatar-social">
+        <img (click)="viewProfile(data.user.id)" [src]="data.user.img_perfil === null ? 'assets/img/no-profile.png' : hero.getDomain()+'/file/profile/'+data.user.img_perfil">
+    </ion-avatar>    
+    <ion-label>
+      <h2>{{data.descripcion}}</h2>
+      <h2 class="social-name" (click)="viewProfile(data.user.id)">{{data.user.nombres}}</h2>
+      <h5 class="postage">Posted {{data.fecha}}</h5>      
+      <ion-button color="dark" (click)="deletePost(data)" >Delete</ion-button>
+    </ion-label>
+  </ion-item>
+
+</ion-list>
+
+
+</ion-content>

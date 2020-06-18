@@ -30,6 +30,7 @@ class BlogController extends Controller
               ->orderBy('id','DESC')
               ->with(['images','user','comments.user','likes.user'])
               ->withCount('likes')
+              ->where('estado','1')
               ->get();
         }else if ($option == 3) {
             // New posts
@@ -38,8 +39,16 @@ class BlogController extends Controller
               ->orderBy('id','DESC')
               ->with(['images','user','comments.user','likes.user'])
               ->withCount('likes')
+              ->where('estado','1')
               ->get();
-        }
+          }else if ($option == 4) {
+            $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])
+              ->withCount('likes')
+              ->where('reportado','S')
+              ->where('estado','1')
+              ->take(10)
+              ->get();
+          }
         return response()->json([
             'ok' => true,
             'data' => $blogs
@@ -180,5 +189,12 @@ class BlogController extends Controller
     {
       $input = $request->all();
       UserBlocked::create($input);
+    }
+
+    public function delete($id)
+    {
+      $blog = Blog::find($id);
+      $blog->estado = 2;
+      $blog->save();
     }
 }

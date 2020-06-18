@@ -76,3 +76,4 @@ Route::get('blog/posts/{option}/{id?}', 'BlogController@index');
 Route::get('blog/user/{id}', 'BlogController@getForUser');
 Route::post('blog/report/{id?}', 'BlogController@report');
 Route::post('blog/block', 'BlogController@block');
+Route::post('blog/delete/{id?}', 'BlogController@delete');

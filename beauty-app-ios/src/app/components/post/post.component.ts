@@ -8,7 +8,7 @@ import { Commentary } from '../../interfaces/commentary';
 import { ModalLikesPage } from 'src/app/pages/modal-likes/modal-likes.page';
 import { ToastService } from '../../services/toast.service';
 import { User } from 'src/app/interfaces/user';
-
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -20,7 +20,6 @@ export class PostComponent implements OnInit {
   // tslint:disable-next-line: no-input-rename
   @Input('posts') cards: any[]; Id;
 
-  auth;
   user;
 
   private userBlock: User = {
@@ -41,7 +40,8 @@ export class PostComponent implements OnInit {
     public router: Router,
     public popoverController: PopoverController,
     private modalCtrl: ModalController,
-    private toast: ToastService, ) { }
+    private toast: ToastService,
+    public alertController: AlertController ) { }
 ngOnInit() {
   this.cards.forEach((e) => {
     e.isCom = false;
@@ -53,7 +53,6 @@ ngOnInit() {
       }
     });
   });
-  this.auth = this.hero.auth;
   this.user = this.hero.getUser().id;
   }
   async presentPopover(ev: any) {
@@ -71,47 +70,51 @@ ngOnInit() {
     this.service.like(this.cards[i].id).subscribe();
   }
   comment(i) {
-    this.validateUser();
-    this.cards[i].isCom = true;
-    const data: Commentary = {
-      id_blog: this.cards[i].id,
-      comentario: this.cards[i].comment,
-    };
-    if (data.comentario !== '') {
-      this.service.comment(data).subscribe((r: any) => {
+    if ( this.validateUser() ) {
+      this.cards[i].isCom = true;
+      const data: Commentary = {
+        id_blog: this.cards[i].id,
+        comentario: this.cards[i].comment,
+      };
+      if (data.comentario !== '') {
+        this.service.comment(data).subscribe((r: any) => {
+          this.cards[i].isCom = false;
+          this.cards[i].comment = '';
+          this.cards[i].comments.push(r.comment);
+        });
+      } else {
         this.cards[i].isCom = false;
-        this.cards[i].comment = '';
-        this.cards[i].comments.push(r.comment);
-      });
-    } else {
-      this.cards[i].isCom = false;
+      }
     }
   }
 
   report(i) {
-    this.validateUser();
-    const idBlog =  this.cards[i].id;
-    this.service.report(idBlog).subscribe((r: any) => {
-      this.toast.success('Thanks for your report. Your request has been sent for' +
-        'review by the administration of BeautyLab');
-    });
+    if ( this.validateUser() ) {
+      const idBlog =  this.cards[i].id;
+      this.service.report(idBlog).subscribe((r: any) => {
+        this.toast.success('Thanks for your report. Your request has been sent for' +
+          'review by the administration of BeautyLab');
+      });
+    }
   }
 
   block(i) {
-    this.validateUser();
-    this.userBlock.user_id = this.hero.getUser().id;
-    this.userBlock.user_blocked_id = i.user.id;
-    console.log(this.userBlock);
-    this.service.block(this.userBlock).subscribe((r: any) => {
-      this.toast.success('The user has been successfully blocked. ' +
-        'From this moment you will not be able to see or comment on your publications');
-    });
+    if ( this.validateUser() ) {
+      this.userBlock.user_id = this.hero.getUser().id;
+      this.userBlock.user_blocked_id = i.user.id;
+      console.log(this.userBlock);
+      this.service.block(this.userBlock).subscribe((r: any) => {
+        this.toast.success('The user has been successfully blocked. ' +
+          'From this moment you will not be able to see or comment on your publications');
+      });
+    }
   }
 
 
   viewProfile(id) {
-    this.validateUser();
-    this.router.navigate(['/profile/' + id]);
+    if ( this.validateUser() ) {
+      this.router.navigate(['/profile/' + id]);
+    }
   }
 
   async openModal(Id) {
@@ -125,10 +128,40 @@ ngOnInit() {
     }
 
   validateUser() {
-    if (!this.auth) {
-      this.toast.error('ups! To make a comment, you must log in');
-      this.router.navigate(['login']);
+    console.log(this.user);
+    if ( this.user > 0) {
+      return true;
+    } else {
+      this.presentAlertConfirm();
     }
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm!',
+      message: 'ups! To do this, you must log in',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+            return false;
+          }
+        }, {
+          text: 'OK',
+          handler: () => {
+            this.toast.warning('ups! To do this, you must log in');
+            this.router.navigate(['login']);
+            return true;
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }

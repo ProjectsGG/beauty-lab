@@ -120,6 +120,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admreservas/admreservas.module').then( m => m.AdmreservasPageModule)
   },
   {
+    path: 'admsocial',
+    loadChildren: () => import('./pages/admsocial/admsocial.module').then( m => m.AdmsocialPageModule)
+  },
+  {
     path: 'share',
     loadChildren: () => import('./pages/share/share.module').then( m => m.SharePageModule)
   },
