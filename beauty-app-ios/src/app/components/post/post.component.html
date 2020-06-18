@@ -43,7 +43,7 @@
                             </ion-col>
                             <ion-col *ngIf="post.comments.length > 0" size="12" class="box-comm">
                                 <p *ngFor="let comm of post.comments"> <b>{{comm.user.nombres}}</b>
-                                    {{comm.comentario}} <ion-button (click)="report(i)" >Block User</ion-button> </p>
+                                    {{comm.comentario}}<ion-button *ngIf="post.user.id === this.user" (click)="block(comm)" >Block User</ion-button> </p>
                                     
                             </ion-col>
                             <ion-col size="12" class=no-padding>

@@ -32,4 +32,7 @@ export interface User {
     diabetes?: string;
     vih?: string;
     presion_alta?: string;
+
+    user_blocked_id?: number;
+    user_id?: number;
 }

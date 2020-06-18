@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\UserBlocked;
 use App\Models\imagesXblog;
 use App\Models\Like;
 use App\Models\User;
@@ -17,15 +18,27 @@ class BlogController extends Controller
     {
         if ($option == 1) {
             // Get normal posts
-            $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->where('estado','1')->take(3)->get();
+            $blogs = Blog::orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])
+              ->withCount('likes')
+              ->where('estado','1')
+              ->take(3)
+              ->get();
         } else if ($option == 2) {
             // Charge posts
             $idS = $id - 3;
-            $blogs = Blog::whereBetween('id', [$idS, ($id-1)])->orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->get();
+            $blogs = Blog::whereBetween('id', [$idS, ($id-1)])
+              ->orderBy('id','DESC')
+              ->with(['images','user','comments.user','likes.user'])
+              ->withCount('likes')
+              ->get();
         }else if ($option == 3) {
             // New posts
             $idS = $id + 3;
-            $blogs = Blog::whereBetween('id', [($id+1) ,$idS ])->orderBy('id','DESC')->with(['images','user','comments.user','likes.user'])->withCount('likes')->get();
+            $blogs = Blog::whereBetween('id', [($id+1) ,$idS ])
+              ->orderBy('id','DESC')
+              ->with(['images','user','comments.user','likes.user'])
+              ->withCount('likes')
+              ->get();
         }
         return response()->json([
             'ok' => true,
@@ -161,5 +174,11 @@ class BlogController extends Controller
       $blog = Blog::find($id);
       $blog->reportado = 'S';
       $blog->save();
+    }
+
+    public function block(Request $request)
+    {
+      $input = $request->all();
+      UserBlocked::create($input);
     }
 }

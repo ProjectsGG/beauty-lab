@@ -5,6 +5,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Blog } from '../interfaces/blog';
 import { Commentary } from '../interfaces/commentary';
+import { User } from '../interfaces/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -81,6 +82,20 @@ export class BlogService {
     };
     const url = this.hero.getUrl() + '/blog/report' + '/' + idBlog;
     return this.http.post(url, httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
+
+  block(datos: User) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    const url = this.hero.getUrl() + '/blog/block';
+    return this.http.post(url, datos, httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError)
