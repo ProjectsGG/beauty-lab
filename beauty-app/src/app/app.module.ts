@@ -4,7 +4,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
@@ -24,6 +24,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Instagram } from '@ionic-native/instagram/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { Network } from '@ionic-native/network/ngx';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
