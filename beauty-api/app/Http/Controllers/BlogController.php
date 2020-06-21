@@ -197,4 +197,18 @@ class BlogController extends Controller
       $blog->estado = 2;
       $blog->save();
     }
+
+    public function getReportUser($idUser, $idUserBlock)
+    {
+      $user = UserBlocked::all()
+        ->where('user_id', $idUserBlock)
+        ->where('user_blocked_id', $idUser)
+        ;
+
+
+      return response()->json([
+      'ok' => true,
+      'data' => $user
+      ]);
+    }
 }

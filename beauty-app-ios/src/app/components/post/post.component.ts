@@ -9,6 +9,7 @@ import { ModalLikesPage } from 'src/app/pages/modal-likes/modal-likes.page';
 import { ToastService } from '../../services/toast.service';
 import { User } from 'src/app/interfaces/user';
 import { AlertController } from '@ionic/angular';
+import { ReadPropExpr } from '@angular/compiler';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class PostComponent implements OnInit {
   @Input('posts') cards: any[]; Id;
 
   user;
+  userBloquecked;
 
   private userBlock: User = {
     user_blocked_id: 0,
@@ -64,27 +66,47 @@ ngOnInit() {
     return await popover.present();
   }
   likeFocus(i) {
-    this.validateUser();
-    this.cards[i].liked = !this.cards[i].liked;
-    this.cards[i].liked ? this.cards[i].likes_count ++ : this.cards[i].likes_count --;
-    this.service.like(this.cards[i].id).subscribe();
+    if ( this.validateUser() ) {
+      this.userBlock.user_id = this.hero.getUser().id;
+      this.userBlock.user_blocked_id = this.cards[i].user.id;
+      this.service.validateUserblock(this.userBlock).subscribe((r: any) => {
+        if ( r.data.length > 0) {
+          this.toast.error('Sorry, you cannot perform this action, or this users posts ');
+          return false;
+        } else {
+          this.cards[i].liked = !this.cards[i].liked;
+          this.cards[i].liked ? this.cards[i].likes_count ++ : this.cards[i].likes_count --;
+          this.service.like(this.cards[i].id).subscribe();
+        }
+      });
+    }
   }
+  
   comment(i) {
     if ( this.validateUser() ) {
-      this.cards[i].isCom = true;
-      const data: Commentary = {
-        id_blog: this.cards[i].id,
-        comentario: this.cards[i].comment,
-      };
-      if (data.comentario !== '') {
-        this.service.comment(data).subscribe((r: any) => {
-          this.cards[i].isCom = false;
-          this.cards[i].comment = '';
-          this.cards[i].comments.push(r.comment);
-        });
-      } else {
-        this.cards[i].isCom = false;
-      }
+      this.userBlock.user_id = this.hero.getUser().id;
+      this.userBlock.user_blocked_id = this.cards[i].user.id;
+      this.service.validateUserblock(this.userBlock).subscribe((r: any) => {
+        if ( r.data.length > 0) {
+          this.toast.error('Sorry, you cannot perform this action, or this users posts ');
+          return false;
+        } else {
+          this.cards[i].isCom = true;
+          const data: Commentary = {
+            id_blog: this.cards[i].id,
+            comentario: this.cards[i].comment,
+          };
+          if (data.comentario !== '') {
+            this.service.comment(data).subscribe((r: any) => {
+              this.cards[i].isCom = false;
+              this.cards[i].comment = '';
+              this.cards[i].comments.push(r.comment);
+            });
+          } else {
+            this.cards[i].isCom = false;
+          }
+        }
+      });
     }
   }
 
@@ -162,6 +184,18 @@ ngOnInit() {
     });
 
     await alert.present();
+  }
+
+  async validateUserblocked(i) {
+    console.log(i);
+    this.userBlock.user_id = this.hero.getUser().id;
+    this.userBlock.user_blocked_id = i.user.id;
+    this.service.validateUserblock(this.userBlock).subscribe((r: any) => {
+      if ( r.data ) {
+        this.toast.error('Sorry, you cannot perform this action, or this users posts ');
+        this.userBloquecked = r.data;
+      }
+    });
   }
 
 }
