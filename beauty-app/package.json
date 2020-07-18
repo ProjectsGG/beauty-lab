@@ -16,12 +16,7 @@
     "@angular/common": "~8.2.14",
     "@angular/core": "~8.2.14",
     "@angular/forms": "~8.2.14",
-<<<<<<< Updated upstream
-    "@angular/platform-browser": "~8.2.14",
-    "@angular/platform-browser-dynamic": "~8.2.14",
-=======
     "@angular/platform-browser": "^9.1.11",
->>>>>>> Stashed changes
     "@angular/router": "~8.2.14",
     "@ionic-native/camera": "^5.22.0",
     "@ionic-native/core": "^5.22.0",
@@ -119,9 +114,6 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {
-        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {},
       "com.paypal.cordova.mobilesdk": {},
@@ -144,9 +136,6 @@
       "cordova-plugin-email-composer": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-<<<<<<< Updated upstream
-      "cordova-plugin-network-information": {}
-=======
       "cordova-plugin-network-information": {},
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
@@ -156,7 +145,6 @@
         "PLAY_SERVICES_VERSION": "15.0.1"
       },
       "cordova-plugin-crosswalk-webview": {}
->>>>>>> Stashed changes
     },
     "platforms": [
       "android",

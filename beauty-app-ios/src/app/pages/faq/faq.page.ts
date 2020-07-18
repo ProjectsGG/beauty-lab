@@ -14,55 +14,45 @@ export class FaqPage implements OnInit {
   faqContent = [{
     title: 'What is the recovery from cosmetic surgery like?',
     text: '<strong>What is the recovery from cosmetic surgery like?</strong><br><br>'
-        + 'The first thing you beauties need to know is that each of you tolerates'
-        + 'pain after surgery in different ways, and reacts to procedures differently, some might be more swollen than others,'
-        + 'some more bruised than others and like that. It all depends on the work that you had done, and the part of your'
-        + 'body that was intervened, but hey! don’t worry! Your surgeon will prescribe the appropriate pain medications to help'
-        + 'minimize any discomfort, and with the care of our beautiful nurses, you will feel right at home. <br> <br>'
-        + 'Post-operatively Speaking, Liposuction is slightly more uncomfortable, and surgeries that require elevation or tightening'
-        + 'of the muscles-such as an abdominoplasty or breast augmentation can cause discomfort equal to a C-section.'
-        + '<br> <br>But hey! You know what they say, no pain, no gain, and in our pink mansion you will be treated like a princess,'
-        + 'and you won’t even feel your stay.',
+    +'One of the biggest concerns many people have regarding cosmetic surgery is the recovery process. In fact, 54% of women actively considering plastic surgery list recovery issues as a reason they are hesitant about surgery. After all, the procedure may only take a couple of hours, but recovery is something you will be facing for days or weeks after the big day. While every process is different, we’ve put together a basic timeline for recovery with some of the most common cosmetic procedures. With this information, and by having questions answered by your doctor, you can be well-prepared for your procedure.<br>'
+    +'<strong>Source:</strong> <a href="https://reverehealth.com/live-better/cosmetic-surgery-recovery-process/" target="_blank">Reverehealth.com</a>',
     state: false
   },
   {
-    title: 'How is a patient’s physical condition evaluated before plastic surgery?',
-    text: '<strong>How is a patient’s physical condition evaluated before plastic surgery?</strong><br><br>'
-        +'A complete pretesting series of appointments is done prior to any surgery, in the first one, you get to meet your Doctor,'
-        + 'ask all the questions that you have and vice versa, you will decide what procedures you will get done, pick the size of'
-        + 'implants if needed, etc.; then the Doctor will perform a series of blood test and an electrocardiogram to make sure you'
-        + 'are ready for your surgery, and a few days later you will get your procedure done and the same day or one day later you '
-        + 'will be in our pink mansion being treated like a princess.',
+    title: 'A Basic Timeline for Recovery',
+    text: '<strong>A Basic Timeline for Recovery</strong><br><br>'
+        +'The First 24 Hours – During the first 24 hours after surgery, it will be best to have someone with you. Not only will you have someone who can help if you need anything (water, an extra pillow or someone to talk to), but if you find yourself feeling bad, you’ll have assistance getting to the doctor for follow-up care. At this time you will likely have a prescription for pain relief and may be told to ice the affected area. Follow all your doctors advice and relax <br>'
+        +' The First Week – For most major cosmetic surgery procedures, the first week will involve bruising, swelling and some pain. You will want to take it easy. Most people will take this time off of work and may need some help with chores around the house. Follow all wound care guidelines to make sure your incision heals properly. <br>'
+        +'Week Two – At this point you will likely have had a follow-up visit with your doctor and may be cleared to go back to work. Make sure you get plenty of rest at night and do not neglect your wound care process—even as you start feeling better'
+        +'Three Weeks and Later –The bruising and swelling will somewhat subside. You may still have some healing left to do, but in many cases, you will feel much better and prepared to resume nearly normal activity levels. Talk to your doctor before you continue to exercise or complete any heavy-duty work.<br>'
+        +'<strong>Source:</strong> <a href="https://reverehealth.com/live-better/cosmetic-surgery-recovery-process/" target="_blank">Reverehealth.com</a>',
     state: false
   },
 {
-    title: 'What happens after the surgery?',
-   text: '<strong>What happens after the surgery?</strong><br><br>' 
-        +'The first days are always the hardest. You have to remember that this is not only a physical'
-        + 'but a mental and emotional journey, and in beauty factory, we understand that and will make sure'
-        + 'you get all the attention and the help you need. <br> <br> Usually the day or two later there is a check-up'
-        + 'at the Doctor’s office or in the mansion where the Doctor will evaluate your response to the surgery.'
-        + ' <br> <br>There will be swelling, followed by itchiness, and depending on your procedure; you will have specific'
-        + 'symptoms that will be gone after a few days or weeks.',
+    title: 'Recovery Times for Common Procedures',
+   text: '<strong>Recovery Times for Common Procedures</strong><br><br>' 
+        +'As mentioned, the recovery time will vary from procedure to procedure, but some of the more common procedures’ recovery times are as follows:<br>'
+        +'<strong>Facelift:</strong> – This process is often more visible than other procedures and many people do not feel like going out in public until they look more presentable—usually after 14 – 21 days.<br>'
+        +'<strong>Breast Augmentation:</strong> – After about a week or two of rest, you should be able to begin light duty work again.<br>'
+        +'<strong>Eyelid Surgery: </strong> – Usually 2 – 3 weeks is the normal time of recovery before an individual can return to work.<br>'
+        +'<strong>Liposuction:</strong> – Bruising will usually subside after a week or two, and patients can return to work when they feel able to complete their duties.<br>'
+        +'As you can see, there is a lot to think about when it comes to cosmetic surgery (and the recovery process). It is important not to become overwhelmed by the information. Make an appointment for a consultation with one of our Revere Health doctors and talk to him or her about any concerns. Doing this will help you feel more confident about the process from start to finish.<br>'
+        +'<strong>Source:</strong> <a href="https://reverehealth.com/live-better/cosmetic-surgery-recovery-process/" target="_blank">Reverehealth.com</a>',
     state: false
  },
   {
-    title: 'What are the possible risks of having plastic surgery?',
-    text: '<strong>What are the possible risks of having plastic surgery?</strong><br><br>'
-        +'Is very important that you guys understand there are risks associated with any surgical procedures.' 
-        + 'You can find out what they are, how often they occur and how they will be handled if they do occur with the' 
-        + 'help of our Doctor’s that will openly discuss the risks to each procedure, and the fantastic part is that our' 
-        + 'staff of Doctor’s is fully prepared, and certified by the Colombian society of plastic, esthetic and reconstructive'
-        + 'surgery so you can be sure your in the best hands.',
-    state: false
-  },
-  {
-    title: 'What are some of the things I can’t do after surgery?',
-    text: '<strong>What are some of the things I can’t do after surgery?</strong><br><br>' 
-        + 'The Doctor recommends to stay calm at home following all the instructions they give you; you can’t have physical'
-        + 'activity, you can’t take the sun, you can’t go to the pool or anything similar for more than a month, you can’t drink'
-        + 'alcohol or consume any substances during your recuperation period. It is ideal for maintaining a healthy diet and a calm'
-        + 'state of mind when you get the procedure done. And remember beauties, it will all be worth it once you see the results.',
+    title: 'Risks',
+    text: '<strong>Risks</strong><br><br>'
+        +'All surgeries, including cosmetic procedures, carry risk. Those with a history of cardiovascular disease, lung disease, diabetes or obesity have a higher risk of developing complications such as pneumonia, stroke, heart attack or blood clots in the legs or lungs. Smoking also increases risks and interferes with healing<br>'
+        +'A meeting with the surgeon will include a discussion of these risks and others related to the patients health history'
+        +'Possible complications for any surgical procedure include:<br>'
+        +'- Complications related to anesthesia, including pneumonia, blood clots and, rarely, death<br>'
+        +'- Infection at the incision site, which may worsen scarring and require additional surgery<br>'
+        +'- Fluid build up under the skin<br>'
+        +'- Mild bleeding, which may require another surgical procedure, or bleeding significant enough to require a transfusion<br>'
+        +'- Obvious scarring or skin breakdown, which occurs when healing skin separates from healthy skin and must be removed surgically<br>'
+        +'- Numbness and tingling from nerve damage, which may be permanent<br>'
+        +'<strong>Source:</strong> <a href="https://www.mayoclinic.org/tests-procedures/cosmetic-surgery/about/pac-20385138" target="_blank">Mayoclinic.org</a>',
     state: false
   },
   {
@@ -98,18 +88,8 @@ export class FaqPage implements OnInit {
     state: false
   },
   {
-    title: 'Why is it important to wear a faja (spanks) after surgery?',
-    text: '<strong>Why is it important to wear a faja (spanks) after surgery?</strong><br><br>'
-     + 'Along with rest and proper nutrition, compression garments, or Fajas as they call them now days are a vital'
-     + 'part of your recovery process since all of your tissues are shifting and conforming to your new shape.'
-     + '<br> <br>Compression garments can support the healing and recovery process, promotes healthy blood circulation,' 
-     + 'and may increase the chances of better results after a body contouring procedure.'
-     + '<br> <br>And yes! Here we have all the type of fajas you might need for your surgery.',
-     state: false
-  },
-  {
-    title: 'What is Beauty factory app’s contact number?',
-    text: '<strong>What is Beauty factory app’s contact number?</strong><br><br>'
+    title: 'What is Beauty Lab app’s contact number?',
+    text: '<strong>What is Beauty Lab app’s contact number?</strong><br><br>'
     +'It is very easy to contact one of our sales representative, Through WhatsApp and that it, we will'
     + 'answer all your questions and help you through your process.'
     + '<br> <br> +57 302 2618171<br> <br>'
