@@ -102,6 +102,20 @@ export class BlogService {
     );
   }
 
+  validateUserblock(datos: User) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    const url = this.hero.getUrl() + '/blog/reportuser/' + datos.user_id + '/' + datos.user_blocked_id;
+    return this.http.get(url, httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
+
   blogUser(id) {
     const httpOptions = {
       headers: new HttpHeaders({

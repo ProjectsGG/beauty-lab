@@ -39,6 +39,11 @@ export class HomeadminPage implements OnInit {
       redirectTo: '/admbefore-after'
     },
     {
+      icon: 'color-wand',
+      name: 'Reported Posts',
+      redirectTo: '/admsocial'
+    },
+    {
       icon: 'home',
       name: 'BeautyLab',
       redirectTo: '/tabs/home'
