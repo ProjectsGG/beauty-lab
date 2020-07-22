@@ -20,7 +20,7 @@ export class RegisterPage implements OnInit {
   public data: User = {
     nombres: null,
     email: null,
-    password: null,
+    password: '',
     movil: null,
     password_confirmation: null
   };
@@ -45,6 +45,9 @@ export class RegisterPage implements OnInit {
       this.registerOp = 1;
     } else if (!this.terms) {
       this.toast.error('You must accept the terms and conditions');
+      this.registerOp = 1;
+    } else if(this.data.password.length < 8) {
+      this.toast.error('The password must contain at least 8 characters');
       this.registerOp = 1;
     } else {
       this.auth.register(this.data)
