@@ -10,10 +10,14 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use JWTAuth;
 class BlogController extends Controller
 {
     protected $user;
-
+    public function __construct()
+    {
+        $this->user = JWTAuth::parseToken()->authenticate();
+    }
     public function index($option, $id = null)
     {
         if ($option == 1) {
