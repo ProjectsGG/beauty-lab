@@ -45,7 +45,7 @@ export class BlogService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: 'bearer ' + this.hero.auth ? this.hero.getToken() : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYmVhdXR5bGFiLmFwcFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5NTM2OTY5MSwibmJmIjoxNTk1MzY5NjkxLCJqdGkiOiI1SkN5enE0MkFpQjhZMEVlIiwic3ViIjowLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.uJ3u_po5bEQMBGYVgf66Ij81m2Zh8ylNTUsC9umJ7uo'
+        Authorization: 'bearer ' + this.hero.getToken()
       })
     };
     let url = '';
@@ -106,7 +106,8 @@ export class BlogService {
   validateUserblock(datos: User) {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
       })
     };
     const url = this.hero.getUrl() + '/blog/reportuser/' + datos.user_id + '/' + datos.user_blocked_id;
