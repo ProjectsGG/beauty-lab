@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.beautylab.app" version="1.0.16" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.beautylab.app" version="1.0.19" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Beauty Lab</name>
     <description>Plastic surgeries at your fingertips</description>
     <author email="apps.beauty@gmail.com" href="http://beautylab.app">Beauty Team</author>
@@ -125,7 +125,6 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.3" />
     <plugin name="cordova-plugin-device" spec="^2.0.3" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.3" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^4.1.3" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.2.0" />
     <plugin name="cordova-sqlite-storage" spec="^4.0.0" />
     <plugin name="com.paypal.cordova.mobilesdk" spec="^3.5.0" />
