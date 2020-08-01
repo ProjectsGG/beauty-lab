@@ -106,7 +106,8 @@ export class BlogService {
   validateUserblock(datos: User) {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: 'bearer ' + this.hero.getToken()
       })
     };
     const url = this.hero.getUrl() + '/blog/reportuser/' + datos.user_id + '/' + datos.user_blocked_id;
