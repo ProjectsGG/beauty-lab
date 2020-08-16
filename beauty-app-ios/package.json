@@ -137,7 +137,8 @@
       "cordova-plugin-network-information": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
