@@ -24,7 +24,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Instagram } from '@ionic-native/instagram/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { Network } from '@ionic-native/network/ngx';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -38,7 +38,8 @@ import { BrowserModule } from '@angular/platform-browser';
   ComponentsModule,
   HttpClientModule,
   ModalroomsPageModule,
-  IonicStorageModule.forRoot()
+  IonicStorageModule.forRoot(),
+  BrowserAnimationsModule
 ],
   providers: [
     SplashScreen,

@@ -13,10 +13,14 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "~8.2.14",
+    "@angular/cdk": "~8.2.3",
     "@angular/common": "~8.2.14",
     "@angular/core": "~8.2.14",
     "@angular/forms": "~8.2.14",
+    "@angular/material": "^8.2.3",
     "@angular/platform-browser": "^9.1.11",
+    "@angular/platform-browser-dynamic": "^10.0.10",
     "@angular/router": "~8.2.14",
     "@ionic-native/camera": "^5.22.0",
     "@ionic-native/core": "^5.22.0",
@@ -140,9 +144,6 @@
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
       "cordova-plugin-network-information": {},
-      "cordova-plugin-ionic-webview": {
-        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-      },
       "cordova-plugin-googleplus": {
         "REVERSED_CLIENT_ID": "438863470815-ijsjiack8t9k246ucv8n7919bk8oj34e.apps.googleusercontent.com",
         "PLAY_SERVICES_VERSION": "15.0.1"
