@@ -105,7 +105,7 @@
                         <h2 class="text-light titles text-center">About Us</h2>
                         <h3 class="text-center text-light subtitles"><a href="{{ route('appgg') }}">GG-APP</a></h3>
                         <a href="{{ route('PrivacyPolicy') }}"><h4 class="text-center text-light subtitles">Privacy Policy</h4></a>
-                        <a href="{{ route('game') }}"><h5 class="text-center text-light subtitles">Game</h5></a>
+                        <a href="{{ route('game3d') }}"><h5 class="text-center text-light subtitles">Game</h5></a>
                     </div>
                 </div>
             </div>
