@@ -13,7 +13,7 @@ class Controller3D extends Controller
      */
     public function index()
     {
-        return view('webgl.index');
+        return view('game');
     }
 
     /**
