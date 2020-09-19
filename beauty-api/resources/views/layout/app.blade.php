@@ -91,7 +91,7 @@
             <div class="container-fluid sticky-bottom bg-dark">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 col-xl-4">
-                        <h2 class="text-light text-center titles">Beauty Lab</h2>}
+                        <h2 class="text-light text-center titles">Beauty Lab</h2>
                         <h3 class="text-center text-light subtitles">Medellin - Colombia</h3>
                         <h3 class="text-center text-light subtitles">2020 All rights reserved</h3>
                     </div>
@@ -105,6 +105,7 @@
                         <h2 class="text-light titles text-center">About Us</h2>
                         <h3 class="text-center text-light subtitles"><a href="{{ route('appgg') }}">GG-APP</a></h3>
                         <a href="{{ route('PrivacyPolicy') }}"><h4 class="text-center text-light subtitles">Privacy Policy</h4></a>
+                        <a href="{{ route('game') }}"><h5 class="text-center text-light subtitles">Game</h5></a>
                     </div>
                 </div>
             </div>
