@@ -71,7 +71,7 @@
               <a class="nav-link text-light" href="{{ route('ProcedureAdmin') }}">Procedures</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="{{ route('roomsweb') }}">Rooms</a>
+              <a class="nav-link text-light" href="{{ route('RoomsAdmin') }}">Rooms</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" href="{{ route('flightweb') }}">Flights</a>
