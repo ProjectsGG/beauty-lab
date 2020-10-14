@@ -52,9 +52,9 @@
 <!-- BEGIN: Body-->
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
         <a class="navbar-brand" href="#">
-            Beauty Lab<img src="">
+            Beauty Lab Admin<img src="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -65,19 +65,16 @@
               <a class="nav-link" href="{{ route('homeweb') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="{{ route('plansweb') }}">Plans</a>
+              <a class="nav-link text-light" href="{{ route('PlanAdmin') }}">Plans</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="{{ route('proceduresweb') }}">Procedures</a>
+              <a class="nav-link text-light" href="{{ route('ProcedureAdmin') }}">Procedures</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-light" href="{{ route('roomsweb') }}">Rooms</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" href="{{ route('flightweb') }}">Flights</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="{{ route('contactweb') }}">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-light" href="{{ route('PlanAdmin') }}">Admin</a>
@@ -92,25 +89,7 @@
     <hr class="bg-light"><br><br><br>
       <footer>
             <div class="container-fluid sticky-bottom bg-dark">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-4 col-xl-4">
-                        <h2 class="text-light text-center titles">Beauty Lab</h2>
-                        <h3 class="text-center text-light subtitles">Medellin - Colombia</h3>
-                        <h3 class="text-center text-light subtitles">2020 All rights reserved</h3>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-xl-4">
-                        <h2 class="text-light titles text-center">Follow Us</h2>
-                        <h3 class="text-center text-light subtitles">Instagram</h3>
-                        <h3 class="text-center text-light subtitles">Facebook</h3>
-                        <h3 class="text-center text-light subtitles">Youtube</h3>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-xl-4">
-                        <h2 class="text-light titles text-center">About Us</h2>
-                        <h3 class="text-center text-light subtitles"><a href="{{ route('appgg') }}">GG-APP</a></h3>
-                        <a href="{{ route('PrivacyPolicy') }}"><h4 class="text-center text-light subtitles">Privacy Policy</h4></a>
-                        <a href="{{ route('game3d') }}"><h5 class="text-center text-light subtitles">Game</h5></a>
-                    </div>
-                </div>
+
             </div>
       </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

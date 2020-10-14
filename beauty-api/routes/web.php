@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
 Route::get('/verify/{token}','APIController@verify')->name('verify');
 Route::get('/file/{filename}','RoomsController@getContenido');
 Route::get('/file/profile/{filename}','RoomsController@getImgPerfil');
@@ -34,3 +37,6 @@ Route::get('ggapp','LiveController@index')->name('appgg');
 Route::get('video','VideoController@index')->name('uservid');
 Route::get('videofull','Videofull@index')->name('fullvideo');
 Route::get('game','Controller3D@index')->name('game3d');
+
+Route::get('adminPlan','admin\AdminPlansController@index')->name('PlanAdmin');
+Route::get('adminProcedure','admin\AdminProcedureController@index')->name('ProcedureAdmin');
