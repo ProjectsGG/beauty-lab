@@ -52,7 +52,7 @@
 <!-- BEGIN: Body-->
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
             Beauty Lab Admin<img src="">
         </a>
