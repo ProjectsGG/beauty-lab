@@ -41,3 +41,5 @@ Route::get('game','Controller3D@index')->name('game3d');
 Route::get('adminPlan','admin\AdminPlansController@index')->name('PlanAdmin');
 Route::get('adminProcedure','admin\AdminProcedureController@index')->name('ProcedureAdmin');
 Route::get('adminRoom','admin\AdminRoomsController@index')->name('RoomsAdmin');
+Route::post('saveprocedure','admin\AdminProcedureController@store')->name('proceduresave');
+Route::post('saveplan','admin\AdminPlansController@store')->name('plansave');

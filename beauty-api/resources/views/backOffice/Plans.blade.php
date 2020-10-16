@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
+            <form action="{{ route('plansave') }}" method="post">
+                @csrf
+           
             <h3 class="text-white">Admin Plans</h3>
             <fieldset>
                 <legend class="text-white">Create New Plan</legend>
@@ -26,13 +29,14 @@
                 </div>
                 <div class="form-group">
                     <label for="Image" class="text-white">Image:</label>
-                    <input type="file" class="form-control" id="Image" name="Image" placeholder="Image" required>
+                    <input type="file" class="form-control" id="Image" name="Image" placeholder="Image">
                 </div>
                 <div class="form-group">
                     
-                    <input type="submit" class="btn btn-success btn-block" name="Save" value="SAVE">
+                    <button class="btn btn-success btn-block">SAVE</button>
                 </div>
             </fieldset>
+        </form>
         </div>
         <div class="col-3"></div>
     </div>

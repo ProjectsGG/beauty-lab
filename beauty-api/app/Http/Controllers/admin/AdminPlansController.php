@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Plans;
 
 class AdminPlansController extends Controller
 {
@@ -35,7 +36,14 @@ class AdminPlansController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $plan = new Plans();
+        $plan -> nombre = $request->input('Name');
+        $plan -> descripcion = $request->input('Description');
+        $plan -> dias_hospedaje = $request->input('Days');
+        $plan -> valor = $request->input('Value');
+        $plan -> save();
+
+        return redirect()->route('PlanAdmin')->with('datos','Registro guardado correctamente!');
     }
 
     /**

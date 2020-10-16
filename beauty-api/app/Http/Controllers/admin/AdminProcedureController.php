@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Procedures;
 
 class AdminProcedureController extends Controller
 {
@@ -35,7 +36,15 @@ class AdminProcedureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $proc = new Procedures();
+        $proc -> id_procedimiento = $request->input('Id');
+        $proc -> nombre = $request->input('Name');
+        $proc -> descripcion = $request->input('Description');
+        $proc -> precio = $request->input('Value');
+        $proc -> save();
+
+        return redirect()->route('ProcedureAdmin')->with('datos','Registro guardado correctamente!');
     }
 
     /**
