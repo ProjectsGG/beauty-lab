@@ -13,7 +13,7 @@
                 <legend class="text-white">Create New Procedure</legend>
                 <div class="form-group">
                    
-                    <input type="hidden" class="form-control" id="Id" name="Id" placeholder="Name" value="10">
+                    <input type="hidden" class="form-control" id="Id" name="Id" placeholder="Name" value="11">
                 </div>
                 <div class="form-group">
                     <label for="Name" class="text-white">Name:</label>
