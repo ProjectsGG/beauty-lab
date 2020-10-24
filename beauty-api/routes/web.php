@@ -43,3 +43,4 @@ Route::get('adminProcedure','admin\AdminProcedureController@index')->name('Proce
 Route::get('adminRoom','admin\AdminRoomsController@index')->name('RoomsAdmin');
 Route::post('saveprocedure','admin\AdminProcedureController@store')->name('proceduresave');
 Route::post('saveplan','admin\AdminPlansController@store')->name('plansave');
+Route::post('saveroom','admin\AdminRoomsController@store')->name('roomsave');

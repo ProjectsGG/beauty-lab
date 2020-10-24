@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
+        <form action="{{ route('roomsave') }}" method="post">
+                @csrf
+
             <h3 class="text-white">Admin Rooms</h3>
             <fieldset>
                 <legend class="text-white">Create New Rooms</legend>
@@ -32,6 +35,15 @@
                     <label for="NumberofBedsAvailable" class="text-white">Number of Beds Available:</label>
                     <input type="number" class="form-control" id="NumberofBedsAvailable" name="NumberofBedsAvailable" placeholder="Number of Beds Available" required>
                 </div>
+                <div class="form-group">
+                    <label for="TypeOfRoom" class="text-white">Typeof Room:</label>
+                    <select name="TypeOfRoom" class="form-control" id="TypeOfRoom" required>
+                        <option id="TypeOfRoom">Select</option>
+                        <option id="TypeOfRoom">VIP</option>                  
+                        <option id="TypeOfRoom">Simple</option>
+                    </select>
+                </div>
+
                 <div class="form-group">
                     <label for="Image" class="text-white">Image:</label>
                     <input type="file" class="form-control" id="Image" name="Image" placeholder="Image" required>

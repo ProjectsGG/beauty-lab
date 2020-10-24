@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Rooms;
 use Illuminate\Http\Request;
+
 
 class AdminRoomsController extends Controller
 {
@@ -35,7 +37,18 @@ class AdminRoomsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $room = new Rooms();
+        $room -> id_habitacion = $request->input('Id');
+        $room -> nombre = $request->input('Name');
+        $room -> comodidades = $request->input('Amenities');
+        $room -> precio_noche = $request->input('NigthPrice');
+        $room -> estado = $request->input('Estate');
+        $room -> cantidad_camas = $request->input('NumberofBeds');
+        $room -> cantidad_camas_disponibles = $request->input('NumberofBedsAvailable');
+        $room -> id_tipo_de_habitacion = $request->input('TypeOfRoom');
+        $room -> save();
+
+        return redirect()->route('RoomsAdmin')->with('datos','Registro guardado correctamente!');
     }
 
     /**
