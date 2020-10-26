@@ -33,6 +33,14 @@
                     <input type="number" class="form-control" id="NumberofBedsAvailable" name="NumberofBedsAvailable" placeholder="Number of Beds Available" required>
                 </div>
                 <div class="form-group">
+                    <label for="TypeofRoom" class="text-white">Type of Room:</label>
+                    <select name="TypeofRoom" id="TypeofRoom" class="form-control">
+                        <option value="">Select</option>
+                        <option value="1">VIP</option>
+                        <option value="2">SIMPLE</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="Image" class="text-white">Image:</label>
                     <input type="file" class="form-control" id="Image" name="Image" placeholder="Image" required>
                 </div>
