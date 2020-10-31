@@ -38,8 +38,10 @@ Route::get('video','VideoController@index')->name('uservid');
 Route::get('videofull','Videofull@index')->name('fullvideo');
 Route::get('game','Controller3D@index')->name('game3d');
 
+Route::get('back','admin\BackController@index')->name('backoffice');
 Route::get('adminPlan','admin\AdminPlansController@index')->name('PlanAdmin');
-Route::get('adminProcedure','admin\AdminProcedureController@index')->name('ProcedureAdmin');
+Route::get('adminProcedure','admin\AdminProcedureController@create')->name('ProcedureAdmin');
+Route::get('listProcedure','admin\AdminProcedureController@index')->name('procedurelist');
 Route::get('adminRoom','admin\AdminRoomsController@index')->name('RoomsAdmin');
 Route::post('saveprocedure','admin\AdminProcedureController@store')->name('proceduresave');
 Route::post('saveplan','admin\AdminPlansController@store')->name('plansave');

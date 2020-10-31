@@ -80,7 +80,7 @@
               <a class="nav-link text-light" href="{{ route('contactweb') }}">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="{{ route('PlanAdmin') }}">Admin</a>
+              <a class="nav-link text-light" href="{{ route('backoffice') }}">Admin</a>
             </li>
           </ul>
         </div>

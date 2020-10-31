@@ -15,7 +15,7 @@ class AdminProcedureController extends Controller
      */
     public function index()
     {
-        return view('backOffice/Procedures');
+        return view('backOffice/listprocedure');
     }
 
     /**
@@ -25,7 +25,7 @@ class AdminProcedureController extends Controller
      */
     public function create()
     {
-        //
+        return view('backOffice/Procedures');
     }
 
     /**

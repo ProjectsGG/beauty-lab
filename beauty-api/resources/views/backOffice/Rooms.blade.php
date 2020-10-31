@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('layout.back')
 @section('content')
 <hr class="bg-light"><br>
 <div class="container">
