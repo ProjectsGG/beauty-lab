@@ -39,6 +39,12 @@ class AdminProcedureController extends Controller
     public function store(Request $request)
     {
         
+        $request->validate([
+            'Name'                  =>  'required',
+            'Value'                 =>  'required',
+            'image_procedure'       =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
         $proc = new Procedures();
         $proc -> nombre = $request->input('Name');
         $proc -> descripcion = $request->input('Description');

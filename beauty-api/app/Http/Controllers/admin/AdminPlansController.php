@@ -38,6 +38,13 @@ class AdminPlansController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $request->validate([
+            'Name'                  =>  'required',
+            'Value'                 =>  'required',
+            'image_plan'            =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
         $plan = new Plans();
         $plan -> nombre = $request->input('Name');
         $plan -> descripcion = $request->input('Description');

@@ -16,6 +16,20 @@
                 {{ session('status') }}
                     </div>
                 @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>
+                                    {{ $error }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif                
                 <div class="form-group">
                     <label for="Name" class="text-white">Name:</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>

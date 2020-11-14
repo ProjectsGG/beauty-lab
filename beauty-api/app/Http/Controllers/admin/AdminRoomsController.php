@@ -39,6 +39,14 @@ class AdminRoomsController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $request->validate([
+            'Name'                  =>  'required',
+            'Amenities'             =>  'required',
+            'NumberofBeds'          =>  'required',
+            'image_room'            =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
         $room = new Rooms();
         $room -> id_habitacion = $request->input('Id');
         $room -> nombre = $request->input('Name');
