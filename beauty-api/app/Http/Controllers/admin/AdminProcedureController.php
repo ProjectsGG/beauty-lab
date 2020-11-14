@@ -62,7 +62,7 @@ class AdminProcedureController extends Controller
 
         $proc -> save();
 
-        return redirect()->route('ProcedureAdmin')->with('datos','Registro guardado correctamente!');
+        return redirect()->back()->with(['status' => 'created procedure successfully.']);
     }
 
     /**

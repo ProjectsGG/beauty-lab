@@ -67,7 +67,7 @@ class AdminRoomsController extends Controller
 
         $room -> save();
 
-        return redirect()->route('RoomsAdmin')->with('datos','Registro guardado correctamente!');
+        return redirect()->back()->with(['status' => 'created room successfully.']);
     }
 
     /**

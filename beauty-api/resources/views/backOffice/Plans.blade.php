@@ -11,6 +11,11 @@
             <h3 class="text-white">Admin Plans</h3>
             <fieldset>
                 <legend class="text-white">Create New Plan</legend>
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+                    </div>
+                @endif                
                 <div class="form-group">
                     <label for="Name" class="text-white">Name:</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>

@@ -61,7 +61,7 @@ class AdminPlansController extends Controller
 
         $plan -> save();
 
-        return redirect()->route('PlanAdmin')->with('datos','Registro guardado correctamente!');
+        return redirect()->back()->with(['status' => 'created plan successfully.']);
     }
 
     /**
