@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Plans;
+use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Image;
 
 class AdminPlansController extends Controller
 {
@@ -41,6 +43,22 @@ class AdminPlansController extends Controller
         $plan -> descripcion = $request->input('Description');
         $plan -> dias_hospedaje = $request->input('Days');
         $plan -> valor = $request->input('Value');
+
+        if($request->hasFile('image_plan')!=null){
+
+            $rules = ['image_plan'=> 'required|image_plan|max:1024*1024*1',];
+            $messages = [
+                'image_plan.required' => 'la imagen es requerida',
+                'image_plan.image_procedure' => 'Formato no permitido',
+                'image_plan.max' => 'El maximo permitido es 1MB'
+            ];
+            $validator = Validator::make($request->all(),$rules, $messages);
+
+            $name = $plan->nombre . '-' . $request->file('image_plan')->getClientOriginalName();
+            $request->file('image_plan')->move('img/plans', $name);
+            $plan->img_plan = $name;
+        }   
+
         $plan -> save();
 
         return redirect()->route('PlanAdmin')->with('datos','Registro guardado correctamente!');
