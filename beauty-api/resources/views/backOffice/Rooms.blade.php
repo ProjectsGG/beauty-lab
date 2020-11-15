@@ -5,12 +5,31 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-        <form action="{{ route('roomsave') }}" method="post">
+        <form action="{{ route('roomsave') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
             <h3 class="text-white">Admin Rooms</h3>
             <fieldset>
                 <legend class="text-white">Create New Rooms</legend>
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+                    </div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>
+                                    {{ $error }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif                                 
                 <div class="form-group">
                     <label for="Name" class="text-white">Name:</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>
@@ -38,15 +57,16 @@
                 <div class="form-group">
                     <label for="TypeOfRoom" class="text-white">Typeof Room:</label>
                     <select name="TypeOfRoom" class="form-control" id="TypeOfRoom" required>
-                        <option id="TypeOfRoom">Select</option>
-                        <option id="TypeOfRoom">VIP</option>                  
-                        <option id="TypeOfRoom">Simple</option>
+                        <option value="">Select</option>
+                        <option value="1" >Sencilla</option>                  
+                        <option value="2">Doble</option>
+                        <option value="3" >VIP</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="Image" class="text-white">Image:</label>
-                    <input type="file" class="form-control" id="Image" name="Image" placeholder="Image" required>
+                    <input type="file" class="form-control" id="image_room" name="image_room" placeholder="Image" required>
                 </div>
                 <div class="form-group">
                     

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Procedures;
+use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Image;
 
 class AdminProcedureController extends Controller
 {
@@ -37,14 +39,36 @@ class AdminProcedureController extends Controller
     public function store(Request $request)
     {
         
+        $request->validate([
+            'Name'                  =>  'required',
+            'Value'                 =>  'required',
+            'image_procedure'       =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
         $proc = new Procedures();
-        $proc -> id_procedimiento = $request->input('Id');
         $proc -> nombre = $request->input('Name');
         $proc -> descripcion = $request->input('Description');
         $proc -> precio = $request->input('Value');
+
+
+        if($request->hasFile('image_procedure')!=null){
+
+            $rules = ['image_procedure'=> 'required|image_procedure|max:1024*1024*1',];
+            $messages = [
+                'image_procedure.required' => 'la imagen es requerida',
+                'image_procedure.image_procedure' => 'Formato no permitido',
+                'image_procedure.max' => 'El maximo permitido es 1MB'
+            ];
+            $validator = Validator::make($request->all(),$rules, $messages);
+
+            $name = $proc->nombre . '-' . $request->file('image_procedure')->getClientOriginalName();
+            $request->file('image_procedure')->move('img/procedures', $name);
+            $proc->imagen = $name;
+        }   
+
         $proc -> save();
 
-        return redirect()->route('ProcedureAdmin')->with('datos','Registro guardado correctamente!');
+        return redirect()->back()->with(['status' => 'created procedure successfully.']);
     }
 
     /**

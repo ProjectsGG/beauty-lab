@@ -5,12 +5,31 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-            <form action="{{ route('plansave') }}" method="post">
+            <form action="{{ route('plansave') }}" method="post" enctype="multipart/form-data">
                 @csrf
            
             <h3 class="text-white">Admin Plans</h3>
             <fieldset>
                 <legend class="text-white">Create New Plan</legend>
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+                    </div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>
+                                    {{ $error }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif                                 
                 <div class="form-group">
                     <label for="Name" class="text-white">Name:</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>
@@ -29,7 +48,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Image" class="text-white">Image:</label>
-                    <input type="file" class="form-control" id="Image" name="Image" placeholder="Image">
+                    <input type="file" class="form-control" id="image_plan" name="image_plan" placeholder="Image">
                 </div>
                 <div class="form-group">
                     
