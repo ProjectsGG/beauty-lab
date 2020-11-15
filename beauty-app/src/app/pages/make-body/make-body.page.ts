@@ -19,7 +19,7 @@ unityUrl: SafeResourceUrl;
   }
 
   ngOnInit() {
-    this.unityUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('http://sassweb.com.co/beautylab/');
+    this.unityUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('https://sassweb.com.co/3D');
   }
 
 }
