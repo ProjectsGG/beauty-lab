@@ -8,9 +8,9 @@
         <form action="{{ route('roomsave') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
-            <h3 class="text-white">Admin Rooms</h3>
+            <h3 class="text-dark">Admin Rooms</h3>
             <fieldset>
-                <legend class="text-white">Create New Rooms</legend>
+                <legend class="text-dark">Create New Rooms</legend>
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                 {{ session('status') }}

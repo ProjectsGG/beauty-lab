@@ -197,6 +197,57 @@
                   </ul>
                 </div>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                  <i class="menu-icon typcn typcn-coffee"></i>
+                  <span class="menu-title">Medics</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="pages/ui-features/buttons.html">List Medics</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ route('FormMedics') }}">Create</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                  <i class="menu-icon typcn typcn-coffee"></i>
+                  <span class="menu-title">Users Registered</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ route('ListUsers') }}">List Users</a>
+                    </li>
+                    <li class="nav-item">
+                      {{-- <a class="nav-link" href="{{ route('RoomsAdmin') }}">Create</a> --}}
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                  <i class="menu-icon typcn typcn-coffee"></i>
+                  <span class="menu-title">Bookings</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="pages/ui-features/buttons.html">List Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                      {{-- <a class="nav-link" href="{{ route('RoomsAdmin') }}">Create</a> --}}
+                    </li>
+                  </ul>
+                </div>
+              </li>
 
 
             </ul>

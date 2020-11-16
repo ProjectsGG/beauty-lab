@@ -46,3 +46,5 @@ Route::get('adminRoom','admin\AdminRoomsController@index')->name('RoomsAdmin');
 Route::post('saveprocedure','admin\AdminProcedureController@store')->name('proceduresave');
 Route::post('saveplan','admin\AdminPlansController@store')->name('plansave');
 Route::post('saveroom','admin\AdminRoomsController@store')->name('roomsave');
+Route::get('medics','admin\MedicsCOntroller@create')->name('FormMedics');
+Route::get('userRegistered','admin\UserRegisteredController@index')->name('ListUsers');

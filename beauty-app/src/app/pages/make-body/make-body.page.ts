@@ -19,7 +19,7 @@ unityUrl: SafeResourceUrl;
   }
 
   ngOnInit() {
-    this.unityUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('https://sassweb.com.co/3D');
+    this.unityUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('https://sassweb.com.co/V1');
   }
 
 }

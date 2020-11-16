@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-            <form action="{{ route('proceduresave') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('roomsave') }}" method="post" enctype="multipart/form-data">
                 @csrf
-    
-            <h3 class="text-dark">Admin Procedures</h3>
+
+            <h3 class="text-dark">Admin Medics</h3>
             <fieldset>
-                <legend class="text-dark">Create New Procedure</legend>
+                <legend class="text-dark">Create New Medic</legend>
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                 {{ session('status') }}
@@ -29,30 +29,36 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif                
+                @endif 
+                <div class="form-group">
+                    <label for="Name" class="text-white">Identification:</label>
+                    <input type="text" class="form-control" id="Identification" name="Identification" placeholder="Identification" required>
+                </div>                                
                 <div class="form-group">
                     <label for="Name" class="text-white">Name:</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>
                 </div>
                 <div class="form-group">
-                    <label for="Description" class="text-white">Description:</label>
-                    <input type="text" class="form-control" id="Description" name="Description" placeholder="Description" required>
+                    <label for="Amenities" class="text-white">Last Name:</label>
+                    <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name" required>
                 </div>
                 <div class="form-group">
-                    <label for="Value" class="text-white">Value:</label>
-                    <input type="number" class="form-control" id="Value" name="Value" placeholder="Value" required>
+                    <label for="NightPrice" class="text-white">Phone:</label>
+                    <input type="number" class="form-control" id="Phone" name="Phone" placeholder="Phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="Estate" class="text-white">Specialty:</label>
+                    <input type="text" class="form-control" id="Specialty" name="Specialty" placeholder="Specialty" required>
                 </div>
                 <div class="form-group">
                     <label for="Image" class="text-white">Image:</label>
-                    <input type="file" class="form-control" id="image_procedure" name="image_procedure" 
-                    placeholder="Image">
-                </div>               
+                    <input type="file" class="form-control" id="image_room" name="image_room" placeholder="Image" required>
+                </div>
                 <div class="form-group">
                     
-                    <button class="btn btn-success btn-block">SAVE</button>
+                    <input type="submit" class="btn btn-success btn-block" name="Save" value="SAVE">
                 </div>
             </fieldset>
-        </form>
         </div>
         <div class="col-3"></div>
     </div>

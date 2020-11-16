@@ -8,9 +8,9 @@
             <form action="{{ route('plansave') }}" method="post" enctype="multipart/form-data">
                 @csrf
            
-            <h3 class="text-white">Admin Plans</h3>
+            <h3 class="text-dark">Admin Plans</h3>
             <fieldset>
-                <legend class="text-white">Create New Plan</legend>
+                <legend class="text-dark">Create New Plan</legend>
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                 {{ session('status') }}
