@@ -14,7 +14,7 @@
 }
 
 body{
-    background: rgb(3,99,193);
+    background: rgb(3,99,193) !important;
     background: linear-gradient(180deg,
     rgb(78, 83, 90) 50%,
     rgb(78, 83, 90) 100%,
