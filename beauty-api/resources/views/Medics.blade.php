@@ -8,9 +8,9 @@
         <form action="{{ route('roomsave') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
-            <h3 class="text-dark">Registro Medicos Beauty App</h3>
+            <h3 class="text-light">Registro Medicos Beauty App</h3>
             <fieldset>
-                <legend class="text-dark">Ingreso de Información</legend>
+                <legend class="text-light">Ingreso de Información</legend>
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                 {{ session('status') }}
