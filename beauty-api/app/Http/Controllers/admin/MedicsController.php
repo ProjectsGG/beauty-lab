@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Medics;
 
 class MedicsController extends Controller
 {
@@ -14,7 +15,8 @@ class MedicsController extends Controller
      */
     public function index()
     {
-        //
+        $medics = Medics::get();
+        return view('medicsList',compact('medics'));
     }
 
     /**
@@ -24,7 +26,7 @@ class MedicsController extends Controller
      */
     public function create()
     {
-       return view('backOffice/Medics');
+       return view('Medics');
     }
 
     /**

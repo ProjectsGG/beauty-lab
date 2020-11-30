@@ -37,8 +37,9 @@ Route::get('ggapp','LiveController@index')->name('appgg');
 Route::get('video','VideoController@index')->name('uservid');
 Route::get('videofull','Videofull@index')->name('fullvideo');
 Route::get('game','Controller3D@index')->name('game3d');
-Route::get('registermedics','MedicsController@index')->name('frmMedics');
+Route::get('registermedics','MedicsController@index')->name('registermedics');
 Route::post('savemedic','MedicsController@store')->name('savemedic');
+Route::get('medics','admin\MedicsController@index')->name('medics');
 
 
 Route::get('back','admin\BackController@index')->name('backoffice');
@@ -49,5 +50,4 @@ Route::get('adminRoom','admin\AdminRoomsController@index')->name('RoomsAdmin');
 Route::post('saveprocedure','admin\AdminProcedureController@store')->name('proceduresave');
 Route::post('saveplan','admin\AdminPlansController@store')->name('plansave');
 Route::post('saveroom','admin\AdminRoomsController@store')->name('roomsave');
-Route::get('medics','admin\MedicsCOntroller@create')->name('FormMedics');
 Route::get('userRegistered','admin\UserRegisteredController@index')->name('ListUsers');
