@@ -38,6 +38,7 @@ Route::get('video','VideoController@index')->name('uservid');
 Route::get('videofull','Videofull@index')->name('fullvideo');
 Route::get('game','Controller3D@index')->name('game3d');
 Route::get('registermedics','MedicsController@index')->name('frmMedics');
+Route::post('savemedic','MedicsController@store')->name('savemedic');
 
 
 Route::get('back','admin\BackController@index')->name('backoffice');
