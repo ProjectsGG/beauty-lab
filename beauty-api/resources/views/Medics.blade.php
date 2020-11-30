@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-        <form action="{{ route('roomsave') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('savemedic') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
             <h3 class="text-light">Registro Medicos Beauty App</h3>
@@ -32,35 +32,39 @@
                 @endif 
                 <div class="form-group">
                     <label for="Name" class="text-white">Identificacion:</label>
-                    <input type="text" class="form-control" id="Identification" name="Identification" placeholder="Identification" required>
+                    <input type="text" class="form-control" id="identificacion" name="identificacion" placeholder="Identification" required>
                 </div>                                
                 <div class="form-group">
                     <label for="Name" class="text-white">Nombres:</label>
-                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>
+                    <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Name" required>
                 </div>
                 <div class="form-group">
                     <label for="Amenities" class="text-white">Apellidos:</label>
-                    <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name" required>
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Last Name" required>
                 </div>
                 <div class="form-group">
                     <label for="NightPrice" class="text-white">Celular:</label>
-                    <input type="number" class="form-control" id="Phone" name="Phone" placeholder="Phone" required>
+                    <input type="number" class="form-control" id="celular" name="celular" placeholder="Phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="Estate" class="text-white">Experiencia(Años):</label>
-                    <input type="text" class="form-control" id="Experience" name="Experience" placeholder="Specialty" required>
+                    <label for="NightPrice" class="text-white">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Phone" required>
+                </div>                
+                <div class="form-group">
+                    <label for="Estate" class="text-white">Presentación ( Cuétanos tu experciencia y especialidad) :</label>
+                    <input type="text" class="form-control" id="presentacion" name="presentacion" placeholder="Specialty" required>
                 </div>
                 <div class="form-group">
                     <label for="" class="text-white">Senos</label>
-                    <input type="checkbox" name="Senos" id="Senos">
+                    <input type="checkbox" name="esp_senos" id="esp_senos" value="S">
                     <label for="" class="text-white">Liposucción</label>
-                    <input type="checkbox" name="Liposuccion" id="Liposuccion">
+                    <input type="checkbox" name="esp_liposuccion" id="esp_liposuccion" value="S">
                     <label for="" class="text-white">Caderas</label>
-                    <input type="checkbox" name="Caderas" id="Caderas">
+                    <input type="checkbox" name="esp_caderas" id="esp_caderas" value="S">
                     <label for="" class="text-white">Rinoplastia</label>
-                    <input type="checkbox" name="Rinoplastia" id="Rinoplastia">
+                    <input type="checkbox" name="esp_rinoplastia" id="esp_rinoplastia" value="S">
                     <label for="" class="text-white">Diseño Sonrisa</label>
-                    <input type="checkbox" name="Sonrisa" id="Sonrisa">
+                    <input type="checkbox" name="esp_sonrisa" id="esp_sonrisa" value="S">
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success btn-block" name="Save" value="SAVE">

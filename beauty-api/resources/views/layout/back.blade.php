@@ -206,10 +206,10 @@
                 <div class="collapse" id="ui-basic">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/ui-features/buttons.html">List Medics</a>
+                      <a class="nav-link" href="{{ route('medics') }}">List Medics</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ route('FormMedics') }}">Create</a>
+                      <a class="nav-link" href="{{ route('registermedics') }}">Create</a>
                     </li>
                   </ul>
                 </div>
