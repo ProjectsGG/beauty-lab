@@ -44,6 +44,7 @@ Route::get('medics','admin\MedicsController@index')->name('medics');
 
 Route::get('back','admin\BackController@index')->name('backoffice');
 Route::get('adminPlan','admin\AdminPlansController@index')->name('PlanAdmin');
+Route::get('listPlans','admin\ListPlansController@index')->name('planlist');
 Route::get('adminProcedure','admin\AdminProcedureController@create')->name('ProcedureAdmin');
 Route::get('listProcedure','admin\AdminProcedureController@index')->name('procedurelist');
 Route::get('adminRoom','admin\AdminRoomsController@index')->name('RoomsAdmin');
