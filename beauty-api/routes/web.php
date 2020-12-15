@@ -54,3 +54,4 @@ Route::post('saveroom','admin\AdminRoomsController@store')->name('roomsave');
 Route::get('userRegistered','admin\UserRegisteredController@index')->name('ListUsers');
 
 Route::get('bookings','ReservationController@bookings')->name('bookings');
+Route::get('asignmedic/{id}','ReservationController@asignmedic')->name('asignmedic');

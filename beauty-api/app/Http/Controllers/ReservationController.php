@@ -6,6 +6,7 @@ use App\Models\History;
 use App\Models\Plans;
 use App\Models\Procedures;
 use App\Models\Reservation;
+use App\Models\Medics;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -57,6 +58,11 @@ class ReservationController extends Controller
         return view('reservations',compact('reservations'));
     }
 
+    public function asignmedic($id)
+    {
+        $medics = Medics::get();
+        return view('reservationmedic',compact('medics'));
+    }
 
     /**
      * Show the form for creating a new resource.

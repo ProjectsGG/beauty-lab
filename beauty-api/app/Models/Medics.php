@@ -18,6 +18,7 @@ class Medics extends Model
      */
     protected $primary_key = 'id_medico';
     protected $fillable = [
+        'id_medico',
         'nombres',
         'apellidos',
         'identificacion',

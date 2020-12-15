@@ -7,7 +7,7 @@
       <div class="row page-title-header">
         <div class="col-12">
           <div class="page-header">
-            <h4 class="page-title">List Bookings</h4>
+            <h4 class="page-title">Asign medic to reservation</h4>
             <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
             </div>
           </div>
@@ -79,22 +79,20 @@
                     <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>Date</th>
-                            <th>Client</th>
-                            <th>Plan</th>
-                            <th>Procedure</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Movil</th>
                           </tr>
                         </thead>
                         <tbody>
-                         @foreach($reservations as $data)
+                         @foreach($medics as $data)
                          <tr>
-                            <td>{{date('d-m-Y', strtotime($data->fecha_reserva))}}</td>
                             <td>{{$data->nombres}} {{$data->apellidos}}</td>
-                            <td>{{$data->plan}}</td>
-                            <td>{{$data->procedimiento}}</td>
+                            <td>{{$data->email}}</td>
+                            <td>{{$data->celular}}</td>
                             <td>
-                                <a class="btn btn-primary btn-xs" href="{{action('ReservationController@asignmedic', $data->id_reserva)}}" ><span class="glyphicon glyphicon-pencil"></span>Asign Medic</a>
-                            </td>                            
+                                <a class="btn btn-primary btn-xs" href="{{action('ReservationController@asignmedic', $data->id_medico)}}" ><span class="glyphicon glyphicon-pencil"></span>Asign</a>
+                            </td>                              
                          </tr>
                          @endforeach
                         </tbody>
