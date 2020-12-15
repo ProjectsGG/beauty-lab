@@ -55,3 +55,4 @@ Route::get('userRegistered','admin\UserRegisteredController@index')->name('ListU
 
 Route::get('bookings','ReservationController@bookings')->name('bookings');
 Route::get('asignmedic/{id}','ReservationController@asignmedic')->name('asignmedic');
+Route::get('updatemedicbookin/{id}/{reserva}','ReservationController@updatemedicbookin')->name('updatemedicbookin');

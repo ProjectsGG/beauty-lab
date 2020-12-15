@@ -45,6 +45,7 @@ class ReservationController extends Controller
             ->join('usuarios', 'reservas.id_usuario', '=', 'usuarios.id')
             ->leftJoin('planes', 'reservas.id_plan', '=', 'planes.id_plan')
             ->leftJoin('procedimientos', 'reservas.id_procedimiento', '=', 'procedimientos.id_procedimiento')
+            ->whereNull('id_medic')
             ->select(
                 'reservas.*',
                 'usuarios.nombres',
@@ -60,8 +61,33 @@ class ReservationController extends Controller
 
     public function asignmedic($id)
     {
+        $reservaId = $id;
         $medics = Medics::get();
-        return view('reservationmedic',compact('medics'));
+        return view('reservationmedic',compact('medics', 'reservaId'));
+    }
+
+    public function updatemedicbookin($id, $reserva)
+    {
+        DB::table('reservas')
+        ->where('id_reserva', $reserva)
+        ->update(['id_medic' => $id]);
+
+        $reservations = DB::table('reservas')
+            ->join('usuarios', 'reservas.id_usuario', '=', 'usuarios.id')
+            ->leftJoin('planes', 'reservas.id_plan', '=', 'planes.id_plan')
+            ->leftJoin('procedimientos', 'reservas.id_procedimiento', '=', 'procedimientos.id_procedimiento')
+            ->whereNull('id_medic')
+            ->select(
+                'reservas.*',
+                'usuarios.nombres',
+                'usuarios.apellidos',
+                'usuarios.img_perfil',
+                'planes.nombre as plan',
+                'procedimientos.nombre as procedimiento'
+            )
+            ->get();
+
+        return view('reservations',compact('reservations'));
     }
 
     /**

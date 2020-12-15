@@ -17,7 +17,8 @@ class Reservation extends Model
         'id_cotizacion',
         'id_plan',
         'id_procedimiento',
-        'id_usuario'
+        'id_usuario',
+        'id_medic'
     ];
     public $timestamps = false;
     public function user()

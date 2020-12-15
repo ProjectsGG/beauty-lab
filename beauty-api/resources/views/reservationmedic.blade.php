@@ -91,7 +91,11 @@
                             <td>{{$data->email}}</td>
                             <td>{{$data->celular}}</td>
                             <td>
-                                <a class="btn btn-primary btn-xs" href="{{action('ReservationController@asignmedic', $data->id_medico)}}" ><span class="glyphicon glyphicon-pencil"></span>Asign</a>
+                                <a class="btn btn-primary btn-xs" 
+                                href="{{action('ReservationController@updatemedicbookin', 
+                                [$data->id_medico, $reservaId])}}
+                                " >
+                                <span class="glyphicon glyphicon-pencil"></span>Asign</a>
                             </td>                              
                          </tr>
                          @endforeach
