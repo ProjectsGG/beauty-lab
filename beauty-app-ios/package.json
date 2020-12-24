@@ -25,7 +25,7 @@
     "@ionic-native/email-composer": "^5.22.0",
     "@ionic-native/file": "^5.22.0",
     "@ionic-native/file-path": "^5.22.0",
-    "@ionic-native/in-app-browser": "^5.23.0",
+    "@ionic-native/in-app-browser": "^5.30.0",
     "@ionic-native/instagram": "^5.22.0",
     "@ionic-native/ionic-webview": "^5.27.0",
     "@ionic-native/network": "^5.22.0",
@@ -86,6 +86,7 @@
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-inappbrowser": "^4.1.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-splashscreen": "^5.0.3",
     "cordova-plugin-statusbar": "^2.4.3",
@@ -134,7 +135,8 @@
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
       "cordova-plugin-network-information": {},
-      "cordova-plugin-ionic-webview": {}
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "android",
