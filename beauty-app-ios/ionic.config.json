@@ -1,7 +1,8 @@
 {
   "name": "BeautyLab",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
