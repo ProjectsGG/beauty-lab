@@ -17,7 +17,8 @@ class AdminProcedureController extends Controller
      */
     public function index()
     {
-        return view('backOffice/listprocedure');
+        $procedures = Procedures::get();
+        return view('backOffice/listprocedure',compact('procedures'));
     }
 
     /**

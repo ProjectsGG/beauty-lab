@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
+        <div class="col-md-12">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title mb-0 text-center">Dashboard Admin Beauty Lab</h4>
@@ -76,40 +76,28 @@
               <div class="d-flex flex-column flex-lg-row">
                 <div class="data-wrapper d-flex mt-2 mt-lg-0">
                   <div class="wrapper pr-5">
-                    <table class="table table-hover">
+                      <table class="table table-hover" id="properties">
                         <thead>
                           <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Image</th>
+                            <th style="width: 25%">Name</th>
+                            <th style="width: 25%">Description</th>
+                            <th style="width: 25%">Price</th>
+                            <th style="width: 25%">Image</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td style="width: 30%">360Lipo</td>
-                            <td>360 Lipo is a more advanced liposuction procedure that removes <br> fat from various parts of your body. 
-                            <br> Is a fat reduction and body contouring treatment <br> in which you get a contoured body
-                            </td>
-                            <td>$3000</td></i>
-                            </td>
-                            <td>
-                              <img src="{{ asset('img/360lipoexp.png') }}" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Teeths</td>
-                            <td>Enhance your smile with the latest dental trend Using specialized techniques, <br> Beauty Lab will give you a more natural smile with our porcelain veneers. 
-                                <br> It only takes a 3-hour appointment to give you a full mouth procedure that <br> results in straighter, whiter, fuller, and healthier teeth.
-                            </td>
-                            <td>$6000</i>
-                            </td>
-                            <td>
-                                <img src="{{ asset('img/teethsexp.png') }}" alt="">
-                            </td>
-                          </tr>
+                          @foreach ($procedures as $data)
+                              <tr>
+                                <td style="width: 25%">{{ $data->nombre }}</td>
+                                <td style="width: 25%">{{ $data->descripcion }}</td>
+                                <td style="width: 25%">{{ $data->precio }}</td>
+                                <td style="width: 25%">imagen</td>
+                              </tr>
+                          @endforeach
                         </tbody>
                       </table>
+      
+
                   </div>
                   <div class="wrapper">
                   </div>

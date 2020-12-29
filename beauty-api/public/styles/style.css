@@ -60,3 +60,9 @@ ul li{
 }
 
 
+#properties
+{
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+

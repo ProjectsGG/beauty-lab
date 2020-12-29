@@ -36,3 +36,9 @@
   .sub{
     color: #9b9b9b;
   }
+
+  #properties
+  {
+    table-layout: fixed;
+    word-wrap: break-word;
+  }
