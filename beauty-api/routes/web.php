@@ -52,6 +52,7 @@ Route::post('saveprocedure','admin\AdminProcedureController@store')->name('proce
 Route::post('saveplan','admin\AdminPlansController@store')->name('plansave');
 Route::post('saveroom','admin\AdminRoomsController@store')->name('roomsave');
 Route::get('userRegistered','admin\UserRegisteredController@index')->name('ListUsers');
+Route::get('listrooms','admin\RoomsWebController@index')->name('roomslist');
 
 Route::get('bookings','ReservationController@bookings')->name('bookings');
 Route::get('asignmedic/{id}','ReservationController@asignmedic')->name('asignmedic');

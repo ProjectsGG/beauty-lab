@@ -7,7 +7,7 @@
       <div class="row page-title-header">
         <div class="col-12">
           <div class="page-header">
-            <h4 class="page-title">List Of Plans</h4>
+            <h4 class="page-title">List Of Rooms</h4>
             <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
             </div>
           </div>
@@ -80,18 +80,18 @@
                         <thead>
                           <tr>
                             <th>Name</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Image</th>
+                            <th>Amenities</th>
+                            <th>Night Price</th>
+                            <th>Estate</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($plans as $data)
+                          @foreach ($rooms as $data)
                             <tr>
                               <td style="width: 25%">{{ $data->nombre }}</td>
-                              <td style="width: 25%">{{ $data->descripcion }}</td>
-                              <td style="width: 25%">{{ $data->valor }}</td>
-                              <td style="width: 25%">imagen</td>
+                              <td style="width: 25%">{{ $data->comodidades }}</td>
+                              <td style="width: 25%">{{ $data->precio_noche }}</td>
+                              <td style="width: 25%">{{ $data->estado }}</td>                            
                             </tr>
                           @endforeach
                         </tbody>

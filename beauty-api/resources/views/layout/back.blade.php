@@ -189,7 +189,7 @@
                 <div class="collapse" id="ui-basic">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/ui-features/buttons.html">List Rooms</a>
+                      <a class="nav-link" href="{{ route('roomslist') }}">>List Rooms</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="{{ route('RoomsAdmin') }}">Create</a>

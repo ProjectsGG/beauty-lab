@@ -4,9 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Rooms;
 
-class UserRegisteredController extends Controller
+class RoomsWebController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class UserRegisteredController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $user = User::get();
-        return view('backOffice/UsersRegistred',compact('user') );
+    {
+        $rooms = Rooms::get();
+        return view('backOffice/listrooms', compact('rooms'));
     }
 
     /**

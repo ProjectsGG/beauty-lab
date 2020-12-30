@@ -87,20 +87,15 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Victoria</td>
-                            <td></td>
-                            <td>viictormotorhead@gmail.com</td>
-                            <td></td>
-                            <td>+573104193851</td>
-                          </tr>
-                          <tr>
-                            <td>Nagaraj Bilagi</td>
-                            <td></td>
-                            <td>nagarajbilagilxr@gmail.com</td>
-                            <td></td>
-                            <td>7619533293</td>
-                          </tr>
+                        @foreach ($user as $data)
+                              <tr>
+                                <td style="width: 20%">{{ $data->nombres }}</td>
+                                <td style="width: 20%">{{ $data->apellidos }}</td>
+                                <td style="width: 20%">{{ $data->email }}</td>
+                                <td style="width: 20%">{{ $data->ciudad }}</td>
+                                <td style="width: 20%">{{ $data->movil }}</td>
+                              </tr>
+                          @endforeach
                         </tbody>
                       </table>
                   </div>

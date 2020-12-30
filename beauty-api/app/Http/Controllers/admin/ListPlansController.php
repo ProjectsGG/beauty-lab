@@ -15,7 +15,8 @@ class ListPlansController extends Controller
      */
     public function index()
     {
-        return view('backOffice/listplans');
+        $plans = Plans::get();
+        return view('backOffice/listplans', compact('plans'));
     }
 
     /**
