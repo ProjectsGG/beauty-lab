@@ -17,6 +17,7 @@ import { NetworkService } from './network.service';
 export class HeroService {
   // private url: any = 'http://localhost/beauty-lab/beauty-api/public/api';
   // private domain: any = 'http://localhost/beauty-lab/beauty-api/public/';
+  //private url = 'http://127.0.0.1:8000/api';
   private url: any = 'https://beautylab.app/api';
   private domain: any = 'https://beautylab.app';
   public isConnected = false;
