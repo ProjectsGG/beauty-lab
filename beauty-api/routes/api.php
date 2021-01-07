@@ -29,8 +29,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     // Hiatory
 
     Route::get('history','HistoryController@index');
-    // Room
-    Route::resource('/room','RoomsController');
+
     // Reservation
     Route::resource('/reservation', 'ReservationController');
     Route::post('/reservations', 'ReservationController@storeReservations');
@@ -60,6 +59,8 @@ Route::post('plan', 'PlansController@store');
 Route::get('procedures', 'ProceduresController@index');
 Route::post('procedure', 'ProceduresController@store');
 
+// Room
+Route::resource('/room','RoomsController');
 Route::get('room/{id}', 'RoomsController@show');
 Route::get('rooms', 'RoomsController@index');
 Route::post('room', 'RoomsController@store');
