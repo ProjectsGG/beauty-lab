@@ -11,50 +11,7 @@ import { HeroService } from '../../services/hero.service';
 })
 export class FaqPage implements OnInit {
 
-  faqContent = [{
-    title: 'What is the recovery from cosmetic surgery like?',
-    text: '<strong>What is the recovery from cosmetic surgery like?</strong><br><br>'
-    +'One of the biggest concerns many people have regarding cosmetic surgery is the recovery process. In fact, 54% of women actively considering plastic surgery list recovery issues as a reason they are hesitant about surgery. After all, the procedure may only take a couple of hours, but recovery is something you will be facing for days or weeks after the big day. While every process is different, we’ve put together a basic timeline for recovery with some of the most common cosmetic procedures. With this information, and by having questions answered by your doctor, you can be well-prepared for your procedure.<br>'
-    +'<strong>Source:</strong> <a href="https://reverehealth.com/live-better/cosmetic-surgery-recovery-process/" target="_blank">Reverehealth.com</a>',
-    state: false
-  },
-  {
-    title: 'A Basic Timeline for Recovery',
-    text: '<strong>A Basic Timeline for Recovery</strong><br><br>'
-        +'The First 24 Hours – During the first 24 hours after surgery, it will be best to have someone with you. Not only will you have someone who can help if you need anything (water, an extra pillow or someone to talk to), but if you find yourself feeling bad, you’ll have assistance getting to the doctor for follow-up care. At this time you will likely have a prescription for pain relief and may be told to ice the affected area. Follow all your doctors advice and relax <br>'
-        +' The First Week – For most major cosmetic surgery procedures, the first week will involve bruising, swelling and some pain. You will want to take it easy. Most people will take this time off of work and may need some help with chores around the house. Follow all wound care guidelines to make sure your incision heals properly. <br>'
-        +'Week Two – At this point you will likely have had a follow-up visit with your doctor and may be cleared to go back to work. Make sure you get plenty of rest at night and do not neglect your wound care process—even as you start feeling better'
-        +'Three Weeks and Later –The bruising and swelling will somewhat subside. You may still have some healing left to do, but in many cases, you will feel much better and prepared to resume nearly normal activity levels. Talk to your doctor before you continue to exercise or complete any heavy-duty work.<br>'
-        +'<strong>Source:</strong> <a href="https://reverehealth.com/live-better/cosmetic-surgery-recovery-process/" target="_blank">Reverehealth.com</a>',
-    state: false
-  },
-{
-    title: 'Recovery Times for Common Procedures',
-   text: '<strong>Recovery Times for Common Procedures</strong><br><br>' 
-        +'As mentioned, the recovery time will vary from procedure to procedure, but some of the more common procedures’ recovery times are as follows:<br>'
-        +'<strong>Facelift:</strong> – This process is often more visible than other procedures and many people do not feel like going out in public until they look more presentable—usually after 14 – 21 days.<br>'
-        +'<strong>Breast Augmentation:</strong> – After about a week or two of rest, you should be able to begin light duty work again.<br>'
-        +'<strong>Eyelid Surgery: </strong> – Usually 2 – 3 weeks is the normal time of recovery before an individual can return to work.<br>'
-        +'<strong>Liposuction:</strong> – Bruising will usually subside after a week or two, and patients can return to work when they feel able to complete their duties.<br>'
-        +'As you can see, there is a lot to think about when it comes to cosmetic surgery (and the recovery process). It is important not to become overwhelmed by the information. Make an appointment for a consultation with one of our Revere Health doctors and talk to him or her about any concerns. Doing this will help you feel more confident about the process from start to finish.<br>'
-        +'<strong>Source:</strong> <a href="https://reverehealth.com/live-better/cosmetic-surgery-recovery-process/" target="_blank">Reverehealth.com</a>',
-    state: false
- },
-  {
-    title: 'Risks',
-    text: '<strong>Risks</strong><br><br>'
-        +'All surgeries, including cosmetic procedures, carry risk. Those with a history of cardiovascular disease, lung disease, diabetes or obesity have a higher risk of developing complications such as pneumonia, stroke, heart attack or blood clots in the legs or lungs. Smoking also increases risks and interferes with healing<br>'
-        +'A meeting with the surgeon will include a discussion of these risks and others related to the patients health history'
-        +'Possible complications for any surgical procedure include:<br>'
-        +'- Complications related to anesthesia, including pneumonia, blood clots and, rarely, death<br>'
-        +'- Infection at the incision site, which may worsen scarring and require additional surgery<br>'
-        +'- Fluid build up under the skin<br>'
-        +'- Mild bleeding, which may require another surgical procedure, or bleeding significant enough to require a transfusion<br>'
-        +'- Obvious scarring or skin breakdown, which occurs when healing skin separates from healthy skin and must be removed surgically<br>'
-        +'- Numbness and tingling from nerve damage, which may be permanent<br>'
-        +'<strong>Source:</strong> <a href="https://www.mayoclinic.org/tests-procedures/cosmetic-surgery/about/pac-20385138" target="_blank">Mayoclinic.org</a>',
-    state: false
-  },
+  faqContent = [
   {
     title: 'When can I travel back to my country of origin?',
     text: '<strong>When can I travel back to my country of origin?</strong><br><br>'
