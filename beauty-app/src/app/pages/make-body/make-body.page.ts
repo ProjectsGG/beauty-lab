@@ -11,7 +11,7 @@ export class MakeBodyPage implements OnInit {
 unityUrl: SafeResourceUrl;
   constructor(private browser: InAppBrowser,
               private domSanitizer: DomSanitizer) { }
-  url = 'http://sassweb.com.co/beautylab/';
+  url = 'http://sasweb.com.co/f3/';
   OpenUrl(url: string, target: string) {
     const link = url;
     this.browser.create(link, target);
@@ -19,7 +19,7 @@ unityUrl: SafeResourceUrl;
   }
 
   ngOnInit() {
-    this.unityUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('https://sassweb.com.co/f2');
+    this.unityUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('http://sasweb.com.co/f3/');
   }
 
 }
