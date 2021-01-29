@@ -30,20 +30,20 @@ export class HomeappPage implements OnInit {
     },
   ];
   plans = [
-    '3dplan.png',   
-    'superstar1.png',
-    'iconplan.png'
+    '3d-plan.jpg',   
+    'superstar-plan.jpg',
+    'icon-plan.jpg'
   ];
   proc = [
-    '360lipoexp.png',
-    'absexp.png',
+    '360lipo-home.jpg',
+    'abs-home.jpg',
     'eyebrown.png',
-    'teeths.png',
-    'botoxexp.png',  
+    'teeth-home.jpg',
+    'botox-home.jpg',  
     'nose.png',
-    'teethsexp.png',
-    'cheeksexp.png',
-    'chinexp.png',
+    'teeth-home.jpg',
+    'cheek-slimming-home.jpg',
+    'chin-home.jpg',
   ];
   touristic = [{
     items: [
