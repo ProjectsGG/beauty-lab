@@ -35,15 +35,15 @@ export class HomeappPage implements OnInit {
     'icon-plan.jpg'
   ];
   proc = [
-    '360lipo-home.jpg',
-    'abs-home.jpg',
-    'eyebrown.png',
-    'teeth-home.jpg',
-    'botox-home.jpg',  
+    '360lipox.jpg',
+    'absx.jpg',
+    'Eyebrownsx.jpg',
+    'Theethx.jpg',
+    'botox.jpg',  
     'nose.png',
-    'teeth-home.jpg',
-    'cheek-slimming-home.jpg',
-    'chin-home.jpg',
+    'Theethx.jpg',
+    'cheekx.jpg',
+    'chinx.jpg',
   ];
   touristic = [{
     items: [

@@ -19,7 +19,6 @@
         <ion-row *ngIf="procedures">
             <ion-col size="6" size-lg="4" size-md="4" size-xl="4" *ngFor="let data of procedures" (click)="getDetail(data)">
                 <img [src]="hero.getDomain()+'/file/procedures/'+data.imagen" class="procedures">
-                <ion-text color="light" ><h4 class="ion-text-center txtProc">{{data.nombre}}</h4></ion-text>
             </ion-col>  
         </ion-row>
     </ion-grid>
